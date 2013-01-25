@@ -1,0 +1,187 @@
+@h1color: #aaa;
+@h2color: #bbb;
+@blackColor: #2B2B2B;
+
+body {
+    padding-top: 0px;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+
+.navbar {
+    .navbar-inner {
+        min-height: 30px;
+        box-shadow: 0 0 20px #888888;
+        // background-color: #888888;
+        background: @blackColor;
+
+        .container {
+            max-width: 1050px;
+
+            .right{
+                float: right;
+            }
+
+            ul li a {
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                i {
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+#content {
+    margin-top: 50px;
+
+    a {
+    color: #307EA9;
+    cursor: auto;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 175%;
+        text-indent: 2em;
+        text-align:justify;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 26px;
+        margin: 0px -30px 10px -30px;
+        padding: 15px 30px 15px 23px;
+        border-left: 7px solid @h1color;
+        border-right: 7px solid @h1color;
+        font-weight: 400;
+        color: #444;
+        text-decoration: none;
+    }
+}
+
+.image-hero {
+    height: 200px;
+    margin-top: -20px;
+    background: @blackColor no-repeat center;
+    // background-size: cover;
+    box-shadow: 0 0 20px #888888;
+}
+
+.video-hero {
+    margin-top: -20px;
+    background-color: @blackColor;
+    box-shadow: 0 0 20px #888888;
+
+    .container {
+        max-width: 1050px;
+        max-height: 600px
+    }
+}
+
+.blackbg {
+    background: @blackColor;
+}
+
+.whitebg {
+    background: #fff;
+}
+
+.post-single {
+    max-width: 750px;
+
+    article {
+        margin: 15px 0 0 0;
+    }
+}
+
+.post-list {
+    max-width: 1050px;
+    margin: 0 auto;
+
+    article {
+        a h2 {
+            text-transform: uppercase;
+            font-size: 26px;
+            margin: 0px -30px 10px -30px;
+            padding: 15px 30px 15px 23px;
+            border-left: 7px solid @h1color;
+            border-right: 7px solid @h1color;
+            font-weight: 400;
+            color: #444;
+            text-decoration: none;
+        }
+    }
+
+    .post-box {
+        padding: 0 0 20px 0;
+        margin: 0 0 20px 0;
+        background: #fff;
+        box-shadow: 0 0 10px #888888;
+
+        .video {
+            background-color: @blackColor;
+        }
+
+        .image {
+            background: @blackColor no-repeat center;
+            height: 300px;
+        }
+
+        .text-box {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+
+            .post-date {
+                color: #aaa;
+                font-size: 14px;
+                text-transform: uppercase;
+                text-align: center;
+                margin-top: 10px;
+                width: 100%;
+                display: inline-block;
+            }
+
+            .more-link {
+                margin: 5px 0 0 0;
+                width: 100%;
+                text-align: center;
+                display: inline-block;
+                font-weight: bold;
+                font-size: 13px;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+/* Tablet to desktop
+------------------------- */
+@media (min-width: 768px) and (max-width: 979px) {
+  #content {
+    margin-top: 0px;
+  }
+}
+
+/* Tablet
+------------------------- */
+@media (max-width: 767px) {
+  #content {
+    margin-top: 0px;
+  }
+}
+
+/* Landscape phones
+------------------------- */
+@media (max-width: 480px) {
+  #content {
+    margin-top: 0px;
+  }
+}
