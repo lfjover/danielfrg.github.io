@@ -1,6 +1,6 @@
 ---
-layout: video
-title: Youtube Video Hero
+layout: post
+title: Youtube Video
 youtubeID: MVbeoSPqRs4
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Post with small image hero
+title: Post with small image
 image: /img/posts/small.jpg
 ---
 

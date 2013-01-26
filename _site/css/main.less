@@ -1,6 +1,6 @@
 @h1color: #aaa;
 @h2color: #bbb;
-@blackColor: #2B2B2B;
+@darkColor: #2B2B2B;
 
 body {
     padding-top: 0px;
@@ -12,8 +12,8 @@ body {
     .navbar-inner {
         min-height: 30px;
         box-shadow: 0 0 20px #888888;
-        // background-color: #888888;
-        background: @blackColor;
+        background: @darkColor;
+        border: none;
 
         .container {
             max-width: 1050px;
@@ -36,10 +36,11 @@ body {
 
 #content {
     margin-top: 50px;
+    margin-bottom: 30px;
 
     a {
-    color: #307EA9;
-    cursor: auto;
+        color: #307EA9;
+        cursor: auto;
     }
 
     a:hover {
@@ -66,38 +67,37 @@ body {
     }
 }
 
-.image-hero {
-    height: 200px;
-    margin-top: -20px;
-    background: @blackColor no-repeat center;
-    // background-size: cover;
-    box-shadow: 0 0 20px #888888;
-}
-
-.video-hero {
-    margin-top: -20px;
-    background-color: @blackColor;
-    box-shadow: 0 0 20px #888888;
-
-    .container {
-        max-width: 1050px;
-        max-height: 600px
-    }
-}
-
-.blackbg {
-    background: @blackColor;
-}
-
-.whitebg {
-    background: #fff;
-}
-
 .post-single {
-    max-width: 750px;
+    .image-hero {
+        height: 200px;
+        margin-top: -20px;
+        background: @darkColor no-repeat center;
+        // background-size: cover;
+        box-shadow: 0 0 20px #888888;
+    }
 
-    article {
-        margin: 15px 0 0 0;
+    .video-hero {
+        margin-top: -20px;
+        background-color: @darkColor;
+        box-shadow: 0 0 20px #888888;
+
+        .container {
+            max-width: 1050px;
+
+            iframe {
+                min-height: 550px;
+            }
+        }
+    }
+
+    .post-box {
+        max-width: 750px;
+        margin-top: 15px;
+        margin-bottom: 50px;
+    }
+
+    .comments {
+        max-width: 1050px;
     }
 }
 
@@ -126,11 +126,16 @@ body {
         box-shadow: 0 0 10px #888888;
 
         .video {
-            background-color: @blackColor;
+            background-color: @darkColor;
+            min-height: 520px;
+
+            iframe {
+                min-height: 520px;
+            }
         }
 
         .image {
-            background: @blackColor no-repeat center;
+            background: @darkColor no-repeat center;
             height: 300px;
         }
 
@@ -162,26 +167,61 @@ body {
     }
 }
 
+/* --------------------------------------------------
+Footer
+-------------------------------------------------- */
+
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  background-color: @darkColor;
+  box-shadow: 0 0 20px #888888;
+}
+.footer p {
+  margin-bottom: 0;
+  color: #777;
+}
+.footer-links {
+  margin: 10px 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
 /* Tablet to desktop
 ------------------------- */
 @media (min-width: 768px) and (max-width: 979px) {
-  #content {
-    margin-top: 0px;
-  }
+    #content {
+        margin-top: 0px;
+    }
+
+    .video-hero .container iframe {
+        min-height: 350px;
+    }
 }
 
 /* Tablet
 ------------------------- */
 @media (max-width: 767px) {
-  #content {
-    margin-top: 0px;
-  }
+    #content {
+        margin-top: 0px;
+    }
+    .video-hero .container iframe {
+        min-height: 350px;
+    }
 }
 
 /* Landscape phones
 ------------------------- */
 @media (max-width: 480px) {
-  #content {
-    margin-top: 0px;
-  }
+    #content {
+        margin-top: 0px;
+    }
+    .video-hero .container iframe {
+        min-height: 150px;
+    }
 }

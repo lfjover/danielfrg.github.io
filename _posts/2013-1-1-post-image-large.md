@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Post with image hero
+title: Post with large image
 image: /img/posts/large.png
 ---
 

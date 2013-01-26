@@ -1,6 +1,6 @@
 ---
-layout: video
-title: Vimeo Video Hero
+layout: post
+title: Vimeo Video
 vimeoID: 36782466
 ---
 

@@ -5,27 +5,30 @@ title: Daniel Rodriguez
 
 <div id="content" class="post-list container">
   {% for post in site.posts %}
-  <article class='post-box'>
-    {% if post.youtubeID %}
-      <div class="video">
-        <iframe width="100%" height="80%" src="http://www.youtube.com/embed/{{post.youtubeID}}?html5=1" frameborder="0" allowfullscreen></iframe>
-      </div>
-    {% endif %}
+    <article class='post-box'>
+      {% if post.youtubeID %}
+        <div class="video">
+          <iframe width="100%" height="80%" src="http://www.youtube.com/embed/{{post.youtubeID}}?html5=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+      {% endif %}
 
-    {% if post.vimeoID %}
-      <iframe src="http://player.vimeo.com/video/{{post.vimeoID}}" width="100%" height="80%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-    {% endif %}
+      {% if post.vimeoID %}
+        <div class="video">
+          <iframe src="http://player.vimeo.com/video/{{post.vimeoID}}" width="100%" height="80%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        </div>
+      {% endif %}
 
-    {% if post.image %}
-      <div class="image" style="background-image: url({{post.image}});">
+      {% if post.image %}
+        <div class="image" style="background-image: url({{post.image}});">
+        </div>
+      {% endif %}
+
+      <div class='text-box'>
+        <div class="post-date">{{ post.date | date: "%B %e, %Y" }}</div>
+        <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a>
+        <p class="preview">{{ post.content | strip_html | truncatewords: 100 }}</p>
+        <a href="" class="more-link">Read more </a>
       </div>
-    {% endif %}
-    <div class='text-box'>
-      <div class="post-date">{{ post.date | date: "%B %e, %Y" }}</div>
-      <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a>
-      <p class="preview">{{ post.content | strip_html | truncatewords: 100 }}</p>
-      <a href="" class="more-link">Read more </a>
-    </div>
   </article>
   {% endfor %}
 </div>
