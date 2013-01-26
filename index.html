@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Daniel Rodriguez
+title: Random thoughts about data analysis, python, and more
 ---
 
-<div id="content" class="post-list container">
+<div id="content" class="index container">
   {% for post in site.posts %}
     <article class='post-box'>
       {% if post.youtubeID %}
@@ -25,9 +25,9 @@ title: Daniel Rodriguez
 
       <div class='text-box'>
         <div class="post-date">{{ post.date | date: "%B %e, %Y" }}</div>
-        <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a>
+        <a href="{{ post.url }}" class="entry-title"><h2>{{ post.title }}</h2></a>
         <p class="preview">{{ post.content | strip_html | truncatewords: 100 }}</p>
-        <a href="" class="more-link">Read more </a>
+        <a href="{{ post.id }}" class="more-link">Read more </a>
       </div>
   </article>
   {% endfor %}
