@@ -13,6 +13,7 @@
 body {
     padding-top: 0px;
     font-family: 'Open Sans', Helvetica, sans-serif;
+    color: #000;
 }
 
 .navbar {
@@ -98,6 +99,7 @@ body {
             text-align: center;
             -webkit-transition: background 0.5s;
         }
+
         h2:hover {
             background: #bbb;
             text-decoration: none;
@@ -143,14 +145,14 @@ body {
     .video-hero {
         margin-top: -20px;
         background-color: @darkColor;
-        // .shadow;
+        box-shadow: inset 0 0 10px rgba(0,0,0,.79);
 
         .container {
             max-width: 950px;
 
             iframe {
                 min-height: 550px;
-            950px: 950px;}
+            }
         }
     }
 }
@@ -220,6 +222,10 @@ body {
     }
 
     .text_cell_render{
+        font-size: 15px;
+        line-height: 175%;
+        text-indent: 2em;
+        text-align:justify;
         font-family: 'Open Sans', Helvetica, sans-serif;
     }
 }
