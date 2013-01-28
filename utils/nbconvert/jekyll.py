@@ -2,12 +2,13 @@ import os
 import sys
 
 try:
-    nbconvert = sys.argv[1]
-    notebook = sys.argv[2]
+    notebook = sys.argv[1]
 except:
-    print "usage: python convert_notebook.py  /path/to/nbconvert.py  /path/to/notebook_file.ipynb"
+    print "usage: python nbconvert/jekyll.py  /path/to/notebook_file.ipynb"
     sys.exit(-1)
 
+
+nbconvert = 'nbconvert/nbconvert.py'
 # convert notebook
 os.system('%s -f blogger-html %s' % (nbconvert, notebook))
 
