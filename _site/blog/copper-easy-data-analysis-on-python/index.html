@@ -139,7 +139,7 @@
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#39;donors/donors.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#39;donors/data.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -156,7 +156,6 @@
 <li>Depending on the name of the column decides what the target and ID columns are; the rest are inputs. </li>
 <li>Also tries to figure out the type of each column depending on the dtype (from pandas/numpy) and the content: for example if the dtype is object but most of the values starts with a <em>$</em> symbols defines the column as a money column.</li>
 </ul>
-<p>Of course is possible to change the defaults role and type of each column</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
@@ -184,142 +183,142 @@
   <tbody>
     <tr>
       <td><strong>TARGET_B</strong></td>
-      <td>   Target</td>
-      <td>   Number</td>
+      <td> Input</td>
+      <td> Category</td>
     </tr>
     <tr>
       <td><strong>ID</strong></td>
-      <td>       ID</td>
+      <td>    ID</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>TARGET_D</strong></td>
-      <td> Rejected</td>
+      <td> Input</td>
       <td>    Money</td>
     </tr>
     <tr>
       <td><strong>GiftCnt36</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td> Category</td>
     </tr>
     <tr>
       <td><strong>GiftCntAll</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>GiftCntCard36</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td> Category</td>
     </tr>
     <tr>
       <td><strong>GiftCntCardAll</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>GiftAvgLast</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>    Money</td>
     </tr>
     <tr>
       <td><strong>GiftAvg36</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>    Money</td>
     </tr>
     <tr>
       <td><strong>GiftAvgAll</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>    Money</td>
     </tr>
     <tr>
       <td><strong>GiftAvgCard36</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>    Money</td>
     </tr>
     <tr>
       <td><strong>GiftTimeLast</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>GiftTimeFirst</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>PromCnt12</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>PromCnt36</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>PromCntAll</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>PromCntCard12</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td> Category</td>
     </tr>
     <tr>
       <td><strong>PromCntCard36</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>PromCntCardAll</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>StatusCat96NK</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td> Category</td>
     </tr>
     <tr>
       <td><strong>StatusCatStarAll</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td> Category</td>
     </tr>
     <tr>
       <td><strong>DemCluster</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>DemAge</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>DemGender</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td> Category</td>
     </tr>
     <tr>
       <td><strong>DemHomeOwner</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td> Category</td>
     </tr>
     <tr>
       <td><strong>DemMedHomeValue</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>    Money</td>
     </tr>
     <tr>
       <td><strong>DemPctVeterans</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>   Number</td>
     </tr>
     <tr>
       <td><strong>DemMedIncome</strong></td>
-      <td>    Input</td>
+      <td> Input</td>
       <td>    Money</td>
     </tr>
   </tbody>
@@ -330,12 +329,16 @@
 </div>
 </div>
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Of course is possible to change the defaults role and type of each column, lets fix some of the metadata</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">INPUT</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;TARGET_D&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">CATEGORY</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;TARGET_D&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">REJECTED</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;TARGET_B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">TARGET</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">CATEGORY</span>
 </pre></div>
 
 </div>
@@ -368,17 +371,17 @@
     <tr>
       <td><strong>TARGET_B</strong></td>
       <td>   Target</td>
-      <td>   Number</td>
+      <td> Category</td>
     </tr>
     <tr>
       <td><strong>ID</strong></td>
-      <td>    Input</td>
-      <td>   Number</td>
+      <td>       ID</td>
+      <td> Category</td>
     </tr>
     <tr>
       <td><strong>TARGET_D</strong></td>
       <td> Rejected</td>
-      <td> Category</td>
+      <td>    Money</td>
     </tr>
   </tbody>
 </table>
@@ -413,7 +416,7 @@
 <div class="hbox output_area">
 <div class="prompt output_prompt">Out[7]:</div>
 <div class="output_subarea output_pyout">
-<pre class="ipynb">&lt;matplotlib.axes.Axes at 0x5ffc510&gt;</pre>
+<pre class="ipynb">&lt;matplotlib.axes.Axes at 0x5537390&gt;</pre>
 </div>
 </div>
 <div class="hbox output_area">
@@ -1324,7 +1327,7 @@ kmwIIYQQoktJsiGEEEKILvX/AaPP5iJRPbQkAAAAAElFTkSuQmCC
 <div class="hbox output_area">
 <div class="prompt output_prompt">Out[8]:</div>
 <div class="output_subarea output_pyout">
-<pre class="ipynb">&lt;matplotlib.axes.Axes at 0x5d26710&gt;</pre>
+<pre class="ipynb">&lt;matplotlib.axes.Axes at 0x5659910&gt;</pre>
 </div>
 </div>
 <div class="hbox output_area">
@@ -1551,25 +1554,6 @@ IiIibv4fBl5l/T80q28AAAAASUVORK5CYII=
 <pre class="ipynb">&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
 Int64Index: 9686 entries, 0 to 9685
 Data columns:
-ID                      9686  non-null values
-GiftCntAll              9686  non-null values
-GiftCntCardAll          9686  non-null values
-GiftAvgLast             9686  non-null values
-GiftAvg36               9686  non-null values
-GiftAvgAll              9686  non-null values
-GiftAvgCard36           7906  non-null values
-GiftTimeLast            9686  non-null values
-GiftTimeFirst           9686  non-null values
-PromCnt12               9686  non-null values
-PromCnt36               9686  non-null values
-PromCntAll              9686  non-null values
-PromCntCard36           9686  non-null values
-PromCntCardAll          9686  non-null values
-DemCluster              9686  non-null values
-DemAge                  7279  non-null values
-DemMedHomeValue         9686  non-null values
-DemPctVeterans          9686  non-null values
-DemMedIncome            9686  non-null values
 GiftCnt36 [0]           9686  non-null values
 GiftCnt36 [1]           9686  non-null values
 GiftCnt36 [2]           9686  non-null values
@@ -1586,6 +1570,7 @@ GiftCnt36 [12]          9686  non-null values
 GiftCnt36 [13]          9686  non-null values
 GiftCnt36 [15]          9686  non-null values
 GiftCnt36 [16]          9686  non-null values
+GiftCntAll              9686  non-null values
 GiftCntCard36 [0]       9686  non-null values
 GiftCntCard36 [1]       9686  non-null values
 GiftCntCard36 [2]       9686  non-null values
@@ -1596,6 +1581,16 @@ GiftCntCard36 [6]       9686  non-null values
 GiftCntCard36 [7]       9686  non-null values
 GiftCntCard36 [8]       9686  non-null values
 GiftCntCard36 [9]       9686  non-null values
+GiftCntCardAll          9686  non-null values
+GiftAvgLast             9686  non-null values
+GiftAvg36               9686  non-null values
+GiftAvgAll              9686  non-null values
+GiftAvgCard36           7906  non-null values
+GiftTimeLast            9686  non-null values
+GiftTimeFirst           9686  non-null values
+PromCnt12               9686  non-null values
+PromCnt36               9686  non-null values
+PromCntAll              9686  non-null values
 PromCntCard12 [0]       9686  non-null values
 PromCntCard12 [1]       9686  non-null values
 PromCntCard12 [2]       9686  non-null values
@@ -1613,6 +1608,8 @@ PromCntCard12 [13]      9686  non-null values
 PromCntCard12 [14]      9686  non-null values
 PromCntCard12 [15]      9686  non-null values
 PromCntCard12 [17]      9686  non-null values
+PromCntCard36           9686  non-null values
+PromCntCardAll          9686  non-null values
 StatusCat96NK [A]       9686  non-null values
 StatusCat96NK [E]       9686  non-null values
 StatusCat96NK [F]       9686  non-null values
@@ -1621,19 +1618,24 @@ StatusCat96NK [N]       9686  non-null values
 StatusCat96NK [S]       9686  non-null values
 StatusCatStarAll [0]    9686  non-null values
 StatusCatStarAll [1]    9686  non-null values
+DemCluster              9686  non-null values
+DemAge                  7279  non-null values
 DemGender [F]           9686  non-null values
 DemGender [M]           9686  non-null values
 DemGender [U]           9686  non-null values
 DemHomeOwner [H]        9686  non-null values
 DemHomeOwner [U]        9686  non-null values
-dtypes: float64(7), int64(68)</pre>
+DemMedHomeValue         9686  non-null values
+DemPctVeterans          9686  non-null values
+DemMedIncome            9686  non-null values
+dtypes: float64(7), int64(67)</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>inputs</code> is a pandas DataFrame. We can see that each categorical variable is divided intro more columns that are filled with one's and zero's for doing machine learning possible also money columns are converted to be numbers only.</p>
+<p><code>inputs</code> is a pandas DataFrame. We can see that each categorical variables are divided into more columns that are filled with one's and zero's for doing machine learning possible also money columns are converted to be numbers only.</p>
 <p>See that the dtypes are float and int so is possible to enter that on scikit-learn by calling <code>inputs.values</code> to get a numpy array.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">

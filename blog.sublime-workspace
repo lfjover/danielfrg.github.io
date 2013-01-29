@@ -608,6 +608,16 @@
 	},
 	"file_history":
 	[
+		"/home/dfrodriguez/Downloads/Software/Microsoft Office 2007/INSTALL NOTES.txt",
+		"/home/dfrodriguez/projects/blog/_posts/2013/1/2013-1-27-copper-basic-machine-learning.html",
+		"/home/dfrodriguez/projects/blog/_layouts/default.html",
+		"/home/dfrodriguez/projects/blog/utils/nbconvert/jekyll.py",
+		"/home/dfrodriguez/projects/blog/_posts/2013-1-27-copper-basic-machine-learning.html",
+		"/home/dfrodriguez/projects/blog/utils/Post_2.html",
+		"/home/dfrodriguez/projects/blog/_config.yml",
+		"/home/dfrodriguez/projects/blog/utils/howto_ipython_2_jekyll.md",
+		"/home/dfrodriguez/projects/blog/utils/convert.py",
+		"/home/dfrodriguez/projects/blog/utils/nbconvert/html2jekyll.py",
 		"/home/dfrodriguez/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
 		"/home/dfrodriguez/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/dfrodriguez/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
@@ -725,17 +735,7 @@
 		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/EventStudy_Past.py",
 		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/MarketSimulator.py",
 		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/DateUtils.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/DataAccess.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/sim/MarketSimulator.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/events/PastEvent.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/utils/CalculatorValues.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/FinanceTest.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/utils/DataAccess.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/utils/CalculatorTypes.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/utils/FileManager.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/events/__init__.py",
-		"/home/dfrodriguez/Documents/packages/finance/.gitignore",
-		"/home/dfrodriguez/Documents/packages/finance/test/events/PastEventTest.py"
+		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/DataAccess.py"
 	],
 	"find":
 	{
@@ -984,6 +984,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/home/dfrodriguez/projects/packages/copper/copper.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
