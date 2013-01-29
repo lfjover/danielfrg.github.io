@@ -1,4 +1,20 @@
 {
+    "build_systems":
+    [
+        {
+            "cmd":
+            [
+                "/home/dfrodriguez/.virtualenvs/blog/bin/python",
+                "-u",
+                "$file"
+            ],
+            "env":
+            {
+                "PYTHONPATH": "/home/dfrodriguez/projects/"
+            },
+            "name": "Python Virtual env"
+        }
+    ],
 	"folders":
 	[
 		{

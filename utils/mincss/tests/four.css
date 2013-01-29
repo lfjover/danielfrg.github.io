@@ -1,0 +1,12 @@
+/* A comment */
+@media (max-width: 900px) {
+  .container .two, .container .nine {
+    color: red;
+  }
+  a.four {
+    color: notused;
+  }
+  a.five, .btn {
+    color: partiallyused;
+  }
+}
