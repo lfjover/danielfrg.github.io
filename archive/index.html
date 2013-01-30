@@ -1,0 +1,22 @@
+---
+layout: default
+title: Archive
+---
+
+<div id="content" class="archives">
+    <div class="image-hero" style="background-image: url(/archive/hero.jpg);"></div>
+
+    <div class="list container">
+        <h1>Archive</h1>
+        <ul>
+            {% for post in site.posts %}
+            <li>
+                <span>{{ post.date | date: "%B %e, %Y" }}</span>
+                <a class="entry-title">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+

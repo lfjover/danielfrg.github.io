@@ -131,31 +131,31 @@ body {
   padding-top: 20px;
   margin: 0 auto;
 }
-.index article.post-box {
+.index .post-box {
   padding: 0 0 20px 0;
-  margin: 0 0 20px 0;
+  margin: 0px 0 20px 0;
   background: #fff;
   box-shadow: 0 0 3px #2b2b2b;
   -webkit-box-shadow: 0 0 3px #2b2b2b;
   -moz-box-shadow: 0 0 3px #2b2b2b;
 }
-.index article.post-box .video {
+.index .post-box .video {
   background-color: #2b2b2b;
   min-height: 520px;
 }
-.index article.post-box .video iframe {
+.index .post-box .video iframe {
   min-height: 520px;
 }
-.index article.post-box .image {
+.index .post-box .image {
   background: #2b2b2b no-repeat center;
   height: 300px;
 }
-.index article.post-box .text-box {
+.index .post-box .text-box {
   position: relative;
   width: 80%;
   margin: 0 auto;
 }
-.index article.post-box .text-box .post-date {
+.index .post-box .text-box .post-date {
   color: #aaa;
   font-size: 14px;
   text-transform: uppercase;
@@ -164,7 +164,7 @@ body {
   width: 100%;
   display: inline-block;
 }
-.index article.post-box .text-box .more-link {
+.index .post-box .text-box .more-link {
   margin: 5px 0 0 0;
   width: 100%;
   text-align: center;
@@ -189,6 +189,7 @@ body {
   font-family: 'Open Sans', Helvetica, sans-serif;
 }
 .about {
+  font-size: 20px;
   line-height: 175%;
   font-size: 20px;
   font-weight: 100;
