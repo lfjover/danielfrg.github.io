@@ -1,0 +1,27 @@
+.inner-shadow{box-shadow:inset 0 0 30px rgba(0, 0, 0, 0.79);}
+body{padding-top:0px;font-family:'Open Sans',Helvetica,sans-serif;color:#000;}
+.navbar .navbar-inner{font-size:13px;min-height:30px;background:#2b2b2b;border:none;box-shadow:0 0 15px #2b2b2b;-webkit-box-shadow:0 0 15px #2b2b2b;-moz-box-shadow:0 0 15px #2b2b2b;}.navbar .navbar-inner .container{max-width:950px;}.navbar .navbar-inner .container .right{float:right;}
+.navbar .navbar-inner .container ul li a{padding-top:5px;padding-bottom:5px;}
+#content{margin-top:30px;margin-bottom:30px;font-size:15px;}#content a{color:#307EA9;cursor:auto;}
+#content a:hover{text-decoration:underline;}
+#content p{line-height:175%;text-indent:2em;text-align:justify;}
+#content li{line-height:175%;text-align:justify;}
+#content h1{background:#eee;text-transform:uppercase;font-size:26px;margin:0px -30px 10px -30px;padding:15px 30px 15px 23px;font-weight:400;color:#444;text-decoration:none;text-align:center;}
+#content h2{margin:30px -30px 30px -30px;padding:10px 30px 10px 25px;border-left:8px solid #eee;border-right:8px solid #eee;text-transform:uppercase;font-size:20px;font-weight:400;color:#444;}
+#content a.entry-title h2{background:#eee;text-transform:uppercase;font-size:25px;margin:10px -30px 10px -30px;padding:15px 30px 15px 23px;border:none;text-decoration:none;text-align:center;-webkit-transition:background 0.5s;}
+#content a.entry-title h2:hover{background:#bbb;text-decoration:none;-webkit-transition:background 0.5s;}
+#content h3{margin:20px -30px 20px -30px;padding:15px 30px;border-left:4px solid #eee;border-right:4px solid #eee;text-transform:uppercase;font-size:16px;font-weight:400;color:#444;}
+#content blockquote{border:none;border-top:solid 1px #aaa;border-bottom:solid 1px #aaa;padding-top:10px;padding-bottom:10px;margin:30px -30px 30px -30px;text-align:center;font-style:italic;font-size:15px;text-transform:uppercase;letter-spacing:1px;color:#666;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+#content .image-hero{height:200px;background:#2b2b2b no-repeat center;box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.79);}
+#content .video-hero{margin-top:-20px;background-color:#2b2b2b;box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.79);}#content .video-hero .container{max-width:950px;}#content .video-hero .container iframe{min-height:550px;}
+.index{max-width:950px;padding-top:20px;margin:0 auto;}.index .post-box{padding:0 0 20px 0;margin:0px 0 20px 0;background:#fff;box-shadow:0 0 3px #2b2b2b;-webkit-box-shadow:0 0 3px #2b2b2b;-moz-box-shadow:0 0 3px #2b2b2b;}.index .post-box .video{background-color:#2b2b2b;min-height:520px;}.index .post-box .video iframe{min-height:520px;}
+.index .post-box .image{background:#2b2b2b no-repeat center;height:300px;}
+.index .post-box .text-box{position:relative;width:80%;margin:0 auto;}.index .post-box .text-box .post-date{color:#aaa;font-size:14px;text-transform:uppercase;text-align:center;margin-top:10px;width:100%;display:inline-block;}
+.index .post-box .text-box .more-link{margin:5px 0 0 0;width:100%;text-align:center;display:inline-block;font-weight:bold;font-size:13px;text-transform:uppercase;}
+.post-single .post{max-width:750px;padding-top:20px;margin-bottom:50px;}
+.post-single .comments{max-width:950px;}
+.post-single .text_cell_render{font-size:15px;line-height:175%;text-indent:2em;text-align:justify;font-family:'Open Sans',Helvetica,sans-serif;}
+.about{font-size:20px;line-height:175%;font-size:20px;font-weight:100;line-height:35px;}.about .container{padding-top:20px;max-width:750px;}
+.archives .list{padding-top:15px;max-width:750px;}.archives .list ul li{list-style-type:none;padding:7px 5px;border-bottom:1px solid #eee;}.archives .list ul li span{padding-top:3px;float:right;text-transform:uppercase;font-size:12px;color:#999;}
+.footer{padding:10px 0;background-color:#2b2b2b;color:#777;text-align:center;font-size:13px;box-shadow:0 0 15px #2b2b2b;-webkit-box-shadow:0 0 15px #2b2b2b;-moz-box-shadow:0 0 15px #2b2b2b;}.footer ul{margin:0;}.footer ul li{display:inline;}
+@media (min-width:768px) and (max-width:979px){#content{margin-top:0px;} .video-hero .container iframe{min-height:350px;}}@media (max-width:767px){#content{margin-top:0px;} .video-hero .container iframe{min-height:350px;}}@media (max-width:480px){#content{margin-top:0px;} .video-hero .container iframe{min-height:150px;}}
