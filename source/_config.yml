@@ -3,4 +3,3 @@ permalink: /blog/:title
 rdiscount extensions: [smart]
 pygments: true
 exclude: params.json
-destination: ../_site
