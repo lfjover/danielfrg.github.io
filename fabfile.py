@@ -1,9 +1,9 @@
 import os
 import shutil
 import distutils
+from fabric.api import local
 
 def server():
-    # os.system("cd ./source")
     os.system("jekyll ./source ./source/_site --server --auto")
 
 def clean():
@@ -16,7 +16,7 @@ def clean():
             else:
                 os.remove(f)
 
-def MoveOver(src_dir, dest_dir):
+def _move(src_dir, dest_dir):
     fileList = os.listdir(src_dir)
     for i in fileList:
         src = os.path.join(src_dir, i)
@@ -32,8 +32,11 @@ def MoveOver(src_dir, dest_dir):
 def move():
     src_dir = './source/_site'
     dest_dir = './'
-    MoveOver(src_dir, dest_dir)
-    # shutil.move('./source/_site', './')
-    # for f in os.listdir('./source/_site'):
-        # shutil.copy2(os.path.join('./source/_site', f), './')
+    _move(src_dir, dest_dir)
+
+def publish():
+    move()
+    local("git add . && git commit")
+    local("git push")
+    clean()
 

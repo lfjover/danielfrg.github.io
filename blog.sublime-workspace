@@ -523,9 +523,21 @@
 	"build_system": "Python Virtual env",
 	"command_palette":
 	{
-		"height": 125.0,
+		"height": 56.0,
 		"selected_items":
 		[
+			[
+				"liqui",
+				"Set Syntax: HTML Liquid"
+			],
+			[
+				"ham",
+				"Set Syntax: Ruby Haml"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -537,10 +549,6 @@
 			[
 				"pa",
 				"Package Control: List Packages"
-			],
-			[
-				"packa",
-				"Package Control: Disable Package"
 			],
 			[
 				"conver",
@@ -591,7 +599,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 435.0
+		"width": 561.0
 	},
 	"console":
 	{
@@ -608,16 +616,52 @@
 	},
 	"file_history":
 	[
+		"/home/dfrodriguez/projects/blog/source/_plugins/generate_sitemap.rb",
+		"/home/dfrodriguez/projects/blog/sitemap.xml",
+		"/home/dfrodriguez/projects/blog/fabfile.py",
+		"/home/dfrodriguez/.bashrc",
+		"/home/dfrodriguez/projects/blog/source/_config.yml",
+		"/home/dfrodriguez/projects/blog/_config.yml",
+		"/home/dfrodriguez/projects/blog/source/css/main.less",
+		"/home/dfrodriguez/projects/blog/_source/css/main.less",
+		"/home/dfrodriguez/projects/blog/_source/_plugins/less.rb",
+		"/home/dfrodriguez/projects/blog/_plugins/generate_sitemap.rb",
+		"/home/dfrodriguez/projects/blog/_site/sitemap.xml",
+		"/home/dfrodriguez/projects/blog/css/main.less",
+		"/home/dfrodriguez/projects/blog/_layouts/default.html",
+		"/home/dfrodriguez/projects/blog/_plugins/oembed.rb",
+		"/home/dfrodriguez/projects/blog/index.html",
+		"/home/dfrodriguez/projects/blog/index2.haml",
+		"/home/dfrodriguez/projects/blog/_layouts/default.haml",
+		"/home/dfrodriguez/projects/blog/_plugins/haml.rb",
+		"/home/dfrodriguez/projects/blog/archive/index.html",
+		"/home/dfrodriguez/projects/blog/about/index.html",
+		"/home/dfrodriguez/projects/blog/archive.html",
+		"/home/dfrodriguez/projects/blog/test.haml",
+		"/home/dfrodriguez/projects/blog/_posts/2020-1-1-test-haml.haml",
+		"/home/dfrodriguez/projects/blog/_plugins/less.rb",
+		"/home/dfrodriguez/projects/blog/_site/css/main.css",
+		"/home/dfrodriguez/projects/blog/_site/blog/test-haml/index.html",
+		"/home/dfrodriguez/projects/blog/_posts/2010-1-1-test-haml.haml",
+		"/home/dfrodriguez/projects/blog/_plugins/assets.rb",
+		"/home/dfrodriguez/projects/blog/utils/mincss/run_mincss.py",
+		"/home/dfrodriguez/projects/blog/css/main.css",
+		"/home/dfrodriguez/projects/blog/_plugins/jekyll-press.rb",
+		"/home/dfrodriguez/projects/blog/css/pygments.min.css",
+		"/home/dfrodriguez/projects/blog/blog.sublime-project",
+		"/home/dfrodriguez/projects/copper/copper.sublime-project",
+		"/home/dfrodriguez/.virtualenvs/copper/bin/activate",
+		"/home/dfrodriguez/.virtualenvs/blog/bin/activate",
+		"/home/dfrodriguez/projects/blog/utils/run_mincss.py",
+		"/home/dfrodriguez/projects/blog/utils/mincss/run.py",
 		"/home/dfrodriguez/projects/blog/_posts/2013/1/2013-1-27-copper-basic-machine-learning.html",
 		"/home/dfrodriguez/projects/blog/_posts/2013/1/Post_1.html",
 		"/home/dfrodriguez/projects/blog/_posts/2013/1/2013-1-26-copper-easy-data-analysis-on-python.html",
 		"/home/dfrodriguez/projects/blog/_posts/2013/1/Post_2.html",
 		"/home/dfrodriguez/Downloads/Software/Microsoft Office 2007/INSTALL NOTES.txt",
-		"/home/dfrodriguez/projects/blog/_layouts/default.html",
 		"/home/dfrodriguez/projects/blog/utils/nbconvert/jekyll.py",
 		"/home/dfrodriguez/projects/blog/_posts/2013-1-27-copper-basic-machine-learning.html",
 		"/home/dfrodriguez/projects/blog/utils/Post_2.html",
-		"/home/dfrodriguez/projects/blog/_config.yml",
 		"/home/dfrodriguez/projects/blog/utils/howto_ipython_2_jekyll.md",
 		"/home/dfrodriguez/projects/blog/utils/convert.py",
 		"/home/dfrodriguez/projects/blog/utils/nbconvert/html2jekyll.py",
@@ -659,7 +703,6 @@
 		"/home/dfrodriguez/projects/packages/copper/core/hist.csv",
 		"/home/dfrodriguez/projects/packages/copper/explore/assets/explore.html",
 		"/home/dfrodriguez/.virtualenvs/finance/bin/activate",
-		"/home/dfrodriguez/.virtualenvs/copper/bin/activate",
 		"/home/dfrodriguez/projects/packages/copper/tests/DataSet.py",
 		"/home/dfrodriguez/projects/packages/copper/explore/hello.py",
 		"/home/dfrodriguez/projects/packages/copper/io/save_load.py",
@@ -692,7 +735,6 @@
 		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/pandas/version.py",
 		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/pandas/info.py",
 		"/home/dfrodriguez/projects/packages/finance/.gitignore",
-		"/home/dfrodriguez/.bashrc",
 		"/home/dfrodriguez/projects/web/hellodjango/templates/index/index.html",
 		"/home/dfrodriguez/projects/web/hellodjango/index/views.py",
 		"/home/dfrodriguez/projects/web/hellodjango/hellodjango/urls.py",
@@ -701,41 +743,7 @@
 		"/home/dfrodriguez/projects/web/hellodjango/.gitignore",
 		"/home/dfrodriguez/projects/web/hellodjango/Procfile",
 		"/home/dfrodriguez/projects/web/hellodjango/requirements.txt",
-		"/home/dfrodriguez/projects/packages/finance/finance.sublime-workspace",
-		"/home/dfrodriguez/projects/packages/finance/examples/ItCFaFE/Assignment 3 - Computations/Solution.py",
-		"/home/dfrodriguez/projects/packages/finance/examples/ItCFaFE/README.md",
-		"/home/dfrodriguez/projects/packages/finance/examples/Combining/Example 5/Solution.py",
-		"/home/dfrodriguez/projects/packages/finance/examples/Combining/Example 3/Solution.py",
-		"/home/dfrodriguez/projects/packages/finance/examples/Basic/EventStudy_Multiple.py",
-		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/matplotlib/mpl-data/matplotlibrc",
-		"//usr/lib/python3.2/tkinter/__init__.py",
-		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/matplotlib/backends/tkagg.py",
-		"/home/dfrodriguez/.config/sublime-text-2/Packages/Python/Python.sublime-build",
-		"/home/dfrodriguez/Documents/packages/finance/utils/Calculator.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Combining/Example 3/Solution.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Combining/Example 3/solution.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/EventStudy_Multiple.py",
-		"/home/dfrodriguez/Documents/packages/finance/README.md",
-		"/home/dfrodriguez/Documents/packages/finance/CHANGELOG.md",
-		"/etc/fonts/conf.d/90-fonts-nanum.conf",
-		"/etc/fonts/conf.d/65-droid-sans-fonts.conf",
-		"/home/dfrodriguez/Documents/packages/finance/plots/errorfill.py",
-		"/home/dfrodriguez/Documents/packages/finance/events/MultipleEvents.py",
-		"/home/dfrodriguez/Documents/packages/finance/plots/__init__.py",
-		"/home/dfrodriguez/.matplotlib/matplotlibrc",
-		"/home/dfrodriguez/Documents/packages/finance/test/AllTets.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/events/EventFinder.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/events/MultipleEvents.py",
-		"/home/dfrodriguez/Documents/packages/finance/events/EventFinder.py",
-		"/home/dfrodriguez/Documents/packages/finance/events/Condition.py",
-		"/home/dfrodriguez/Documents/packages/finance/events/SampleConditions.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/EventStudy_Finder.py",
-		"/home/dfrodriguez/Documents/packages/finance/utils/FileManager.py",
-		"/home/dfrodriguez/Documents/packages/finance/utils/DataAccess.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Combining/Example 2/Solution.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Combining/Example 1/Solution.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/ListUtils.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/EventStudy_Past.py"
+		"/home/dfrodriguez/projects/packages/finance/finance.sublime-workspace"
 	],
 	"find":
 	{
@@ -995,6 +1003,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 197.0,
+	"side_bar_width": 199.0,
 	"status_bar_visible": true
 }
