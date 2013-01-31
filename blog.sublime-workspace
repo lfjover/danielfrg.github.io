@@ -523,7 +523,7 @@
 	"build_system": "Python Virtual env",
 	"command_palette":
 	{
-		"height": 56.0,
+		"height": 148.0,
 		"selected_items":
 		[
 			[
@@ -599,7 +599,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 561.0
+		"width": 435.0
 	},
 	"console":
 	{
@@ -616,9 +616,10 @@
 	},
 	"file_history":
 	[
+		"/home/dfrodriguez/projects/blog/fabfile.py",
+		"/home/dfrodriguez/projects/blog/source/_posts/2013/1/2013-1-30-copper-bootstrap-and-bagging.html",
 		"/home/dfrodriguez/projects/blog/source/_plugins/generate_sitemap.rb",
 		"/home/dfrodriguez/projects/blog/sitemap.xml",
-		"/home/dfrodriguez/projects/blog/fabfile.py",
 		"/home/dfrodriguez/.bashrc",
 		"/home/dfrodriguez/projects/blog/source/_config.yml",
 		"/home/dfrodriguez/projects/blog/_config.yml",
@@ -742,8 +743,7 @@
 		"/home/dfrodriguez/.virtualenvs/django14/bin/activate",
 		"/home/dfrodriguez/projects/web/hellodjango/.gitignore",
 		"/home/dfrodriguez/projects/web/hellodjango/Procfile",
-		"/home/dfrodriguez/projects/web/hellodjango/requirements.txt",
-		"/home/dfrodriguez/projects/packages/finance/finance.sublime-workspace"
+		"/home/dfrodriguez/projects/web/hellodjango/requirements.txt"
 	],
 	"find":
 	{
