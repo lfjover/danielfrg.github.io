@@ -1,31 +1,13 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-    <url>
-        <loc>http://danielfrg.github.com//blog/copper-easy-data-analysis-on-python</loc>
-        <lastmod>2013-01-29T23:49:15-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://danielfrg.github.com//blog/copper-basic-machine-learning</loc>
-        <lastmod>2013-01-29T23:49:15-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://danielfrg.github.com//blog/copper-bootstrap-and-bagging</loc>
-        <lastmod>2013-01-30T20:26:13-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://danielfrg.github.com//archive/</loc>
-        <lastmod>2013-01-30T20:26:13-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://danielfrg.github.com//about/</loc>
-        <lastmod>2013-01-30T20:26:13-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://danielfrg.github.com//</loc>
-        <lastmod>2013-01-30T20:26:13-06:00</lastmod>
-    </url>
-    <url>
-        <loc>http://danielfrg.github.com//css/main.css</loc>
-        <lastmod>2013-01-29T23:52:59-06:00</lastmod>
-    </url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+      <loc>/blog/copper-basic-machine-learning</loc>
+      <lastmod>2013-01-27</lastmod>
+      <changefreq>never</changefreq>
+  </url>
+  <url>
+      <loc>/blog/copper-easy-data-analysis-on-python</loc>
+      <lastmod>2013-01-26</lastmod>
+      <changefreq>never</changefreq>
+  </url>
 </urlset>

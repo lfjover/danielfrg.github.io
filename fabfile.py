@@ -34,9 +34,9 @@ def move():
     dest_dir = './'
     _move(src_dir, dest_dir)
 
-def publish():
+def publish(commit_msg):
     move()
-    local("git add . && git commit")
+    local("git add . && git commit -am '%s'" % commit_msg)
     local("git push")
     clean()
 
