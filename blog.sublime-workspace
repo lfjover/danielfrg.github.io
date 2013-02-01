@@ -616,6 +616,10 @@
 	},
 	"file_history":
 	[
+		"/home/dfrodriguez/projects/blog/source/_layouts/default.html",
+		"/home/dfrodriguez/projects/blog/source/css/ipython.min.css",
+		"/home/dfrodriguez/projects/blog/source/css/pygments.css",
+		"/home/dfrodriguez/projects/blog/source/css/pygments.min.css",
 		"/home/dfrodriguez/projects/blog/fabfile.py",
 		"/home/dfrodriguez/projects/blog/source/_posts/2013/1/2013-1-30-copper-bootstrap-and-bagging.html",
 		"/home/dfrodriguez/projects/blog/source/_plugins/generate_sitemap.rb",
@@ -739,11 +743,7 @@
 		"/home/dfrodriguez/projects/web/hellodjango/templates/index/index.html",
 		"/home/dfrodriguez/projects/web/hellodjango/index/views.py",
 		"/home/dfrodriguez/projects/web/hellodjango/hellodjango/urls.py",
-		"/home/dfrodriguez/projects/web/hellodjango/index/urls.py",
-		"/home/dfrodriguez/.virtualenvs/django14/bin/activate",
-		"/home/dfrodriguez/projects/web/hellodjango/.gitignore",
-		"/home/dfrodriguez/projects/web/hellodjango/Procfile",
-		"/home/dfrodriguez/projects/web/hellodjango/requirements.txt"
+		"/home/dfrodriguez/projects/web/hellodjango/index/urls.py"
 	],
 	"find":
 	{
