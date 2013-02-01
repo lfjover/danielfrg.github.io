@@ -616,6 +616,10 @@
 	},
 	"file_history":
 	[
+		"/home/dfrodriguez/projects/blog/source/_config.yml",
+		"/home/dfrodriguez/projects/blog/source/fabfile.py",
+		"/home/dfrodriguez/projects/blog/source/_layouts/full-width.html",
+		"/home/dfrodriguez/projects/blog/source/_posts/2013/1/2013-1-31-how-i-blog-using-jekyll-and-ipython.md",
 		"/home/dfrodriguez/projects/blog/source/_layouts/default.html",
 		"/home/dfrodriguez/projects/blog/source/css/ipython.min.css",
 		"/home/dfrodriguez/projects/blog/source/css/pygments.css",
@@ -625,7 +629,6 @@
 		"/home/dfrodriguez/projects/blog/source/_plugins/generate_sitemap.rb",
 		"/home/dfrodriguez/projects/blog/sitemap.xml",
 		"/home/dfrodriguez/.bashrc",
-		"/home/dfrodriguez/projects/blog/source/_config.yml",
 		"/home/dfrodriguez/projects/blog/_config.yml",
 		"/home/dfrodriguez/projects/blog/source/css/main.less",
 		"/home/dfrodriguez/projects/blog/_source/css/main.less",
@@ -740,10 +743,7 @@
 		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/pandas/version.py",
 		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/pandas/info.py",
 		"/home/dfrodriguez/projects/packages/finance/.gitignore",
-		"/home/dfrodriguez/projects/web/hellodjango/templates/index/index.html",
-		"/home/dfrodriguez/projects/web/hellodjango/index/views.py",
-		"/home/dfrodriguez/projects/web/hellodjango/hellodjango/urls.py",
-		"/home/dfrodriguez/projects/web/hellodjango/index/urls.py"
+		"/home/dfrodriguez/projects/web/hellodjango/templates/index/index.html"
 	],
 	"find":
 	{

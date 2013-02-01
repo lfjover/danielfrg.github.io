@@ -4,12 +4,11 @@ import distutils
 from fabric.api import local
 
 def server():
-    os.system("jekyll ./source ./source/_site --server --auto")
+    os.system("jekyll --server --auto")
 
 def clean():
-    ignore = ['.git', '.gitignore', 'fabfile.py', 'fabfile.pyc',
-                'blog.sublime-project', 'blog.sublime-workspace', 'source']
-    for f in os.listdir('./'):
+    ignore = ['.git', '.gitignore', 'source']
+    for f in os.listdir('../'):
         if f not in ignore:
             if os.path.isdir(f):
                 shutil.rmtree(f)
@@ -30,13 +29,13 @@ def _move(src_dir, dest_dir):
         shutil.move(src, dest_dir)
 
 def move():
-    src_dir = './source/_site'
-    dest_dir = './'
+    src_dir = './_site'
+    dest_dir = '../'
     _move(src_dir, dest_dir)
 
-def publish(commit_msg):
+def deploy(commit_msg):
     move()
     local("git add . && git commit -am '%s'" % commit_msg)
     local("git push")
-    clean()
+    # clean()
 
