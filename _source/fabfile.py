@@ -7,13 +7,18 @@ def server():
     os.system("jekyll --server --auto")
 
 def clean():
-    ignore = ['.git', '.gitignore', 'source']
-    for f in os.listdir('../'):
-        if f not in ignore:
-            if os.path.isdir(f):
-                shutil.rmtree(f)
+    ignore = ['.git', '.gitignore', '_source']
+    files = os.listdir('../')
+    files2 = [os.path.join('../', f) for f in files]
+    for fname, fpath in zip(files, files2):
+        if fname.startswith('.') or fname.startswith('_'):
+            pass
+        else:
+            print(fname)
+            if os.path.isdir(fpath):
+                shutil.rmtree(fpath)
             else:
-                os.remove(f)
+                os.remove(fpath)
 
 def _move(src_dir, dest_dir):
     fileList = os.listdir(src_dir)
@@ -34,6 +39,7 @@ def move():
     _move(src_dir, dest_dir)
 
 def deploy(commit_msg):
+    clean()
     move()
     local("git add . && git commit -am '%s'" % commit_msg)
     local("git push")
