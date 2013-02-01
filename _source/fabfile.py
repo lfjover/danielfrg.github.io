@@ -8,9 +8,9 @@ def server():
 
 def clean():
     ignore = ['.git', '.gitignore', '_source']
-    files = os.listdir('../')
-    files2 = [os.path.join('../', f) for f in files]
-    for fname, fpath in zip(files, files2):
+    file_names = os.listdir('../')
+    file_paths = [os.path.join('../', f) for f in file_names]
+    for fname, fpath in zip(file_names, file_paths):
         if fname.startswith('.') or fname.startswith('_'):
             pass
         else:
