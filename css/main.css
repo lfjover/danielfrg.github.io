@@ -78,11 +78,6 @@ body {
   text-align: center;
   -webkit-transition: background 0.5s;
 }
-#content a.entry-title h2:hover {
-  background: #bbb;
-  text-decoration: none;
-  -webkit-transition: background 0.5s;
-}
 #content h3 {
   margin: 20px -30px 20px -30px;
   padding: 15px 30px;
@@ -175,8 +170,16 @@ body {
 }
 .post-single .post {
   max-width: 750px;
-  padding-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.post-single .social {
+  max-width: 750px;
   margin-bottom: 50px;
+}
+.post-single .social .hn iframe {
+  margin: -9px 0 0 -8px;
+  border: none;
 }
 .post-single .comments {
   max-width: 950px;

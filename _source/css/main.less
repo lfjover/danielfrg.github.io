@@ -102,12 +102,6 @@ body {
             text-align: center;
             -webkit-transition: background 0.5s;
         }
-
-        h2:hover {
-            background: #bbb;
-            text-decoration: none;
-            -webkit-transition: background 0.5s;
-        }
     }
 
     h3 {
@@ -216,8 +210,18 @@ body {
 .post-single {
     .post {
         max-width: 750px;
-        padding-top: 20px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .social {
+        max-width: 750px;
         margin-bottom: 50px;
+
+        .hn iframe {
+            margin:-9px 0 0 -8px;
+            border: none;
+        }
     }
 
     .comments {

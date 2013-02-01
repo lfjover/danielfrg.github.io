@@ -4,6 +4,82 @@
 		"selected_items":
 		[
 			[
+				"ense",
+				"_ensembled"
+			],
+			[
+				"sv",
+				"svm_clf"
+			],
+			[
+				"pre",
+				"prediction"
+			],
+			[
+				"predi",
+				"predict"
+			],
+			[
+				"for",
+				"for	For Loop"
+			],
+			[
+				"predic",
+				"predictions"
+			],
+			[
+				"e",
+				"ensemble"
+			],
+			[
+				"_catego",
+				"_category2number"
+			],
+			[
+				"tree",
+				"tree_clf"
+			],
+			[
+				"CA",
+				"CATEGORY"
+			],
+			[
+				"cate",
+				"_category_labels"
+			],
+			[
+				"spli",
+				"splits"
+			],
+			[
+				"_cate",
+				"_category2number"
+			],
+			[
+				"new",
+				"new_cols"
+			],
+			[
+				"ne",
+				"new_cols"
+			],
+			[
+				"sl",
+				"splits"
+			],
+			[
+				"mo",
+				"money_symbols"
+			],
+			[
+				"money",
+				"money_symbol"
+			],
+			[
+				"tran",
+				"transformation"
+			],
+			[
 				"au",
 				"auc_s"
 			],
@@ -88,10 +164,6 @@
 				"filepath"
 			],
 			[
-				"for",
-				"format"
-			],
-			[
 				"co",
 				"copper"
 			],
@@ -122,10 +194,6 @@
 			[
 				"bin",
 				"binary_cols"
-			],
-			[
-				"mo",
-				"money_cols"
 			],
 			[
 				"meta",
@@ -446,74 +514,6 @@
 			[
 				"dail",
 				"daily_returns"
-			],
-			[
-				"e",
-				"end_date"
-			],
-			[
-				"return",
-				"return"
-			],
-			[
-				"lo",
-				"lookback_days"
-			],
-			[
-				"Mar",
-				"MarketSimulatorTest"
-			],
-			[
-				"BasicUtils",
-				"BasicUtilsTest"
-			],
-			[
-				"sta",
-				"start_window"
-			],
-			[
-				"sat",
-				"start_period"
-			],
-			[
-				"ar",
-				"ar"
-			],
-			[
-				"excep",
-				"exception"
-			],
-			[
-				"estimi",
-				"estimation_period"
-			],
-			[
-				"es",
-				"estimation_period"
-			],
-			[
-				"st",
-				"std_error"
-			],
-			[
-				"shar",
-				"sharpe"
-			],
-			[
-				"load",
-				"load_trades"
-			],
-			[
-				"por",
-				"portfolio"
-			],
-			[
-				"valu",
-				"value_equities"
-			],
-			[
-				"ow",
-				"own_each_stock"
 			]
 		]
 	},
@@ -523,21 +523,9 @@
 	"build_system": "Python Virtual env",
 	"command_palette":
 	{
-		"height": 148.0,
+		"height": 102.0,
 		"selected_items":
 		[
-			[
-				"liqui",
-				"Set Syntax: HTML Liquid"
-			],
-			[
-				"ham",
-				"Set Syntax: Ruby Haml"
-			],
-			[
-				"packa",
-				"Package Control: Install Package"
-			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -549,6 +537,10 @@
 			[
 				"pa",
 				"Package Control: List Packages"
+			],
+			[
+				"packa",
+				"Package Control: Disable Package"
 			],
 			[
 				"conver",
@@ -616,66 +608,28 @@
 	},
 	"file_history":
 	[
-		"/home/dfrodriguez/projects/blog/source/_config.yml",
-		"/home/dfrodriguez/projects/blog/source/fabfile.py",
-		"/home/dfrodriguez/projects/blog/source/_layouts/full-width.html",
-		"/home/dfrodriguez/projects/blog/source/_posts/2013/1/2013-1-31-how-i-blog-using-jekyll-and-ipython.md",
-		"/home/dfrodriguez/projects/blog/source/_layouts/default.html",
-		"/home/dfrodriguez/projects/blog/source/css/ipython.min.css",
-		"/home/dfrodriguez/projects/blog/source/css/pygments.css",
-		"/home/dfrodriguez/projects/blog/source/css/pygments.min.css",
-		"/home/dfrodriguez/projects/blog/fabfile.py",
-		"/home/dfrodriguez/projects/blog/source/_posts/2013/1/2013-1-30-copper-bootstrap-and-bagging.html",
-		"/home/dfrodriguez/projects/blog/source/_plugins/generate_sitemap.rb",
-		"/home/dfrodriguez/projects/blog/sitemap.xml",
-		"/home/dfrodriguez/.bashrc",
-		"/home/dfrodriguez/projects/blog/_config.yml",
-		"/home/dfrodriguez/projects/blog/source/css/main.less",
-		"/home/dfrodriguez/projects/blog/_source/css/main.less",
-		"/home/dfrodriguez/projects/blog/_source/_plugins/less.rb",
-		"/home/dfrodriguez/projects/blog/_plugins/generate_sitemap.rb",
-		"/home/dfrodriguez/projects/blog/_site/sitemap.xml",
-		"/home/dfrodriguez/projects/blog/css/main.less",
-		"/home/dfrodriguez/projects/blog/_layouts/default.html",
-		"/home/dfrodriguez/projects/blog/_plugins/oembed.rb",
-		"/home/dfrodriguez/projects/blog/index.html",
-		"/home/dfrodriguez/projects/blog/index2.haml",
-		"/home/dfrodriguez/projects/blog/_layouts/default.haml",
-		"/home/dfrodriguez/projects/blog/_plugins/haml.rb",
-		"/home/dfrodriguez/projects/blog/archive/index.html",
-		"/home/dfrodriguez/projects/blog/about/index.html",
-		"/home/dfrodriguez/projects/blog/archive.html",
-		"/home/dfrodriguez/projects/blog/test.haml",
-		"/home/dfrodriguez/projects/blog/_posts/2020-1-1-test-haml.haml",
-		"/home/dfrodriguez/projects/blog/_plugins/less.rb",
-		"/home/dfrodriguez/projects/blog/_site/css/main.css",
-		"/home/dfrodriguez/projects/blog/_site/blog/test-haml/index.html",
-		"/home/dfrodriguez/projects/blog/_posts/2010-1-1-test-haml.haml",
-		"/home/dfrodriguez/projects/blog/_plugins/assets.rb",
-		"/home/dfrodriguez/projects/blog/utils/mincss/run_mincss.py",
-		"/home/dfrodriguez/projects/blog/css/main.css",
-		"/home/dfrodriguez/projects/blog/_plugins/jekyll-press.rb",
-		"/home/dfrodriguez/projects/blog/css/pygments.min.css",
-		"/home/dfrodriguez/projects/blog/blog.sublime-project",
-		"/home/dfrodriguez/projects/copper/copper.sublime-project",
-		"/home/dfrodriguez/.virtualenvs/copper/bin/activate",
-		"/home/dfrodriguez/.virtualenvs/blog/bin/activate",
-		"/home/dfrodriguez/projects/blog/utils/run_mincss.py",
-		"/home/dfrodriguez/projects/blog/utils/mincss/run.py",
-		"/home/dfrodriguez/projects/blog/_posts/2013/1/2013-1-27-copper-basic-machine-learning.html",
-		"/home/dfrodriguez/projects/blog/_posts/2013/1/Post_1.html",
-		"/home/dfrodriguez/projects/blog/_posts/2013/1/2013-1-26-copper-easy-data-analysis-on-python.html",
-		"/home/dfrodriguez/projects/blog/_posts/2013/1/Post_2.html",
-		"/home/dfrodriguez/Downloads/Software/Microsoft Office 2007/INSTALL NOTES.txt",
-		"/home/dfrodriguez/projects/blog/utils/nbconvert/jekyll.py",
-		"/home/dfrodriguez/projects/blog/_posts/2013-1-27-copper-basic-machine-learning.html",
-		"/home/dfrodriguez/projects/blog/utils/Post_2.html",
-		"/home/dfrodriguez/projects/blog/utils/howto_ipython_2_jekyll.md",
-		"/home/dfrodriguez/projects/blog/utils/convert.py",
-		"/home/dfrodriguez/projects/blog/utils/nbconvert/html2jekyll.py",
-		"/home/dfrodriguez/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
-		"/home/dfrodriguez/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/dfrodriguez/projects/copper/examples/data_analysis/week2/quiz2.py",
+		"/home/dfrodriguez/projects/copper/core/set.py",
+		"/home/dfrodriguez/projects/copper/core/ensemble.py",
+		"/home/dfrodriguez/projects/copper/core/ml.py",
+		"/home/dfrodriguez/projects/copper/tests/core/ML.py",
+		"/home/dfrodriguez/projects/copper/core/config.py",
+		"/home/dfrodriguez/projects/copper/tests/core/models.csv",
+		"/home/dfrodriguez/.virtualenvs/copper/lib/python3.2/site-packages/sklearn/tree/tree.py",
 		"/home/dfrodriguez/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/dfrodriguez/.virtualenvs/copper/lib/python3.2/site-packages/sklearn/base.py",
+		"/home/dfrodriguez/.virtualenvs/copper/lib/python3.2/site-packages/sklearn/ensemble/base.py",
+		"/home/dfrodriguez/.virtualenvs/copper/lib/python3.2/site-packages/sklearn/ensemble/forest.py",
+		"/home/dfrodriguez/projects/copper/__init__.py",
+		"/home/dfrodriguez/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/dfrodriguez/.bashrc",
+		"/home/dfrodriguez/.virtualenvs/copper/bin/activate",
+		"/home/dfrodriguez/projects/copper/tests/core/DataSet.py",
+		"/home/dfrodriguez/projects/copper/core/set_bu.py",
+		"/home/dfrodriguez/.virtualenvs/copper/lib/python3.2/site-packages/pandas/core/frame.py",
+		"/home/dfrodriguez/projects/copper/tests/CopperTest.py",
+		"/home/dfrodriguez/projects/copper/copper.sublime-project",
+		"/home/dfrodriguez/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
 		"/home/dfrodriguez/projects/packages/copper/core/ml.py",
 		"/home/dfrodriguez/projects/web/danielfrg.github.com/_posts/2013-1-26-copper-easy-data-analysis-on-python.html",
 		"/home/dfrodriguez/projects/web/danielfrg.github.com/utils/bu.html",
@@ -743,7 +697,45 @@
 		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/pandas/version.py",
 		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/pandas/info.py",
 		"/home/dfrodriguez/projects/packages/finance/.gitignore",
-		"/home/dfrodriguez/projects/web/hellodjango/templates/index/index.html"
+		"/home/dfrodriguez/projects/web/hellodjango/templates/index/index.html",
+		"/home/dfrodriguez/projects/web/hellodjango/index/views.py",
+		"/home/dfrodriguez/projects/web/hellodjango/hellodjango/urls.py",
+		"/home/dfrodriguez/projects/web/hellodjango/index/urls.py",
+		"/home/dfrodriguez/.virtualenvs/django14/bin/activate",
+		"/home/dfrodriguez/projects/web/hellodjango/.gitignore",
+		"/home/dfrodriguez/projects/web/hellodjango/Procfile",
+		"/home/dfrodriguez/projects/web/hellodjango/requirements.txt",
+		"/home/dfrodriguez/projects/packages/finance/finance.sublime-workspace",
+		"/home/dfrodriguez/projects/packages/finance/examples/ItCFaFE/Assignment 3 - Computations/Solution.py",
+		"/home/dfrodriguez/projects/packages/finance/examples/ItCFaFE/README.md",
+		"/home/dfrodriguez/projects/packages/finance/examples/Combining/Example 5/Solution.py",
+		"/home/dfrodriguez/projects/packages/finance/examples/Combining/Example 3/Solution.py",
+		"/home/dfrodriguez/projects/packages/finance/examples/Basic/EventStudy_Multiple.py",
+		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/matplotlib/mpl-data/matplotlibrc",
+		"//usr/lib/python3.2/tkinter/__init__.py",
+		"/home/dfrodriguez/.virtualenvs/finance/lib/python3.2/site-packages/matplotlib/backends/tkagg.py",
+		"/home/dfrodriguez/.config/sublime-text-2/Packages/Python/Python.sublime-build",
+		"/home/dfrodriguez/Documents/packages/finance/utils/Calculator.py",
+		"/home/dfrodriguez/Documents/packages/finance/examples/Combining/Example 3/Solution.py",
+		"/home/dfrodriguez/Documents/packages/finance/examples/Combining/Example 3/solution.py",
+		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/EventStudy_Multiple.py",
+		"/home/dfrodriguez/Documents/packages/finance/README.md",
+		"/home/dfrodriguez/Documents/packages/finance/CHANGELOG.md",
+		"/etc/fonts/conf.d/90-fonts-nanum.conf",
+		"/etc/fonts/conf.d/65-droid-sans-fonts.conf",
+		"/home/dfrodriguez/Documents/packages/finance/plots/errorfill.py",
+		"/home/dfrodriguez/Documents/packages/finance/events/MultipleEvents.py",
+		"/home/dfrodriguez/Documents/packages/finance/plots/__init__.py",
+		"/home/dfrodriguez/.matplotlib/matplotlibrc",
+		"/home/dfrodriguez/Documents/packages/finance/test/AllTets.py",
+		"/home/dfrodriguez/Documents/packages/finance/test/events/EventFinder.py",
+		"/home/dfrodriguez/Documents/packages/finance/test/events/MultipleEvents.py",
+		"/home/dfrodriguez/Documents/packages/finance/events/EventFinder.py",
+		"/home/dfrodriguez/Documents/packages/finance/events/Condition.py",
+		"/home/dfrodriguez/Documents/packages/finance/events/SampleConditions.py",
+		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/EventStudy_Finder.py",
+		"/home/dfrodriguez/Documents/packages/finance/utils/FileManager.py",
+		"/home/dfrodriguez/Documents/packages/finance/utils/DataAccess.py"
 	],
 	"find":
 	{
@@ -758,9 +750,57 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"clf",
+			"add_model",
+			"pl",
+			"clf",
+			"_id",
+			"remove_clf",
+			"remove",
+			"add_model",
+			"model",
+			"models",
+			"probas",
+			"classes_",
+			"print",
+			"self.X_test",
+			"self.probas",
+			"def predict",
+			"def fit",
+			"fit(",
+			"class ",
+			"class",
+			"self.models",
+			"n_data",
+			"print",
+			"cat_col",
+			"test1",
+			"_oframe",
+			"_frame",
+			"test_type_1",
+			"test_metadata_type_1",
+			"test1",
+			"DataFrameFormatter",
+			"def to_string(",
+			"to_string",
+			"_need_info_repr_",
+			"summary(",
+			"__str",
+			"__unicode",
+			"INPUT",
+			"_targetFilter",
+			"_idFilter",
+			"_oframe",
+			"NDFrame",
+			"DataFrame(",
+			"DataFrame",
+			"set_data",
+			"test_1",
+			"test_2",
+			"test_3",
 			"inf",
 			"ds_train",
 			"ds",
@@ -840,55 +880,7 @@
 			"print",
 			"                 ",
 			"DataFrame(",
-			"DataFrame(self",
-			"DataFrame(Self",
-			"DataFrame",
-			"4",
-			"csv",
-			"read_csv",
-			"X_Ex",
-			"var",
-			"ev",
-			"amzn",
-			"cost",
-			"test",
-			"<string>나눔고딕</string>",
-			"7",
-			"SampleEvents",
-			"event",
-			"self.event",
-			".total_return",
-			"total_return",
-			"pevt",
-			"MultipleEventTest",
-			"utils",
-			"CalculatorTestValues",
-			"cumulative_ar",
-			"abnormal_return",
-			"expected_return",
-			"elf.evt",
-			"std_abnormal_return",
-			"mean_abnormal_return",
-			"std_expected_return",
-			"mean_expected_return",
-			"expected_returns",
-			"abnormal_returns",
-			"cumulative_abnormal_returns",
-			"mean_cumulative_abnormal_return",
-			"assert_almost_equal",
-			"assert_equal",
-			"np_test",
-			"mevt",
-			"self.mevt",
-			"self.evtf",
-			"self.setUp",
-			"assertFrameEqual",
-			"assertSeriesEqual",
-			"assertArrayEqual",
-			"assertSeriesEqual",
-			"self.sim",
-			"assert_frame_equal",
-			"pd_test"
+			"DataFrame(self"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -944,7 +936,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 181.0
+		"height": 153.0
 	},
 	"replace":
 	{
@@ -994,7 +986,11 @@
 		[
 			[
 				"",
-				"/home/dfrodriguez/projects/copper/copper.sublime-project"
+				"/home/dfrodriguez/projects/blog/blog.sublime-project"
+			],
+			[
+				"blog",
+				"/home/dfrodriguez/projects/blog/blog.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -1003,6 +999,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 199.0,
+	"side_bar_width": 197.0,
 	"status_bar_visible": true
 }

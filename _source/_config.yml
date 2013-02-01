@@ -6,5 +6,3 @@ exclude:
     params.json
     fabfile.py
     fabfile.pyc
-    blog.sublime-project
-    blog.sublime-workspace

@@ -22,7 +22,7 @@ def _move(src_dir, dest_dir):
         dest = os.path.join(dest_dir, i)
         if os.path.exists(dest):
             if os.path.isdir(dest):
-                MoveOver(src, dest)
+                _move(src, dest)
                 continue
             else:
                 os.remove(dest)
