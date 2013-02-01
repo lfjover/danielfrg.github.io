@@ -1,17 +1,26 @@
 ---
 ---
 
+.drop-shadow(@x-axis: 0, @y-axis: 0, @blur: 15px, @alpha: 0.5) {
+  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+
+.drop-shadow-inside(@x-axis: 0, @y-axis: 0, @blur: 10px, @alpha: 0.79) {
+  -webkit-box-shadow: inset @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+
 @darkColor: #2B2B2B;
-
-.shadow (@style:0 0 15px, @c: @darkColor) {
-    box-shadow:         @style @c;
-    -webkit-box-shadow: @style @c;
-    -moz-box-shadow:    @style @c;
-}
-
-.inner-shadow {
-    box-shadow: inset 0 0 30px rgba(0,0,0,.79);
-}
 
 body {
     padding-top: 0px;
@@ -25,7 +34,7 @@ body {
         min-height: 30px;
         background: @darkColor;
         border: none;
-        .shadow;
+        .drop-shadow;
 
         .container {
             max-width: 950px;
@@ -136,13 +145,13 @@ body {
     .image-hero {
         height: 200px;
         background: @darkColor no-repeat center;
-        box-shadow: inset 0 0 10px rgba(0,0,0,.79);
+        .drop-shadow-inside;
     }
 
     .video-hero {
         margin-top: -20px;
-        background-color: @darkColor;
-        box-shadow: inset 0 0 10px rgba(0,0,0,.79);
+        background: @darkColor no-repeat center;
+        .drop-shadow-inside;
 
         .container {
             max-width: 950px;
@@ -163,9 +172,9 @@ body {
         padding: 0 0 20px 0;
         margin: 0px 0 20px 0;
         background: #fff;
-        .shadow(0 0 3px);
+        .drop-shadow(0,0,6px);
 
-        .video {
+        .featured-video {
             background-color: @darkColor;
             min-height: 520px;
 
@@ -174,12 +183,22 @@ body {
             }
         }
 
-        .image {
-            background: @darkColor no-repeat center;
-            height: 300px;
+        .featured-image {
+            min-height: 300px;
+            background-color: @darkColor;
+
+            .image {
+                min-height: 300px;
+                background: no-repeat center;
+                -webkit-filter: grayscale(70%) brightness(0%);
+            }
+
+            .image:hover {
+               -webkit-filter: grayscale(0%) brightness(5%);
+            }
         }
 
-        .text-box {
+        .preview {
             position: relative;
             width: 80%;
             margin: 0 auto;
@@ -283,7 +302,7 @@ Footer
     color: #777;
     text-align: center;
     font-size: 13px;
-    .shadow;
+    .drop-shadow;
 
     ul {
         margin: 0;
@@ -300,10 +319,6 @@ Footer
     #content {
         margin-top: 0px;
     }
-
-    .video-hero .container iframe {
-        min-height: 350px;
-    }
 }
 
 /* Tablet
@@ -312,9 +327,6 @@ Footer
     #content {
         margin-top: 0px;
     }
-    .video-hero .container iframe {
-        min-height: 350px;
-    }
 }
 
 /* Landscape phones
@@ -322,8 +334,5 @@ Footer
 @media (max-width: 480px) {
     #content {
         margin-top: 0px;
-    }
-    .video-hero .container iframe {
-        min-height: 150px;
     }
 }

@@ -19,15 +19,18 @@ title: Random thoughts about data analysis, python, and more
       {% endif %}
 
       {% if post.image %}
-        <div class="image" style="background-image: url({{post.image}});">
+        <div class="featured-image">
+          <a href="{{ post.url }}">
+            <div class="image" style="background-image: url({{post.image}});"></div>
+          </a>
         </div>
       {% endif %}
 
-      <div class='text-box'>
+      <div class='preview'>
         <div class="post-date">{{ post.date | date: "%B %e, %Y" }}</div>
         <a href="{{ post.url }}" class="entry-title"><h2>{{ post.title }}</h2></a>
         <p class="preview">{{ post.content | strip_html | truncatewords: 100 }}</p>
-        <a href="{{ post.id }}" class="more-link">Read more </a>
+        <a href="{{ post.url }}" class="more-link">Read more </a>
       </div>
   </div>
   {% endfor %}
