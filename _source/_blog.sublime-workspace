@@ -519,13 +519,25 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "_posts/2013/1/2013-2-3-d3.md",
+			"settings":
+			{
+				"buffer_size": 5247,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Python Virtual env",
 	"command_palette":
 	{
-		"height": 102.0,
+		"height": 56.0,
 		"selected_items":
 		[
+			[
+				"liqui",
+				"Set Syntax: HTML Liquid"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -591,7 +603,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 435.0
+		"width": 561.0
 	},
 	"console":
 	{
@@ -608,6 +620,17 @@
 	},
 	"file_history":
 	[
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-31-new-blog-using-jekyll-and-ipython.md",
+		"/home/dfrodriguez/projects/blog/_source/css/main.less",
+		"/home/dfrodriguez/projects/blog/_source/index.html",
+		"/home/dfrodriguez/projects/blog/_source/fabfile.py",
+		"/home/dfrodriguez/projects/blog/_source/css/elements.less",
+		"/home/dfrodriguez/projects/blog/_source/_layouts/article.html",
+		"/home/dfrodriguez/projects/blog/_source/about/index.html",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-26-copper-easy-data-analysis-on-python.html",
+		"/home/dfrodriguez/projects/blog/_source/_layouts/ipython.html",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-27-copper-machine-learning.html",
+		"/home/dfrodriguez/projects/blog/_source/_config.yml",
 		"/home/dfrodriguez/projects/copper/examples/data_analysis/week2/quiz2.py",
 		"/home/dfrodriguez/projects/copper/core/set.py",
 		"/home/dfrodriguez/projects/copper/core/ensemble.py",
@@ -724,18 +747,7 @@
 		"/etc/fonts/conf.d/90-fonts-nanum.conf",
 		"/etc/fonts/conf.d/65-droid-sans-fonts.conf",
 		"/home/dfrodriguez/Documents/packages/finance/plots/errorfill.py",
-		"/home/dfrodriguez/Documents/packages/finance/events/MultipleEvents.py",
-		"/home/dfrodriguez/Documents/packages/finance/plots/__init__.py",
-		"/home/dfrodriguez/.matplotlib/matplotlibrc",
-		"/home/dfrodriguez/Documents/packages/finance/test/AllTets.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/events/EventFinder.py",
-		"/home/dfrodriguez/Documents/packages/finance/test/events/MultipleEvents.py",
-		"/home/dfrodriguez/Documents/packages/finance/events/EventFinder.py",
-		"/home/dfrodriguez/Documents/packages/finance/events/Condition.py",
-		"/home/dfrodriguez/Documents/packages/finance/events/SampleConditions.py",
-		"/home/dfrodriguez/Documents/packages/finance/examples/Basic/EventStudy_Finder.py",
-		"/home/dfrodriguez/Documents/packages/finance/utils/FileManager.py",
-		"/home/dfrodriguez/Documents/packages/finance/utils/DataAccess.py"
+		"/home/dfrodriguez/Documents/packages/finance/events/MultipleEvents.py"
 	],
 	"find":
 	{
@@ -753,6 +765,18 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"files",
+			"%);",
+			"hover",
+			"shadow",
+			".drop-shadow(0,0,15px);",
+			".drop-",
+			"drop-shadow",
+			".shadow",
+			"drop-shadow",
+			".shadow",
+			"shadow",
+			"hover",
 			"clf",
 			"add_model",
 			"pl",
@@ -868,19 +892,7 @@
 			"ans",
 			"space",
 			"_put_str",
-			"print",
-			"TODO",
-			"_put_str",
-			"info(",
-			"_put",
-			"__unicode",
-			"info",
-			"_need_info_repr_",
-			"__unicode__",
-			"print",
-			"                 ",
-			"DataFrame(",
-			"DataFrame(self"
+			"print"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -898,8 +910,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "_posts/2013/1/2013-2-3-d3.md",
+					"settings":
+					{
+						"buffer_size": 5247,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4008,
+								4008
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1447.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -986,7 +1027,7 @@
 		[
 			[
 				"",
-				"/home/dfrodriguez/projects/blog/blog.sublime-project"
+				"/home/dfrodriguez/projects/copper/copper.sublime-project"
 			],
 			[
 				"blog",

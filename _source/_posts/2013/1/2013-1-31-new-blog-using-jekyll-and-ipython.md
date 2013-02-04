@@ -1,6 +1,6 @@
 ---
 layout: article
-title: How I blog - jekyll & python
+title: New blog using Jekyll & iPython
 image: /img/posts/2013/1/writting.jpg
 ---
 
