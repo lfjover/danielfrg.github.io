@@ -2,8 +2,10 @@
 layout: default
 ---
 <div id="content" class="post-single">
-    {% if page.image %}
-      <div class="image-hero" style="background-image: url({{page.image}});"></div>
+    {% if page.hero_image %}
+        <div class="image-hero" style="background-image: url({{page.hero_image}});
+            {% if page.hero_height %} height:{{page.hero_height}}; {% endif %}">
+        </div>
     {% endif %}
 
     {% if page.youtubeID %}

@@ -6,7 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width">
   <meta name="author" content="Daniel Rodriguez" />
-  <meta name="description" content="Data analysis, python">
+  {% if page.desc %}
+    <meta name="description" content="{{ page.desc }}">
+  {% else %}
+    <meta name="description" content="{{ page.content | strip_html | truncatewords: 20 }}">
+  {% endif %}
   <title>{{ page.title }} | Daniel Rodriguez</title>
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
