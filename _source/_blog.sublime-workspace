@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"co",
+				"commit_msg"
+			],
+			[
 				"ense",
 				"_ensembled"
 			],
@@ -162,10 +166,6 @@
 			[
 				"fi",
 				"filepath"
-			],
-			[
-				"co",
-				"copper"
 			],
 			[
 				"mon",
@@ -523,9 +523,21 @@
 	"build_system": "Python Virtual env",
 	"command_palette":
 	{
-		"height": 56.0,
+		"height": 217.0,
 		"selected_items":
 		[
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"liui",
+				"Set Syntax: HTML Liquid"
+			],
 			[
 				"liqui",
 				"Set Syntax: HTML Liquid"
@@ -555,10 +567,6 @@
 				"Package Control: Disable Package"
 			],
 			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
 				"CONVER",
 				"Indentation: Convert to Tabs"
 			],
@@ -573,10 +581,6 @@
 			[
 				"packagre",
 				"Package Control: Discover Packages"
-			],
-			[
-				"disa",
-				"Package Control: Disable Package"
 			],
 			[
 				"disabl",
@@ -612,18 +616,23 @@
 	},
 	"file_history":
 	[
-		"/home/dfrodriguez/projects/blog/_source/css/main.less",
+		"/home/dfrodriguez/projects/blog/_source/fabfile.py",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/2/2013-2-4-coursera-data-analysis-quiz-2-python.html",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/Post_3.html",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-27-copper-machine-learning.html",
+		"/home/dfrodriguez/projects/blog/_source/_layouts/article.html",
 		"/home/dfrodriguez/projects/blog/_source/index.html",
+		"/home/dfrodriguez/projects/blog/_source/css/main.less",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-31-new-blog-using-jekyll-and-ipython.md",
+		"/home/dfrodriguez/projects/blog/_source/_utils/fabfile.py",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/Post_2.html",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-30-copper-bootstrap-and-bagging.html",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/Post_3.ipynb",
+		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-26-copper-easy-data-analysis-on-python.html",
 		"/home/dfrodriguez/projects/blog/_source/_layouts/default.html",
 		"/home/dfrodriguez/projects/blog/_source/about/index.html",
 		"/home/dfrodriguez/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/dfrodriguez/projects/blog/_source/_posts/2013/2/2013-2-5-d3-backbone-tornado-histogram-csv.md",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-27-copper-machine-learning.html",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-30-copper-bootstrap-and-bagging.html",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/2/2013-2-4-coursera-data-analysis-quiz-2-python.html",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-31-new-blog-using-jekyll-and-ipython.md",
-		"/home/dfrodriguez/projects/blog/_source/_layouts/article.html",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-26-copper-easy-data-analysis-on-python.html",
 		"/home/dfrodriguez/projects/blog/_source/index2.html",
 		"/home/dfrodriguez/projects/blog/_source/_posts/2013/2/2013-2-5-d3.md",
 		"/home/dfrodriguez/projects/copper/explore/static/js/main.js",
@@ -635,7 +644,6 @@
 		"/home/dfrodriguez/projects/blog/_source/_posts/2013/2/2013-2-4-cousera-data-analysis-quiz-2-python.html",
 		"/home/dfrodriguez/projects/blog/_source/_posts/2013/2/2013-2-4-cousera-data--analysis-quiz-2-python.html",
 		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-2-3-d3.md",
-		"/home/dfrodriguez/projects/blog/_source/fabfile.py",
 		"/home/dfrodriguez/projects/blog/_source/css/elements.less",
 		"/home/dfrodriguez/projects/blog/_source/_layouts/ipython.html",
 		"/home/dfrodriguez/projects/blog/_source/_config.yml",
@@ -735,11 +743,7 @@
 		"/home/dfrodriguez/projects/web/hellodjango/Procfile",
 		"/home/dfrodriguez/projects/web/hellodjango/requirements.txt",
 		"/home/dfrodriguez/projects/packages/finance/finance.sublime-workspace",
-		"/home/dfrodriguez/projects/packages/finance/examples/ItCFaFE/Assignment 3 - Computations/Solution.py",
-		"/home/dfrodriguez/projects/packages/finance/examples/ItCFaFE/README.md",
-		"/home/dfrodriguez/projects/packages/finance/examples/Combining/Example 5/Solution.py",
-		"/home/dfrodriguez/projects/packages/finance/examples/Combining/Example 3/Solution.py",
-		"/home/dfrodriguez/projects/packages/finance/examples/Basic/EventStudy_Multiple.py"
+		"/home/dfrodriguez/projects/packages/finance/examples/ItCFaFE/Assignment 3 - Computations/Solution.py"
 	],
 	"find":
 	{
