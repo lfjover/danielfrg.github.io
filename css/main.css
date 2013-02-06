@@ -182,6 +182,16 @@ body {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+.post-single .date {
+  color: #555;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  width: 100%;
+  display: inline-block;
+}
 .post-single .social {
   max-width: 750px;
   margin-bottom: 50px;

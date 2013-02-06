@@ -36,7 +36,7 @@ desc: Python, Javascript examples and tutorials for data analysis.
       {% endif %}
 
       <div class='preview'>
-        <div class="post-date">{{ post.date | date: "%B %e, %Y" }}</div>
+        <!-- <div class="post-date">{{ post.date | date: "%B %e, %Y" }}</div> -->
         <a href="{{ post.url }}" class="entry-title"><h2>{{ post.title }}</h2></a>
         <p>{{ post.content | strip_html | truncatewords: 100 }}</p>
         <a href="{{ post.url }}" class="more-link">Read more </a>

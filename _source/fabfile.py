@@ -39,7 +39,7 @@ def move():
     _move(src_dir, dest_dir)
 
 def deploy(commit_msg):
-    # clean()
+    clean()
     move()
     local("git add . && git commit -am '%s'" % commit_msg)
     local("git push")
