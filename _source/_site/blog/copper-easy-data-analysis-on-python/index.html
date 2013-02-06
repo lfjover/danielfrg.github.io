@@ -1,14 +1,74 @@
----
-layout: ipython
-title: Copper - Easy data analysis and machine learning on python
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Daniel Rodriguez" />
+  
+    <meta name="description" content="As part of my Master in IT &amp; Management this semester I am taking a class called "Advanced Business Intelligence"...">
+  
+  <title>Copper - Easy data analysis and machine learning on python | Daniel Rodriguez</title>
 
-featured_image: /img/blog/2013/1/copper-sublime.png
-featured_height: 230px
-hero_image: /img/blog/2013/1/copper-sublime.png
-hero_height: 230px
----
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/fonts/ss-social.css">
+  <!-- <link rel="stylesheet" href="/css/fonts/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-<div class="ipynb">
+  
+    <link rel="stylesheet" href="/css/ipython.min.css">
+  
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+<!-- =================================================
+                  Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav left">
+        <li>
+          <a href="/index.html">Blog</a>
+        </li>
+        <li>
+          <a href="/about/">About</a>
+        </li>
+         <li>
+          <a href="/archive/">Archive</a>
+        </li>
+      </ul>
+
+      <ul class="nav right">
+        <li><a href="https://twitter.com/danielfrg" class="ss-icon ss-social-circle">twitter</a></li>
+        <li><a href="https://github.com/danielfrg" class="ss-icon ss-social-circle">github</a></li>
+        <li><a href="mailto:df.rodriguez143@gmail.com?Subject=Hello" class="ss-icon ss-social-circle">mail</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="content" class="post-single">
+    
+        <div class="image-hero" style="background-image: url(/img/blog/2013/1/copper-sublime.png);
+             height:230px; ">
+        </div>
+    
+
+    
+
+    
+
+
+    <div class="post container">
+        <h1>Copper - Easy data analysis and machine learning on python</h1>
+        <div class="ipynb">
 
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As part of my Master in IT &amp; Management this semester I am taking a class called "Advanced Business Intelligence" which is the same as machine learning or data analysis to the Business people; in general they teach how to use SAS (Enteprise Miner) to do data mining.</p>
@@ -800,3 +860,136 @@ dtypes: float64(7), int64(26)</pre>
 </div>
 
 </div>
+
+
+<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+    </div>
+
+    <div class="post social container row-fluid">
+        <div class="span3">
+            <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+        </div>
+        <div class="span3">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="danielfrg">Tweet</a>
+        </div>
+
+        <div class="span3">
+            <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
+        </div>
+
+        <div class="span3 hn">
+            <span id="hnews"></span>
+        </div>
+    </div>
+
+    <script>
+    (function(doc, script) {
+
+        //Async Social Buttons
+        var js,
+            fjs = doc.getElementsByTagName(script)[0],
+            add = function(url, id) {
+                if (doc.getElementById(id)) {return;}
+                js = doc.createElement(script);
+                js.src = url;
+                id && (js.id = id);
+                fjs.parentNode.insertBefore(js, fjs);
+            };
+
+        // Twitter SDK
+        add('//platform.twitter.com/widgets.js', 'twitter-wjs');
+
+        // Google+ button
+        add('https://apis.google.com/js/plusone.js');
+
+        // Facebook SDK
+        add('//connect.facebook.net/en_GB/all.js#xfbml=1&appId=205602882797935', 'facebook-jssdk');
+
+        //Hacker News Button
+        var hn_like = document.createElement('iframe');
+          hn_like.frameborder="no";
+          hn_like.scrolling="no";
+          hn_like.height="28px";
+          hn_like.width="110px";
+          hn_like.src = "http://hnlike.com/upvote.php?link="
+                        + encodeURIComponent(document.location)
+                        + "&title="
+                        + encodeURIComponent("Implementation of Social Sharing into Jekyll");
+          hn_like.innerHTML="iframes not supported by your browser";
+
+          var where = document.getElementById("hnews");
+          where.parentNode.insertBefore(
+            hn_like,
+            where
+          );
+    }(document, 'script'));
+    </script>
+
+    <div id="disqus_thread" class="comments container"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'danielfrg'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+
+<!-- =================================================
+                  Footer
+================================================== -->
+<footer class="footer">
+  <div class="container">
+    <ul>
+      <li>Designed &amp; Written by Daniel Rodriguez</li>
+      <li class="muted">&middot;</li>
+      <li>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a></li>
+      <li class="muted">&middot;</li>
+      <li>Licensed under <a href="http://creativecommons.org">Creative Commons</a>.</li>
+    </ul>
+  </div>
+</footer>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35523657-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>
