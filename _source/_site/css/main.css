@@ -29,6 +29,7 @@ body {
 #content a {
   color: #307EA9;
   cursor: auto;
+  text-decoration: none;
 }
 #content a:hover {
   text-decoration: underline;
@@ -192,23 +193,39 @@ body {
   width: 100%;
   display: inline-block;
 }
-.post-single .social {
-  max-width: 750px;
-  margin-bottom: 50px;
-}
-.post-single .social .hn iframe {
-  margin: -9px 0 0 -8px;
-  border: none;
-}
-.post-single .comments {
-  max-width: 950px;
-}
 .post-single .text_cell_render {
   font-size: 15px;
   line-height: 175%;
   text-indent: 2em;
   text-align: justify;
   font-family: 'Open Sans', Helvetica, sans-serif;
+}
+.post-single .extra {
+  padding-top: 10px;
+  background: #2b2b2b;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.post-single .extra .metadata {
+  color: #777;
+}
+.post-single .extra a {
+  color: #0088cc;
+}
+.post-single .extra .container {
+  max-width: 750px;
+}
+.post-single .extra .social {
+  max-width: 750px;
+}
+.post-single .extra .social .hn iframe {
+  margin: -9px 0 0 -8px;
+  border: none;
+}
+.post-single .extra .comments {
+  max-width: 950px;
+  padding-top: 35px;
 }
 .about {
   font-size: 20px;
@@ -246,9 +263,6 @@ Footer
   color: #777;
   text-align: center;
   font-size: 13px;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 .footer ul {
   margin: 0;
