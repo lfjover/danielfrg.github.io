@@ -45,6 +45,8 @@ header = header.replace('html, body', '\n'.join(('pre.ipynb {',
 body = '<div class="ipynb">\n\n' + body + "\n\n</div>"
 header = header.replace('body {', 'div.ipynb {')
 
+# Modify max-width for tables
+body = body.replace('max-width:1500px;', 'max-width:650px;')
 
 # specialize headers
 header = header.replace('html, body,',

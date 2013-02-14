@@ -1,0 +1,956 @@
+---
+layout: ipython
+title: Copper - Quick data transformations
+categories: copper
+---
+
+<div class="ipynb">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Today I start working on the first assignment for the Coursera's Data Analysis course and I needed to make some basic transformation on the data so decide to include them on <a href="https://github.com/danielfrg/copper">copper</a>. </p>
+<p>I realize I was making some wrong decisions on the Type metadata on the Dataset. Since the money type is just a number (similar to a percent number on the case of this example) it is not necessary to have it as a different type, just make the transformations I was doing so I decide to remove the Money type, now the only types are Number and Category.</p>
+<p>Lets dive into the example: dataset: <a href="https://raw.github.com/danielfrg/copper/master/examples/loans/data/loansData.csv">loansData.csv</a></p>
+<p>Import copper and set the project path</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">copper</span>
+<span class="n">copper</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s">&#39;../&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Load the data into a pandas DataFrame and see the first rows</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">loans</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;loansData.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">loans</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:650px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Amount.Requested</th>
+      <th>Amount.Funded.By.Investors</th>
+      <th>Interest.Rate</th>
+      <th>Loan.Length</th>
+      <th>Loan.Purpose</th>
+      <th>Debt.To.Income.Ratio</th>
+      <th>State</th>
+      <th>Home.Ownership</th>
+      <th>Monthly.Income</th>
+      <th>FICO.Range</th>
+      <th>Open.CREDIT.Lines</th>
+      <th>Revolving.CREDIT.Balance</th>
+      <th>Inquiries.in.the.Last.6.Months</th>
+      <th>Employment.Length</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>81174</th>
+      <td> 20000</td>
+      <td> 20000</td>
+      <td>  8.90%</td>
+      <td> 36 months</td>
+      <td> debt_consolidation</td>
+      <td> 14.90%</td>
+      <td> SC</td>
+      <td> MORTGAGE</td>
+      <td>  6541.67</td>
+      <td> 735-739</td>
+      <td> 14</td>
+      <td> 14272</td>
+      <td> 2</td>
+      <td> &lt; 1 year</td>
+    </tr>
+    <tr>
+      <th>99592</th>
+      <td> 19200</td>
+      <td> 19200</td>
+      <td> 12.12%</td>
+      <td> 36 months</td>
+      <td> debt_consolidation</td>
+      <td> 28.36%</td>
+      <td> TX</td>
+      <td> MORTGAGE</td>
+      <td>  4583.33</td>
+      <td> 715-719</td>
+      <td> 12</td>
+      <td> 11140</td>
+      <td> 1</td>
+      <td>  2 years</td>
+    </tr>
+    <tr>
+      <th>80059</th>
+      <td> 35000</td>
+      <td> 35000</td>
+      <td> 21.98%</td>
+      <td> 60 months</td>
+      <td> debt_consolidation</td>
+      <td> 23.81%</td>
+      <td> CA</td>
+      <td> MORTGAGE</td>
+      <td> 11500.00</td>
+      <td> 690-694</td>
+      <td> 14</td>
+      <td> 21977</td>
+      <td> 1</td>
+      <td>  2 years</td>
+    </tr>
+    <tr>
+      <th>15825</th>
+      <td> 10000</td>
+      <td>  9975</td>
+      <td>  9.99%</td>
+      <td> 36 months</td>
+      <td> debt_consolidation</td>
+      <td> 14.30%</td>
+      <td> KS</td>
+      <td> MORTGAGE</td>
+      <td>  3833.33</td>
+      <td> 695-699</td>
+      <td> 10</td>
+      <td>  9346</td>
+      <td> 0</td>
+      <td>  5 years</td>
+    </tr>
+    <tr>
+      <th>33182</th>
+      <td> 12000</td>
+      <td> 12000</td>
+      <td> 11.71%</td>
+      <td> 36 months</td>
+      <td>        credit_card</td>
+      <td> 18.78%</td>
+      <td> NJ</td>
+      <td>     RENT</td>
+      <td>  3195.00</td>
+      <td> 695-699</td>
+      <td> 11</td>
+      <td> 14469</td>
+      <td> 0</td>
+      <td>  9 years</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are some transformations to be done:</p>
+<ol>
+<li>Interest.Rate to Number</li>
+<li>Loan.Lenght to Number</li>
+<li>Debt.To.Income.Ratio to Number</li>
+<li>FICO.Rate to Number</li>
+<li>Employment.Length to Number</li>
+</ol>
+<p>Notice a pattern? xD. Thats where I realize I was doing the wrong about a type only for money columns on the previous examples, is just a number so just define it like number.</p>
+<p>Lets load the data into a Dataset and see the metadata</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">loans</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:650px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Role</th>
+      <th>Type</th>
+      <th>dtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Amount.Requested</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>Amount.Funded.By.Investors</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Interest.Rate</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Loan.Length</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Loan.Purpose</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Debt.To.Income.Ratio</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Home.Ownership</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Monthly.Income</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>FICO.Range</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Open.CREDIT.Lines</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Revolving.CREDIT.Balance</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Inquiries.in.the.Last.6.Months</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Employment.Length</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now all columns with dtype of float or int are Number and the rest are Category no other unnecessay types such as Money</p>
+<p>Let's convert Interest.Rate, Loan.Lenght, Debt.To.Income.Ratio to Numbers</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;Interest.Rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">NUMBER</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;Loan.Length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">NUMBER</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;Debt.To.Income.Ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">NUMBER</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="p">[[</span><span class="s">&#39;Interest.Rate&#39;</span><span class="p">,</span> <span class="s">&#39;Loan.Length&#39;</span><span class="p">,</span> <span class="s">&#39;Debt.To.Income.Ratio&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:650px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Interest.Rate</th>
+      <th>Loan.Length</th>
+      <th>Debt.To.Income.Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>81174</th>
+      <td>  8.90</td>
+      <td> 36</td>
+      <td> 14.90</td>
+    </tr>
+    <tr>
+      <th>99592</th>
+      <td> 12.12</td>
+      <td> 36</td>
+      <td> 28.36</td>
+    </tr>
+    <tr>
+      <th>80059</th>
+      <td> 21.98</td>
+      <td> 60</td>
+      <td> 23.81</td>
+    </tr>
+    <tr>
+      <th>15825</th>
+      <td>  9.99</td>
+      <td> 36</td>
+      <td> 14.30</td>
+    </tr>
+    <tr>
+      <th>33182</th>
+      <td> 11.71</td>
+      <td> 36</td>
+      <td> 18.78</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see that the values are transformed. Inside copper uses a very simple regular expression to find the first number on each entry so it works for many cases, such as money values, percent values or even custom values such as '36 months' to '36'.</p>
+<p>Let's check the metadata,</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:650px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Role</th>
+      <th>Type</th>
+      <th>dtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Amount.Requested</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>Amount.Funded.By.Investors</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Interest.Rate</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Loan.Length</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Loan.Purpose</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Debt.To.Income.Ratio</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Home.Ownership</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Monthly.Income</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>FICO.Range</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Open.CREDIT.Lines</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Revolving.CREDIT.Balance</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Inquiries.in.the.Last.6.Months</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Employment.Length</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So far so good. Now is necessary to convert <code>Employment.Length</code> to number to but this column is special. It has two values that the regular expression is going to match as the same: "&lt; 1 years" and "1 year" are both going to be converted to just '1'. We need to fix that.
+So I convert the '&lt; 1 year' values to '0 years' and then use the copper transformation.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="p">[</span><span class="s">&#39;Employment.Length&#39;</span><span class="p">][</span><span class="n">dataset</span><span class="p">[</span><span class="s">&#39;Employment.Length&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;&lt; 1 year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;0 years&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="p">[[</span><span class="s">&#39;Employment.Length&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c"># Checking</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:650px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Employment.Length</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>81174</th>
+      <td> 0 years</td>
+    </tr>
+    <tr>
+      <th>99592</th>
+      <td> 2 years</td>
+    </tr>
+    <tr>
+      <th>80059</th>
+      <td> 2 years</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;Employment.Length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">NUMBER</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="p">[[</span><span class="s">&#39;Employment.Length&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:650px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Employment.Length</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>81174</th>
+      <td> 0</td>
+    </tr>
+    <tr>
+      <th>99592</th>
+      <td> 2</td>
+    </tr>
+    <tr>
+      <th>80059</th>
+      <td> 2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The final transformation is the 'Fico.Range' column, on this example is possible to see that the second number is just the first number plus four, so we can just use the same regular expression and get the first number. </p>
+<p>But lets say we want to see what would happen on case of using it.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">copper</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">to_number</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s">&#39;FICO.Range&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">81174    735
+99592    715
+80059    690
+15825    695
+33182    695
+Name: FICO.Range</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That is exactly what we want so lets use the transformation.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;FICO.Range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">NUMBER</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally let's see the final table and metadata</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[18]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:650px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Amount.Requested</th>
+      <th>Amount.Funded.By.Investors</th>
+      <th>Interest.Rate</th>
+      <th>Loan.Length</th>
+      <th>Loan.Purpose</th>
+      <th>Debt.To.Income.Ratio</th>
+      <th>State</th>
+      <th>Home.Ownership</th>
+      <th>Monthly.Income</th>
+      <th>FICO.Range</th>
+      <th>Open.CREDIT.Lines</th>
+      <th>Revolving.CREDIT.Balance</th>
+      <th>Inquiries.in.the.Last.6.Months</th>
+      <th>Employment.Length</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>81174</th>
+      <td> 20000</td>
+      <td> 20000</td>
+      <td>  8.90</td>
+      <td> 36</td>
+      <td> debt_consolidation</td>
+      <td> 14.90</td>
+      <td> SC</td>
+      <td> MORTGAGE</td>
+      <td>  6541.67</td>
+      <td> 735</td>
+      <td> 14</td>
+      <td> 14272</td>
+      <td> 2</td>
+      <td> 0</td>
+    </tr>
+    <tr>
+      <th>99592</th>
+      <td> 19200</td>
+      <td> 19200</td>
+      <td> 12.12</td>
+      <td> 36</td>
+      <td> debt_consolidation</td>
+      <td> 28.36</td>
+      <td> TX</td>
+      <td> MORTGAGE</td>
+      <td>  4583.33</td>
+      <td> 715</td>
+      <td> 12</td>
+      <td> 11140</td>
+      <td> 1</td>
+      <td> 2</td>
+    </tr>
+    <tr>
+      <th>80059</th>
+      <td> 35000</td>
+      <td> 35000</td>
+      <td> 21.98</td>
+      <td> 60</td>
+      <td> debt_consolidation</td>
+      <td> 23.81</td>
+      <td> CA</td>
+      <td> MORTGAGE</td>
+      <td> 11500.00</td>
+      <td> 690</td>
+      <td> 14</td>
+      <td> 21977</td>
+      <td> 1</td>
+      <td> 2</td>
+    </tr>
+    <tr>
+      <th>15825</th>
+      <td> 10000</td>
+      <td>  9975</td>
+      <td>  9.99</td>
+      <td> 36</td>
+      <td> debt_consolidation</td>
+      <td> 14.30</td>
+      <td> KS</td>
+      <td> MORTGAGE</td>
+      <td>  3833.33</td>
+      <td> 695</td>
+      <td> 10</td>
+      <td>  9346</td>
+      <td> 0</td>
+      <td> 5</td>
+    </tr>
+    <tr>
+      <th>33182</th>
+      <td> 12000</td>
+      <td> 12000</td>
+      <td> 11.71</td>
+      <td> 36</td>
+      <td>        credit_card</td>
+      <td> 18.78</td>
+      <td> NJ</td>
+      <td>     RENT</td>
+      <td>  3195.00</td>
+      <td> 695</td>
+      <td> 11</td>
+      <td> 14469</td>
+      <td> 0</td>
+      <td> 9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">dataset</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[19]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:650px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Role</th>
+      <th>Type</th>
+      <th>dtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Amount.Requested</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>Amount.Funded.By.Investors</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Interest.Rate</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Loan.Length</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Loan.Purpose</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Debt.To.Income.Ratio</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Home.Ownership</th>
+      <td> Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>Monthly.Income</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>FICO.Range</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Open.CREDIT.Lines</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Revolving.CREDIT.Balance</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Inquiries.in.the.Last.6.Months</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>Employment.Length</th>
+      <td> Input</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The values are correct and the metadata matches the information on the table, we are done. Now is possible to do some machine learning on the data. </p>
+<p>Finally let's save the dataset for future use.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">copper</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="s">&#39;loans&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As usual the code is on github: <a href="https://github.com/danielfrg/copper">copper</a>.</p>
+</div>
+
+</div>

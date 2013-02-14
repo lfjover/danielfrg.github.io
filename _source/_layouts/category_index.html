@@ -1,15 +1,14 @@
 ---
 layout: default
-title: Archive
 ---
 
 <div id="content" class="archives">
     <div class="image-hero" style="background-image: url(/archive/hero.jpg);"></div>
 
     <div class="list container">
-        <h1>Archive</h1>
+        <h1>{{ page.title }}</h1>
         <ul>
-            {% for post in site.posts %}
+            {% for post in site.categories[page.category] %}
             <li>
                 <span>{{ post.date | date: "%B %e, %Y" }}</span>
                 <a class="entry-title" href={{ post.url }}>{{ post.title }}</a>
@@ -18,5 +17,4 @@ title: Archive
         </ul>
     </div>
 </div>
-
 
