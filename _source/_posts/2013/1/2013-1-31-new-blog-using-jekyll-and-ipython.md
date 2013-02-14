@@ -1,6 +1,7 @@
 ---
 layout: article
 title: New blog using Jekyll & iPython
+categories: Jekyll iPython
 
 featured_image: /img/blog/2013/1/writting.jpg
 hero_image: /img/blog/2013/1/writting.jpg

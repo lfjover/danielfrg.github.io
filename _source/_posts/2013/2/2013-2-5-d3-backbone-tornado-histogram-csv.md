@@ -2,6 +2,7 @@
 layout: article
 title: Using D3, backbone and tornado to visualize histograms of a csv file
 code: true
+categories: D3.js backbone javascript python
 
 featured_image: /img/blog/2013/2/d3_backbone_hist.png
 hero_image: /img/blog/2013/2/d3_backbone_hist.png
