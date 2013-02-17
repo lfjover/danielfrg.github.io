@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page">
+    <div class="image-hero" style="background-image: url(/static/images/archive.jpg);"></div>
+    <div class="container">
+        <div class="list">
+            <h1>{% block title %}{% endblock %}</h1>
+            <ul>
+            {% for article in dates %}
+                <li>
+                    <span>{{ article.locale_date }}</span>
+                    <a class="entry-title" href='{{ article.url }}'>{{ article.title }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

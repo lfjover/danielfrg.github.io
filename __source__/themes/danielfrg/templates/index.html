@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Random thoughts about data analysis, python, and more{% endblock %}
+{% block content %}
+<div class="index">
+<div class="container">
+    {% for article in articles %}
+    <div class='post-box'>
+        {% if article.featured_image %}
+        <div class="featured-image">
+          <a href="{{ article.url }}">
+            <div class="image" style="background-image: url(/static/images/{{article.featured_image}});
+              {% if article.featured_height %} height:{{article.featured_height}}; {% endif %}">
+            </div>
+          </a>
+        </div>
+        {% endif %}
+
+        {% if article.featured_youtube %}
+            <div class="video">
+              <iframe width="100%"
+              height="{% if article.featured_height %}{{article.featured_height}}{% else %}80%{% endif %}"
+              src="http://www.youtube.com/embed/{{article.featured_youtube}}?html5=1" frameborder="0" allowfullscreen></iframe>
+            </div>
+        {% endif %}
+
+        {% if article.featured_vimeo %}
+            <div class="video">
+              <iframe src="http://player.vimeo.com/video/{{article.featured_vimeo}}" width="100%"
+              height="{% if article.featured_height %}{{article.featured_height}}{% else %}80%{% endif %}"
+              frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            </div>
+        {% endif %}
+
+        <div class='preview'>
+            <a href="{{ SITEURL }}/{{ article.url }}" class="entry-title"><h2>{{ article.title }}</h2></a>
+            <p>{{ article.content | striptags | truncate(600) }}</p>
+            <a href="{{ SITEURL }}/{{ article.url }}" class="more-link">Read more </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

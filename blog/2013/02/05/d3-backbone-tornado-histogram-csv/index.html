@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Daniel Rodriguez" />
+    <title>Using D3, backbone and tornado to visualize histograms of a csv file | Daniel Rodriguez</title>
+
+    <link href="../../../../../" type="application/atom+xml" rel="alternate" title="Daniel Rodriguez ATOM Feed" />
+    <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
+    <link rel="stylesheet" href="/theme/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/theme/css/pygments.min.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+    </head>
+
+<body>
+<a class='github-ribbon' href="https://github.com/danielfrg"><img style="z-index: 2000; position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav left">
+        <li>
+          <a href="/index.html">Blog</a>
+        </li>
+        <li>
+          <a href="/about/">About</a>
+        </li>
+         <li>
+          <a href="/archives.html">Archive</a>
+        </li>
+      </ul>
+
+      <ul class="nav right">
+        <li><a href="https://twitter.com/danielfrg" class="ss-icon ss-social-circle">twitter</a></li>
+        <li><a href="https://github.com/danielfrg" class="ss-icon ss-social-circle">github</a></li>
+        <li><a href="mailto:df.rodriguez143@gmail.com?Subject=Hello" class="ss-icon ss-social-circle">mail</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="content"><div class="post-single">
+            <div class="image-hero" style="background-image: url(/static/images/blog/2013/2/d3_backbone_hist.png);
+             height:600px; ">
+        </div>
+    
+    
+    
+    <div class="container">
+        <header>
+            <h1>Using D3, backbone and tornado to visualize histograms of a csv file</h1>
+            <time datetime="2013-02-05T00:00:00">Tue 05 February 2013</time>
+        </header>
+        <article>
+            <p>After being procrastinating for weeks the learning of <a href="http://d3js.org">D3.js</a> and <a href="http://backbonejs.org">backbone.js</a> I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):</p>
+<ul>
+<li>Great web frameworks as <a href="https://www.djangoproject.com">Django</a> and <a href="http://www.tornadoweb.org">Tornado</a> - "fighting" with ruby (<a href="rubyonrails.org">rails</a>)</li>
+<li>Great Data Analysis packages such as <a href="http://pandas.pydata.org/">pandas</a> - "fighting" with <a href="http://www.r-project.org">R</a></li>
+<li>Great machine-learning libraries such as <a href="http://scikit-learn.org/">scikit-learn</a></li>
+<li>Probably not the most successful but has a good gaming library <a href="http://www.pygame.org/">pyGame</a></li>
+<li>Is a great general purpose language - I use it to program a robot for a NASA competition using a PS3 controller, serial-ports, web-server, cameras, and all in one language</li>
+<li>And the list could go for hours</li>
+</ul>
+<p>For me that is the python killer feature: do <strong>anything</strong> on one language, sometimes the community is not big enough and is necessary the help of a genius like <a href="http://wesmckinney.com">Wes Mckinney</a> to create <a href="http://pandas.pydata.org/">pandas</a> but in general the community is great.</p>
+<p>The Javascript community is in a similar condition everyday new libraries come up and change how people do stuff, such as <a href="http://d3js.org">D3.js</a> changed how people do interactive visualizations.</p>
+<p>So I finally got out of my python comfort zone and re-learn Javascript, I had used it but was very simple examples using JQuery and a very long time ago, everything has changed now the cool people use Backbone.js which is a <strong>fabulous</strong> creation to give structure to Javascript. So I read a lot of beginner tutorials of backbone and D3 and this is the result.</p>
+<h2>What I wanted</h2>
+<p>For <a href="https://github.com/danielfrg/copper">copper</a>, my python data analysis library, I use matplotlib to plot histograms like this:</p>
+<p><img alt="Matplotlib Histogram" src="/static/images/blog/2013/2/matplotlib_hist.png" title="Matplotlib histogram" /></p>
+<p>The histograms work and are great so I wanted to do the same with D3.js to explore a <code>csv</code> file using pandas.</p>
+<p>Data - I am using data from a Business Intelligence project I am currently working on, available here: <a href="https://raw.github.com/danielfrg/copper/master/tests/data/expedia/train.csv">expedia.csv</a></p>
+<h2>Python: REST API</h2>
+<p>To use backbone is necessary to have a RESTful API, I select <a href="http://www.tornadoweb.org">Tornado</a> and <a href="http://pandas.pydata.org/">pandas</a> to do that I was tempted to use <a href="http://nodejs.org/">node</a> but at the end of the day I want to keep adding features to <a href="https://github.com/danielfrg/copper">copper</a>. The API is the following:</p>
+<ul>
+<li><code>/columns</code> returns a list of the columns of the <code>csv</code> file</li>
+<li><code>/hist/{id}</code> return necessary data of the columns <code>id</code> to create the histogram</li>
+</ul>
+<p>Some relevant code:</p>
+<div class="codehilite"><pre><span class="k">class</span> <span class="nc">HistogramHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col_id</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;explore.csv&#39;</span><span class="p">)</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">col_id</span><span class="p">)]]</span>
+        <span class="n">nans</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="o">-</span> <span class="n">col</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+        <span class="n">ans</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ans</span><span class="p">[</span><span class="s">&#39;col_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">ans</span><span class="p">[</span><span class="s">&#39;nans&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nans</span>
+        <span class="n">ans</span><span class="p">[</span><span class="s">&#39;values&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">ans</span><span class="p">))</span>
+
+<span class="n">application</span> <span class="o">=</span> <span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">([</span>
+    <span class="p">(</span><span class="s">r&quot;/&quot;</span><span class="p">,</span> <span class="n">MainHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&quot;/hist/([0-9]+)&quot;</span><span class="p">,</span> <span class="n">HistogramHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&quot;/columns&quot;</span><span class="p">,</span> <span class="n">ColumnsHandler</span><span class="p">),</span>
+<span class="p">],</span> <span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">)</span>
+</pre></div>
+
+
+<p>calling <code>/columns</code> returns this:</p>
+<div class="codehilite"><pre><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;x1&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;x2&quot;</span><span class="p">},</span> <span class="err">...</span> <span class="p">,</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;x40&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;depend&quot;</span><span class="p">}]</span>
+</pre></div>
+
+
+<p>calling <code>/hist/2</code> returns this:</p>
+<div class="codehilite"><pre><span class="p">{</span><span class="nt">&quot;col_name&quot;</span><span class="p">:</span> <span class="s2">&quot;x3&quot;</span><span class="p">,</span> <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="err">...</span> <span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="nt">&quot;nans&quot;</span><span class="p">:</span> <span class="mi">102</span><span class="p">}</span>
+</pre></div>
+
+
+<h2>Javascript: UI + Graphics</h2>
+<p>For backbone I mainly <a href="http://blog.shinetech.com/2011/07/25/cascading-select-boxes-with-backbone-js/">this article on cascading selects</a>. But I use only one select (for now) and use the <a href="http://underscorejs.org/">underscore</a> templates.</p>
+<p>To make the <code>&lt;select&gt;'s</code>it good looking I am using a js library called <a href="http://harvesthq.github.com/chosen/">chosen</a> which is really good and simple to use.</p>
+<p>For D3 I follow the <a href="http://bl.ocks.org/3048450">main histogram example</a> and added a red column to show missing values and hard-code it a little bit more to make changes easier.</p>
+<p>Finally I create another Model and View to control the number of bins dynamically.</p>
+<p>The complete Javascript including backbone and D3 code is this:</p>
+<div class="codehilite"><pre><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">ColumnListItem</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">ColumnList</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/columns&#39;</span><span class="p">,</span>
+        <span class="nx">model</span><span class="o">:</span> <span class="nx">ColumnListItem</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">ColumnListView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">_</span><span class="p">.</span><span class="nx">bindAll</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;addOne&#39;</span><span class="p">,</span> <span class="s1">&#39;addAll&#39;</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;reset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">addAll</span><span class="p">);</span>
+        <span class="p">},</span>
+
+        <span class="nx">addOne</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">column</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// column is a ColumnListItem model</span>
+            <span class="kd">var</span> <span class="nx">variables</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="nx">column</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span> <span class="nx">name</span><span class="o">:</span> <span class="nx">column</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="p">};</span>
+            <span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#option_template&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(),</span> <span class="nx">variables</span><span class="p">);</span>
+            <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">template</span><span class="p">);</span>
+        <span class="p">},</span>
+
+        <span class="nx">addAll</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">addOne</span><span class="p">);</span> <span class="c1">// For each item in the collection call addOne</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.chzn-select&quot;</span><span class="p">).</span><span class="nx">chosen</span><span class="p">();</span>
+        <span class="p">},</span>
+
+        <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;change&quot;</span><span class="o">:</span> <span class="s2">&quot;changeSelectedItem&quot;</span>
+        <span class="p">},</span>
+
+        <span class="nx">changeSelectedItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">histogramData</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">val</span><span class="p">())</span>
+            <span class="nx">histogramData</span><span class="p">.</span><span class="nx">fetch</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+
+    <span class="kd">var</span> <span class="nx">NumberBins</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">bins</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">NumberBinsView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;change&quot;</span><span class="o">:</span> <span class="s2">&quot;changeValue&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">changeValue</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">){</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;bins&#39;</span><span class="p">,</span> <span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">val</span><span class="p">()));</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">HistogramData</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">urlRoot</span><span class="o">:</span> <span class="s1">&#39;/hist&#39;</span><span class="p">,</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">ChartView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;histogramData&#39;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;sync&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;numberBins&#39;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+        <span class="p">},</span>
+
+        <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+            <span class="kd">var</span> <span class="nx">histData</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;histogramData&#39;</span><span class="p">).</span><span class="nx">toJSON</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">histData</span><span class="p">.</span><span class="nx">id</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kd">var</span> <span class="nx">nbins</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;numberBins&#39;</span><span class="p">).</span><span class="nx">toJSON</span><span class="p">().</span><span class="nx">bins</span><span class="p">;</span>
+
+            <span class="kd">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="mi">960</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">padding</span> <span class="o">=</span> <span class="p">{</span><span class="nx">top</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span> <span class="nx">right</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span> <span class="nx">bottom</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span> <span class="nx">left</span><span class="o">:</span> <span class="mi">30</span><span class="p">};</span>
+
+            <span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="nx">histData</span><span class="p">.</span><span class="nx">values</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">histogram</span><span class="p">()</span>
+                <span class="p">.</span><span class="nx">bins</span><span class="p">(</span><span class="nx">nbins</span><span class="p">)</span>
+                <span class="p">(</span><span class="nx">values</span><span class="p">);</span>
+
+            <span class="kd">var</span> <span class="nx">xmin</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span> <span class="p">});</span>
+            <span class="kd">var</span> <span class="nx">xmax</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span> <span class="p">});</span>
+            <span class="kd">var</span> <span class="nx">ymax</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span> <span class="p">});</span>
+            <span class="nx">ymax</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">histData</span><span class="p">.</span><span class="nx">nans</span><span class="p">,</span> <span class="nx">ymax</span><span class="p">);</span>
+            <span class="kd">var</span> <span class="nx">xScale</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">linear</span><span class="p">()</span>
+                    <span class="p">.</span><span class="nx">domain</span><span class="p">([</span><span class="nx">xmin</span><span class="p">,</span> <span class="nx">xmax</span><span class="p">])</span>
+                    <span class="p">.</span><span class="nx">range</span><span class="p">([</span><span class="nx">padding</span><span class="p">.</span><span class="nx">left</span><span class="p">,</span> <span class="nx">width</span> <span class="o">-</span> <span class="nx">padding</span><span class="p">.</span><span class="nx">right</span><span class="p">]);</span>
+            <span class="kd">var</span> <span class="nx">yScale</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">linear</span><span class="p">()</span>
+                    <span class="p">.</span><span class="nx">domain</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nx">ymax</span><span class="p">])</span>
+                    <span class="p">.</span><span class="nx">range</span><span class="p">([</span><span class="nx">height</span> <span class="o">-</span> <span class="nx">padding</span><span class="p">.</span><span class="nx">bottom</span><span class="p">,</span> <span class="nx">padding</span><span class="p">.</span><span class="nx">top</span><span class="p">]);</span>
+
+            <span class="kd">var</span> <span class="nx">barWidth</span> <span class="o">=</span> <span class="nx">xScale</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">x</span><span class="p">)</span> <span class="o">-</span> <span class="nx">xScale</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+            <span class="kd">var</span> <span class="nx">svg</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">histData</span><span class="p">.</span><span class="nx">nans</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="nx">xScale</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">linear</span><span class="p">()</span>
+                    <span class="p">.</span><span class="nx">domain</span><span class="p">([</span><span class="nx">xmin</span><span class="p">,</span> <span class="nx">xmax</span><span class="p">])</span>
+                    <span class="p">.</span><span class="nx">range</span><span class="p">([</span><span class="nx">padding</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="nx">barWidth</span><span class="p">,</span> <span class="nx">width</span> <span class="o">-</span> <span class="nx">padding</span><span class="p">.</span><span class="nx">right</span><span class="p">]);</span>
+                <span class="nx">barWidth</span> <span class="o">=</span> <span class="p">(</span><span class="nx">xScale</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">x</span><span class="p">)</span> <span class="o">-</span> <span class="nx">xScale</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">x</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+
+                <span class="nx">yNans</span> <span class="o">=</span> <span class="nx">histData</span><span class="p">.</span><span class="nx">nans</span>
+                <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;bar-nans&quot;</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;transform&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;translate(&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">padding</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">yScale</span><span class="p">(</span><span class="nx">yNans</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span> <span class="p">})</span>
+                    <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;rect&quot;</span><span class="p">)</span>
+                        <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">barWidth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                        <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">height</span> <span class="o">-</span> <span class="nx">yScale</span><span class="p">(</span><span class="nx">yNans</span><span class="p">)</span> <span class="o">-</span> <span class="nx">padding</span><span class="p">.</span><span class="nx">bottom</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="nx">svg</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+              <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;transform&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;translate(&quot;</span> <span class="o">+</span> <span class="nx">xScale</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="nx">yScale</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">});</span>
+
+            <span class="nx">bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;rect&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;hint hint--top&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;data-hint&quot;</span><span class="p">,</span> <span class="s2">&quot;hober me&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;data-placement&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;data-content&quot;</span><span class="p">,</span> <span class="s2">&quot;Vivamus sagittis lacus vel augue laoreet rutrum faucibus.&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">barWidth</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">height</span> <span class="o">-</span> <span class="nx">yScale</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">-</span> <span class="nx">padding</span><span class="p">.</span><span class="nx">bottom</span><span class="p">;</span> <span class="p">});</span>
+
+            <span class="c1">// Axis</span>
+            <span class="kd">var</span> <span class="nx">xAxis</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">svg</span><span class="p">.</span><span class="nx">axis</span><span class="p">()</span>
+                <span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="nx">xScale</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">orient</span><span class="p">(</span><span class="s2">&quot;bottom&quot;</span><span class="p">);</span>
+
+            <span class="kd">var</span> <span class="nx">yAxis</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">svg</span><span class="p">.</span><span class="nx">axis</span><span class="p">()</span>
+                  <span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="nx">yScale</span><span class="p">)</span>
+                  <span class="p">.</span><span class="nx">orient</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+                  <span class="p">.</span><span class="nx">ticks</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+
+            <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;x axis&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;transform&quot;</span><span class="p">,</span> <span class="s2">&quot;translate(0,&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">height</span> <span class="o">-</span> <span class="nx">padding</span><span class="p">.</span><span class="nx">bottom</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">xAxis</span><span class="p">);</span>
+            <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;y axis&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;transform&quot;</span><span class="p">,</span> <span class="s2">&quot;translate(&quot;</span> <span class="o">+</span> <span class="nx">padding</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="s2">&quot;,0)&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">yAxis</span><span class="p">);</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+        <span class="p">},</span>
+    <span class="p">})</span>
+
+    <span class="kd">var</span> <span class="nx">ChartModel</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">columnsList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ColumnList</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">columnsListView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ColumnListView</span><span class="p">({</span><span class="nx">el</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#column-select&quot;</span><span class="p">),</span> <span class="nx">collection</span><span class="o">:</span> <span class="nx">columnsList</span><span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">numberBins</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NumberBins</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">numberBinsView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NumberBinsView</span><span class="p">({</span><span class="nx">el</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#num-bins&quot;</span><span class="p">),</span> <span class="nx">model</span><span class="o">:</span> <span class="nx">numberBins</span><span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">histogramData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HistogramData</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">chartModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ChartModel</span><span class="p">({</span><span class="nx">histogramData</span><span class="o">:</span> <span class="nx">histogramData</span><span class="p">,</span> <span class="nx">numberBins</span><span class="o">:</span> <span class="nx">numberBins</span><span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">chartView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ChartView</span><span class="p">({</span><span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#chart&#39;</span><span class="p">,</span> <span class="nx">model</span><span class="o">:</span> <span class="nx">chartModel</span><span class="p">});</span>
+
+    <span class="nx">columnsList</span><span class="p">.</span><span class="nx">fetch</span><span class="p">();</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h2>Conclusion</h2>
+<p>It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.</p>
+<p>I include the whole code on <a href="https://github.com/danielfrg/copper">copper</a> (my data analysis package) which is not yet available via pip, so to use this need to download the <code>explore</code> folder of the package and run <code>python explore.py</code> (requires tornado and pandas). Remember to change the <code>explore.csv</code> to explore other data.</p>
+        </article>
+    </div>
+
+    <div class='extra'>
+        <div class='metadata container'>
+            In <a href="../../../../../category/vizualization.html">Vizualization</a>
+                        Tags: <a href="../../../../../tag/python.html">python </a><a href="../../../../../tag/javascript.html">javascript </a><a href="../../../../../tag/d3js.html">D3.js </a><a href="../../../../../tag/backbone.html">backbone </a><a href="../../../../../tag/tornado.html">tornado </a>                    </div>
+
+        <div class="post social container row-fluid">
+            <div class="span3">
+                <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+            </div>
+            <div class="span3">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="danielfrg">Tweet</a>
+            </div>
+
+            <div class="span3">
+                <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
+            </div>
+
+            <div class="span3 hn">
+                <span id="hnews"></span>
+            </div>
+        </div>
+
+        <div id="disqus_thread" class="comments container"></div>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<script src="/theme/js/social.js"></script>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <ul>
+      <li>Designed &amp; Written by Daniel Rodriguez</li>
+      <li class="muted">&middot;</li>
+      <li>Powered by <a href="http://getpelican.com/">Pelican</a></li>
+      <li class="muted">&middot;</li>
+      <li>Licensed under <a href="http://creativecommons.org">Creative Commons</a>.</li>
+    </ul>
+  </div>
+</footer>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35523657-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>

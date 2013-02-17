@@ -1,6 +1,0 @@
-output/
-proxy/.cache/
-docs/_build/
-mincss.egg-info/
-/build/
-/dist/
