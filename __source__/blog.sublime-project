@@ -14,13 +14,10 @@
 	"folders":
 	[
 		{
-			"path": "/home/dfrodriguez/projects/blog"
+			"path": "/home/danielfrg/projects/blog/__source__"
 		},
 		{
-			"path": "/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican"
-		},
-		{
-			"path": "/home/dfrodriguez/projects/pelican-dev"
+			"path": "/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican"
 		}
 	]
 }

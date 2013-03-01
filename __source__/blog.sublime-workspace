@@ -519,6 +519,46 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "themes/medium/static/css/main.less",
+			"settings":
+			{
+				"buffer_size": 2393,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/medium/templates/index.html",
+			"settings":
+			{
+				"buffer_size": 619,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/medium/templates/article.html",
+			"settings":
+			{
+				"buffer_size": 1603,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/medium/templates/base.html",
+			"settings":
+			{
+				"buffer_size": 954,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/medium/static/css/bootstrap.css",
+			"settings":
+			{
+				"buffer_size": 143430,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Python Virtual env",
 	"command_palette":
@@ -526,6 +566,18 @@
 		"height": 56.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"less",
+				"Set Syntax: LESS"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"json",
 				"Set Syntax: JSON"
@@ -561,10 +613,6 @@
 			[
 				"liui",
 				"Set Syntax: HTML Liquid"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"enable",
@@ -607,15 +655,11 @@
 				"Package Control: Enable Package"
 			],
 			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
 				"instal",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 435.0
+		"width": 561.0
 	},
 	"console":
 	{
@@ -632,6 +676,20 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/projects/blog/__source__/themes/dark/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/base.html",
+		"/home/danielfrg/.config/sublime-text-2/Packages/User/Monokai Soda.tmTheme",
+		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
+		"/home/danielfrg/projects/blog/__source__/themes/danielfrg/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/danielfrg2/templates/base.html",
+		"/home/danielfrg/projects/blog/__source__/themes/danielfrg/templates/index.html",
+		"/home/danielfrg/projects/blog2/pelicanconf.py",
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
+		"/home/danielfrg/projects/blog/__source__/ipython-reader.py",
+		"/home/danielfrg/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/danielfrg/Downloads/matplotlibrc",
+		"/home/danielfrg/.bashrc",
 		"/home/dfrodriguez/projects/copper/copper.sublime-project",
 		"/home/dfrodriguez/projects/blog/__source__/blog.sublime-project",
 		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/static/css/main.less",
@@ -745,21 +803,7 @@
 		"/home/dfrodriguez/projects/pelican/pelican.pid",
 		"/home/dfrodriguez/projects/pelican/Makefile",
 		"/home/dfrodriguez/projects/pelican/srv.pid",
-		"/home/dfrodriguez/projects/pelican/publishconf.py",
-		"/home/dfrodriguez/projects/pelican/ipython-reader.py",
-		"/home/dfrodriguez/projects/pelican/content/2013/1/2013-1-26-copper-easy-data-analysis-on-python.rst",
-		"/home/dfrodriguez/projects/pelican/ipython-plugin.py",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/nooo.html",
-		"/home/dfrodriguez/projects/pelican/content/2013/1/2013-1-26-copper-easy-data-analysis-on-python.html",
-		"/home/dfrodriguez/projects/pelican/content/robots.txt",
-		"/home/dfrodriguez/projects/blog/_source/_layouts/default.html",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/index.html",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-26-copper-easy-data-analysis-on-python.html",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/2/2013-2-13-quick-data-transformation.html",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/2/2013-2-4-coursera-data-analysis-quiz-2-python.html",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/2/2013-2-5-d3-backbone-tornado-histogram-csv.md",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-27-copper-machine-learning.html",
-		"/home/dfrodriguez/projects/blog/_source/_posts/2013/1/2013-1-30-copper-bootstrap-and-bagging.html"
+		"/home/dfrodriguez/projects/pelican/publishconf.py"
 	],
 	"find":
 	{
@@ -777,6 +821,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			".container",
+			"font-size",
+			"font",
+			"font-size",
+			"4",
+			"font-size",
 			"hero",
 			".drop",
 			".drop-shadow-inside;",
@@ -898,13 +948,7 @@
 			"'Money'",
 			"'Category'",
 			"\n        ",
-			"load",
-			"bins",
-			"hist",
-			"size",
-			"books",
-			"sampleSVG",
-			"FileHandler"
+			"load"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -922,8 +966,149 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "themes/medium/static/css/main.less",
+					"settings":
+					{
+						"buffer_size": 2393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								22
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "themes/medium/templates/index.html",
+					"settings":
+					{
+						"buffer_size": 619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								226,
+								226
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "themes/medium/templates/article.html",
+					"settings":
+					{
+						"buffer_size": 1603,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								777,
+								777
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "themes/medium/templates/base.html",
+					"settings":
+					{
+						"buffer_size": 954,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1,
+								1
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "themes/medium/static/css/bootstrap.css",
+					"settings":
+					{
+						"buffer_size": 143430,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3388,
+								3388
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3399.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1014,7 +1199,7 @@
 		[
 			[
 				"",
-				"/home/dfrodriguez/projects/copper/copper.sublime-project"
+				"/home/danielfrg/projects/copper/copper.sublime-project"
 			],
 			[
 				"blog",

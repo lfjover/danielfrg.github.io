@@ -9,7 +9,8 @@ DEFAULT_LANG = u'en'
 DEFAULT_PAGINATION = 5
 MARKUP = ('md', 'ipynb')
 
-THEME = "./themes/danielfrg"
+# THEME = "~/projects/blog/__source__/themes/danielfrg/"
+THEME = "./themes/medium/"
 PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.sitemap']
 STATIC_PATHS = ["images", ]
 

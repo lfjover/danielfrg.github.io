@@ -6,16 +6,18 @@
   transition: all @duration @ease;
 }
 
-@darkColor: #2B2B2B;
+@darkColor: #161616;
 
 body {
     background: @darkColor;
     padding-top: 0px;
-    color: #000;
+    color: #333;
     font-family: Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    line-height: 23px;
 }
 
-.navbar.navbar-fixed-top{
+.navbar.navbar-fixed-top {
     width: 100%;
 
     .navbar-inner {
@@ -56,8 +58,11 @@ body {
 
     p {
         line-height: 175%;
-        text-indent: 2em;
         text-align:justify;
+    }
+
+    ul {
+        list-style-type: square;
     }
 
     li {
@@ -89,9 +94,8 @@ body {
 
     a.entry-title {
         h2 {
-            // background: #eee;
             text-transform: uppercase;
-            font-size: 25px;
+            font-size: 26px;
             margin: 10px -30px 10px -30px;
             padding: 15px 30px 15px 23px;
             border: none;
@@ -107,7 +111,7 @@ body {
         border-left: 4px solid #eee;
         border-right: 4px solid #eee;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 400;
         color: #444;
     }
@@ -121,13 +125,16 @@ body {
         margin: 30px -30px 30px -30px;
         text-align: center;
         font-style: italic;
-        font-size: 15px;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: #666;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+    }
+
+    pre {
+        border-radius: 0px;
     }
 
     .image-hero {
@@ -149,11 +156,15 @@ body {
             }
         }
     }
+
+    .container {
+        // max-width: 800px;
+    }
 }
 
 .index {
     .container {
-        max-width: 1000px;
+        max-width: 900px;
 
         .post-box {
             padding: 0 0 20px 0;
@@ -186,18 +197,8 @@ body {
 
             .preview {
                 position: relative;
-                width: 80%;
+                width: 90%;
                 margin: 0 auto;
-
-                .post-date {
-                    color: #aaa;
-                    font-size: 14px;
-                    text-transform: uppercase;
-                    text-align: center;
-                    margin-top: 10px;
-                    width: 100%;
-                    display: inline-block;
-                }
 
                 .more-link {
                     margin: 5px 0 0 0;
@@ -205,7 +206,6 @@ body {
                     text-align: center;
                     display: inline-block;
                     font-weight: bold;
-                    font-size: 13px;
                     text-transform: uppercase;
                 }
             }
@@ -217,7 +217,7 @@ body {
     background: #FFF;
 
     .container {
-        max-width: 850px;
+        max-width: 800px;
         margin-top: 20px;
         margin-bottom: 10px;
         padding-left: 20px;
@@ -272,7 +272,7 @@ body {
     background: #fff;
 
     .container {
-        max-width: 750px;
+        max-width: 800px;
         padding-top:20px;
         padding-left: 20px;
         padding-right: 20px;
@@ -301,17 +301,15 @@ body {
 .ipynb {
     // iPython hacks
     .text_cell_render {
-        color: #000;
-        font-family: Helvetica, Arial, sans-serif;
+        color: #333;
         font-size: 15px;
+        font-family: Helvetica, Arial, sans-serif;
     }
 
     .text_cell_render{
         font-size: 15px;
-        line-height: 175%;
-        text-indent: 2em;
-        text-align:justify;
-        font-family: 'Open Sans', Helvetica, sans-serif;
+        text-align: justify;
+        font-family: Helvetica, Arial, sans-serif;
     }
 }
 
