@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
 				"margin-",
 				"margin-top"
 			],
@@ -506,59 +514,11 @@
 			[
 				"slo",
 				"slope_std_error"
-			],
-			[
-				"reg",
-				"reg_estimation"
-			],
-			[
-				"dr",
-				"dr_market_estimation"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "themes/medium/static/css/main.less",
-			"settings":
-			{
-				"buffer_size": 2393,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/medium/templates/index.html",
-			"settings":
-			{
-				"buffer_size": 619,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/medium/templates/article.html",
-			"settings":
-			{
-				"buffer_size": 1603,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/medium/templates/base.html",
-			"settings":
-			{
-				"buffer_size": 954,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/medium/static/css/bootstrap.css",
-			"settings":
-			{
-				"buffer_size": 143430,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Python Virtual env",
 	"command_palette":
@@ -676,9 +636,20 @@
 	},
 	"file_history":
 	[
-		"/home/danielfrg/projects/blog/__source__/themes/dark/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/dark/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/with-sidebar.html",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/dark/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/dark/static/css/bootstrap.css",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/static/js/social.js",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/static/css/bootstrap.css",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/list.html",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/page.html",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/base.html",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/full-width.html",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/index.html",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/static/css/typogrify.css",
 		"/home/danielfrg/.config/sublime-text-2/Packages/User/Monokai Soda.tmTheme",
 		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
 		"/home/danielfrg/projects/blog/__source__/themes/danielfrg/static/css/main.less",
@@ -792,18 +763,7 @@
 		"/home/dfrodriguez/projects/pelican/content/Post_4.md",
 		"/home/dfrodriguez/projects/pelican/themes/danielfrg/static/js/social.js",
 		"/home/dfrodriguez/projects/pelican/content/2013/1/Post_4.html",
-		"/home/dfrodriguez/projects/pelican/content/Post_4.ipynb",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/converters/html.pyc",
-		"/home/dfrodriguez/projects/pelican/content/2013/1/2013-1-31-new-blog-using-jekyll-and-ipython.md",
-		"/home/dfrodriguez/projects/blog/_source/_utils/Post_4.html",
-		"/home/dfrodriguez/projects/pelican/content/Post_4.html",
-		"/home/dfrodriguez/projects/pelican/content/2013-1-26-copper-easy-data-analysis-on-python.rst",
-		"/home/dfrodriguez/projects/pelican/content/2013/1/Post_4.ipynb",
-		"/home/dfrodriguez/projects/pelican/content/2013/1/2013-1-26-copper-easy-data-analysis-on-python.ipynb",
-		"/home/dfrodriguez/projects/pelican/pelican.pid",
-		"/home/dfrodriguez/projects/pelican/Makefile",
-		"/home/dfrodriguez/projects/pelican/srv.pid",
-		"/home/dfrodriguez/projects/pelican/publishconf.py"
+		"/home/dfrodriguez/projects/pelican/content/Post_4.ipynb"
 	],
 	"find":
 	{
@@ -821,6 +781,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			">\n",
+			"width: 166px;",
+			"span3",
+			"pre ",
+			"pre {",
+			"pre",
 			".container",
 			"font-size",
 			"font",
@@ -942,13 +908,7 @@
 			"numOfCategoriesLimit",
 			"Rejected",
 			"'Target'",
-			"'Input'",
-			"'Inpu",
-			"'Number'",
-			"'Money'",
-			"'Category'",
-			"\n        ",
-			"load"
+			"'Input'"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -966,149 +926,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "themes/medium/static/css/main.less",
-					"settings":
-					{
-						"buffer_size": 2393,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								22,
-								22
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "themes/medium/templates/index.html",
-					"settings":
-					{
-						"buffer_size": 619,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								226,
-								226
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "themes/medium/templates/article.html",
-					"settings":
-					{
-						"buffer_size": 1603,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								777,
-								777
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 216.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "themes/medium/templates/base.html",
-					"settings":
-					{
-						"buffer_size": 954,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1,
-								1
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "themes/medium/static/css/bootstrap.css",
-					"settings":
-					{
-						"buffer_size": 143430,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3388,
-								3388
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3399.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1212,6 +1031,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 236.0,
+	"side_bar_width": 226.0,
 	"status_bar_visible": true
 }

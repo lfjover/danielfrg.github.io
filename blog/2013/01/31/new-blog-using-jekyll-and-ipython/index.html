@@ -16,7 +16,8 @@
 <body>
 
 <div id="content">
-<section class="post">
+    <div class="wrapper">
+    <section class="post">
     <div class="container">
         <header>
             <h1>New blog using Jekyll & iPython</h1>
@@ -44,39 +45,45 @@
 <p>I try to make the site plugin agnostic because I don't now ruby but I try to complement that with a few YAML tags and if's on the layous, for example only have to put a YAML tag on each post file and the picture is added automaticly to the index and post pages. That also happens with youtube and vimeo videos.</p>
 <p>Finally the source of the site is on <a href="https://github.com/danielfrg/danielfrg.github.com">github</a> if anyone want to take a look.</p>
         </div>
-        <div class='post-card'>
-            <div class="metadata">
-                                <div class="author">
-                    <strong>Written by: </strong>
-                    <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
-                </div>
-                                <div class='data'>
+        
+    </div>
+    </div>
+
+    <div class='sidebar'>
+        <img src="/theme/img/13.jpg">
+
+                <div class="metadata">
+            <div class="author">
+                <strong>Written by: </strong>
+                <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
+            </div>
+            <div class='data'>
                 <strong>Published:</strong>
                 <i><time datetime="2013-01-31T00:00:00">Thu 31 January 2013</time></i>
-                </div>
-                <div class='category'>
+            </div>
+            <div class='category'>
                 <strong>In:</strong>
                 <i><a href="../../../../../category/blogging.html">BLogging</a></i>
-                </div>
-                                <div class="tags">
-                <strong>Tags:</strong> 
-                <i><a href="../../../../../tag/jekyll.html">jekyll</a> </i><i><a href="../../../../../tag/ipython.html">ipython</a> </i>                </div>
-                            </div>
-
-            <div class="nav">
-                <ul>
-                  <li><a href="/"><i class="icon-home"></i> home</a></li>
-                  <li><a href="/about/"><i class="icon-user"></i> about</a></li>
-                  <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
-                  <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
-                  <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
-                  <li><a href="mailto:df.rodriguez143@gmail.com?Subject=Hello"><i class="icon-envelope-alt"></i> email</a></li>
-                </ul>
             </div>
+                        <div class="tags">
+            <strong>Tags:</strong> 
+            <i><a href="../../../../../tag/jekyll.html">jekyll</a> </i><i><a href="../../../../../tag/ipython.html">ipython</a> </i>            </div>
+                    </div>
+        
+        <div class="nav">
+            <ul>
+              <li><a href="/"><i class="icon-home"></i> home</a></li>
+              <li><a href="/about/"><i class="icon-user"></i> about</a></li>
+              <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
+              <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
+              <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
+              <li><a href="mailto:df.rodriguez143@gmail.com?Subject=Hello"><i class="icon-envelope-alt"></i> email</a></li>
+            </ul>
         </div>
     </div>
 
-    <section class='footer'>
+</div>
+<div class="footer">    <section class='footer'>
         <div class="post social container row-fluid">
             <div class="span3">
                 <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -101,9 +108,7 @@
 </section>
 
 <script src="/theme/js/social.js"></script>
-
 </div>
-
     <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-35523657-2']);

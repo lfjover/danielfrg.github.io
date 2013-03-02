@@ -84,7 +84,7 @@ body {
         width: 30%;
         height: 100%;
         max-width: 450px;
-        background: #222;
+        background: #333;
         color: #CCC;
 
         img {
@@ -96,7 +96,7 @@ body {
             margin: 10px 10%;
 
             ul {
-                list-style-type: none;
+                list-style: none !important;
             }
 
             li a {
@@ -161,15 +161,24 @@ body {
             }
         }
 
+        ul {
+            list-style: square;
+        }
+
         .post-card {
             text-align: left;
             color: #666;
             position: absolute;
             width: 205px;
             margin-left: -230px;
-            margin-top: 60px;
             top: 0;
             font-size: 13px;
+
+            img {
+                width: 100%;
+                background: #ccc;
+                border: 1px solid #ccc;
+            }
 
             .metadata {
                 padding-bottom: 15px;
@@ -198,6 +207,7 @@ body {
         padding-top: 15px;
 
         .social {
+            width: 90%;
             max-width: 670px;
 
             .span3 {
@@ -211,6 +221,7 @@ body {
             }
         }
         .comments {
+            width: 80%;
             max-width: 950px;
             padding-top: 40px;
         }
@@ -221,7 +232,7 @@ body {
     ul {
         margin: 0;
         li {
-            list-style-type: none;
+            list-style: none;
             padding: 7px 2px;
             border-bottom: 1px solid #eee;
 

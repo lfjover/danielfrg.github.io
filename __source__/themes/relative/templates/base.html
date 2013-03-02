@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Daniel Rodriguez" />
+    <title>{% block title %}{%endblock%} | {{ SITENAME }}</title>
+
+    <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+    <link rel="stylesheet" href="/theme/css/fonts/font-awesome.min.css">
+    {% block extra_css %}{%endblock%}
+    {% assets filters="less", output="css/main.css", "css/main.less" %}
+    <link rel="stylesheet" href="/theme/css/main.css">
+    {% endassets %}
+</head>
+
+<body>
+
+<div id="content">
+    <div class="wrapper">
+    {% block content %}{% endblock %}
+    </div>
+
+    <div class='sidebar'>
+        <img src="/theme/img/13.jpg">
+
+        {% if article %}
+        <div class="metadata">
+            <div class="author">
+                <strong>Written by: </strong>
+                <i><a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a></i>
+            </div>
+            <div class='data'>
+                <strong>Published:</strong>
+                <i><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></i>
+            </div>
+            <div class='category'>
+                <strong>In:</strong>
+                <i><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></i>
+            </div>
+            {% if article.tags %}
+            <div class="tags">
+            <strong>Tags:</strong> 
+            {% for tag in article.tags %}<i><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> </i>{% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="nav">
+            <ul>
+              <li><a href="/"><i class="icon-home"></i> home</a></li>
+              <li><a href="/about/"><i class="icon-user"></i> about</a></li>
+              <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
+              <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
+              <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
+              <li><a href="mailto:df.rodriguez143@gmail.com?Subject=Hello"><i class="icon-envelope-alt"></i> email</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+{% if article %}
+<div class="footer">{% block footer %}{% endblock %}</div>
+{% endif %}
+{% include 'analytics.html' %}
+</body>
+</html>

@@ -17,7 +17,8 @@
 <body>
 
 <div id="content">
-<section class="post">
+    <div class="wrapper">
+    <section class="post">
     <div class="container">
         <header>
             <h1>Using D3, backbone and tornado to visualize histograms of a csv file</h1>
@@ -250,39 +251,45 @@
 <p>It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.</p>
 <p>I include the whole code on <a href="https://github.com/danielfrg/copper">copper</a> (my data analysis package) which is not yet available via pip, so to use this need to download the <code>explore</code> folder of the package and run <code>python explore.py</code> (requires tornado and pandas). Remember to change the <code>explore.csv</code> to explore other data.</p>
         </div>
-        <div class='post-card'>
-            <div class="metadata">
-                                <div class="author">
-                    <strong>Written by: </strong>
-                    <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
-                </div>
-                                <div class='data'>
+        
+    </div>
+    </div>
+
+    <div class='sidebar'>
+        <img src="/theme/img/13.jpg">
+
+                <div class="metadata">
+            <div class="author">
+                <strong>Written by: </strong>
+                <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
+            </div>
+            <div class='data'>
                 <strong>Published:</strong>
                 <i><time datetime="2013-02-05T00:00:00">Tue 05 February 2013</time></i>
-                </div>
-                <div class='category'>
+            </div>
+            <div class='category'>
                 <strong>In:</strong>
                 <i><a href="../../../../../category/vizualization.html">Vizualization</a></i>
-                </div>
-                                <div class="tags">
-                <strong>Tags:</strong> 
-                <i><a href="../../../../../tag/python.html">python</a> </i><i><a href="../../../../../tag/javascript.html">javascript</a> </i><i><a href="../../../../../tag/d3js.html">D3.js</a> </i><i><a href="../../../../../tag/backbone.html">backbone</a> </i><i><a href="../../../../../tag/tornado.html">tornado</a> </i>                </div>
-                            </div>
-
-            <div class="nav">
-                <ul>
-                  <li><a href="/"><i class="icon-home"></i> home</a></li>
-                  <li><a href="/about/"><i class="icon-user"></i> about</a></li>
-                  <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
-                  <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
-                  <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
-                  <li><a href="mailto:df.rodriguez143@gmail.com?Subject=Hello"><i class="icon-envelope-alt"></i> email</a></li>
-                </ul>
             </div>
+                        <div class="tags">
+            <strong>Tags:</strong> 
+            <i><a href="../../../../../tag/python.html">python</a> </i><i><a href="../../../../../tag/javascript.html">javascript</a> </i><i><a href="../../../../../tag/d3js.html">D3.js</a> </i><i><a href="../../../../../tag/backbone.html">backbone</a> </i><i><a href="../../../../../tag/tornado.html">tornado</a> </i>            </div>
+                    </div>
+        
+        <div class="nav">
+            <ul>
+              <li><a href="/"><i class="icon-home"></i> home</a></li>
+              <li><a href="/about/"><i class="icon-user"></i> about</a></li>
+              <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
+              <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
+              <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
+              <li><a href="mailto:df.rodriguez143@gmail.com?Subject=Hello"><i class="icon-envelope-alt"></i> email</a></li>
+            </ul>
         </div>
     </div>
 
-    <section class='footer'>
+</div>
+<div class="footer">    <section class='footer'>
         <div class="post social container row-fluid">
             <div class="span3">
                 <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -307,9 +314,7 @@
 </section>
 
 <script src="/theme/js/social.js"></script>
-
 </div>
-
     <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-35523657-2']);

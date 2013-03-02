@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Random thoughts about data analysis, python, and more{% endblock %}
+
+{% block content %}
+<div class="index">
+  {% for article in articles %}
+    <article class='post-preview'>
+      <a href="{{ SITEURL }}/{{ article.url }}">
+        <h2 class="entry-title">{{ article.title }}</h2>
+      </a>
+      <a href="{{ SITEURL }}/{{ article.url }}" class="no-color">
+        <p>{{ article.content | striptags | truncate(300) }}</p>
+      </a>
+    </article>
+  {% endfor %}
+</div>
+{% endblock %}

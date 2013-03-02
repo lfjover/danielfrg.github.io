@@ -10,7 +10,7 @@ DEFAULT_PAGINATION = 5
 MARKUP = ('md', 'ipynb')
 
 # THEME = "~/projects/blog/__source__/themes/danielfrg/"
-THEME = "./themes/medium/"
+THEME = "./themes/resume/"
 PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.sitemap']
 STATIC_PATHS = ["images", ]
 
