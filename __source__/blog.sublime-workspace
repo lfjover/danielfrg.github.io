@@ -5,7 +5,7 @@
 		[
 			[
 				"text-",
-				"text-decoration"
+				"text-align"
 			],
 			[
 				"border",
@@ -520,10 +520,34 @@
 	"buffers":
 	[
 		{
-			"file": "themes/relative2/static/css/main.less",
+			"file": "themes/noise/static/css/main.less",
 			"settings":
 			{
-				"buffer_size": 3584,
+				"buffer_size": 4342,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/noise/templates/base.html",
+			"settings":
+			{
+				"buffer_size": 1842,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/noise/templates/index.html",
+			"settings":
+			{
+				"buffer_size": 595,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "pelicanconf.py",
+			"settings":
+			{
+				"buffer_size": 841,
 				"line_ending": "Unix"
 			}
 		}
@@ -535,16 +559,16 @@
 		"selected_items":
 		[
 			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
 				"less",
 				"Set Syntax: LESS"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"json",
@@ -627,7 +651,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 561.0
+		"width": 435.0
 	},
 	"console":
 	{
@@ -644,11 +668,17 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
+		"/home/danielfrg/projects/blog/__source__/themes/relative/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/list.html",
+		"/home/danielfrg/projects/blog/__source__/themes/relative/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/relative/templates/base.html",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/base.html",
+		"/home/danielfrg/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md",
 		"/home/danielfrg/projects/blog/__source__/themes/relative2/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/index.html",
-		"/home/danielfrg/projects/blog/__source__/themes/relative/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/article.html",
-		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/resume/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/base.html",
@@ -765,13 +795,7 @@
 		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-13-quick-data-transformation.md",
 		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-4-coursera-data-analysis-quiz-2-python.md",
 		"/home/dfrodriguez/projects/pelican/content/2013/01/2013-1-27-copper-machine-learning.md",
-		"/home/dfrodriguez/projects/pelican/content/2013/01/2013-1-30-copper-bootstrap-and-bagging.md",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/static/css/pygments.css",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/static/css/pygments.min.css",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/index.html",
-		"/home/dfrodriguez/projects/blog/_source/_layouts/article.html",
-		"/home/dfrodriguez/projects/blog/_source/index.html",
-		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-13-quick-data-transformation.html"
+		"/home/dfrodriguez/projects/pelican/content/2013/01/2013-1-30-copper-bootstrap-and-bagging.md"
 	],
 	"find":
 	{
@@ -789,6 +813,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Helv",
+			"17",
+			"em",
 			".list",
 			"ul",
 			"index",
@@ -913,10 +940,7 @@
 			"test_3",
 			"inf",
 			"ds_train",
-			"ds",
-			"models",
-			"BaseSVC",
-			"SVC("
+			"ds"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -939,18 +963,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "themes/relative2/static/css/main.less",
+					"file": "themes/noise/static/css/main.less",
 					"settings":
 					{
-						"buffer_size": 3584,
+						"buffer_size": 4342,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								139,
+								139
 							]
 						],
 						"settings":
@@ -958,6 +982,88 @@
 							"syntax": "Packages/LESS/LESS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "themes/noise/templates/base.html",
+					"settings":
+					{
+						"buffer_size": 1842,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1111,
+								1111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 486.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "themes/noise/templates/index.html",
+					"settings":
+					{
+						"buffer_size": 595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								525,
+								525
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "pelicanconf.py",
+					"settings":
+					{
+						"buffer_size": 841,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								367,
+								367
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
