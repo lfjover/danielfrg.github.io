@@ -519,6 +519,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "themes/relative2/static/css/main.less",
+			"settings":
+			{
+				"buffer_size": 3584,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Python Virtual env",
 	"command_palette":
@@ -636,10 +644,20 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/projects/blog/__source__/themes/relative2/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/index.html",
+		"/home/danielfrg/projects/blog/__source__/themes/relative/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/resume/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/base.html",
+		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/list.html",
+		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/page.html",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/full-width.html",
 		"/home/danielfrg/projects/blog/__source__/themes/dark/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/with-sidebar.html",
-		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/article.html",
 		"/home/danielfrg/projects/blog/__source__/themes/dark/templates/article.html",
 		"/home/danielfrg/projects/blog/__source__/themes/dark/static/css/bootstrap.css",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/static/js/social.js",
@@ -647,11 +665,9 @@
 		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/list.html",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/page.html",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/base.html",
-		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/full-width.html",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/templates/index.html",
 		"/home/danielfrg/projects/blog/__source__/themes/medium/static/css/typogrify.css",
 		"/home/danielfrg/.config/sublime-text-2/Packages/User/Monokai Soda.tmTheme",
-		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
 		"/home/danielfrg/projects/blog/__source__/themes/danielfrg/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/danielfrg2/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/themes/danielfrg/templates/index.html",
@@ -755,15 +771,7 @@
 		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/index.html",
 		"/home/dfrodriguez/projects/blog/_source/_layouts/article.html",
 		"/home/dfrodriguez/projects/blog/_source/index.html",
-		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-13-quick-data-transformation.html",
-		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-4-coursera-data-analysis-quiz-2-python.html",
-		"/home/dfrodriguez/projects/pelican/content/2013/1/2013-1-26-copper-easy-data-analysis-on-python.md",
-		"/home/dfrodriguez/projects/pelican/content/2013/1/2013-1-30-copper-bootstrap-and-bagging.md",
-		"/home/dfrodriguez/projects/pelican/content/2013/1/2013-1-27-copper-machine-learning.md",
-		"/home/dfrodriguez/projects/pelican/content/Post_4.md",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/static/js/social.js",
-		"/home/dfrodriguez/projects/pelican/content/2013/1/Post_4.html",
-		"/home/dfrodriguez/projects/pelican/content/Post_4.ipynb"
+		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-13-quick-data-transformation.html"
 	],
 	"find":
 	{
@@ -781,6 +789,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			".list",
+			"ul",
+			"index",
+			"list-st",
+			"list-style-type",
+			"list",
 			">\n",
 			"width: 166px;",
 			"span3",
@@ -902,13 +916,7 @@
 			"ds",
 			"models",
 			"BaseSVC",
-			"SVC(",
-			"encodestring",
-			"targetFilter",
-			"numOfCategoriesLimit",
-			"Rejected",
-			"'Target'",
-			"'Input'"
+			"SVC("
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -926,8 +934,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "themes/relative2/static/css/main.less",
+					"settings":
+					{
+						"buffer_size": 3584,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

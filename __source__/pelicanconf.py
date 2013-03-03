@@ -8,11 +8,15 @@ TIMEZONE = 'America/Regina'
 DEFAULT_LANG = u'en'
 DEFAULT_PAGINATION = 5
 MARKUP = ('md', 'ipynb')
+DEFAULT_DATE_FORMAT = '%B %d, %Y'
 
-# THEME = "~/projects/blog/__source__/themes/danielfrg/"
-THEME = "./themes/relative/"
-PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.sitemap']
+THEME = "./themes/noise/"
 STATIC_PATHS = ["images", ]
+
+SITEMAP = {
+    'format': 'xml'
+}
+PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.sitemap']
 
 GOOGLE_ANALYTICS = 'UA-35523657-2'
 

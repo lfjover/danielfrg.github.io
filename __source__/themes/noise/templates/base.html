@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Daniel Rodriguez" />
+    
+    <title>{% block title %}{%endblock%} | {{ SITENAME }}</title>
+    
+    <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+
+    {% block extra_css %}{% endblock %}
+    {% assets filters="less", output="css/main.css", "css/main.less" %}
+        <link rel="stylesheet" href="/theme/css/main.css">
+    {% endassets %}
+    <link rel="stylesheet" href="/theme/css/fonts/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class='sidebar'>
+        <img src="/theme/img/bog.png">
+
+        {% block sidebar %}{% endblock %}
+
+        <div class="nav">
+            <ul>
+              <li><a href="/"><i class="icon-home"></i> home</a></li>
+              <li><a href="/about/"><i class="icon-user"></i> about</a></li>
+              <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
+              <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
+              <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
+              <li><a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="footer">{% block footer %}{% endblock %}</div>
+
+</body>
+</html>
