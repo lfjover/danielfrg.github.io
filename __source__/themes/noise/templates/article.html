@@ -3,15 +3,17 @@
 
 {% block extra_css %}
     {% if article.ipython %}
-        {% assets filters="yui_css", output="css/ipython.min.css", "css/ipython.css" %}
-            <link rel="stylesheet" href="/theme/css/ipython.min.css">
-            <link rel="stylesheet" href="/theme/css/ipython.css">
+        {% assets filters="cleancss", output="css/ipython.min.css", "css/ipython.css" %}
+            <!-- <link rel="stylesheet" href="/theme/css/ipython.min.css"> -->
+            <!-- <link rel="stylesheet" href="/theme/css/ipython.css"> -->
+            <link rel="stylesheet" href="/{{ ASSET_URL }}">
         {% endassets %}
     {% endif %}
     {% if article.code %}
-        {% assets filters="yui_css", output="css/pygments.min.css", "css/pygments.css" %}
-            <link rel="stylesheet" href="/theme/css/pygments.min.css">
-            <link rel="stylesheet" href="/theme/css/pygments.css">
+        {% assets filters="cleancss", output="css/pygments.min.css", "css/pygments.css" %}
+            <!-- <link rel="stylesheet" href="/theme/css/pygments.min.css"> -->
+            <!-- <link rel="stylesheet" href="/theme/css/pygments.css"> -->
+            <link rel="stylesheet" href="/{{ ASSET_URL }}">
         {% endassets %}
     {% endif %}
 {% endblock %}

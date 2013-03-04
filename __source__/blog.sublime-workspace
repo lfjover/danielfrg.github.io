@@ -520,10 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "themes/noise/static/css/main.less",
+			"file": "themes/noise/templates/article.html",
 			"settings":
 			{
-				"buffer_size": 4342,
+				"buffer_size": 2950,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,23 +531,7 @@
 			"file": "themes/noise/templates/base.html",
 			"settings":
 			{
-				"buffer_size": 1842,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/noise/templates/index.html",
-			"settings":
-			{
-				"buffer_size": 595,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "pelicanconf.py",
-			"settings":
-			{
-				"buffer_size": 841,
+				"buffer_size": 1980,
 				"line_ending": "Unix"
 			}
 		}
@@ -668,13 +652,21 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/main.less",
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
 		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/ipython.min.css",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/pygments.css",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/font-awesome.min.css",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/segoeui.css",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/segoe.css",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/index.html",
 		"/home/danielfrg/projects/blog/__source__/themes/relative/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/list.html",
 		"/home/danielfrg/projects/blog/__source__/themes/relative/templates/article.html",
 		"/home/danielfrg/projects/blog/__source__/themes/relative/templates/base.html",
-		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md",
 		"/home/danielfrg/projects/blog/__source__/themes/relative2/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/index.html",
@@ -702,7 +694,6 @@
 		"/home/danielfrg/projects/blog/__source__/themes/danielfrg2/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/themes/danielfrg/templates/index.html",
 		"/home/danielfrg/projects/blog2/pelicanconf.py",
-		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
 		"/home/danielfrg/projects/blog/__source__/ipython-reader.py",
 		"/home/danielfrg/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/danielfrg/Downloads/matplotlibrc",
@@ -788,14 +779,7 @@
 		"/home/dfrodriguez/projects/pelican/themes/danielfrg/static/css/main.less",
 		"/home/dfrodriguez/projects/pelican/content/pages/about.md",
 		"/home/dfrodriguez/projects/pelican/output/index2.html",
-		"/home/dfrodriguez/projects/blog/_source/archive/index.html",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/base.html",
-		"/home/dfrodriguez/projects/pelican/output/archives.html",
-		"/home/dfrodriguez/projects/pelican/content/pages/about/index.html",
-		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-13-quick-data-transformation.md",
-		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-4-coursera-data-analysis-quiz-2-python.md",
-		"/home/dfrodriguez/projects/pelican/content/2013/01/2013-1-27-copper-machine-learning.md",
-		"/home/dfrodriguez/projects/pelican/content/2013/01/2013-1-30-copper-bootstrap-and-bagging.md"
+		"/home/dfrodriguez/projects/blog/_source/archive/index.html"
 	],
 	"find":
 	{
@@ -813,6 +797,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"/surface/Assets/css/fonts/all/light/",
+			"/surface/Assets/css/fonts/all/bold/",
+			"/surface/Assets/css/fonts/all/semibold/",
+			"/surface/Assets/css/fonts/all/normal/",
 			"Helv",
 			"17",
 			"em",
@@ -936,11 +924,7 @@
 			"DataFrame",
 			"set_data",
 			"test_1",
-			"test_2",
-			"test_3",
-			"inf",
-			"ds_train",
-			"ds"
+			"test_2"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -963,23 +947,23 @@
 			[
 				{
 					"buffer": 0,
-					"file": "themes/noise/static/css/main.less",
+					"file": "themes/noise/templates/article.html",
 					"settings":
 					{
-						"buffer_size": 4342,
+						"buffer_size": 2950,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								139,
-								139
+								882,
+								882
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -994,43 +978,15 @@
 					"file": "themes/noise/templates/base.html",
 					"settings":
 					{
-						"buffer_size": 1842,
+						"buffer_size": 1980,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1111,
-								1111
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 486.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "themes/noise/templates/index.html",
-					"settings":
-					{
-						"buffer_size": 595,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								525,
-								525
+								593,
+								593
 							]
 						],
 						"settings":
@@ -1038,32 +994,6 @@
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "pelicanconf.py",
-					"settings":
-					{
-						"buffer_size": 841,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								367,
-								367
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1174,6 +1104,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 226.0,
+	"side_bar_width": 280.0,
 	"status_bar_visible": true
 }
