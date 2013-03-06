@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-list">
+    <h1>{% block title %}Tags{% endblock %}</h1>
+    <ul>
+    {% for tag, articles in tags %}
+        <li>
+            <span> :) </span>
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+

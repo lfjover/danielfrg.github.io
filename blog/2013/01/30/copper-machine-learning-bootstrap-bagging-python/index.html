@@ -12,22 +12,62 @@
 
                             <!-- <link rel="stylesheet" href="/theme/css/ipython.min.css"> -->
             <!-- <link rel="stylesheet" href="/theme/css/ipython.css"> -->
-            <link rel="stylesheet" href="/theme/css/ipython.min.css?8ef2d782">
-                          <link rel="stylesheet" href="/theme/css/main.css?93f4513f">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="/theme/css/ipython.min.css?68ad8270">
+                          <link rel="stylesheet" href="/theme/css/main.css?3e48ba7a">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
 </head>
 
 <body>
 
-<div class="wrapper">
-    <div class="content">
-        <div class="post">
-<article class='post'>
-    <header>
-        <h1>Copper - Bootstrap and Bagging</h1>
-    </header>
-    <div class='post-content'>
-        <div class="ipynb"><div class="text_cell_render border-box-sizing rendered_html">
+<aside class='fixed'>
+  <div class="image" style="background-image: url('/static/images/posters/plane.jpg')"></div>
+  <!-- <div class="image" style="background-image: url('/static/images/posters/hubble.jpg')"></div> -->
+  <!-- <div class="cover-image" style="background-image: url('/static/images/posters/mountain.jpg')"></div> -->
+
+  <div class="body">
+    <div class="middle">
+          <div class="metadata">
+        <p>
+            <strong>Written by: </strong>
+            <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
+        </p>
+        <p>
+            <strong>Published:</strong>
+            <i><time datetime="2013-01-30T00:00:00">January 30, 2013</time></i>
+        </p>
+        <p>
+            <strong>In:</strong>
+            <i><a href="../../../../../category/copper.html">Copper</a></i>
+        </p>
+        <p>
+                            <strong>Tags:</strong> 
+                <i><a href="../../../../../tag/python.html">python</a> </i><i><a href="../../../../../tag/copper.html">copper</a> </i><i><a href="../../../../../tag/machine-learning.html">machine-learning</a> </i>                    </p>
+    </div>
+    </div>
+    <div class="bottom">
+      <p>
+        <a href="/"><i class="icon-home"></i> home</a> | 
+        <a href="/about/"><i class="icon-user"></i> about</a> | 
+        <a href="/archives.html"><i class="icon-book"></i> archive</a> | 
+        <a href="/tags.html"><i class="icon-tags"></i> tags</a>
+      </p>
+      <p>
+        <a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a> | 
+        <a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a> | 
+        <a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a>
+      </p>
+    </div>
+  </div>
+</aside>
+
+<div class="content">
+  <div class="post">
+    <article>
+        <header>
+            <h1>Copper - Bootstrap and Bagging</h1>
+        </header>
+        <div class='post-content'>
+            <div class="ipynb"><div class="text_cell_render border-box-sizing rendered_html">
 <p>This week on my Advance Business Intelligence class we took a look at Boosting and Bagging, two concepts well known by everybody in the machine learning world. The example on the class was take a simple Decision Tree and compare it to some bagged Decision Tree; FYI the example on class failed: SAS told that a simple DT was "better" than the bagged one, some error on SAS Enterprise Miner that we could not found. Time to see if python is capable of doing it.</p>
 <p>This first part is just a recap of <a href="http://danielfrg.github.com/blog/copper-easy-data-analysis-on-python/">Post #1</a> I am using the same <a href="https://raw.github.com/danielfrg/copper/master/examples/donors/data/data.csv">donors.csv</a> that I am using for my class. We import the data and set some roles for the variables</p>
 </div>
@@ -1613,46 +1653,11 @@ IezS/wLBosSDUGolewAAAABJRU5ErkJggg==
 <p>I really believe that the potential of bagging is to do some conditional scoring, for example only ask models that are good with high Income when the entry income is higher than $10000 for example. Also probably is a good idea to use different classifiers, instead o 20 decision trees 5 DT, 5 SVM, and so on. But is just something that cross my mind.</p>
 <p>As usual the code is on github: <a href="https://github.com/danielfrg/copper">copper</a></p>
 </div></div>
-    </div>
-</article>
-</div>
-    </div>
-
-    <div class='sidebar'>
-        <img src="/static/images/posters/black-logo.svg">
-
-            <div class="metadata">
-        <p>
-            <strong>Written by: </strong>
-            <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
-        </p>
-        <p>
-            <strong>Published:</strong>
-            <i><time datetime="2013-01-30T00:00:00">January 30, 2013</time></i>
-        </p>
-        <p>
-            <strong>In:</strong>
-            <i><a href="../../../../../category/copper.html">Copper</a></i>
-        </p>
-        <p>
-                            <strong>Tags:</strong> 
-                <i><a href="../../../../../tag/python.html">python</a> </i><i><a href="../../../../../tag/copper.html">copper</a> </i><i><a href="../../../../../tag/machine-learning.html">machine-learning</a> </i>                    </p>
-    </div>
-
-        <div class="nav">
-            <ul>
-              <li><a href="/"><i class="icon-home"></i> home</a></li>
-              <li><a href="/about/"><i class="icon-user"></i> about</a></li>
-              <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
-              <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
-              <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
-              <li><a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a></li>
-            </ul>
         </div>
-    </div>
-</div>
+    </article>
 
-<div class="footer"><section class='footer'>
+
+<section class='footer'>
     <div class="post social container row-fluid">
         <div class="span3">
             <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -1676,6 +1681,8 @@ IezS/wLBosSDUGolewAAAABJRU5ErkJggg==
 </section>
 
 <script src="/theme/js/social.js"></script>
+
+</div>
 </div>
 
 </body>

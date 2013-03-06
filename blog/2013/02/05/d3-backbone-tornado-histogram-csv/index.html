@@ -12,22 +12,62 @@
 
                                 <!-- <link rel="stylesheet" href="/theme/css/pygments.min.css"> -->
             <!-- <link rel="stylesheet" href="/theme/css/pygments.css"> -->
-            <link rel="stylesheet" href="/theme/css/pygments.min.css?4ca8c475">
-                      <link rel="stylesheet" href="/theme/css/main.css?93f4513f">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="/theme/css/pygments.min.css?d92ecad6">
+                      <link rel="stylesheet" href="/theme/css/main.css?3e48ba7a">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
 </head>
 
 <body>
 
-<div class="wrapper">
-    <div class="content">
-        <div class="post">
-<article class='post'>
-    <header>
-        <h1>Using D3, backbone and tornado to visualize histograms of a csv file</h1>
-    </header>
-    <div class='post-content'>
-        <p>After being procrastinating for weeks the learning of <a href="http://d3js.org">D3.js</a> and <a href="http://backbonejs.org">backbone.js</a> I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):</p>
+<aside class='fixed'>
+  <div class="image" style="background-image: url('/static/images/posters/plane.jpg')"></div>
+  <!-- <div class="image" style="background-image: url('/static/images/posters/hubble.jpg')"></div> -->
+  <!-- <div class="cover-image" style="background-image: url('/static/images/posters/mountain.jpg')"></div> -->
+
+  <div class="body">
+    <div class="middle">
+          <div class="metadata">
+        <p>
+            <strong>Written by: </strong>
+            <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
+        </p>
+        <p>
+            <strong>Published:</strong>
+            <i><time datetime="2013-02-05T00:00:00">February 05, 2013</time></i>
+        </p>
+        <p>
+            <strong>In:</strong>
+            <i><a href="../../../../../category/vizualization.html">Vizualization</a></i>
+        </p>
+        <p>
+                            <strong>Tags:</strong> 
+                <i><a href="../../../../../tag/python.html">python</a> </i><i><a href="../../../../../tag/javascript.html">javascript</a> </i><i><a href="../../../../../tag/d3js.html">D3.js</a> </i><i><a href="../../../../../tag/backbone.html">backbone</a> </i><i><a href="../../../../../tag/tornado.html">tornado</a> </i>                    </p>
+    </div>
+    </div>
+    <div class="bottom">
+      <p>
+        <a href="/"><i class="icon-home"></i> home</a> | 
+        <a href="/about/"><i class="icon-user"></i> about</a> | 
+        <a href="/archives.html"><i class="icon-book"></i> archive</a> | 
+        <a href="/tags.html"><i class="icon-tags"></i> tags</a>
+      </p>
+      <p>
+        <a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a> | 
+        <a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a> | 
+        <a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a>
+      </p>
+    </div>
+  </div>
+</aside>
+
+<div class="content">
+  <div class="post">
+    <article>
+        <header>
+            <h1>Using D3, backbone and tornado to visualize histograms of a csv file</h1>
+        </header>
+        <div class='post-content'>
+            <p>After being procrastinating for weeks the learning of <a href="http://d3js.org">D3.js</a> and <a href="http://backbonejs.org">backbone.js</a> I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):</p>
 <ul>
 <li>Great web frameworks as <a href="https://www.djangoproject.com">Django</a> and <a href="http://www.tornadoweb.org">Tornado</a> - "fighting" with ruby (<a href="rubyonrails.org">rails</a>)</li>
 <li>Great Data Analysis packages such as <a href="http://pandas.pydata.org/">pandas</a> - "fighting" with <a href="http://www.r-project.org">R</a></li>
@@ -253,46 +293,11 @@
 <h2>Conclusion</h2>
 <p>It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.</p>
 <p>I include the whole code on <a href="https://github.com/danielfrg/copper">copper</a> (my data analysis package) which is not yet available via pip, so to use this need to download the <code>explore</code> folder of the package and run <code>python explore.py</code> (requires tornado and pandas). Remember to change the <code>explore.csv</code> to explore other data.</p>
-    </div>
-</article>
-</div>
-    </div>
-
-    <div class='sidebar'>
-        <img src="/static/images/posters/black-logo.svg">
-
-            <div class="metadata">
-        <p>
-            <strong>Written by: </strong>
-            <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
-        </p>
-        <p>
-            <strong>Published:</strong>
-            <i><time datetime="2013-02-05T00:00:00">February 05, 2013</time></i>
-        </p>
-        <p>
-            <strong>In:</strong>
-            <i><a href="../../../../../category/vizualization.html">Vizualization</a></i>
-        </p>
-        <p>
-                            <strong>Tags:</strong> 
-                <i><a href="../../../../../tag/python.html">python</a> </i><i><a href="../../../../../tag/javascript.html">javascript</a> </i><i><a href="../../../../../tag/d3js.html">D3.js</a> </i><i><a href="../../../../../tag/backbone.html">backbone</a> </i><i><a href="../../../../../tag/tornado.html">tornado</a> </i>                    </p>
-    </div>
-
-        <div class="nav">
-            <ul>
-              <li><a href="/"><i class="icon-home"></i> home</a></li>
-              <li><a href="/about/"><i class="icon-user"></i> about</a></li>
-              <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
-              <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
-              <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
-              <li><a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a></li>
-            </ul>
         </div>
-    </div>
-</div>
+    </article>
 
-<div class="footer"><section class='footer'>
+
+<section class='footer'>
     <div class="post social container row-fluid">
         <div class="span3">
             <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -316,6 +321,8 @@
 </section>
 
 <script src="/theme/js/social.js"></script>
+
+</div>
 </div>
 
 </body>

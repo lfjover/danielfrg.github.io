@@ -10,21 +10,61 @@
     
     <link href="../../../../../" type="application/atom+xml" rel="alternate" title="Daniel Rodriguez ATOM Feed" />
 
-                      <link rel="stylesheet" href="/theme/css/main.css?93f4513f">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+                      <link rel="stylesheet" href="/theme/css/main.css?3e48ba7a">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
 </head>
 
 <body>
 
-<div class="wrapper">
-    <div class="content">
-        <div class="post">
-<article class='post'>
-    <header>
-        <h1>New blog using Jekyll & iPython</h1>
-    </header>
-    <div class='post-content'>
-        <p>Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using <a href="http://octopress.org/">octopress</a> (<a href="https://github.com/mojombo/jekyll">jekyll</a>) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.</p>
+<aside class='fixed'>
+  <div class="image" style="background-image: url('/static/images/posters/plane.jpg')"></div>
+  <!-- <div class="image" style="background-image: url('/static/images/posters/hubble.jpg')"></div> -->
+  <!-- <div class="cover-image" style="background-image: url('/static/images/posters/mountain.jpg')"></div> -->
+
+  <div class="body">
+    <div class="middle">
+          <div class="metadata">
+        <p>
+            <strong>Written by: </strong>
+            <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
+        </p>
+        <p>
+            <strong>Published:</strong>
+            <i><time datetime="2013-01-31T00:00:00">January 31, 2013</time></i>
+        </p>
+        <p>
+            <strong>In:</strong>
+            <i><a href="../../../../../category/blogging.html">Blogging</a></i>
+        </p>
+        <p>
+                            <strong>Tags:</strong> 
+                <i><a href="../../../../../tag/jekyll.html">jekyll</a> </i><i><a href="../../../../../tag/ipython.html">ipython</a> </i>                    </p>
+    </div>
+    </div>
+    <div class="bottom">
+      <p>
+        <a href="/"><i class="icon-home"></i> home</a> | 
+        <a href="/about/"><i class="icon-user"></i> about</a> | 
+        <a href="/archives.html"><i class="icon-book"></i> archive</a> | 
+        <a href="/tags.html"><i class="icon-tags"></i> tags</a>
+      </p>
+      <p>
+        <a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a> | 
+        <a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a> | 
+        <a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a>
+      </p>
+    </div>
+  </div>
+</aside>
+
+<div class="content">
+  <div class="post">
+    <article>
+        <header>
+            <h1>New blog using Jekyll & iPython</h1>
+        </header>
+        <div class='post-content'>
+            <p>Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using <a href="http://octopress.org/">octopress</a> (<a href="https://github.com/mojombo/jekyll">jekyll</a>) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.</p>
 <ul>
 <li>Is not fast enough</li>
 <li>Can't have custom analytics and the wordpress analytics sucks.</li>
@@ -45,46 +85,11 @@
 <p>So in my repository I have all the templates, posts, images, markdown, and everything else on folder named <code>source</code>; that way jekyll creates the static content into <code>source/_site</code>. Then when I am happy with new post or new design I use a very simple python <a href="http://fabfile.org/">fabfile</a> to clean the root (ignoring the <code>source</code> and <code>.git</code> folders) then it moves the contents of <code>source/_site</code> to the root of the repository, then commits the changes and finally clean the root again.</p>
 <p>I try to make the site plugin agnostic because I don't now ruby but I try to complement that with a few YAML tags and if's on the layous, for example only have to put a YAML tag on each post file and the picture is added automaticly to the index and post pages. That also happens with youtube and vimeo videos.</p>
 <p>Finally the source of the site is on <a href="https://github.com/danielfrg/danielfrg.github.com">github</a> if anyone want to take a look.</p>
-    </div>
-</article>
-</div>
-    </div>
-
-    <div class='sidebar'>
-        <img src="/static/images/posters/black-logo.svg">
-
-            <div class="metadata">
-        <p>
-            <strong>Written by: </strong>
-            <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
-        </p>
-        <p>
-            <strong>Published:</strong>
-            <i><time datetime="2013-01-31T00:00:00">January 31, 2013</time></i>
-        </p>
-        <p>
-            <strong>In:</strong>
-            <i><a href="../../../../../category/blogging.html">BLogging</a></i>
-        </p>
-        <p>
-                            <strong>Tags:</strong> 
-                <i><a href="../../../../../tag/jekyll.html">jekyll</a> </i><i><a href="../../../../../tag/ipython.html">ipython</a> </i>                    </p>
-    </div>
-
-        <div class="nav">
-            <ul>
-              <li><a href="/"><i class="icon-home"></i> home</a></li>
-              <li><a href="/about/"><i class="icon-user"></i> about</a></li>
-              <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
-              <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
-              <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
-              <li><a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a></li>
-            </ul>
         </div>
-    </div>
-</div>
+    </article>
 
-<div class="footer"><section class='footer'>
+
+<section class='footer'>
     <div class="post social container row-fluid">
         <div class="span3">
             <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -108,6 +113,8 @@
 </section>
 
 <script src="/theme/js/social.js"></script>
+
+</div>
 </div>
 
 </body>

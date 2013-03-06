@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"padding",
+				"padding-left"
+			],
+			[
 				"text-",
 				"text-align"
 			],
@@ -510,28 +514,24 @@
 			[
 				"dr_",
 				"dr_data_window"
-			],
-			[
-				"slo",
-				"slope_std_error"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "themes/noise/templates/article.html",
+			"file": "themes/subtle/static/css/main.less",
 			"settings":
 			{
-				"buffer_size": 2950,
+				"buffer_size": 3154,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "themes/noise/templates/base.html",
+			"file": "themes/subtle/templates/base.html",
 			"settings":
 			{
-				"buffer_size": 1980,
+				"buffer_size": 1559,
 				"line_ending": "Unix"
 			}
 		}
@@ -652,17 +652,21 @@
 	},
 	"file_history":
 	[
-		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/base.html",
-		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/article.html",
-		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/main.less",
-		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
 		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/base.html",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/index.html",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/ipython.css",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/adelle.css",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/stylesheet.css",
+		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/proximanova.css",
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/ipython.min.css",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/pygments.css",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/font-awesome.min.css",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/segoeui.css",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/segoe.css",
-		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/index.html",
 		"/home/danielfrg/projects/blog/__source__/themes/relative/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/list.html",
 		"/home/danielfrg/projects/blog/__source__/themes/relative/templates/article.html",
@@ -775,11 +779,7 @@
 		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/rst2ipynblib/__init__.py",
 		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/css/static_html.css",
 		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/archives.html",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/page.html",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/static/css/main.less",
-		"/home/dfrodriguez/projects/pelican/content/pages/about.md",
-		"/home/dfrodriguez/projects/pelican/output/index2.html",
-		"/home/dfrodriguez/projects/blog/_source/archive/index.html"
+		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/page.html"
 	],
 	"find":
 	{
@@ -797,6 +797,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"family",
+			"h2",
+			".page",
 			"/surface/Assets/css/fonts/all/light/",
 			"/surface/Assets/css/fonts/all/bold/",
 			"/surface/Assets/css/fonts/all/semibold/",
@@ -921,10 +924,7 @@
 			"_oframe",
 			"NDFrame",
 			"DataFrame(",
-			"DataFrame",
-			"set_data",
-			"test_1",
-			"test_2"
+			"DataFrame"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -942,51 +942,51 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "themes/noise/templates/article.html",
+					"file": "themes/subtle/static/css/main.less",
 					"settings":
 					{
-						"buffer_size": 2950,
+						"buffer_size": 3154,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								882,
-								882
+								302,
+								302
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/LESS/LESS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 130.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "themes/noise/templates/base.html",
+					"file": "themes/subtle/templates/base.html",
 					"settings":
 					{
-						"buffer_size": 1980,
+						"buffer_size": 1559,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								593,
-								593
+								833,
+								833
 							]
 						],
 						"settings":

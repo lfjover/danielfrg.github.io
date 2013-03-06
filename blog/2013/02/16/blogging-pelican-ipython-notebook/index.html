@@ -12,22 +12,62 @@
 
                                 <!-- <link rel="stylesheet" href="/theme/css/pygments.min.css"> -->
             <!-- <link rel="stylesheet" href="/theme/css/pygments.css"> -->
-            <link rel="stylesheet" href="/theme/css/pygments.min.css?4ca8c475">
-                      <link rel="stylesheet" href="/theme/css/main.css?93f4513f">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="/theme/css/pygments.min.css?d92ecad6">
+                      <link rel="stylesheet" href="/theme/css/main.css?3e48ba7a">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
 </head>
 
 <body>
 
-<div class="wrapper">
-    <div class="content">
-        <div class="post">
-<article class='post'>
-    <header>
-        <h1>Blogging with iPython notebooks in pelican</h1>
-    </header>
-    <div class='post-content'>
-        <p>It seems that I spend most time redesigning/developing this blog than actually
+<aside class='fixed'>
+  <div class="image" style="background-image: url('/static/images/posters/plane.jpg')"></div>
+  <!-- <div class="image" style="background-image: url('/static/images/posters/hubble.jpg')"></div> -->
+  <!-- <div class="cover-image" style="background-image: url('/static/images/posters/mountain.jpg')"></div> -->
+
+  <div class="body">
+    <div class="middle">
+          <div class="metadata">
+        <p>
+            <strong>Written by: </strong>
+            <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
+        </p>
+        <p>
+            <strong>Published:</strong>
+            <i><time datetime="2013-02-16T00:00:00">February 16, 2013</time></i>
+        </p>
+        <p>
+            <strong>In:</strong>
+            <i><a href="../../../../../category/blogging.html">Blogging</a></i>
+        </p>
+        <p>
+                            <strong>Tags:</strong> 
+                <i><a href="../../../../../tag/python.html">python</a> </i><i><a href="../../../../../tag/pelican.html">pelican</a> </i>                    </p>
+    </div>
+    </div>
+    <div class="bottom">
+      <p>
+        <a href="/"><i class="icon-home"></i> home</a> | 
+        <a href="/about/"><i class="icon-user"></i> about</a> | 
+        <a href="/archives.html"><i class="icon-book"></i> archive</a> | 
+        <a href="/tags.html"><i class="icon-tags"></i> tags</a>
+      </p>
+      <p>
+        <a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a> | 
+        <a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a> | 
+        <a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a>
+      </p>
+    </div>
+  </div>
+</aside>
+
+<div class="content">
+  <div class="post">
+    <article>
+        <header>
+            <h1>Blogging with iPython notebooks in pelican</h1>
+        </header>
+        <div class='post-content'>
+            <p>It seems that I spend most time redesigning/developing this blog than actually
 blogging xD, just a few weeks ago I wrote about how I was <a href="../../../../../blog/2013/01/31/new-blog-using-jekyll-and-ipython/">blogging using jekyll
 with iPython notebooks</a>
 and now I am talking about doing the same different static blog engine.</p>
@@ -165,46 +205,11 @@ so you in your pelican <code>article.html</code> template should do:</p>
 from ipython notebooks for example: <a href="../../../../../blog/2013/02/13/copper-quick-data-transformation-python/">copper-quick-data-transformation</a></p>
 <p>If are curious about my pelican config or theme check it out on <a href="https://github.com/danielfrg/danielfrg.github.com">github</a>.</p>
 <p>Happy blogging!</p>
-    </div>
-</article>
-</div>
-    </div>
-
-    <div class='sidebar'>
-        <img src="/static/images/posters/black-logo.svg">
-
-            <div class="metadata">
-        <p>
-            <strong>Written by: </strong>
-            <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
-        </p>
-        <p>
-            <strong>Published:</strong>
-            <i><time datetime="2013-02-16T00:00:00">February 16, 2013</time></i>
-        </p>
-        <p>
-            <strong>In:</strong>
-            <i><a href="../../../../../category/blogging.html">Blogging</a></i>
-        </p>
-        <p>
-                            <strong>Tags:</strong> 
-                <i><a href="../../../../../tag/python.html">python</a> </i><i><a href="../../../../../tag/pelican.html">pelican</a> </i><i><a href="../../../../../tag/.html"></a> </i>                    </p>
-    </div>
-
-        <div class="nav">
-            <ul>
-              <li><a href="/"><i class="icon-home"></i> home</a></li>
-              <li><a href="/about/"><i class="icon-user"></i> about</a></li>
-              <li><a href="/archives.html"><i class="icon-book"></i> archive</a></li>
-              <li><a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a></li>
-              <li><a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a></li>
-              <li><a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a></li>
-            </ul>
         </div>
-    </div>
-</div>
+    </article>
 
-<div class="footer"><section class='footer'>
+
+<section class='footer'>
     <div class="post social container row-fluid">
         <div class="span3">
             <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -228,6 +233,8 @@ from ipython notebooks for example: <a href="../../../../../blog/2013/02/13/copp
 </section>
 
 <script src="/theme/js/social.js"></script>
+
+</div>
 </div>
 
 </body>

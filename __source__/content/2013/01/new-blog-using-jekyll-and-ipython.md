@@ -1,7 +1,7 @@
 Title: New blog using Jekyll & iPython
 Date: 2013-1-31
-Category: BLogging
-Tags: jekyll, ipython
+Category: Blogging
+Tags: jekyll,ipython
 Slug: new-blog-using-jekyll-and-ipython
 Author: Daniel Rodriguez
 Summary: Short version for index and feeds
