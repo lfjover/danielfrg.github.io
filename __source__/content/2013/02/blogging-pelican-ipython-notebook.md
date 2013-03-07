@@ -5,6 +5,7 @@ Category: Blogging
 Slug: blogging-pelican-ipython-notebook
 Author: Daniel Rodriguez
 Summary: Short version for index and feeds
+featured_img: /static/images/posters/writting.jpg
 code: true
 
 It seems that I spend most time redesigning/developing this blog than actually

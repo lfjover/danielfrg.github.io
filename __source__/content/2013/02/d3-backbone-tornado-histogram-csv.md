@@ -5,9 +5,7 @@ Category: Vizualization
 Slug: d3-backbone-tornado-histogram-csv
 Author: Daniel Rodriguez
 Summary: Short version for index and feeds
-featured_image: blog/2013/2/d3_backbone_hist.png
-hero_image: blog/2013/2/d3_backbone_hist.png
-hero_height: 600px
+featured_img: /static/images/blog/2013/2/d3_backbone_hist.png
 code: True
 
 After being procrastinating for weeks the learning of [D3.js][d3] and [backbone.js][backbone] I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):

@@ -16,7 +16,7 @@ STATIC_PATHS = ["images", ]
 SITEMAP = {
     'format': 'xml'
 }
-PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.sitemap']
+PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.sitemap', 'pelican.plugins.ipythonnb']
 
 GOOGLE_ANALYTICS = 'UA-35523657-2'
 

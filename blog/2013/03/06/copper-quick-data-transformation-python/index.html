@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Daniel Rodriguez" />
+    
+    <title>Kaggle Bulldozers: Basic cleaning | Daniel Rodriguez</title>
+    
+    <link href="../../../../../" type="application/atom+xml" rel="alternate" title="Daniel Rodriguez ATOM Feed" />
+
+                            <!-- <link rel="stylesheet" href="/theme/css/ipython.min.css"> -->
+            <!-- <link rel="stylesheet" href="/theme/css/ipython.css"> -->
+            <link rel="stylesheet" href="/theme/css/ipython.css">
+                          <!-- <link rel="stylesheet" href="/theme/css/main.css?201985d4"> -->
+      <link rel="stylesheet" href="/theme/css/main.css">
+          <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
+      <link rel="stylesheet" href="/theme/css/fonts/adelle.css">
+      <link rel="stylesheet" href="/theme/css/fonts/font-awesome.min.css">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
+</head>
+
+<body>
+
+<aside class='fixed'>
+      <div class="image" style="background-image: url('http://www.kaggle.com/content/v/a3f527e4a822/kaggle/img/logos/kaggle-transparent.svg')"></div>
+    <!-- <div class="image" style="background-image: url('/static/images/posters/hubble.jpg')"></div> -->
+  <!-- <div class="cover-image" style="background-image: url('/static/images/posters/mountain.jpg')"></div> -->
+
+  <div class="body">
+    <div class="middle">
+          <div class="metadata">
+        <p>
+            <strong>Written by: </strong>
+            <i><a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a></i>
+        </p>
+        <p>
+            <strong>Published:</strong>
+            <i><time datetime="2013-03-06T00:00:00">March 06, 2013</time></i>
+        </p>
+        <p>
+            <strong>In:</strong>
+            <i><a href="../../../../../category/copper.html">Copper</a></i>
+        </p>
+        <p>
+                            <strong>Tags:</strong> 
+                <i><a href="../../../../../tag/python.html">python</a> </i><i><a href="../../../../../tag/data-analysis.html">data-analysis</a> </i>                    </p>
+    </div>
+    </div>
+    <div class="bottom">
+      <p>
+        <a href="/"><i class="icon-home"></i> home</a> | 
+        <a href="/about/"><i class="icon-user"></i> about</a> | 
+        <a href="/archives.html"><i class="icon-book"></i> archive</a> | 
+        <a href="/tags.html"><i class="icon-tags"></i> tags</a>
+      </p>
+      <p>
+        <a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i> @danielfrg</a> | 
+        <a href="https://github.com/danielfrg"><i class="icon-github-alt"></i> on github</a> | 
+        <a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i> email</a>
+      </p>
+    </div>
+  </div>
+</aside>
+
+<div class="content">
+  <div class="post">
+    <article>
+        <header>
+            <h1>Kaggle Bulldozers: Basic cleaning</h1>
+        </header>
+        <div class='post-content'>
+            <div class="ipynb"><div class="text_cell_render border-box-sizing rendered_html">
+<p>In the last (2) weeks I have been doing a project for my Business Intelligence class and I learned why people always say they spend 80% of their time clearning the data, couldn't be more true.</p>
+<p>To practice a little bit more I decide to try the <a href="http://www.kaggle.com/c/bluebook-for-bulldozers">Kaggle bulldozers</a> competition. The first thing I notice was that the data is huge (+450 Mgs), is by far the bigguest data I have dealed with, for most Big Data experts is probably tiny but for me was huge xD.</p>
+<p>I was curious to see if python was capable of dealing with that and make some basic cleaning, also I ended creating some functionality for <a href="https://github.com/danielfrg/copper">copper</a>, the date cleaning and join datasets.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I start by looking (and getting scared) the data on Excel then imported it into python (pandas); +401k and 53 columns.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">copper</span>
+<span class="n">copper</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s">&#39;../&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">train</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;train.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">(401125, 53)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I decide to divide the cleaning into 4 sections approximately 12 columns each. And create 4 different <code>copper.Datasets</code> to modify the metadata of each section. Mainly needed to decide which columns are useful and which columns has to many missing values to be useful. At the same time making sure that the useful columns are do not have duplicates (categorical variables) and are good for machine learning (dates).</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 class="ipynb">
+  Columns 1
+</h2>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Select the first 11 columsn and print its first values.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">cols1</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">cols1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:540px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SalesID</th>
+      <th>SalePrice</th>
+      <th>MachineID</th>
+      <th>ModelID</th>
+      <th>datasource</th>
+      <th>auctioneerID</th>
+      <th>YearMade</th>
+      <th>MachineHoursCurrentMeter</th>
+      <th>UsageBand</th>
+      <th>saledate</th>
+      <th>fiModelDesc</th>
+      <th>fiBaseModel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> 1139246</td>
+      <td> 66000</td>
+      <td>  999089</td>
+      <td>  3157</td>
+      <td> 121</td>
+      <td> 3</td>
+      <td> 2004</td>
+      <td>   68</td>
+      <td>    Low</td>
+      <td> 11/16/2006 0:00</td>
+      <td>     521D</td>
+      <td>   521</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 1139248</td>
+      <td> 57000</td>
+      <td>  117657</td>
+      <td>    77</td>
+      <td> 121</td>
+      <td> 3</td>
+      <td> 1996</td>
+      <td> 4640</td>
+      <td>    Low</td>
+      <td>  3/26/2004 0:00</td>
+      <td>   950FII</td>
+      <td>   950</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 1139249</td>
+      <td> 10000</td>
+      <td>  434808</td>
+      <td>  7009</td>
+      <td> 121</td>
+      <td> 3</td>
+      <td> 2001</td>
+      <td> 2838</td>
+      <td>   High</td>
+      <td>  2/26/2004 0:00</td>
+      <td>      226</td>
+      <td>   226</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 1139251</td>
+      <td> 38500</td>
+      <td> 1026470</td>
+      <td>   332</td>
+      <td> 121</td>
+      <td> 3</td>
+      <td> 2001</td>
+      <td> 3486</td>
+      <td>   High</td>
+      <td>  5/19/2011 0:00</td>
+      <td> PC120-6E</td>
+      <td> PC120</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 1139253</td>
+      <td> 11000</td>
+      <td> 1057373</td>
+      <td> 17311</td>
+      <td> 121</td>
+      <td> 3</td>
+      <td> 2007</td>
+      <td>  722</td>
+      <td> Medium</td>
+      <td>  7/23/2009 0:00</td>
+      <td>     S175</td>
+      <td>  S175</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Most of the columns on this section are only IDs which are not usefull on prediction, also the target is the <code>SalePrice</code> variable so I created a Dataset and put the correct metadata.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">cols1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;SalesID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">ID</span>
+<span class="n">ds1</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;MachineID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">ID</span>
+<span class="n">ds1</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;ModelID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">ID</span>
+<span class="n">ds1</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;datasource&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">ID</span>
+<span class="n">ds1</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;auctioneerID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">ID</span>
+<span class="n">ds1</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;SalePrice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">TARGET</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="o">.</span><span class="n">percent_missing</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">UsageBand                   0.826391
+MachineHoursCurrentMeter    0.644089
+auctioneerID                0.050199
+fiBaseModel                 0.000000
+fiModelDesc                 0.000000
+saledate                    0.000000
+YearMade                    0.000000
+datasource                  0.000000
+ModelID                     0.000000
+MachineID                   0.000000
+SalePrice                   0.000000
+SalesID                     0.000000</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The values with more than 50% of missing values are automatically rejected. But the ones that are not reject (and are not IDs) are looking good.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  Transforming a date
+</h3>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The Date field could be usefull but is a text and is necessary to convert it into a python datetime, and for doing machine learning is usefull to convert dates into numbers, the most common aproach is to use the Julian Date method.</p>
+<p>Original data:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="p">[</span><span class="s">&#39;saledate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0    11/16/2006 0:00
+1     3/26/2004 0:00
+Name: saledate</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Convert it into a datetime giving the correct format.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="p">[</span><span class="s">&#39;saledate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="p">[</span><span class="s">&#39;saledate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">copper</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">strptime</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="s">&#39;%m/</span><span class="si">%d</span><span class="s">/%Y %H:%M&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="p">[</span><span class="s">&#39;saledate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0    2006-11-16 00:00:00
+1    2004-03-26 00:00:00
+Name: saledate</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Convert the dates into numbers</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="p">[</span><span class="s">&#39;saledate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="p">[</span><span class="s">&#39;saledate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">copper</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">date_to_number</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="p">[</span><span class="s">&#39;saledate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0    13468
+1    12503
+Name: saledate</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Change the type metadata of <code>saledate</code> because now is a Number not a Category.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;saledate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">NUMBER</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:540px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Role</th>
+      <th>Type</th>
+      <th>dtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SalesID</th>
+      <td>     ID</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>SalePrice</th>
+      <td> Target</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>MachineID</th>
+      <td>     ID</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>ModelID</th>
+      <td>     ID</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>datasource</th>
+      <td>     ID</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>auctioneerID</th>
+      <td>     ID</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>YearMade</th>
+      <td>  Input</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>MachineHoursCurrentMeter</th>
+      <td> Reject</td>
+      <td>   Number</td>
+      <td> float64</td>
+    </tr>
+    <tr>
+      <th>UsageBand</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>saledate</th>
+      <td>  Input</td>
+      <td>   Number</td>
+      <td>   int64</td>
+    </tr>
+    <tr>
+      <th>fiModelDesc</th>
+      <td>  Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+    <tr>
+      <th>fiBaseModel</th>
+      <td>  Input</td>
+      <td> Category</td>
+      <td>  object</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 class="ipynb">
+  Columns 2
+</h2>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Select the next columns and print the percent of missing values.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">cols2</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">20</span><span class="p">]]</span>
+<span class="n">cols2</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:540px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fiSecondaryDesc</th>
+      <th>fiModelSeries</th>
+      <th>fiModelDescriptor</th>
+      <th>ProductSize</th>
+      <th>fiProductClassDesc</th>
+      <th>state</th>
+      <th>ProductGroup</th>
+      <th>ProductGroupDesc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>   D</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td>            NaN</td>
+      <td>          Wheel Loader - 110.0 to 120.0 Horsepower</td>
+      <td>        Alabama</td>
+      <td>  WL</td>
+      <td>       Wheel Loader</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>   F</td>
+      <td>  II</td>
+      <td> NaN</td>
+      <td>         Medium</td>
+      <td>          Wheel Loader - 150.0 to 175.0 Horsepower</td>
+      <td> North Carolina</td>
+      <td>  WL</td>
+      <td>       Wheel Loader</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td>            NaN</td>
+      <td> Skid Steer Loader - 1351.0 to 1601.0 Lb Operat...</td>
+      <td>       New York</td>
+      <td> SSL</td>
+      <td> Skid Steer Loaders</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> NaN</td>
+      <td> -6E</td>
+      <td> NaN</td>
+      <td>          Small</td>
+      <td> Hydraulic Excavator, Track - 12.0 to 14.0 Metr...</td>
+      <td>          Texas</td>
+      <td> TEX</td>
+      <td>   Track Excavators</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td>            NaN</td>
+      <td> Skid Steer Loader - 1601.0 to 1751.0 Lb Operat...</td>
+      <td>       New York</td>
+      <td> SSL</td>
+      <td> Skid Steer Loaders</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>   G</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td>            NaN</td>
+      <td> Backhoe Loader - 14.0 to 15.0 Ft Standard Digg...</td>
+      <td>        Arizona</td>
+      <td>  BL</td>
+      <td>    Backhoe Loaders</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>   E</td>
+      <td> NaN</td>
+      <td>  LC</td>
+      <td> Large / Medium</td>
+      <td> Hydraulic Excavator, Track - 21.0 to 24.0 Metr...</td>
+      <td>        Florida</td>
+      <td> TEX</td>
+      <td>   Track Excavators</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds2</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">cols2</span><span class="p">)</span>
+<span class="n">ds2</span><span class="o">.</span><span class="n">percent_missing</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">fiModelSeries         0.858129
+fiModelDescriptor     0.820707
+ProductSize           0.525460
+fiSecondaryDesc       0.342016
+ProductGroupDesc      0.000000
+ProductGroup          0.000000
+state                 0.000000
+fiProductClassDesc    0.000000</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On the first dataset we have one column (<code>fiModelDesc</code>) that is divided into two variables (<code>fiBaseModel</code> and <code>fiSecondaryDesc</code>) so we do not need the original variable. We also have <code>ProductGroup</code> and <code>ProductGroupDesc</code> which are have the same information so I reject one.</p>
+<p>Finally we have fiProductClassDesc, which can be usefull but needs more transformation. Initially I was thinking of taking the numbers of the field but some values are Lbs and some are HorsePower so is not that simple, for not I reject it.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds1</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;fiModelDesc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">REJECTED</span>
+<span class="n">ds2</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;ProductGroupDesc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds2</span><span class="o">.</span><span class="n">REJECTED</span>
+<span class="n">ds2</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;fiProductClassDesc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds2</span><span class="o">.</span><span class="n">REJECTED</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since I have rejected so many variables I gave a change to 'ProductSize' since is just above the margin of missing values.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds2</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;ProductSize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">INPUT</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="nb">set</span><span class="p">(</span><span class="n">ds2</span><span class="p">[</span><span class="s">&#39;ProductSize&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[20]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">set([nan, &apos;Mini&apos;, &apos;Medium&apos;, &apos;Large / Medium&apos;, &apos;Compact&apos;, &apos;Large&apos;, &apos;Small&apos;])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Looks quite clean so no problems there. The final metadata for this section looks like this.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds2</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:540px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Role</th>
+      <th>Type</th>
+      <th>dtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>fiSecondaryDesc</th>
+      <td>  Input</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>fiModelSeries</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>fiModelDescriptor</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>ProductSize</th>
+      <td>  Input</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>fiProductClassDesc</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>state</th>
+      <td>  Input</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>ProductGroup</th>
+      <td>  Input</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>ProductGroupDesc</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 class="ipynb">
+  Columns 3
+</h2>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Print the first rows of the next section and see the missing values.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">cols3</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">31</span><span class="p">]]</span>
+<span class="n">cols3</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[22]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:540px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Drive_System</th>
+      <th>Enclosure</th>
+      <th>Forks</th>
+      <th>Pad_Type</th>
+      <th>Ride_Control</th>
+      <th>Stick</th>
+      <th>Transmission</th>
+      <th>Turbocharged</th>
+      <th>Blade_Extension</th>
+      <th>Blade_Width</th>
+      <th>Enclosure_Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> NaN</td>
+      <td> EROPS w AC</td>
+      <td> None or Unspecified</td>
+      <td> NaN</td>
+      <td> None or Unspecified</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> NaN</td>
+      <td> EROPS w AC</td>
+      <td> None or Unspecified</td>
+      <td> NaN</td>
+      <td> None or Unspecified</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> NaN</td>
+      <td>      OROPS</td>
+      <td> None or Unspecified</td>
+      <td> NaN</td>
+      <td>                 NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> NaN</td>
+      <td> EROPS w AC</td>
+      <td>                 NaN</td>
+      <td> NaN</td>
+      <td>                 NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> NaN</td>
+      <td>      EROPS</td>
+      <td> None or Unspecified</td>
+      <td> NaN</td>
+      <td>                 NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds3</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">cols3</span><span class="p">)</span>
+<span class="n">ds3</span><span class="o">.</span><span class="n">percent_missing</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[23]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">Enclosure_Type     0.937129
+Blade_Width        0.937129
+Blade_Extension    0.937129
+Turbocharged       0.802720
+Stick              0.802720
+Pad_Type           0.802720
+Drive_System       0.739829
+Ride_Control       0.629527
+Transmission       0.543210
+Forks              0.521154
+Enclosure          0.000810</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By default only <code>Enclosure</code> will be an input so lets see if need to be cleaned.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="nb">set</span><span class="p">(</span><span class="n">ds3</span><span class="p">[</span><span class="s">&#39;Enclosure&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[24]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">set([nan,
+     &apos;None or Unspecified&apos;,
+     &apos;OROPS&apos;,
+     &apos;EROPS w AC&apos;,
+     &apos;NO ROPS&apos;,
+     &apos;EROPS AC&apos;,
+     &apos;EROPS&apos;])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I believe 'EROPS w AC' and 'EROPS AC' are the same, probably should look at the forum of the competition but for now lets say I am right. Also I change the 'None or Unspecified' to nan.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds3</span><span class="p">[</span><span class="s">&#39;Enclosure&#39;</span><span class="p">][</span><span class="n">ds3</span><span class="p">[</span><span class="s">&#39;Enclosure&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;EROPS w AC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;EROPS AC&#39;</span>
+<span class="n">ds3</span><span class="p">[</span><span class="s">&#39;Enclosure&#39;</span><span class="p">][</span><span class="n">ds3</span><span class="p">[</span><span class="s">&#39;Enclosure&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;None or Unspecified&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since I create some new nans let's see if that changes the missing values.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds3</span><span class="o">.</span><span class="n">percent_missing</span><span class="p">()[</span><span class="s">&#39;Enclosure&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[26]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0.00081520722966654802</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets take a quick look at 'Forks' which is just above the rejection limit.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="nb">set</span><span class="p">(</span><span class="n">ds3</span><span class="p">[</span><span class="s">&#39;Forks&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[27]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">set([nan, &apos;Yes&apos;, &apos;None or Unspecified&apos;])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds3</span><span class="p">[</span><span class="s">&#39;Forks&#39;</span><span class="p">][</span><span class="n">ds3</span><span class="p">[</span><span class="s">&#39;Forks&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;None or Unspecified&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds3</span><span class="o">.</span><span class="n">percent_missing</span><span class="p">()[</span><span class="s">&#39;Forks&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[29]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0.96565409784979739</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Changing 'None or Unespecified' to nan make the variable almost all missing values so is not usefull at all. The final metadata for this section is:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds3</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[30]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:540px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Role</th>
+      <th>Type</th>
+      <th>dtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Drive_System</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Enclosure</th>
+      <td>  Input</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Forks</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Pad_Type</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Ride_Control</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Stick</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Transmission</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Turbocharged</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Blade_Extension</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Blade_Width</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+    <tr>
+      <th>Enclosure_Type</th>
+      <td> Reject</td>
+      <td> Category</td>
+      <td> object</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 class="ipynb">
+  Columns 4
+</h2>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's see the remaining columns and their missing values.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds4</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">31</span><span class="p">:]])</span>
+<span class="n">ds4</span><span class="o">.</span><span class="n">percent_missing</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[31]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">Tip_Control                0.937129
+Pushblock                  0.937129
+Engine_Horsepower          0.937129
+Scarifier                  0.937102
+Hydraulics_Flow            0.891899
+Grouser_Tracks             0.891899
+Coupler_System             0.891660
+Steering_Controls          0.827064
+Differential_Type          0.826959
+Backhoe_Mounting           0.803872
+Blade_Type                 0.800977
+Travel_Controls            0.800975
+Tire_Size                  0.763869
+Grouser_Type               0.752813
+Track_Type                 0.752813
+Pattern_Changer            0.752651
+Stick_Length               0.752651
+Thumb                      0.752476
+Undercarriage_Pad_Width    0.751020
+Ripper                     0.740388
+Coupler                    0.466620
+Hydraulics                 0.200823</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Almost everything is rejected. Let's take a look at what is not rejected.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="nb">set</span><span class="p">(</span><span class="n">ds4</span><span class="p">[</span><span class="s">&#39;Coupler&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[32]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">set([nan, &apos;None or Unspecified&apos;, &apos;Manual&apos;, &apos;Hydraulic&apos;])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="nb">set</span><span class="p">(</span><span class="n">ds4</span><span class="p">[</span><span class="s">&#39;Hydraulics&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[33]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">set([nan,
+     &apos;None or Unspecified&apos;,
+     &apos;Base + 3 Function&apos;,
+     &apos;Auxiliary&apos;,
+     &apos;Base + 4 Function&apos;,
+     &apos;Base + 1 Function&apos;,
+     &apos;Standard&apos;,
+     &apos;Base + 6 Function&apos;,
+     &apos;4 Valve&apos;,
+     &apos;3 Valve&apos;,
+     &apos;2 Valve&apos;,
+     &apos;Base + 5 Function&apos;,
+     &apos;Base + 2 Function&apos;])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Need to change the 'None or Unspecified' to nan and see what happens.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds4</span><span class="p">[</span><span class="s">&#39;Coupler&#39;</span><span class="p">][</span><span class="n">ds4</span><span class="p">[</span><span class="s">&#39;Coupler&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;None or Unspecified&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">ds4</span><span class="p">[</span><span class="s">&#39;Hydraulics&#39;</span><span class="p">][</span><span class="n">ds4</span><span class="p">[</span><span class="s">&#39;Hydraulics&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;None or Unspecified&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds4</span><span class="o">.</span><span class="n">percent_missing</span><span class="p">()[[</span><span class="s">&#39;Coupler&#39;</span><span class="p">,</span> <span class="s">&#39;Hydraulics&#39;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[35]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">Coupler       0.926781
+Hydraulics    0.200848</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>Hydraulics</code> maintains low missing values but <code>Coupler</code> is now huge on missing values so reject.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds4</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;Coupler&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds4</span><span class="o">.</span><span class="n">REJECTED</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 class="ipynb">
+  Join
+</h2>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With all the datasets ready we can join them into one huge dataset.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ds1</span><span class="p">,</span> <span class="n">ds2</span><span class="p">,</span> <span class="n">others</span><span class="o">=</span><span class="p">[</span><span class="n">ds3</span><span class="p">,</span> <span class="n">ds4</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's just check the number of rows and columns.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[38]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">(401125, 53)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have everything but I am not going to use all the rejected data in machine learning so let's filter the data taking only the Inputs and Targets.</p>
+<p>Note: By default the <code>filter</code> method returns a <code>pandas.DataFrame</code> but on this case I want a Dataset so I use the <code>ret_ds</code> parameter.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;Input&#39;</span><span class="p">,</span> <span class="s">&#39;Target&#39;</span><span class="p">],</span> <span class="n">ret_ds</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Just a final check on the first values and missing values.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[40]:</div>
+<div class="output_subarea output_pyout output_html rendered_html">
+<div style="max-height:1000px;max-width:540px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SalePrice</th>
+      <th>YearMade</th>
+      <th>saledate</th>
+      <th>fiBaseModel</th>
+      <th>fiSecondaryDesc</th>
+      <th>ProductSize</th>
+      <th>state</th>
+      <th>ProductGroup</th>
+      <th>Enclosure</th>
+      <th>Hydraulics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> 66000</td>
+      <td> 2004</td>
+      <td> 13468</td>
+      <td>   521</td>
+      <td>   D</td>
+      <td>    NaN</td>
+      <td>        Alabama</td>
+      <td>  WL</td>
+      <td> EROPS AC</td>
+      <td>   2 Valve</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 57000</td>
+      <td> 1996</td>
+      <td> 12503</td>
+      <td>   950</td>
+      <td>   F</td>
+      <td> Medium</td>
+      <td> North Carolina</td>
+      <td>  WL</td>
+      <td> EROPS AC</td>
+      <td>   2 Valve</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 10000</td>
+      <td> 2001</td>
+      <td> 12474</td>
+      <td>   226</td>
+      <td> NaN</td>
+      <td>    NaN</td>
+      <td>       New York</td>
+      <td> SSL</td>
+      <td>    OROPS</td>
+      <td> Auxiliary</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 38500</td>
+      <td> 2001</td>
+      <td> 15113</td>
+      <td> PC120</td>
+      <td> NaN</td>
+      <td>  Small</td>
+      <td>          Texas</td>
+      <td> TEX</td>
+      <td> EROPS AC</td>
+      <td>   2 Valve</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 11000</td>
+      <td> 2007</td>
+      <td> 14448</td>
+      <td>  S175</td>
+      <td> NaN</td>
+      <td>    NaN</td>
+      <td>       New York</td>
+      <td> SSL</td>
+      <td>    EROPS</td>
+      <td> Auxiliary</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ds</span><span class="o">.</span><span class="n">percent_missing</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[41]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">ProductSize        0.525460
+fiSecondaryDesc    0.342016
+Hydraulics         0.200848
+Enclosure          0.000815
+ProductGroup       0.000000
+state              0.000000
+fiBaseModel        0.000000
+saledate           0.000000
+YearMade           0.000000
+SalePrice          0.000000</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally save the Dataset for future use.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">copper</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="s">&#39;cleaned&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div></div>
+        </div>
+    </article>
+
+
+<section class='footer'>
+    <div class="post social container row-fluid">
+        <div class="span3">
+            <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+        </div>
+        <div class="span3">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="danielfrg">Tweet</a>
+        </div>
+
+        <div class="span3">
+            <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
+        </div>
+
+        <div class="span3 hn">
+            <span id="hnews"></span>
+        </div>
+    </div>
+
+    <div id="disqus_thread" class="comments container"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+<script src="/theme/js/social.js"></script>
+
+</div>
+</div>
+
+</body>
+</html>

@@ -12,15 +12,23 @@
 
     {% block extra_css %}{% endblock %}
     {% assets filters="less", output="css/main.css", "css/main.less" %}
-      <link rel="stylesheet" href="/{{ ASSET_URL }}">
+      <!-- <link rel="stylesheet" href="/{{ ASSET_URL }}"> -->
+      <link rel="stylesheet" href="/theme/css/main.css">
     {% endassets %}
+      <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
+      <link rel="stylesheet" href="/theme/css/fonts/adelle.css">
+      <link rel="stylesheet" href="/theme/css/fonts/font-awesome.min.css">
     <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
 </head>
 
 <body>
 
 <aside class='fixed'>
-  <div class="image" style="background-image: url('/static/images/posters/plane.jpg')"></div>
+  {% if article and article.featured_img %}
+    <div class="image" style="background-image: url('{{ article.featured_img }}')"></div>
+  {% else %}
+    <div class="image" style="background-image: url('/static/images/posters/plane.jpg')"></div>
+  {% endif %}
   <!-- <div class="image" style="background-image: url('/static/images/posters/hubble.jpg')"></div> -->
   <!-- <div class="cover-image" style="background-image: url('/static/images/posters/mountain.jpg')"></div> -->
 

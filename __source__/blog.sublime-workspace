@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"border-",
+				"border-bottom"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
 				"padding",
 				"padding-left"
 			],
@@ -502,39 +514,11 @@
 			[
 				"all",
 				"all_dates"
-			],
-			[
-				"arr",
-				"array"
-			],
-			[
-				"ab",
-				"abnormal_return"
-			],
-			[
-				"dr_",
-				"dr_data_window"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "themes/subtle/static/css/main.less",
-			"settings":
-			{
-				"buffer_size": 3154,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/subtle/templates/base.html",
-			"settings":
-			{
-				"buffer_size": 1559,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Python Virtual env",
 	"command_palette":
@@ -652,7 +636,41 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/base.html",
+		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/ipython.css",
+		"/home/danielfrg/projects/blog/__source__/content/2013/02/blogging-pelican-ipython-notebook.md",
+		"/home/danielfrg/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md",
+		"/home/danielfrg/projects/blog/__source__/content/2013/03/kaggle-bulldozers-clean.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/02/coursera-data-analysis-quiz-2-python.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-bootstrap-and-bagging.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-easy-data-analysis-on-python.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-machine-learning.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/02/d3-backbone-tornado-histogram-csv.md",
+		"/home/danielfrg/projects/blog/__source__/content/2013/02/copper-quick-data-transformation.ipynb",
+		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/clustermanager.py",
+		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/handlers.py",
+		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/kernelmanager.py",
+		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/notebookapp.py",
+		"/home/danielfrg/projects/heroku-ipython/main.py",
+		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/notebookmanager.py",
+		"/home/danielfrg/projects/heroku-ipython/Procfile",
+		"/home/danielfrg/projects/heroku-ipython/all.txt",
+		"/home/danielfrg/projects/heroku-ipython/requirements.txt",
+		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/__init__.py",
+		"/home/danielfrg/.virtualenvs/copper/bin/ipython3",
+		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/consoleapp.py",
+		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/__init__.py",
+		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/__init__.py",
+		"/home/danielfrg/projects/heroku-ipython/runtime.txt",
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/generators.py",
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/plugins/ipythonnb.py",
 		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/plugins/related_posts.py",
+		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/pygments.css",
+		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/list.html",
+		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/tags.html",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/article.html",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/index.html",
@@ -661,7 +679,6 @@
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/adelle.css",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/stylesheet.css",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/proximanova.css",
-		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/ipython.min.css",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/pygments.css",
 		"/home/danielfrg/projects/blog/__source__/themes/noise/static/css/fonts/font-awesome.min.css",
@@ -671,7 +688,6 @@
 		"/home/danielfrg/projects/blog/__source__/themes/noise/templates/list.html",
 		"/home/danielfrg/projects/blog/__source__/themes/relative/templates/article.html",
 		"/home/danielfrg/projects/blog/__source__/themes/relative/templates/base.html",
-		"/home/danielfrg/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md",
 		"/home/danielfrg/projects/blog/__source__/themes/relative2/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/index.html",
 		"/home/danielfrg/projects/blog/__source__/themes/resume/templates/article.html",
@@ -747,39 +763,7 @@
 		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/contents.py",
 		"/home/dfrodriguez/projects/pelican/content/2013/02/Post4.ipynb.dsa",
 		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/settings.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/__init__.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/paginator.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/writers.py",
-		"/home/dfrodriguez/projects/pelican/content/2013/01/Post_3.ipynb.dsa",
-		"/home/dfrodriguez/projects/pelican/content/2013/02/Post4.ipynb",
-		"/home/dfrodriguez/projects/pelican/content/2013/01/2013-1-26-copper-easy-data-analysis-on-python.md",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/pelican.py",
-		"/home/dfrodriguez/projects/pelican/pelicanconf.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/utils.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/signals.py",
-		"/home/dfrodriguez/projects/pelican/content/2013/02/3123.html",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/utils/__init__.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/rstdirectives.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/generators.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/log.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/__init__.pyc",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/ipynbconverters/base.py",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/ipynbconverters/html.py",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/jekyll.py",
-		"/home/dfrodriguez/projects/blog/_source/_utils/Post_4.ipynb",
-		"/home/dfrodriguez/projects/blog/_source/_utils/Post_4_header.html",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/converters/html.py",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/converters/utils.py",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/converters/python.py",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/converters/bloggerhtml.py",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/nbconvert.py",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/converters/base.py",
-		"/home/dfrodriguez/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/dfrodriguez/projects/blog/_source/_blog.sublime-project",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/rst2ipynblib/__init__.py",
-		"/home/dfrodriguez/projects/blog/_source/_utils/nbconvert/css/static_html.css",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/archives.html",
-		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/page.html"
+		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/__init__.py"
 	],
 	"find":
 	{
@@ -787,7 +771,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 95.0,
 		"where_history":
 		[
 		]
@@ -797,6 +781,27 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"segoe",
+			"websoc",
+			"ip",
+			"socket",
+			"kernels/",
+			"socket",
+			"web",
+			"ws",
+			"websoc",
+			"ip",
+			"ioloo",
+			"tornado",
+			"listen",
+			"instance",
+			"initialize",
+			"port",
+			" port",
+			"port",
+			"read_file",
+			"signal",
+			"*/",
 			"family",
 			"h2",
 			".page",
@@ -903,28 +908,7 @@
 			"class",
 			"self.models",
 			"n_data",
-			"print",
-			"cat_col",
-			"test1",
-			"_oframe",
-			"_frame",
-			"test_type_1",
-			"test_metadata_type_1",
-			"test1",
-			"DataFrameFormatter",
-			"def to_string(",
-			"to_string",
-			"_need_info_repr_",
-			"summary(",
-			"__str",
-			"__unicode",
-			"INPUT",
-			"_targetFilter",
-			"_idFilter",
-			"_oframe",
-			"NDFrame",
-			"DataFrame(",
-			"DataFrame"
+			"print"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -942,65 +926,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "themes/subtle/static/css/main.less",
-					"settings":
-					{
-						"buffer_size": 3154,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								302,
-								302
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 130.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "themes/subtle/templates/base.html",
-					"settings":
-					{
-						"buffer_size": 1559,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								833,
-								833
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1104,6 +1031,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 280.0,
+	"side_bar_width": 263.0,
 	"status_bar_visible": true
 }
