@@ -12,13 +12,11 @@
 
     {% block extra_css %}{% endblock %}
     {% assets filters="less", output="css/main.css", "css/main.less" %}
-      <!-- <link rel="stylesheet" href="/{{ ASSET_URL }}"> -->
-      <link rel="stylesheet" href="/theme/css/main.css">
+      <link rel="stylesheet" href="/{{ ASSET_URL }}">
     {% endassets %}
-      <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
-      <link rel="stylesheet" href="/theme/css/fonts/adelle.css">
-      <link rel="stylesheet" href="/theme/css/fonts/font-awesome.min.css">
-    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
+    {% assets filters="cleancss", output="css/fonts.min.css", "css/fonts/proximanova.css", "css/fonts/adelle.css", "css/fonts/font-awesome.min.css" %}
+      <link rel="stylesheet" href="/{{ ASSET_URL }}">
+    {% endassets %}
 </head>
 
 <body>
@@ -26,11 +24,11 @@
 <aside class='fixed'>
   {% if article and article.featured_img %}
     <div class="image" style="background-image: url('{{ article.featured_img }}')"></div>
+    <!-- <img src="{{ article.featured_img }}"> -->
   {% else %}
     <div class="image" style="background-image: url('/static/images/posters/plane.jpg')"></div>
+    <!-- <img src="/static/images/posters/planes.jpg"> -->
   {% endif %}
-  <!-- <div class="image" style="background-image: url('/static/images/posters/hubble.jpg')"></div> -->
-  <!-- <div class="cover-image" style="background-image: url('/static/images/posters/mountain.jpg')"></div> -->
 
   <div class="body">
     <div class="middle">

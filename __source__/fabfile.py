@@ -35,10 +35,10 @@ def move():
     dest_dir = '../'
     _move(src_dir, dest_dir)
 
-def deploy(commit_msg):
+def deploy():
+    local('make html')
     clean()
     move()
-    local("git add . && git commit -am '%s'" % commit_msg)
-    local("git push")
+    # local("git push")
     # clean()
 
