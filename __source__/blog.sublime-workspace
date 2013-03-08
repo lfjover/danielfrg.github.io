@@ -636,12 +636,20 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/Dropbox/Documents/UTD/Business Economics/mid",
+		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
+		"/home/danielfrg/projects/blog/__source__/plugin/ipythonnb.py",
+		"/home/danielfrg/projects/blog/__source__/plugins/ipythonnb.py",
+		"/home/danielfrg/projects/blog/__source__/plugins/ipythonnb/__init__.py",
+		"/home/danielfrg/projects/blog/__source__/plugins/ipythonnb/ipythonnb.py",
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/plugins/ipythonnb.py",
+		"/home/danielfrg/projects/blog/__source__/content/2013/03/kaggle-bulldozers-clean.ipynb",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/ipython.css",
 		"/home/danielfrg/projects/blog/__source__/content/2013/02/blogging-pelican-ipython-notebook.md",
 		"/home/danielfrg/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md",
-		"/home/danielfrg/projects/blog/__source__/content/2013/03/kaggle-bulldozers-clean.ipynb",
 		"/home/danielfrg/projects/blog/__source__/content/2013/02/coursera-data-analysis-quiz-2-python.ipynb",
 		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-bootstrap-and-bagging.ipynb",
 		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-easy-data-analysis-on-python.ipynb",
@@ -663,10 +671,7 @@
 		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/__init__.py",
 		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/__init__.py",
 		"/home/danielfrg/projects/heroku-ipython/runtime.txt",
-		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
 		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/generators.py",
-		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/plugins/ipythonnb.py",
-		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
 		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/plugins/related_posts.py",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/pygments.css",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/list.html",
@@ -758,12 +763,7 @@
 		"/home/dfrodriguez/projects/pelican/themes/danielfrg/templates/article.html",
 		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-4-coursera-data-analysis-quiz-2-python.md.old",
 		"/home/dfrodriguez/projects/pelican/content/2013/02/2013-2-4-coursera-data-analysis-quiz-2-python.ipynb",
-		"/home/dfrodriguez/projects/pelican/content/2013/01/2013-1-27-copper-machine-learning.md.old",
-		"/home/dfrodriguez/projects/pelican/content/2013/01/Post_1.ipynb",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/contents.py",
-		"/home/dfrodriguez/projects/pelican/content/2013/02/Post4.ipynb.dsa",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/settings.py",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/__init__.py"
+		"/home/dfrodriguez/projects/pelican/content/2013/01/2013-1-27-copper-machine-learning.md.old"
 	],
 	"find":
 	{
@@ -771,7 +771,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 95.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -781,6 +781,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"ConverterHTML",
+			"html",
 			"segoe",
 			"websoc",
 			"ip",
@@ -906,9 +908,7 @@
 			"fit(",
 			"class ",
 			"class",
-			"self.models",
-			"n_data",
-			"print"
+			"self.models"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1031,6 +1031,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 263.0,
+	"side_bar_width": 221.0,
 	"status_bar_visible": true
 }

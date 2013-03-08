@@ -172,6 +172,8 @@ If are curious about my pelican config or theme check it out on [github](https:/
 
 Happy blogging!
 
+<p class='update'><strong>Update: </strong> Check out the updated post on blogging with iPython notebook and pelican.</p>
+
 [pelican]:http://www.getpelican.com
 [pelican-docs]:http://docs.getpelican.com/
 

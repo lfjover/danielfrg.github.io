@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="http://danielfrg.github.com/" rel="alternate"></link><link href="http://danielfrg.github.com/feeds/Blogging.atom.xml" rel="self"></link><id>http://danielfrg.github.com/</id><updated>2013-02-16T00:00:00-06:00</updated><entry><title>Blogging with iPython notebooks in pelican</title><link href="http://danielfrg.github.com/blog/2013/02/16/blogging-pelican-ipython-notebook/" rel="alternate"></link><updated>2013-02-16T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</id><summary type="html">&lt;p&gt;It seems that I spend most time redesigning/developing this blog than actually
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="http://danielfrg.github.com/" rel="alternate"></link><link href="http://danielfrg.github.com/feeds/Blogging.atom.xml" rel="self"></link><id>http://danielfrg.github.com/</id><updated>2013-03-08T00:00:00-06:00</updated><entry><title>Plugin for blogging with iPython notebooks in Pelican</title><link href="http://danielfrg.github.com/blog/2013/03/08/pelican-ipython-notebook-plugin/" rel="alternate"></link><updated>2013-03-08T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-03-08:blog/2013/03/08/pelican-ipython-notebook-plugin/</id><summary type="html">&lt;p&gt;This is just a little update on my previous post about &lt;a href="http://danielfrg.github.com/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;Blogging with iPython notebooks with pelican&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;One of the people behind pelican helped me to convert the &lt;a href="http://danielfrg.github.com/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;previous code&lt;/a&gt; to a pelican plugin and I just made it available via github: &lt;a href="https://github.com/danielfrg/pelican-ipythonnb"&gt;pelican-ipythonnb&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).&lt;/p&gt;
+&lt;p&gt;An example is my last post about a &lt;a href="http://danielfrg.github.com/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/"&gt;cleaning data for a Kaggle competition&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Happy blogging!&lt;/p&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Download plugin files: &lt;code&gt;plugin/ipythonnb.py&lt;/code&gt; and the &lt;code&gt;plugin/nbconverter&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;The esiest way is to locate the pelican directory (for example: &lt;code&gt;~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/&lt;/code&gt;) and paste plugins files in the &lt;code&gt;pelican/plugins&lt;/code&gt; folder. 
+Then in the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;PLUGINS = ['pelican.plugins.ipythonnb']&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;But is also is possible to add plugins on the same directory of the pelican project:
+Create a folder called &lt;code&gt;custom_plugins_dir&lt;/code&gt; (NOTE: the name can be anything but do not use &lt;code&gt;plugins&lt;/code&gt;) and paste the plugin files there.
+Then in the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;PLUGINS = ['custom_plugins_dir.ipythonnb']&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In both cases also need to modify the MARKUP setting: On the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;MARKUP = ('md', 'ipynb')&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Add the CSS to the theme&lt;/h2&gt;
+&lt;p&gt;Download the &lt;code&gt;ipython.css&lt;/code&gt; file from the &lt;code&gt;assets&lt;/code&gt; directory and place it in your theme static folder. Then include the CSS on the theme template:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;article&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/theme/css/ipython.min.css&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;endif&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;How to blog&lt;/h2&gt;
+&lt;p&gt;Write the post using the iPython notebook interface, using markdown or anything.&lt;/p&gt;
+&lt;p&gt;Then open the &lt;code&gt;.ipynb&lt;/code&gt; file in a text editor and should see.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;metadata&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Super iPython NB&amp;quot;&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;A_LOT_OF_OTHER_STUFF&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Add the metadata for example:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;quot;metadata&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Super iPython NB&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Blogging with iPython notebooks in pelican&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Date&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2013-2-16&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Category&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Category&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Tags&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;tag2, tag2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;slug&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;slug-slug-slug&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Author&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Me&amp;quot;&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;A_LOT_OF_OTHER_STUFF&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And thats it! Add the &lt;code&gt;.ipynb&lt;/code&gt; file to the &lt;code&gt;content&lt;/code&gt; folder in the pelican project and should generate a new post.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Blogging with iPython notebooks in pelican</title><link href="http://danielfrg.github.com/blog/2013/02/16/blogging-pelican-ipython-notebook/" rel="alternate"></link><updated>2013-02-16T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</id><summary type="html">&lt;p&gt;It seems that I spend most time redesigning/developing this blog than actually
 blogging xD, just a few weeks ago I wrote about how I was &lt;a href="http://danielfrg.github.com/blog/2013/01/31/new-blog-using-jekyll-and-ipython/"&gt;blogging using jekyll
 with iPython notebooks&lt;/a&gt;
 and now I am talking about doing the same different static blog engine.&lt;/p&gt;
@@ -136,7 +183,8 @@ so you in your pelican &lt;code&gt;article.html&lt;/code&gt; template should do:
 &lt;p&gt;This particular post uses markdown but most of my previous posts are now converted
 from ipython notebooks for example: &lt;a href="http://danielfrg.github.com/blog/2013/02/13/copper-quick-data-transformation-python/"&gt;copper-quick-data-transformation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If are curious about my pelican config or theme check it out on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Happy blogging!&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>New blog using Jekyll &amp; iPython</title><link href="http://danielfrg.github.com/blog/2013/01/31/new-blog-using-jekyll-and-ipython/" rel="alternate"></link><updated>2013-01-31T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-01-31:blog/2013/01/31/new-blog-using-jekyll-and-ipython/</id><summary type="html">&lt;p&gt;Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using &lt;a href="http://octopress.org/"&gt;octopress&lt;/a&gt; (&lt;a href="https://github.com/mojombo/jekyll"&gt;jekyll&lt;/a&gt;) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.&lt;/p&gt;
+&lt;p&gt;Happy blogging!&lt;/p&gt;
+&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on blogging with iPython notebook and pelican.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>New blog using Jekyll &amp; iPython</title><link href="http://danielfrg.github.com/blog/2013/01/31/new-blog-using-jekyll-and-ipython/" rel="alternate"></link><updated>2013-01-31T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-01-31:blog/2013/01/31/new-blog-using-jekyll-and-ipython/</id><summary type="html">&lt;p&gt;Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using &lt;a href="http://octopress.org/"&gt;octopress&lt;/a&gt; (&lt;a href="https://github.com/mojombo/jekyll"&gt;jekyll&lt;/a&gt;) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Is not fast enough&lt;/li&gt;
 &lt;li&gt;Can't have custom analytics and the wordpress analytics sucks.&lt;/li&gt;

@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="http://danielfrg.github.com/" rel="alternate"></link><link href="http://danielfrg.github.com/feeds/all.atom.xml" rel="self"></link><id>http://danielfrg.github.com/</id><updated>2013-03-07T00:00:00-06:00</updated><entry><title>Kaggle bulldozers: Basic cleaning</title><link href="http://danielfrg.github.com/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" rel="alternate"></link><updated>2013-03-07T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</id><summary type="html">&lt;div class="ipynb"&gt;&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="http://danielfrg.github.com/" rel="alternate"></link><link href="http://danielfrg.github.com/feeds/all.atom.xml" rel="self"></link><id>http://danielfrg.github.com/</id><updated>2013-03-08T00:00:00-06:00</updated><entry><title>Plugin for blogging with iPython notebooks in Pelican</title><link href="http://danielfrg.github.com/blog/2013/03/08/pelican-ipython-notebook-plugin/" rel="alternate"></link><updated>2013-03-08T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-03-08:blog/2013/03/08/pelican-ipython-notebook-plugin/</id><summary type="html">&lt;p&gt;This is just a little update on my previous post about &lt;a href="http://danielfrg.github.com/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;Blogging with iPython notebooks with pelican&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;One of the people behind pelican helped me to convert the &lt;a href="http://danielfrg.github.com/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;previous code&lt;/a&gt; to a pelican plugin and I just made it available via github: &lt;a href="https://github.com/danielfrg/pelican-ipythonnb"&gt;pelican-ipythonnb&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).&lt;/p&gt;
+&lt;p&gt;An example is my last post about a &lt;a href="http://danielfrg.github.com/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/"&gt;cleaning data for a Kaggle competition&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Happy blogging!&lt;/p&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Download plugin files: &lt;code&gt;plugin/ipythonnb.py&lt;/code&gt; and the &lt;code&gt;plugin/nbconverter&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;The esiest way is to locate the pelican directory (for example: &lt;code&gt;~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/&lt;/code&gt;) and paste plugins files in the &lt;code&gt;pelican/plugins&lt;/code&gt; folder. 
+Then in the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;PLUGINS = ['pelican.plugins.ipythonnb']&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;But is also is possible to add plugins on the same directory of the pelican project:
+Create a folder called &lt;code&gt;custom_plugins_dir&lt;/code&gt; (NOTE: the name can be anything but do not use &lt;code&gt;plugins&lt;/code&gt;) and paste the plugin files there.
+Then in the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;PLUGINS = ['custom_plugins_dir.ipythonnb']&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In both cases also need to modify the MARKUP setting: On the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;MARKUP = ('md', 'ipynb')&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Add the CSS to the theme&lt;/h2&gt;
+&lt;p&gt;Download the &lt;code&gt;ipython.css&lt;/code&gt; file from the &lt;code&gt;assets&lt;/code&gt; directory and place it in your theme static folder. Then include the CSS on the theme template:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;article&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/theme/css/ipython.min.css&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;endif&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;How to blog&lt;/h2&gt;
+&lt;p&gt;Write the post using the iPython notebook interface, using markdown or anything.&lt;/p&gt;
+&lt;p&gt;Then open the &lt;code&gt;.ipynb&lt;/code&gt; file in a text editor and should see.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;metadata&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Super iPython NB&amp;quot;&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;A_LOT_OF_OTHER_STUFF&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Add the metadata for example:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;quot;metadata&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Super iPython NB&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Blogging with iPython notebooks in pelican&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Date&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2013-2-16&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Category&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Category&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Tags&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;tag2, tag2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;slug&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;slug-slug-slug&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Author&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Me&amp;quot;&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;A_LOT_OF_OTHER_STUFF&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And thats it! Add the &lt;code&gt;.ipynb&lt;/code&gt; file to the &lt;code&gt;content&lt;/code&gt; folder in the pelican project and should generate a new post.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Kaggle bulldozers: Basic cleaning</title><link href="http://danielfrg.github.com/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" rel="alternate"></link><updated>2013-03-07T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</id><summary type="html">&lt;div class="ipynb"&gt;&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;In the last (2) weeks I have been doing a project for my Business Intelligence class and I learned why people always say they spend 80% of their time clearning the data, couldn't be more true.&lt;/p&gt;
 &lt;p&gt;To practice a little bit more I decide to try the &lt;a href="http://www.kaggle.com/c/bluebook-for-bulldozers"&gt;Kaggle bulldozers&lt;/a&gt; competition. The first thing I notice was that the data is huge (+450 Mgs), is by far the bigguest data I have dealed with, for most Big Data experts is probably tiny but for me was huge xD.&lt;/p&gt;
 &lt;p&gt;I was curious to see if python was capable of dealing with that and make some basic cleaning, also I ended creating some functionality for &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;, the date cleaning and join datasets.&lt;/p&gt;
@@ -1628,7 +1675,8 @@ so you in your pelican &lt;code&gt;article.html&lt;/code&gt; template should do:
 &lt;p&gt;This particular post uses markdown but most of my previous posts are now converted
 from ipython notebooks for example: &lt;a href="http://danielfrg.github.com/blog/2013/02/13/copper-quick-data-transformation-python/"&gt;copper-quick-data-transformation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If are curious about my pelican config or theme check it out on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Happy blogging!&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Copper - Quick and automatic data transformation</title><link href="http://danielfrg.github.com/blog/2013/02/13/copper-quick-data-transformation-python/" rel="alternate"></link><updated>2013-02-13T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-02-13:blog/2013/02/13/copper-quick-data-transformation-python/</id><summary type="html">&lt;div class="ipynb"&gt;&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Happy blogging!&lt;/p&gt;
+&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on blogging with iPython notebook and pelican.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Copper - Quick and automatic data transformation</title><link href="http://danielfrg.github.com/blog/2013/02/13/copper-quick-data-transformation-python/" rel="alternate"></link><updated>2013-02-13T00:00:00-06:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.com,2013-02-13:blog/2013/02/13/copper-quick-data-transformation-python/</id><summary type="html">&lt;div class="ipynb"&gt;&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Today I start working on the first assignment for the Coursera's Data Analysis course and I needed to make some basic transformation on the data so decide to include them on &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;. &lt;/p&gt;
 &lt;p&gt;I realize I was making some wrong decisions on the Type metadata on the Dataset. Since the money type is just a number (similar to a percent number on the case of this example) it is not necessary to have it as a different type, just make the transformations I was doing so I decide to remove the Money type, now the only types are Number and Category.&lt;/p&gt;
 &lt;p&gt;Lets dive into the example: dataset: &lt;a href="https://raw.github.com/danielfrg/copper/master/examples/loans/data/loansData.csv"&gt;loansData.csv&lt;/a&gt;&lt;/p&gt;
