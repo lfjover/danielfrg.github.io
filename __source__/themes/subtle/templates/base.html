@@ -11,7 +11,7 @@
     <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
 
     {% block extra_css %}{% endblock %}
-    {% assets filters="less", output="css/main.css", "css/main.less" %}
+    {% assets filters="less,cleancss", output="css/main.css", "css/main.less" %}
       <link rel="stylesheet" href="/{{ ASSET_URL }}">
     {% endassets %}
     {% assets filters="cleancss", output="css/fonts.min.css", "css/fonts/proximanova.css", "css/fonts/adelle.css", "css/fonts/font-awesome.min.css" %}
