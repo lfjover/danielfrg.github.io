@@ -3,12 +3,12 @@
 
 {% block extra_css %}
     {% if article.ipython %}
-        {% assets filters="cleancss", output="css/ipython.min.css", "css/ipython.css" %}
+        {% assets filters="cssmin", output="css/ipython.%(version)s.css", "css/ipython.css" %}
             <link rel="stylesheet" href="/{{ ASSET_URL }}">
         {% endassets %}
     {% endif %}
     {% if article.code %}
-        {% assets filters="cleancss", output="css/pygments.min.css", "css/pygments.css" %}
+        {% assets filters="cssmin", output="css/pygments.%(version)s.css", "css/pygments.css" %}
             <link rel="stylesheet" href="/{{ ASSET_URL }}">
         {% endassets %}
     {% endif %}

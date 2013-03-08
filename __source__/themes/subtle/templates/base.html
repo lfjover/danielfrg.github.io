@@ -11,10 +11,10 @@
     
     <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
 
-    {% assets filters="cleancss", output="css/assets.min.css", "css/normalize.css", "css/fonts/proximanova.css", "css/fonts/adelle.css", "css/fonts/font-awesome.min.css" %}
+    {% assets filters="cssmin", output="css/assets.%(version)s.css", "css/normalize.css", "css/fonts/proximanova.css", "css/fonts/adelle.css", "css/fonts/font-awesome.min.css" %}
       <link rel="stylesheet" href="/{{ ASSET_URL }}">
     {% endassets %}
-    {% assets filters="less,cleancss", output="css/main.css", "css/main.less" %}
+    {% assets filters="less,cssmin", output="css/main.%(version)s.css", "css/main.less" %}
       <link rel="stylesheet" href="/{{ ASSET_URL }}">
     {% endassets %}
     {% block extra_css %}{% endblock %}

@@ -11,7 +11,6 @@ def clean():
         if fname.startswith('.') or fname.startswith('_'):
             pass
         else:
-            print(fname)
             if os.path.isdir(fpath):
                 shutil.rmtree(fpath)
             else:
