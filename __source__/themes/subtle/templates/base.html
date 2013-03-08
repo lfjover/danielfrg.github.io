@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <meta name="author" content="Daniel Rodriguez" />
+    <meta name="author" content="Daniel Rodriguez">
     
     <title>{% block title %}{%endblock%} | {{ SITENAME }}</title>
     
     <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
 
     {% block extra_css %}{% endblock %}
-    {% assets filters="less,cleancss", output="css/main.css", "css/main.less" %}
+    {% assets filters="cleancss", output="css/assets.min.css", "css/normalize.css", "css/fonts/proximanova.css", "css/fonts/adelle.css", "css/fonts/font-awesome.min.css" %}
       <link rel="stylesheet" href="/{{ ASSET_URL }}">
     {% endassets %}
-    {% assets filters="cleancss", output="css/fonts.min.css", "css/fonts/proximanova.css", "css/fonts/adelle.css", "css/fonts/font-awesome.min.css" %}
+    {% assets filters="less,cleancss", output="css/main.css", "css/main.less" %}
       <link rel="stylesheet" href="/{{ ASSET_URL }}">
     {% endassets %}
 </head>
