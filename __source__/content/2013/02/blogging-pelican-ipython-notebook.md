@@ -8,7 +8,7 @@ Summary: Short version for index and feeds
 featured_img: /static/images/posters/writting.jpg
 code: true
 
-<p class='update'><strong>Update: </strong> Check out the updated post on <a href="|filename|../03/pelican-ipython-notebook-plugin.md">blogging with iPython notebook and pelican with a plugin.</a></p>
+<p class='update'><strong>Update: </strong> Check out the updated post on <a href="|filename|../03/pelican-ipython-notebook-plugin.md">blogging with iPython notebook and pelican with a plugin</a>.</p>
 
 It seems that I spend most time redesigning/developing this blog than actually
 blogging xD, just a few weeks ago I wrote about how I was [blogging using jekyll
@@ -174,7 +174,7 @@ If are curious about my pelican config or theme check it out on [github](https:/
 
 Happy blogging!
 
-<p class='update'><strong>Update: </strong> Check out the updated post on <a href="|filename|../03/pelican-ipython-notebook-plugin.md">blogging with iPython notebook and pelican with a plugin.</a></p>
+<p class='update'><strong>Update: </strong> Check out the updated post on <a href="|filename|../03/pelican-ipython-notebook-plugin.md">blogging with iPython notebook and pelican with a plugin</a>.</p>
 
 [pelican]:http://www.getpelican.com
 [pelican-docs]:http://docs.getpelican.com/
