@@ -78,6 +78,9 @@ body {
 .content h2 {
   font-size: 1.6em;
 }
+.content img {
+  width: 100%;
+}
 .content code {
   background-color: #f7f7f7;
   border: 1px solid #e1e1e1;

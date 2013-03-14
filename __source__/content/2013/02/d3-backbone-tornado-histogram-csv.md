@@ -243,10 +243,15 @@ $(function(){
 ```
 ## Conclusion
 
+The result is this:
+
+![D3.js Histogram](/static/images/blog/2013/2/d3-hist.png "D3.js Histogram")
+
+Changing the number of bins or the column automaticlly re-draws the histogram.
+
 It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.
 
 I include the whole code on [copper][copper] (my data analysis package) which is not yet available via pip, so to use this need to download the `explore` folder of the package and run `python explore.py` (requires tornado and pandas). Remember to change the `explore.csv` to explore other data.
-
 
 
 [tornado]:http://www.tornadoweb.org
