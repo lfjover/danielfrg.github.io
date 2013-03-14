@@ -10,7 +10,7 @@ DEFAULT_PAGINATION = 5
 MARKUP = ('md', 'ipynb')
 DEFAULT_DATE_FORMAT = '%B %d, %Y'
 
-THEME = "./themes/subtle/"
+THEME = "./themes/middle/"
 STATIC_PATHS = ["images"]
 
 SITEMAP = {

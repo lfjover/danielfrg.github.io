@@ -1,6 +1,6 @@
 Title: Using D3, backbone and tornado to visualize histograms of a csv file
 Date: 2013-2-5
-Tags: python,javascript,D3.js,backbone,tornado
+Tags: python,javascript,D3.js,backbone,tornado,pandas
 Category: Vizualization
 Slug: d3-backbone-tornado-histogram-csv
 Author: Daniel Rodriguez

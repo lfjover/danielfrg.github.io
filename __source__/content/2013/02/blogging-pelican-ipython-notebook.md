@@ -1,6 +1,6 @@
 Title: Blogging with iPython notebooks in pelican
 Date: 2013-2-16
-Tags: python, pelican
+Tags: python,pelican
 Category: Blogging
 Slug: blogging-pelican-ipython-notebook
 Author: Daniel Rodriguez
