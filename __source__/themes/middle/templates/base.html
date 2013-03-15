@@ -9,7 +9,7 @@
     
     <title>{% block title %}{%endblock%} | {{ SITENAME }}</title>
 
-    {% assets filters="cssmin", output="css/assets.%(version)s.css", "css/normalize.css", "css/fonts/proximanova.css", "css/fonts/font-awesome.min.css" %}
+    {% assets filters="cssmin", output="css/assets.%(version)s.css", "css/normalize.css", "css/fonts/proximanova.css", "css/fonts/ss-social.css", "css/fonts/ss-standard.css" %}
       <link rel="stylesheet" href="/{{ ASSET_URL }}">
     {% endassets %}
     {% assets filters="less,cssmin", output="css/main.%(version)s.css", "css/main.less" %}
@@ -22,13 +22,14 @@
 
 <div class="header">
 <div class="navbar">
-  <a href="/"><i class="icon-home"></i></a>
-  <a href="/about/"><i class="icon-user"></i></a>
-  <a href="/archives.html"><i class="icon-book"></i></a>
-  <a href="/tags.html"><i class="icon-tags"></i></a>
-  <a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i></a>
-  <a href="https://github.com/danielfrg"><i class="icon-github-alt"></i></a>
-  <a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i></a>
+  <a href="/" class="ss-icon" title="home">home</a>
+  <a href="/about" class="ss-icon" title="about">user</a>
+  <a href="/archives.html" class="ss-icon" title="archives">notebook</a>
+  <a href="/tags.html" class="ss-icon" title="tags">tag</a>
+  <a href="http://atdanielfrg.tumblr.com" class="ss-icon ss-social" title="my thoughs on tumblr">tumblr</a>
+  <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
+  <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
+  <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
 </div>
 </div>
 

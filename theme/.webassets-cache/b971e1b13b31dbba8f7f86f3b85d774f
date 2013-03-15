@@ -6,38 +6,45 @@ body {
   margin: 0;
 }
 .header {
-  background: #222;
+  background: #161616;
   color: #000;
 }
 .header .navbar {
   min-height: 22px;
   margin: 0 auto;
   padding: 2px 0 0 0;
-  max-width: 130px;
+  max-width: 150px;
 }
 .header .navbar a {
-  color: #FFF;
+  color: #BBB;
   font-size: 0.95em;
   text-decoration: none;
 }
 .header .navbar a:hover {
-  color: #CCC;
+  color: #FFF;
   text-decoration: none;
 }
-.content {
-  font-size: 103%;
-  max-width: 37.62136em;
-  margin: 30px auto;
-}
 .content a {
-  color: #0678be;
+  color: #346B9A;
   text-decoration: none;
 }
 .content a:hover {
   color: #000;
   text-decoration: none;
 }
+.content p,
+.content h1,
+.content h2,
+.content ul,
+.content ol,
+.content .codehilite,
+.content .metadata {
+  max-width: 640px;
+  margin: 30px auto;
+  padding: 0 10px;
+}
 .content p {
+  text-align: justify;
   font-size: 1em;
   line-height: 1.8;
 }
@@ -46,7 +53,6 @@ body {
   background-color: #f8eab0;
   border-left: 8px solid #ecd163;
   padding: 7px 7px 7px 25px;
-  max-width: 665px;
 }
 .content p.gray,
 .content p.note {
@@ -78,7 +84,34 @@ body {
 .content h2 {
   font-size: 1.6em;
 }
-.content img {
+.content figure {
+  border: 1px #ddd solid;
+  margin: 0 auto;
+  max-width: 640px;
+}
+.content figure div {
+  width: 100%;
+}
+.content figure div img {
+  width: 100%;
+}
+.content figure figcaption {
+  font-size: 0.85em;
+  text-align: center;
+}
+.content figure.center {
+  border: none;
+  max-width: 1000px;
+}
+.content figure.center div {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+}
+.content figure.center div img {
+  width: 100%;
+}
+.content p img {
   width: 100%;
 }
 .content code {
@@ -129,6 +162,10 @@ body {
 .content .metadata ul li {
   font-size: 14px;
 }
+.content .ipynb {
+  margin: 0 auto;
+  max-width: 640px;
+}
 .index h1 {
   font-size: 2.55em;
   font-weight: 300;
@@ -142,7 +179,9 @@ body {
   font-size: 14px;
 }
 .page-list ul {
-  margin-left: 0px;
+  margin: 30px auto;
+  max-width: 640px;
+  padding: 0 10px;
   padding: 0;
 }
 .page-list ul li {
@@ -162,10 +201,9 @@ body {
   color: #fff;
 }
 .footer .social {
+  max-width: 640px;
   margin: 0px auto;
-  padding-top: 15px;
-  font-size: 103%;
-  max-width: 37.62136em;
+  padding: 15px 20px 0;
 }
 .footer .social .span3 {
   width: 23.404255319148934%;
@@ -177,9 +215,8 @@ body {
 }
 .footer .comments {
   margin: 15px auto 0;
-  width: 80%;
-  max-width: 950px;
-  padding-top: 40px;
+  max-width: 1000px;
+  padding: 40px 20px 0;
 }
 .footer .comments a {
   color: #0678be;

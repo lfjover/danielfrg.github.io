@@ -9,8 +9,8 @@
     
     <title>Using D3, backbone and tornado to visualize histograms of a csv file | Daniel Rodriguez</title>
 
-          <link rel="stylesheet" href="/theme/css/assets.d921d370.css">
-              <link rel="stylesheet" href="/theme/css/main.e7701a93.css">
+          <link rel="stylesheet" href="/theme/css/assets.60f23822.css">
+              <link rel="stylesheet" href="/theme/css/main.defb0e18.css">
                                     <link rel="stylesheet" href="/theme/css/pygments.1aae3274.css">
             </head>
 
@@ -18,13 +18,14 @@
 
 <div class="header">
 <div class="navbar">
-  <a href="/"><i class="icon-home"></i></a>
-  <a href="/about/"><i class="icon-user"></i></a>
-  <a href="/archives.html"><i class="icon-book"></i></a>
-  <a href="/tags.html"><i class="icon-tags"></i></a>
-  <a href="https://twitter.com/danielfrg"><i class="icon-twitter"></i></a>
-  <a href="https://github.com/danielfrg"><i class="icon-github-alt"></i></a>
-  <a href="mailto:df.rodriguez143@gmail.com"><i class="icon-envelope-alt"></i></a>
+  <a href="/" class="ss-icon" title="home">home</a>
+  <a href="/about" class="ss-icon" title="about">user</a>
+  <a href="/archives.html" class="ss-icon" title="archives">notebook</a>
+  <a href="/tags.html" class="ss-icon" title="tags">tag</a>
+  <a href="http://atdanielfrg.tumblr.com" class="ss-icon ss-social" title="my thoughs on tumblr">tumblr</a>
+  <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
+  <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
+  <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
 </div>
 </div>
 
@@ -49,7 +50,15 @@
 <p>So I finally got out of my python comfort zone and re-learn Javascript, I had used it but was very simple examples using JQuery and a very long time ago, everything has changed now the cool people use Backbone.js which is a <strong>fabulous</strong> creation to give structure to Javascript. So I read a lot of beginner tutorials of backbone and D3 and this is the result.</p>
 <h2>What I wanted</h2>
 <p>For <a href="https://github.com/danielfrg/copper">copper</a>, my python data analysis library, I use matplotlib to plot histograms like this:</p>
-<p><img alt="Matplotlib Histogram" src="/static/images/blog/2013/2/matplotlib_hist.png" title="Matplotlib histogram" /></p>
+<!-- ![Matplotlib Histogram](/static/images/blog/2013/2/matplotlib_hist.png "Matplotlib histogram") -->
+
+<figure>
+    <div>
+        <img src="/static/images/blog/2013/2/matplotlib_hist.png" alt="Matplotlib histogram">
+    </div>
+    <figcaption>Matplotlib histogram: Red indicates missing values</figcaption>
+</figure>
+
 <p>The histograms work and are great so I wanted to do the same with D3.js to explore a <code>csv</code> file using pandas.</p>
 <p>Data - I am using data from a Business Intelligence project I am currently working on, available here: <a href="https://raw.github.com/danielfrg/copper/master/tests/data/expedia/train.csv">expedia.csv</a></p>
 <h2>Python: REST API</h2>
@@ -259,8 +268,19 @@
 
 
 <h2>Conclusion</h2>
-<p>The result is this:</p>
-<p><img alt="D3.js Histogram" src="/static/images/blog/2013/2/d3-hist.png" title="D3.js Histogram" /></p>
+<!-- ![D3.js Histogram](/static/images/blog/2013/2/d3-hist.png "D3.js Histogram") -->
+
+<figure class='center'>
+    <div>
+        <img src="/static/images/blog/2013/2/d3-hist.png" alt="D3.js Histogram">
+    </div>
+    <figcaption>The result</figcaption>
+</figure>
+
+<!-- <div class="image"> -->
+
+<!-- </div> -->
+
 <p>Changing the number of bins or the column automaticlly re-draws the histogram.</p>
 <p>It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.</p>
 <p>I include the whole code on <a href="https://github.com/danielfrg/copper">copper</a> (my data analysis package) which is not yet available via pip, so to use this need to download the <code>explore</code> folder of the package and run <code>python explore.py</code> (requires tornado and pandas). Remember to change the <code>explore.csv</code> to explore other data.</p>
@@ -297,7 +317,6 @@
 
 <footer>
 <section class='footer'>
-
     <div class="post social container row-fluid">
         <div class="span3">
             <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -321,8 +340,6 @@
 </section>
 
 <script src="/theme/js/social.js"></script>
-
-</div>
 </footer>
 
     <script type="text/javascript">
