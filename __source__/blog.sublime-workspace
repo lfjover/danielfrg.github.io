@@ -527,11 +527,15 @@
 		"selected_items":
 		[
 			[
-				"insta",
+				"install",
 				"Package Control: Install Package"
 			],
 			[
-				"install",
+				"packa",
+				"Package Control: Enable Package"
+			],
+			[
+				"insta",
 				"Package Control: Install Package"
 			],
 			[
@@ -553,10 +557,6 @@
 			[
 				"jin",
 				"Set Syntax: Jinja Templates"
-			],
-			[
-				"packa",
-				"Package Control: Install Package"
 			],
 			[
 				"liqui",
@@ -619,7 +619,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 435.0
+		"width": 561.0
 	},
 	"console":
 	{
@@ -636,21 +636,43 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-standard.css",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-social.css",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/article.html",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/base.html",
+		"/home/danielfrg/projects/blog/__source__/content/2013/02/d3-backbone-tornado-histogram-csv.md",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/main-bu.less",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-standard/ss-standard.woff",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-standard/ss-standard.eot",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-standar.css",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/font-awesome-social.css",
+		"/home/danielfrg/Downloads/css/font-awesome-social.css",
+		"/home/danielfrg/projects/blog/__source__/content/2013/03/pelican-ipython-notebook-plugin.md",
+		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-bootstrap-and-bagging.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/02/copper-quick-data-transformation.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/02/blogging-pelican-ipython-notebook.md",
+		"/home/danielfrg/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md",
+		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-machine-learning.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-easy-data-analysis-on-python.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/02/coursera-data-analysis-quiz-2-python.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/03/kaggle-bulldozers-clean.ipynb",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/index.html",
+		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/proximanova.css",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/list.html",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/ipython.css",
+		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/fonts/font-awesome.min.css",
 		"/home/danielfrg/projects/blog/__source__/fabfile.py",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/article.html",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/normalize.css",
-		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/main.less",
-		"/home/danielfrg/projects/blog/__source__/content/2013/02/blogging-pelican-ipython-notebook.md",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/pygments.css",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/fonts/proximanova.css",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/fonts/adelle.css",
-		"/home/danielfrg/projects/blog/__source__/content/2013/03/pelican-ipython-notebook-plugin.md",
-		"/home/danielfrg/projects/blog/__source__/content/2013/03/kaggle-bulldozers-clean.ipynb",
 		"/home/danielfrg/projects/blog/__source__/themes/clean/templates/base.html",
 		"/home/danielfrg/projects/pelican-ipythonnb/README.md",
-		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/ipython.css",
 		"/home/danielfrg/Dropbox/Documents/UTD/Business Economics/mid",
 		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
@@ -659,13 +681,6 @@
 		"/home/danielfrg/projects/blog/__source__/plugins/ipythonnb/__init__.py",
 		"/home/danielfrg/projects/blog/__source__/plugins/ipythonnb/ipythonnb.py",
 		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/plugins/ipythonnb.py",
-		"/home/danielfrg/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md",
-		"/home/danielfrg/projects/blog/__source__/content/2013/02/coursera-data-analysis-quiz-2-python.ipynb",
-		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-bootstrap-and-bagging.ipynb",
-		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-easy-data-analysis-on-python.ipynb",
-		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-machine-learning.ipynb",
-		"/home/danielfrg/projects/blog/__source__/content/2013/02/d3-backbone-tornado-histogram-csv.md",
-		"/home/danielfrg/projects/blog/__source__/content/2013/02/copper-quick-data-transformation.ipynb",
 		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/clustermanager.py",
 		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/handlers.py",
 		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/notebook/kernelmanager.py",
@@ -748,22 +763,7 @@
 		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/tag.html",
 		"/home/dfrodriguez/projects/blog/__source__/content/2013/02/blogging-pelican-ipython-notebook.md",
 		"/home/dfrodriguez/projects/blog/__source__/content/2013/01/copper-bootstrap-and-bagging.ipynb",
-		"/home/dfrodriguez/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md",
-		"/home/dfrodriguez/projects/blog/__source__/fabfile.py",
-		"/home/dfrodriguez/projects/blog/pelicanconf.py",
-		"/home/dfrodriguez/projects/blog/content/2013/02/blogging-pelican-ipython-notebook.md",
-		"/home/dfrodriguez/projects/blog/content/2013/02/copper-quick-data-transformation.ipynb",
-		"/home/dfrodriguez/.virtualenvs/blog/lib/python2.7/site-packages/pelican/readers.py",
-		"/home/dfrodriguez/projects/pelican-dev/pelican/readers.py",
-		"/home/dfrodriguez/projects/pelican-dev/docs/getting_started.rst",
-		"/home/dfrodriguez/projects/pelican-dev/pelican/util/nbconverter/base.py",
-		"/home/dfrodriguez/.virtualenvs/pelican/lib/python2.7/site-packages/pelican.egg-link",
-		"/home/dfrodriguez/projects/pelican-dev/pelican/util/nbconverter/__init__.py",
-		"/home/dfrodriguez/projects/pelican-dev/pelican/util/nbconverter/html.py",
-		"/home/dfrodriguez/projects/pelican-dev/pelican/themes/ipythonnb/README.rst",
-		"/home/dfrodriguez/.virtualenvs/pelican-dev/lib/python2.7/site-packages/pelican.egg-link",
-		"/home/dfrodriguez/projects/pelican-dev/setup.py",
-		"/home/dfrodriguez/.virtualenvs/pelican-dev/lib/python2.7/site-packages/pelican-3.2-py2.7.egg/pelican/readers.py"
+		"/home/dfrodriguez/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md"
 	],
 	"find":
 	{
@@ -781,6 +781,20 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			";\n",
+			"max-wi",
+			"ss-social",
+			"ss-social-regular",
+			"</strong>",
+			"<strong",
+			"update",
+			"h2",
+			".high",
+			"font-size",
+			"section",
+			"h1",
+			"3em",
+			"font-size",
 			"ConverterHTML",
 			"html",
 			"segoe",
@@ -894,21 +908,7 @@
 			"clf",
 			"_id",
 			"remove_clf",
-			"remove",
-			"add_model",
-			"model",
-			"models",
-			"probas",
-			"classes_",
-			"print",
-			"self.X_test",
-			"self.probas",
-			"def predict",
-			"def fit",
-			"fit(",
-			"class ",
-			"class",
-			"self.models"
+			"remove"
 		],
 		"highlight": true,
 		"in_selection": false,

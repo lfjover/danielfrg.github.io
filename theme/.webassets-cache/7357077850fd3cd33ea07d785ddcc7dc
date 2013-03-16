@@ -44,6 +44,7 @@ body {
   padding: 0 10px;
 }
 .content p {
+  margin: 10px auto;
   text-align: justify;
   font-size: 1em;
   line-height: 1.8;
@@ -166,20 +167,37 @@ body {
   margin: 0 auto;
   max-width: 640px;
 }
+.index p.first {
+  font-size: 3em;
+  line-height: 1em;
+  margin-bottom: 0;
+}
+.index p.first i {
+  color: #666;
+}
+.index p.second {
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.index p.second a {
+  color: #666;
+}
+.index p.second a:hover {
+  color: #000;
+}
 .index h1 {
   font-size: 2.55em;
   font-weight: 300;
+  margin-bottom: 0px;
 }
 .index h2 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 0.95em;
 }
-.index a {
-  font-size: 14px;
-}
 .page-list ul {
-  margin: 30px auto;
+  margin: 10px auto;
   max-width: 640px;
   padding: 0 10px;
   padding: 0;
@@ -188,6 +206,9 @@ body {
   list-style: none;
   padding: 7px 2px;
   border-bottom: 1px solid #eee;
+}
+.page-list ul li a {
+  font-size: 0.9em;
 }
 .page-list ul li span {
   padding-top: 3px;
