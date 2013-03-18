@@ -6,8 +6,8 @@
     <ul>
     {% for article in dates %}
         <li>
-            <span>{{ article.locale_date }}</span>
             <a href='/{{ article.url }}'>{{ article.title }}</a>
+            <span>[{{ article.locale_date }}]</span>
         </li>
     {% endfor %}
     </ul>

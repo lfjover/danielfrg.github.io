@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Thoughts about data analysis, python, tech, movies, tv and more{% endblock %}
+{% block title %}Thoughts about coding, data science, data analysis, python and more{% endblock %}
 
 {% block content %}
 <div class="index page-list">
@@ -16,8 +16,8 @@
       <a href="{{ SITEURL }}/{{ article.url }}">
         <!-- <h2>{{ article.title }}</h2> -->
         {{ article.title }}
+        <span>[ {{ article.locale_date }} ]</span>
       </a>
-      <span>{{ article.locale_date }}</span>
     </li>
   {% endfor %}
   </ul>

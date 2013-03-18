@@ -6,8 +6,9 @@
     <ul>
     {% for tag, articles in tags %}
         <li>
-            <span> {{ articles | length }} </span>
-            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+            <a href="{{ tag.url }}">{{ tag }}
+            <span>[ {{ articles | length }} ]</span>
+            </a>
         </li>
     {% endfor %}
     </ul>
