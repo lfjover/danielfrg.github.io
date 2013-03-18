@@ -6,6 +6,7 @@ from fabric.api import local
 
 def clean():
     local('make clean')
+    # --
     file_names = os.listdir('../')
     file_paths = [os.path.join('../', f) for f in file_names]
     for fname, fpath in zip(file_names, file_paths):
