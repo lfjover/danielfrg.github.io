@@ -30,5 +30,4 @@ PAGE_SAVE_AS = '/{slug}.html'
 FILES_TO_COPY = (('robots.txt', 'robots.txt'),
                  ('googleaa9959ae757fe3e1.html', 'googleaa9959ae757fe3e1.html'),
                  ('favicon.ico', 'favicon.ico'),)   
-                 # ('404.html', '404.html'),)
 
