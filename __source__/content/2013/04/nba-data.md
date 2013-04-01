@@ -166,7 +166,7 @@ BASE_URL = 'http://espn.go.com/nba/boxscore?gameId={0}'
 request = requests.get(BASE_URL.format(games.index[0]))
 
 table = BeautifulSoup(request.text).find('table', class_='mod-data')
-heads = table.find_all('thead')   
+heads = table.find_all('thead')
 headers = heads[0].find_all('tr')[1].find_all('th')[1:]
 headers = [th.text for th in headers]
 columns = ['id', 'team', 'player'] + headers
@@ -191,11 +191,13 @@ def get_players(players, team_name):
     return frame
 
 for index, row in games.iterrows():
+# for index, row in games.iterrows():
     print(index)
     request = requests.get(BASE_URL.format(index))
     table = BeautifulSoup(request.text).find('table', class_='mod-data')
+    heads = table.find_all('thead')
     bodies = table.find_all('tbody')
-    
+
     team_1 = heads[0].th.text
     team_1_players = bodies[0].find_all('tr') + bodies[1].find_all('tr')
     team_1_players = get_players(team_1_players, team_1)
@@ -206,16 +208,19 @@ for index, row in games.iterrows():
     team_2_players = get_players(team_2_players, team_2)
     players = players.append(team_2_players)
 
-copper.save(players, 'players')
+print(players)
+# copper.save(players, 'players')
 ```
 
 The file looks like this
 ```
 ,id,team,player,MIN,FGM-A,3PM-A,FTM-A,OREB,DREB,REB,AST,STL,BLK,TO,PF,+/-,PTS
-0,400277722,Milwaukee Bucks,Brandon Bass,28,6-11,0-0,3-4,6,5,11,1,0,0,1,2,-8,15
-0,400277722,Milwaukee Bucks,Paul Pierce,41,6-15,2-4,9-9,0,5,5,5,2,0,0,3,-17,23
-0,400277722,Milwaukee Bucks,Kevin Garnett,32,4-8,0-0,1-1,1,11,12,2,0,2,5,4,-4,9
-0,400277722,Milwaukee Bucks,Rajon Rondo,44,9-14,0-2,2-4,0,7,7,13,0,0,4,4,-13,20
+0,400277722,Boston Celtics,Brandon Bass,28,6-11,0-0,3-4,6,5,11,1,0,0,1,2,-8,15
+0,400277722,Boston Celtics,Paul Pierce,41,6-15,2-4,9-9,0,5,5,5,2,0,0,3,-17,23
+...
+0,400277722,Miami Heat,Shane Battier,29,2-4,2-3,0-0,0,2,2,1,1,0,0,3,+12,6
+0,400277722,Miami Heat,LeBron James,29,10-16,2-4,4-5,1,9,10,3,2,0,0,2,+12,26
+0,400277722,Miami Heat,Chris Bosh,37,8-15,0-1,3-4,2,8,10,1,0,3,1,3,+15,19
 ..... A LOT OF DATA .....
 ```
 

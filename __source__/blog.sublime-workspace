@@ -636,9 +636,9 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/projects/blog/__source__/content/2013/04/nba-data.md",
 		"/home/danielfrg/projects/data-mining/nba/src/scrap/get_players.py",
 		"/home/danielfrg/projects/data-mining/nba/data/players.csv",
-		"/home/danielfrg/projects/blog/__source__/content/2013/04/nba-data.md",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/index.html",
 		"/home/danielfrg/projects/blog/__source__/fabfile.py",
 		"/home/danielfrg/projects/blog/__source__/content/2013/03/kaggle-bulldozers-clean.ipynb",
@@ -771,7 +771,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 95.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -1018,7 +1018,7 @@
 		[
 			[
 				"",
-				"/home/danielfrg/projects/copper/copper.sublime-project"
+				"/home/danielfrg/projects/data-mining/nba/nba.sublime-project"
 			],
 			[
 				"blog",
