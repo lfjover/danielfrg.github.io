@@ -636,6 +636,18 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/projects/data-mining/nba/src/scrap/get_players.py",
+		"/home/danielfrg/projects/data-mining/nba/data/players.csv",
+		"/home/danielfrg/projects/blog/__source__/content/2013/04/nba-data.md",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/index.html",
+		"/home/danielfrg/projects/blog/__source__/fabfile.py",
+		"/home/danielfrg/projects/blog/__source__/content/2013/03/kaggle-bulldozers-clean.ipynb",
+		"/home/danielfrg/projects/blog/__source__/content/2013/02/coursera-data-analysis-quiz-2-python.ipynb",
+		"/home/danielfrg/projects/data-mining/nba/src/scrap/get_games.py",
+		"/home/danielfrg/projects/data-mining/nba/data/teams.csv",
+		"/home/danielfrg/projects/data-mining/nba/data/matches.csv",
+		"/home/danielfrg/projects/data-mining/nba/src/scrap/get_teams.py",
+		"/home/danielfrg/projects/data-mining/nba/src/scrap/get_schedule.py",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
 		"/home/danielfrg/projects/blog/__source__/content/pages/404.md",
@@ -644,7 +656,6 @@
 		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/tags.html",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/list.html",
-		"/home/danielfrg/projects/blog/__source__/fabfile.py",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/404.html",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-standard.css",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-social.css",
@@ -663,9 +674,6 @@
 		"/home/danielfrg/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md",
 		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-machine-learning.ipynb",
 		"/home/danielfrg/projects/blog/__source__/content/2013/01/copper-easy-data-analysis-on-python.ipynb",
-		"/home/danielfrg/projects/blog/__source__/content/2013/02/coursera-data-analysis-quiz-2-python.ipynb",
-		"/home/danielfrg/projects/blog/__source__/content/2013/03/kaggle-bulldozers-clean.ipynb",
-		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/index.html",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/proximanova.css",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/ipython.css",
@@ -755,15 +763,7 @@
 		"/home/dfrodriguez/projects/copper/copper.sublime-project",
 		"/home/dfrodriguez/projects/blog/__source__/blog.sublime-project",
 		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/static/css/main.less",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/base.html",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/list.html",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/article.html",
-		"/home/dfrodriguez/projects/blog/__source__/content/2013/02/copper-quick-data-transformation.ipynb",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/author.html",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/index.html",
-		"/home/dfrodriguez/projects/blog/__source__/pelicanconf.py",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/analytics.html",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/category.html"
+		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/base.html"
 	],
 	"find":
 	{
@@ -771,7 +771,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 95.0,
 		"where_history":
 		[
 		]
@@ -781,6 +781,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"matches",
 			"600px",
 			"ol",
 			"border: none",
@@ -907,8 +908,7 @@
 			"shadow",
 			"hover",
 			"clf",
-			"add_model",
-			"pl"
+			"add_model"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1018,7 +1018,7 @@
 		[
 			[
 				"",
-				"/home/danielfrg/projects/django_hospital/hospital.sublime-project"
+				"/home/danielfrg/projects/copper/copper.sublime-project"
 			],
 			[
 				"blog",

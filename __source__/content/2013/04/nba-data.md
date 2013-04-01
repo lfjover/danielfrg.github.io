@@ -160,10 +160,10 @@ from bs4 import BeautifulSoup
 from datetime import datetime, date
 copper.project.path = '../..'
 
-matches = copper.read_csv('matches.csv').set_index('id')
+games = copper.read_csv('games.csv').set_index('id')
 BASE_URL = 'http://espn.go.com/nba/boxscore?gameId={0}'
 
-request = requests.get(BASE_URL.format(matches.index[0]))
+request = requests.get(BASE_URL.format(games.index[0]))
 
 table = BeautifulSoup(request.text).find('table', class_='mod-data')
 heads = table.find_all('thead')   
@@ -190,7 +190,7 @@ def get_players(players, team_name):
         frame = frame.append(new)
     return frame
 
-for index, row in matches.iterrows():
+for index, row in games.iterrows():
     print(index)
     request = requests.get(BASE_URL.format(index))
     table = BeautifulSoup(request.text).find('table', class_='mod-data')
