@@ -519,54 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "themes/middle/templates/index.html",
-			"settings":
-			{
-				"buffer_size": 1307,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/middle/static/css/main.less",
-			"settings":
-			{
-				"buffer_size": 5373,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/middle/templates/base.html",
-			"settings":
-			{
-				"buffer_size": 1740,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/middle/templates/tags.html",
-			"settings":
-			{
-				"buffer_size": 358,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "themes/middle/templates/list.html",
-			"settings":
-			{
-				"buffer_size": 351,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "fabfile.py",
-			"settings":
-			{
-				"buffer_size": 1052,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Python Virtual env",
 	"command_palette":
@@ -684,11 +636,19 @@
 	},
 	"file_history":
 	[
+		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/main.less",
+		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
+		"/home/danielfrg/projects/blog/__source__/content/pages/404.md",
+		"/home/danielfrg/projects/blog/__source__/content/404.html",
+		"/home/danielfrg/projects/blog/__source__/content/favicon.ico",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/base.html",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/tags.html",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/list.html",
+		"/home/danielfrg/projects/blog/__source__/fabfile.py",
+		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/404.html",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-standard.css",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-social.css",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/article.html",
-		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/main.less",
-		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/content/2013/02/d3-backbone-tornado-histogram-csv.md",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/main-bu.less",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/ss-standard/ss-standard.woff",
@@ -708,11 +668,8 @@
 		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/index.html",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/main.less",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/fonts/proximanova.css",
-		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/list.html",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/static/css/ipython.css",
-		"/home/danielfrg/projects/blog/__source__/pelicanconf.py",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/fonts/font-awesome.min.css",
-		"/home/danielfrg/projects/blog/__source__/fabfile.py",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/base.html",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/article.html",
 		"/home/danielfrg/projects/blog/__source__/themes/subtle/static/css/normalize.css",
@@ -806,12 +763,7 @@
 		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/index.html",
 		"/home/dfrodriguez/projects/blog/__source__/pelicanconf.py",
 		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/analytics.html",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/category.html",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/archives.html",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/tag.html",
-		"/home/dfrodriguez/projects/blog/__source__/content/2013/02/blogging-pelican-ipython-notebook.md",
-		"/home/dfrodriguez/projects/blog/__source__/content/2013/01/copper-bootstrap-and-bagging.ipynb",
-		"/home/dfrodriguez/projects/blog/__source__/content/2013/01/new-blog-using-jekyll-and-ipython.md"
+		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/category.html"
 	],
 	"find":
 	{
@@ -974,175 +926,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "themes/middle/templates/index.html",
-					"settings":
-					{
-						"buffer_size": 1307,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1198,
-								1198
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "themes/middle/static/css/main.less",
-					"settings":
-					{
-						"buffer_size": 5373,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								106,
-								106
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 26.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "themes/middle/templates/base.html",
-					"settings":
-					{
-						"buffer_size": 1740,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1049,
-								1049
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "themes/middle/templates/tags.html",
-					"settings":
-					{
-						"buffer_size": 358,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								199,
-								199
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "themes/middle/templates/list.html",
-					"settings":
-					{
-						"buffer_size": 351,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								279,
-								279
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "fabfile.py",
-					"settings":
-					{
-						"buffer_size": 1052,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								571,
-								571
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 324.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1233,7 +1018,7 @@
 		[
 			[
 				"",
-				"/home/danielfrg/projects/copper/copper.sublime-project"
+				"/home/danielfrg/projects/django_hospital/hospital.sublime-project"
 			],
 			[
 				"blog",
