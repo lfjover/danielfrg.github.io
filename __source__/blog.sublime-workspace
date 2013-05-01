@@ -637,6 +637,9 @@
 	"file_history":
 	[
 		"/home/danielfrg/projects/blog/__source__/content/2013/04/nba-data.md",
+		"/home/danielfrg/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/danielfrg/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/danielfrg/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/danielfrg/projects/data-mining/nba/src/scrap/get_players.py",
 		"/home/danielfrg/projects/data-mining/nba/data/players.csv",
 		"/home/danielfrg/projects/blog/__source__/themes/middle/templates/index.html",
@@ -757,13 +760,10 @@
 		"/home/danielfrg/projects/blog/__source__/themes/danielfrg/templates/index.html",
 		"/home/danielfrg/projects/blog2/pelicanconf.py",
 		"/home/danielfrg/projects/blog/__source__/ipython-reader.py",
-		"/home/danielfrg/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/danielfrg/Downloads/matplotlibrc",
 		"/home/danielfrg/.bashrc",
 		"/home/dfrodriguez/projects/copper/copper.sublime-project",
-		"/home/dfrodriguez/projects/blog/__source__/blog.sublime-project",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/static/css/main.less",
-		"/home/dfrodriguez/projects/blog/__source__/themes/danielfrg/templates/base.html"
+		"/home/dfrodriguez/projects/blog/__source__/blog.sublime-project"
 	],
 	"find":
 	{
@@ -781,6 +781,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"font",
 			"matches",
 			"600px",
 			"ol",
@@ -907,8 +908,7 @@
 			".shadow",
 			"shadow",
 			"hover",
-			"clf",
-			"add_model"
+			"clf"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1018,7 +1018,7 @@
 		[
 			[
 				"",
-				"/home/danielfrg/projects/data-mining/nba/nba.sublime-project"
+				"/home/danielfrg/projects/copper/copper.sublime-project"
 			],
 			[
 				"blog",
