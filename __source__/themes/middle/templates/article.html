@@ -1,19 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }}{% endblock %}
 
-{% block extra_css %}
-    {% if article.ipython %}
-        {% assets filters="cssmin", output="css/ipython.%(version)s.css", "css/ipython.css" %}
-            <link rel="stylesheet" href="/{{ ASSET_URL }}">
-        {% endassets %}
-    {% endif %}
-    {% if article.code %}
-        {% assets filters="cssmin", output="css/pygments.%(version)s.css", "css/pygments.css" %}
-            <link rel="stylesheet" href="/{{ ASSET_URL }}">
-        {% endassets %}
-    {% endif %}
-{% endblock %}
-
 {% block content %}
 <div class="post">
     <article>
@@ -51,7 +38,6 @@
 </div>
 {% endblock %}
 
-
 {% block footer %}
 <section class='footer'>
     <div class="post social container row-fluid">
@@ -78,27 +64,3 @@
 
 <script src="/theme/js/social.js"></script>
 {% endblock %}
-
-{% block sidebar %}
-<div class="metadata">
-    <p>
-        <strong>Written by: </strong>
-        <i><a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a></i>
-    </p>
-    <p>
-        <strong>Published:</strong>
-        <i><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></i>
-    </p>
-    <p>
-        <strong>In:</strong>
-        <i><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></i>
-    </p>
-    <p>
-        {% if article.tags %}
-            <strong>Tags:</strong> 
-            {% for tag in article.tags %}<i><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> </i>{% endfor %}
-        {% endif %}
-    </p>
-</div>
-{% endblock %}
-

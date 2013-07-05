@@ -1,17 +1,20 @@
 {% extends "base.html" %}
+{% block title %}Tags{% endblock %}
 
 {% block content %}
-<div class="page-list">
-    <h1>{% block title %}Tags{% endblock %}</h1>
-    <ul>
-    {% for tag, articles in tags %}
-        <li>
-            <a href="{{ tag.url }}">{{ tag }}
-            <span>[ {{ articles | length }} ]</span>
-            </a>
-        </li>
-    {% endfor %}
-    </ul>
+<div class="index">
+    <div class="list">
+        <h1>Tags:</h1>
+        <ul>
+        {% for tag, articles in tags %}
+            <li>
+                <a href="{{ tag.url }}">
+                <h2>{{ tag }}</h2>
+                <span>[ {{ articles | length }} ]</span>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
 </div>
 {% endblock %}
-

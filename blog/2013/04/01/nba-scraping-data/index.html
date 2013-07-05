@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
-    <meta name="author" content="Daniel Rodriguez">
-    
-    <title>Extracting NBA data from ESPN | Daniel Rodriguez</title>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Extracting NBA data from ESPN | Daniel Rodriguez</title>
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="Blog is written by Daniel Rodriguez. He writes about coding, python, data science and his projects.">
+        <meta name="viewport" content="width=device-width">
 
-          <link rel="stylesheet" href="/theme/css/assets.49a445d5.css">
-              <link rel="stylesheet" href="/theme/css/main.4d3cbd16.css">
-                                    <link rel="stylesheet" href="/theme/css/pygments.1aae3274.css">
-            </head>
+        <link rel="stylesheet" href="/theme/css/normalize.min.css">
+        <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-standard.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/ipython.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="navbar">
+              <a href="/" class="ss-icon" title="home">home</a>
+              <a href="/tags.html" class="ss-icon" title="tags">tag</a>
+              <!-- <a href="/archives.html" class="ss-icon" title="archives">notebook</a> -->
+              <a href="http://about.me/danielfrg" class="ss-icon" title="about">user</a>
+              <!-- <a href="http://atdanielfrg.tumblr.com" class="ss-icon ss-social" title="my thoughs on tumblr">tumblr</a> -->
+              <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
+              <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
+              <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
+            </div>
+        </div>
 
-<body>
-
-<div class="header">
-<div class="navbar">
-  <a href="/" class="ss-icon" title="home">home</a>
-  <a href="/tags.html" class="ss-icon" title="tags">tag</a>
-  <!-- <a href="/archives.html" class="ss-icon" title="archives">notebook</a> -->
-  <a href="http://about.me/danielfrg" class="ss-icon" title="about">user</a>
-  <a href="http://atdanielfrg.tumblr.com" class="ss-icon ss-social" title="my thoughs on tumblr">tumblr</a>
-  <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
-  <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
-  <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
-</div>
-</div>
-
-<div class="content">
-<div class="post">
+        <div id="content">
+            <div class="post">
     <article>
         <header>
             <h1>Extracting NBA data from ESPN</h1>
@@ -54,7 +55,7 @@ project to use the data analysis project structure.</p>
 <h2>Get the teams</h2>
 <p>First I needed to get all the team names and URLs. So is as simple as request
 <a href="http://espn.go.com/nba/teams">http://espn.go.com/nba/teams</a> and 32 lines of python.</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">copper</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">copper</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
@@ -80,6 +81,7 @@ project to use the data analysis project structure.</p>
         <span class="n">prefix_1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
         <span class="n">prefix_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
+
 <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;url&#39;</span><span class="p">:</span> <span class="n">teams_urls</span><span class="p">,</span> <span class="s">&#39;prefix_2&#39;</span><span class="p">:</span> <span class="n">prefix_2</span><span class="p">,</span> <span class="s">&#39;prefix_1&#39;</span><span class="p">:</span> <span class="n">prefix_1</span><span class="p">}</span>
 <span class="n">teams</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">teams</span><span class="p">)</span>
 <span class="n">teams</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;team&#39;</span>
@@ -89,7 +91,7 @@ project to use the data analysis project structure.</p>
 
 
 <p>This saves <code>teams.csv</code> file with the 30 teams in this format.</p>
-<div class="codehilite"><pre><span class="n">team</span><span class="p">,</span><span class="n">prefix_1</span><span class="p">,</span><span class="n">prefix_2</span><span class="p">,</span><span class="n">url</span>
+<div class="highlight"><pre><span class="n">team</span><span class="p">,</span><span class="n">prefix_1</span><span class="p">,</span><span class="n">prefix_2</span><span class="p">,</span><span class="n">url</span>
 <span class="n">Boston</span> <span class="n">Celtics</span><span class="p">,</span><span class="n">bos</span><span class="p">,</span><span class="n">boston</span><span class="o">-</span><span class="n">celtics</span><span class="p">,</span><span class="n">http</span><span class="o">:</span><span class="c1">//espn.go.com/nba/team/_/name/bos/boston-celtics</span>
 <span class="n">Brooklyn</span> <span class="n">Nets</span><span class="p">,</span><span class="n">bkn</span><span class="p">,</span><span class="n">brooklyn</span><span class="o">-</span><span class="n">nets</span><span class="p">,</span><span class="n">http</span><span class="o">:</span><span class="c1">//espn.go.com/nba/team/_/name/bkn/brooklyn-nets</span>
 <span class="p">......</span>
@@ -101,7 +103,7 @@ project to use the data analysis project structure.</p>
 csv file and for each team make a request and parse the data. On this case
 60 lines of python produced a 1084 rows csv file with all the games of the current
 (2013) season. But is as simple as changing a variable to download other seasons information.</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">copper</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">copper</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -169,7 +171,7 @@ csv file and for each team make a request and parse the data. On this case
 <p>All the previous data is good but for doing some analysis I need players stats.
 Then for each game I download all players stats for that game. The result was
 55 lines of python (imports included) to generate 27645 rows full with stats.</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">copper</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">copper</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -202,13 +204,12 @@ Then for each game I download all players stats for that game. The result was
 
     <span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
-        <span class="n">row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="n">index</span><span class="p">,</span> <span class="n">team_name</span><span class="p">],</span> <span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">columns</span><span class="p">))</span>
-        <span class="n">new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">frame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="n">index</span><span class="p">,</span> <span class="n">team_name</span><span class="p">],</span> <span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">columns</span><span class="p">))</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">frame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
         <span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">frame</span>
 
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">games</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-<span class="c"># for index, row in games.iterrows():</span>
     <span class="k">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
     <span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">BASE_URL</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
     <span class="n">table</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s">&#39;mod-data&#39;</span><span class="p">)</span>
@@ -225,13 +226,14 @@ Then for each game I download all players stats for that game. The result was
     <span class="n">team_2_players</span> <span class="o">=</span> <span class="n">get_players</span><span class="p">(</span><span class="n">team_2_players</span><span class="p">,</span> <span class="n">team_2</span><span class="p">)</span>
     <span class="n">players</span> <span class="o">=</span> <span class="n">players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">team_2_players</span><span class="p">)</span>
 
+<span class="n">players</span> <span class="o">=</span> <span class="n">players</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
-<span class="c"># copper.save(players, &#39;players&#39;)</span>
+<span class="n">copper</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">players</span><span class="p">,</span> <span class="s">&#39;players&#39;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>The file looks like this</p>
-<div class="codehilite"><pre><span class="p">,</span><span class="n">id</span><span class="p">,</span><span class="n">team</span><span class="p">,</span><span class="n">player</span><span class="p">,</span><span class="n">MIN</span><span class="p">,</span><span class="n">FGM</span><span class="o">-</span><span class="n">A</span><span class="p">,</span><span class="mi">3</span><span class="n">PM</span><span class="o">-</span><span class="n">A</span><span class="p">,</span><span class="n">FTM</span><span class="o">-</span><span class="n">A</span><span class="p">,</span><span class="n">OREB</span><span class="p">,</span><span class="n">DREB</span><span class="p">,</span><span class="n">REB</span><span class="p">,</span><span class="n">AST</span><span class="p">,</span><span class="n">STL</span><span class="p">,</span><span class="n">BLK</span><span class="p">,</span><span class="n">TO</span><span class="p">,</span><span class="n">PF</span><span class="p">,</span><span class="o">+/-</span><span class="p">,</span><span class="n">PTS</span>
+<div class="highlight"><pre><span class="p">,</span><span class="n">id</span><span class="p">,</span><span class="n">team</span><span class="p">,</span><span class="n">player</span><span class="p">,</span><span class="n">MIN</span><span class="p">,</span><span class="n">FGM</span><span class="o">-</span><span class="n">A</span><span class="p">,</span><span class="mi">3</span><span class="n">PM</span><span class="o">-</span><span class="n">A</span><span class="p">,</span><span class="n">FTM</span><span class="o">-</span><span class="n">A</span><span class="p">,</span><span class="n">OREB</span><span class="p">,</span><span class="n">DREB</span><span class="p">,</span><span class="n">REB</span><span class="p">,</span><span class="n">AST</span><span class="p">,</span><span class="n">STL</span><span class="p">,</span><span class="n">BLK</span><span class="p">,</span><span class="n">TO</span><span class="p">,</span><span class="n">PF</span><span class="p">,</span><span class="o">+/-</span><span class="p">,</span><span class="n">PTS</span>
 <span class="mi">0</span><span class="p">,</span><span class="mi">400277722</span><span class="p">,</span><span class="n">Boston</span> <span class="n">Celtics</span><span class="p">,</span><span class="n">Brandon</span> <span class="n">Bass</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">6</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span><span class="mi">0</span><span class="o">-</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">15</span>
 <span class="mi">0</span><span class="p">,</span><span class="mi">400277722</span><span class="p">,</span><span class="n">Boston</span> <span class="n">Celtics</span><span class="p">,</span><span class="n">Paul</span> <span class="n">Pierce</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">6</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">17</span><span class="p">,</span><span class="mi">23</span>
 <span class="p">...</span>
@@ -256,31 +258,31 @@ database. Or just be crazy and do some machine learning as it is.</p>
         <ul>
             <li>
                 <strong>Published:</strong>
-                <i><time datetime="2013-04-01T00:00:00">April 01, 2013</time></i>
+                <i><time datetime="2013-04-01T00:00:00">01.04.2013</time></i>
             </li>
             <li>
                 <strong>In:</strong>
-                <a href="../../../../../category/data-analysis.html">Data analysis</a>
+                <a href="http://danielfrg.github.io/category/data-analysis.html">Data analysis</a>
             </li>
                         <li>
                 <strong>Tags:</strong>
-                <a href="../../../../../tag/python.html">python</a> 
-                <a href="../../../../../tag/data-analysis.html">data analysis</a> 
-                <a href="../../../../../tag/pandas.html">pandas</a> 
-                <a href="../../../../../tag/requests.html">requests</a> 
-                <a href="../../../../../tag/beautifulsoup.html">beautifulsoup</a> 
+                <a href="http://danielfrg.github.io/tag/python.html">python</a> 
+                <a href="http://danielfrg.github.io/tag/data-analysis.html">data analysis</a> 
+                <a href="http://danielfrg.github.io/tag/pandas.html">pandas</a> 
+                <a href="http://danielfrg.github.io/tag/requests.html">requests</a> 
+                <a href="http://danielfrg.github.io/tag/beautifulsoup.html">beautifulsoup</a> 
                             </li>
                         <li>
                 <strong>Written by:</strong>
-                <a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a>
+                <a href="http://danielfrg.github.io/author/daniel-rodriguez.html">Daniel Rodriguez</a>
             </li>
         </ul>
     </div>
 </div>
-</div>
+        </div>
 
-<footer>
-<section class='footer'>
+        <footer>
+            <section class='footer'>
     <div class="post social container row-fluid">
         <div class="span3">
             <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -304,18 +306,6 @@ database. Or just be crazy and do some machine learning as it is.</p>
 </section>
 
 <script src="/theme/js/social.js"></script>
-</footer>
-
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35523657-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
-</body>
+        </footer>
+    </body>
 </html>

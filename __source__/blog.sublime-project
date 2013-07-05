@@ -14,10 +14,7 @@
 	"folders":
 	[
 		{
-			"path": "/home/danielfrg/projects/blog/__source__"
-		},
-		{
-			"path": "/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican"
+			"path": "/Users/danielfrg/Documents/blog"
 		}
 	]
 }

@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
-    <meta name="author" content="Daniel Rodriguez">
-    
-    <title>Blogging with iPython notebooks in pelican | Daniel Rodriguez</title>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Blogging with iPython notebooks in pelican | Daniel Rodriguez</title>
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="Blog is written by Daniel Rodriguez. He writes about coding, python, data science and his projects.">
+        <meta name="viewport" content="width=device-width">
 
-          <link rel="stylesheet" href="/theme/css/assets.49a445d5.css">
-              <link rel="stylesheet" href="/theme/css/main.4d3cbd16.css">
-                                    <link rel="stylesheet" href="/theme/css/pygments.1aae3274.css">
-            </head>
+        <link rel="stylesheet" href="/theme/css/normalize.min.css">
+        <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-standard.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/ipython.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="navbar">
+              <a href="/" class="ss-icon" title="home">home</a>
+              <a href="/tags.html" class="ss-icon" title="tags">tag</a>
+              <!-- <a href="/archives.html" class="ss-icon" title="archives">notebook</a> -->
+              <a href="http://about.me/danielfrg" class="ss-icon" title="about">user</a>
+              <!-- <a href="http://atdanielfrg.tumblr.com" class="ss-icon ss-social" title="my thoughs on tumblr">tumblr</a> -->
+              <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
+              <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
+              <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
+            </div>
+        </div>
 
-<body>
-
-<div class="header">
-<div class="navbar">
-  <a href="/" class="ss-icon" title="home">home</a>
-  <a href="/tags.html" class="ss-icon" title="tags">tag</a>
-  <!-- <a href="/archives.html" class="ss-icon" title="archives">notebook</a> -->
-  <a href="http://about.me/danielfrg" class="ss-icon" title="about">user</a>
-  <a href="http://atdanielfrg.tumblr.com" class="ss-icon ss-social" title="my thoughs on tumblr">tumblr</a>
-  <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
-  <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
-  <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
-</div>
-</div>
-
-<div class="content">
-<div class="post">
+        <div id="content">
+            <div class="post">
     <article>
         <header>
             <h1>Blogging with iPython notebooks in pelican</h1>
         </header>
         <div class='post-content'>
-            <p class='update'><strong>Update: </strong> Check out the updated post on <a href="../../../../../blog/2013/03/08/pelican-ipython-notebook-plugin/">blogging with iPython notebook and pelican with a plugin</a>.</p>
+            <p class='update'><strong>Update: </strong> Check out the updated post on <a href="http://danielfrg.github.io/blog/2013/03/08/pelican-ipython-notebook-plugin/">blogging with iPython notebook and pelican with a plugin</a>.</p>
 
 <p>It seems that I spend most time redesigning/developing this blog than actually
-blogging xD, just a few weeks ago I wrote about how I was <a href="../../../../../blog/2013/01/31/new-blog-using-jekyll-and-ipython/">blogging using jekyll
+blogging xD, just a few weeks ago I wrote about how I was <a href="http://danielfrg.github.io/blog/2013/01/31/new-blog-using-jekyll-and-ipython/">blogging using jekyll
 with iPython notebooks</a>
 and now I am talking about doing the same different static blog engine.</p>
 <p>The fact is that a few days ago I found <a href="http://www.getpelican.com">pelican</a>, the first serious
@@ -71,7 +72,7 @@ or even just made the changes yourself as are just a few.</p>
 <p>Before anything install pelican and ipython with <code>pip install pelican ipython</code> also markdown if you want</p>
 <p>First, locate the pelican folder: mine is: <code>~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/</code></p>
 <p>At beginning of <code>readers.py</code> add this</p>
-<div class="codehilite"><pre><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">json</span>
     <span class="kn">import</span> <span class="nn">IPython</span>
     <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -82,7 +83,7 @@ or even just made the changes yourself as are just a few.</p>
 
 
 <p>On <code>readers.py</code> just before <code>_EXTENSIONS = {}</code> paste the main reader code</p>
-<div class="codehilite"><pre><span class="k">class</span> <span class="nc">IPythonReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">IPythonReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
     <span class="n">enabled</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">IPython</span><span class="p">)</span>
     <span class="n">file_extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;ipynb&#39;</span><span class="p">]</span>
 
@@ -135,7 +136,7 @@ to that folder.</p>
 <p>Create you super amazing iPython notebook with charts, markdown, etc and save it to the
 <code>content</code> folder of your pelican site.</p>
 <p>Open the <code>.ipynb</code> file on your favorite text editor and should see something like this:</p>
-<div class="codehilite"><pre><span class="p">{</span>
+<div class="highlight"><pre><span class="p">{</span>
  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Super iPython NB&quot;</span>
  <span class="p">},</span>
@@ -144,7 +145,7 @@ to that folder.</p>
 
 
 <p>Modify the file to:</p>
-<div class="codehilite"><pre><span class="p">{</span>
+<div class="highlight"><pre><span class="p">{</span>
  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Super iPython NB&quot;</span><span class="p">,</span>
   <span class="nt">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Blogging with iPython notebooks in pelican&quot;</span><span class="p">,</span>
@@ -166,17 +167,17 @@ in your pelican theme. Since not all posts are going to be in iPython is not
 necessary to include the css file on all pages; so to be more efficient
 I created a metadata to identify which posts are from ipython notebooks
 so you in your pelican <code>article.html</code> template should do:</p>
-<div class="codehilite"><pre>{% if article.ipython %}
+<div class="highlight"><pre>{% if article.ipython %}
 <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/theme/css/ipython.min.css&quot;</span><span class="nt">&gt;</span>
 {% endif %}
 </pre></div>
 
 
 <p>This particular post uses markdown but most of my previous posts are now converted
-from ipython notebooks for example: <a href="../../../../../blog/2013/02/13/copper-quick-data-transformation-python/">copper-quick-data-transformation</a></p>
+from ipython notebooks for example: <a href="http://danielfrg.github.io/blog/2013/02/13/copper-quick-data-transformation-python/">copper-quick-data-transformation</a></p>
 <p>If are curious about my pelican config or theme check it out on <a href="https://github.com/danielfrg/danielfrg.github.com">github</a>.</p>
 <p>Happy blogging!</p>
-<p class='update'><strong>Update: </strong> Check out the updated post on <a href="../../../../../blog/2013/03/08/pelican-ipython-notebook-plugin/">blogging with iPython notebook and pelican with a plugin</a>.</p>
+<p class='update'><strong>Update: </strong> Check out the updated post on <a href="http://danielfrg.github.io/blog/2013/03/08/pelican-ipython-notebook-plugin/">blogging with iPython notebook and pelican with a plugin</a>.</p>
         </div>
     </article>
 
@@ -184,28 +185,28 @@ from ipython notebooks for example: <a href="../../../../../blog/2013/02/13/copp
         <ul>
             <li>
                 <strong>Published:</strong>
-                <i><time datetime="2013-02-16T00:00:00">February 16, 2013</time></i>
+                <i><time datetime="2013-02-16T00:00:00">16.02.2013</time></i>
             </li>
             <li>
                 <strong>In:</strong>
-                <a href="../../../../../category/blogging.html">Blogging</a>
+                <a href="http://danielfrg.github.io/category/blogging.html">Blogging</a>
             </li>
                         <li>
                 <strong>Tags:</strong>
-                <a href="../../../../../tag/python.html">python</a> 
-                <a href="../../../../../tag/pelican.html">pelican</a> 
+                <a href="http://danielfrg.github.io/tag/python.html">python</a> 
+                <a href="http://danielfrg.github.io/tag/pelican.html">pelican</a> 
                             </li>
                         <li>
                 <strong>Written by:</strong>
-                <a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a>
+                <a href="http://danielfrg.github.io/author/daniel-rodriguez.html">Daniel Rodriguez</a>
             </li>
         </ul>
     </div>
 </div>
-</div>
+        </div>
 
-<footer>
-<section class='footer'>
+        <footer>
+            <section class='footer'>
     <div class="post social container row-fluid">
         <div class="span3">
             <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -229,18 +230,6 @@ from ipython notebooks for example: <a href="../../../../../blog/2013/02/13/copp
 </section>
 
 <script src="/theme/js/social.js"></script>
-</footer>
-
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35523657-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
-</body>
+        </footer>
+    </body>
 </html>

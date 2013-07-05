@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="page-list">
-    <h1>{% block title %}{% endblock %}</h1>
-    <ul>
-    {% for article in dates %}
-        <li>
-            <a href='/{{ article.url }}'>{{ article.title }}</a>
-            <span>[{{ article.locale_date }}]</span>
-        </li>
-    {% endfor %}
-    </ul>
+<div class="index">
+    <div class="list">
+        <h1>{% block title %}{% endblock %}</h1>
+        <ul>
+        {% for article in dates %}
+            <li>
+                <a href='/{{ article.url }}'>
+                <h2>{{ article.title }}</h2>
+                <span>[{{ article.locale_date }}]</span>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
 </div>
 {% endblock %}
-

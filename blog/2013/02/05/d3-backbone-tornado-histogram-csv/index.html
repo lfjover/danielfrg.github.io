@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
-    <meta name="author" content="Daniel Rodriguez">
-    
-    <title>Using D3, backbone and tornado to visualize histograms of a csv file | Daniel Rodriguez</title>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Using D3, backbone and tornado to visualize histograms of a csv file | Daniel Rodriguez</title>
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="Blog is written by Daniel Rodriguez. He writes about coding, python, data science and his projects.">
+        <meta name="viewport" content="width=device-width">
 
-          <link rel="stylesheet" href="/theme/css/assets.49a445d5.css">
-              <link rel="stylesheet" href="/theme/css/main.4d3cbd16.css">
-                                    <link rel="stylesheet" href="/theme/css/pygments.1aae3274.css">
-            </head>
+        <link rel="stylesheet" href="/theme/css/normalize.min.css">
+        <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-standard.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/ipython.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="navbar">
+              <a href="/" class="ss-icon" title="home">home</a>
+              <a href="/tags.html" class="ss-icon" title="tags">tag</a>
+              <!-- <a href="/archives.html" class="ss-icon" title="archives">notebook</a> -->
+              <a href="http://about.me/danielfrg" class="ss-icon" title="about">user</a>
+              <!-- <a href="http://atdanielfrg.tumblr.com" class="ss-icon ss-social" title="my thoughs on tumblr">tumblr</a> -->
+              <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
+              <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
+              <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
+            </div>
+        </div>
 
-<body>
-
-<div class="header">
-<div class="navbar">
-  <a href="/" class="ss-icon" title="home">home</a>
-  <a href="/tags.html" class="ss-icon" title="tags">tag</a>
-  <!-- <a href="/archives.html" class="ss-icon" title="archives">notebook</a> -->
-  <a href="http://about.me/danielfrg" class="ss-icon" title="about">user</a>
-  <a href="http://atdanielfrg.tumblr.com" class="ss-icon ss-social" title="my thoughs on tumblr">tumblr</a>
-  <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
-  <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
-  <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
-</div>
-</div>
-
-<div class="content">
-<div class="post">
+        <div id="content">
+            <div class="post">
     <article>
         <header>
             <h1>Using D3, backbone and tornado to visualize histograms of a csv file</h1>
@@ -50,15 +51,7 @@
 <p>So I finally got out of my python comfort zone and re-learn Javascript, I had used it but was very simple examples using JQuery and a very long time ago, everything has changed now the cool people use Backbone.js which is a <strong>fabulous</strong> creation to give structure to Javascript. So I read a lot of beginner tutorials of backbone and D3 and this is the result.</p>
 <h2>What I wanted</h2>
 <p>For <a href="https://github.com/danielfrg/copper">copper</a>, my python data analysis library, I use matplotlib to plot histograms like this:</p>
-<!-- ![Matplotlib Histogram](/static/images/blog/2013/2/matplotlib_hist.png "Matplotlib histogram") -->
-
-<figure>
-    <div>
-        <img src="/static/images/blog/2013/2/matplotlib_hist.png" alt="Matplotlib histogram">
-    </div>
-    <figcaption>Matplotlib histogram: Red indicates missing values</figcaption>
-</figure>
-
+<p><img alt="Matplotlib Histogram" src="/static/images/blog/2013/2/matplotlib_hist.png" title="Matplotlib histogram" /></p>
 <p>The histograms work and are great so I wanted to do the same with D3.js to explore a <code>csv</code> file using pandas.</p>
 <p>Data - I am using data from a Business Intelligence project I am currently working on, available here: <a href="https://raw.github.com/danielfrg/copper/master/tests/data/expedia/train.csv">expedia.csv</a></p>
 <h2>Python: REST API</h2>
@@ -68,7 +61,7 @@
 <li><code>/hist/{id}</code> return necessary data of the columns <code>id</code> to create the histogram</li>
 </ul>
 <p>Some relevant code:</p>
-<div class="codehilite"><pre><span class="k">class</span> <span class="nc">HistogramHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">HistogramHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col_id</span><span class="p">):</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;explore.csv&#39;</span><span class="p">)</span>
         <span class="n">col</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">col_id</span><span class="p">)]]</span>
@@ -90,12 +83,12 @@
 
 
 <p>calling <code>/columns</code> returns this:</p>
-<div class="codehilite"><pre><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;x1&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;x2&quot;</span><span class="p">},</span> <span class="err">...</span> <span class="p">,</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;x40&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;depend&quot;</span><span class="p">}]</span>
+<div class="highlight"><pre><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;x1&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;x2&quot;</span><span class="p">},</span> <span class="err">...</span> <span class="p">,</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;x40&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;depend&quot;</span><span class="p">}]</span>
 </pre></div>
 
 
 <p>calling <code>/hist/2</code> returns this:</p>
-<div class="codehilite"><pre><span class="p">{</span><span class="nt">&quot;col_name&quot;</span><span class="p">:</span> <span class="s2">&quot;x3&quot;</span><span class="p">,</span> <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="err">...</span> <span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="nt">&quot;nans&quot;</span><span class="p">:</span> <span class="mi">102</span><span class="p">}</span>
+<div class="highlight"><pre><span class="p">{</span><span class="nt">&quot;col_name&quot;</span><span class="p">:</span> <span class="s2">&quot;x3&quot;</span><span class="p">,</span> <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="err">...</span> <span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="nt">&quot;nans&quot;</span><span class="p">:</span> <span class="mi">102</span><span class="p">}</span>
 </pre></div>
 
 
@@ -105,7 +98,7 @@
 <p>For D3 I follow the <a href="http://bl.ocks.org/3048450">main histogram example</a> and added a red column to show missing values and hard-code it a little bit more to make changes easier.</p>
 <p>Finally I create another Model and View to control the number of bins dynamically.</p>
 <p>The complete Javascript including backbone and D3 code is this:</p>
-<div class="codehilite"><pre><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="kd">var</span> <span class="nx">ColumnListItem</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">();</span>
     <span class="kd">var</span> <span class="nx">ColumnList</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
         <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/columns&#39;</span><span class="p">,</span>
@@ -268,19 +261,7 @@
 
 
 <h2>Conclusion</h2>
-<!-- ![D3.js Histogram](/static/images/blog/2013/2/d3-hist.png "D3.js Histogram") -->
-
-<figure class='center'>
-    <div>
-        <img src="/static/images/blog/2013/2/d3-hist.png" alt="D3.js Histogram">
-    </div>
-    <figcaption>The result</figcaption>
-</figure>
-
-<!-- <div class="image"> -->
-
-<!-- </div> -->
-
+<p><img alt="D3.js Histogram" src="/static/images/blog/2013/2/d3-hist.png" title="D3.js Histogram" /></p>
 <p>Changing the number of bins or the column automaticlly re-draws the histogram.</p>
 <p>It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.</p>
 <p>I include the whole code on <a href="https://github.com/danielfrg/copper">copper</a> (my data analysis package) which is not yet available via pip, so to use this need to download the <code>explore</code> folder of the package and run <code>python explore.py</code> (requires tornado and pandas). Remember to change the <code>explore.csv</code> to explore other data.</p>
@@ -291,32 +272,32 @@
         <ul>
             <li>
                 <strong>Published:</strong>
-                <i><time datetime="2013-02-05T00:00:00">February 05, 2013</time></i>
+                <i><time datetime="2013-02-05T00:00:00">05.02.2013</time></i>
             </li>
             <li>
                 <strong>In:</strong>
-                <a href="../../../../../category/vizualization.html">Vizualization</a>
+                <a href="http://danielfrg.github.io/category/vizualization.html">Vizualization</a>
             </li>
                         <li>
                 <strong>Tags:</strong>
-                <a href="../../../../../tag/python.html">python</a> 
-                <a href="../../../../../tag/javascript.html">javascript</a> 
-                <a href="../../../../../tag/d3js.html">D3.js</a> 
-                <a href="../../../../../tag/backbone.html">backbone</a> 
-                <a href="../../../../../tag/tornado.html">tornado</a> 
-                <a href="../../../../../tag/pandas.html">pandas</a> 
+                <a href="http://danielfrg.github.io/tag/python.html">python</a> 
+                <a href="http://danielfrg.github.io/tag/javascript.html">javascript</a> 
+                <a href="http://danielfrg.github.io/tag/d3js.html">D3.js</a> 
+                <a href="http://danielfrg.github.io/tag/backbone.html">backbone</a> 
+                <a href="http://danielfrg.github.io/tag/tornado.html">tornado</a> 
+                <a href="http://danielfrg.github.io/tag/pandas.html">pandas</a> 
                             </li>
                         <li>
                 <strong>Written by:</strong>
-                <a href="../../../../../author/daniel-rodriguez.html">Daniel Rodriguez</a>
+                <a href="http://danielfrg.github.io/author/daniel-rodriguez.html">Daniel Rodriguez</a>
             </li>
         </ul>
     </div>
 </div>
-</div>
+        </div>
 
-<footer>
-<section class='footer'>
+        <footer>
+            <section class='footer'>
     <div class="post social container row-fluid">
         <div class="span3">
             <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
@@ -340,18 +321,6 @@
 </section>
 
 <script src="/theme/js/social.js"></script>
-</footer>
-
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35523657-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
-</body>
+        </footer>
+    </body>
 </html>

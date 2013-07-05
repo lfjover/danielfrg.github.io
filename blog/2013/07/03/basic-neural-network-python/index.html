@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Basic [1 hidden layer] neural network on Python | Daniel Rodriguez</title>
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="Blog is written by Daniel Rodriguez. He writes about coding, python, data science and his projects.">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="/theme/css/normalize.min.css">
+        <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-standard.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/ipython.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="navbar">
+              <a href="/" class="ss-icon" title="home">home</a>
+              <a href="/tags.html" class="ss-icon" title="tags">tag</a>
+              <!-- <a href="/archives.html" class="ss-icon" title="archives">notebook</a> -->
+              <a href="http://about.me/danielfrg" class="ss-icon" title="about">user</a>
+              <!-- <a href="http://atdanielfrg.tumblr.com" class="ss-icon ss-social" title="my thoughs on tumblr">tumblr</a> -->
+              <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
+              <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
+              <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="post">
+    <article>
+        <header>
+            <h1>Basic [1 hidden layer] neural network on Python</h1>
+        </header>
+        <div class='post-content'>
+            <div class="ipynb"><div class="text_cell_render border-box-sizing rendered_html">
+<p>Is really difficult be part of the data science / machine learning community and have not heard about Deep Neural Networks, everybody is talking about them. Is even harder for a person like me without a PhD and without a deep computer science or mathematics education to learn about them, because 1. Machine learning uses a quite heavy math and 2. There are no Neural Networks on sklearn. Libraries like <a href="http://scikit-learn.org/dev/index.html">sklearn</a> hide all the stuff and let you use machine learning and get amazing results. But sometimes you need more, and also understanding how an algorithm is implemented can help you understand how to improve results. The learning curve is hard, you can easily spend hours on <a href="http://deeplearning.net/tutorial/">DeepLearning.net</a> and not understand anything. But there is hope. </p>
+<p>I took Andrew's Ng <a href="https://www.coursera.org/course/ml">Machine Learning course</a> on Coursera wanting to get a better undesrtanding of how the algorithms I use almost everyday work. I learned a lot of usefull tricks and learned a lot more about simple machine learning implementations. Is important to start with the easy stuff or you get overwhelmed easy and eventually give up. Hopefully in a few more weeks I would be able to understand two or three more words on <a href="http://deeplearning.net/tutorial/">DeepLearning.net</a>.</p>
+<p>The course is amazing, probably the best I have taken on Coursera (this was my 5th course). Amazing videos, amazing content, the course is quite hard but gives enough help to make it hard enough to NOT give up.</p>
+<p>The "bad" part is that the course uses Matlab/Octave. There is nothing like it for matrix stuff (specially Matlab) but Python is my to go language for almost everything so I decide to translate some Matlab code hoping to undestand more about the Neural Network implementation. And in the process obtain some reusable code for a neural network.</p>
+<p>The implementation follows the sklearn sintax: fit, predict, predict_proba. </p>
+<p>Also note that this is a fixed 1 hidden layer neural network, trained via back propagation. Basicly is the same Neural Network Andrew teached on the course but on python, nothing deep here.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  Implementation
+</h3>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">class</span> <span class="nc">NN_1HL</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_lambda</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">epsilon_init</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">hidden_layer_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;TNC&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reg_lambda</span> <span class="o">=</span> <span class="n">reg_lambda</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_init</span> <span class="o">=</span> <span class="n">epsilon_init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layer_size</span> <span class="o">=</span> <span class="n">hidden_layer_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activation_func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activation_func_prime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid_prime</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">opti_method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxiter</span> <span class="o">=</span> <span class="n">maxiter</span>
+    
+    <span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="nf">sigmoid_prime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="n">sig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sig</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sig</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">sumsqr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">rand_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_in</span><span class="p">,</span> <span class="n">l_out</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">l_out</span><span class="p">,</span> <span class="n">l_in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_init</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_init</span>
+    
+    <span class="k">def</span> <span class="nf">pack_thetas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">t1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">t2</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+    
+    <span class="k">def</span> <span class="nf">unpack_thetas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thetas</span><span class="p">,</span> <span class="n">input_layer_size</span><span class="p">,</span> <span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">):</span>
+        <span class="n">t1_start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">t1_end</span> <span class="o">=</span> <span class="n">hidden_layer_size</span> <span class="o">*</span> <span class="p">(</span><span class="n">input_layer_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">t1</span> <span class="o">=</span> <span class="n">thetas</span><span class="p">[</span><span class="n">t1_start</span><span class="p">:</span><span class="n">t1_end</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">input_layer_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="n">thetas</span><span class="p">[</span><span class="n">t1_end</span><span class="p">:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">num_labels</span><span class="p">,</span> <span class="n">hidden_layer_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span>
+    
+    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ones</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c"># Input layer</span>
+        <span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>
+        
+        <span class="c"># Hidden Layer</span>
+        <span class="n">z2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">a1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">a2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation_func</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
+        <span class="n">a2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span> <span class="n">a2</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+        
+        <span class="c"># Output layer</span>
+        <span class="n">z3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">a2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">a3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation_func</span><span class="p">(</span><span class="n">z3</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">a1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">z3</span><span class="p">,</span> <span class="n">a3</span>
+    
+    <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thetas</span><span class="p">,</span> <span class="n">input_layer_size</span><span class="p">,</span> <span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">reg_lambda</span><span class="p">):</span>
+        <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unpack_thetas</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">input_layer_size</span><span class="p">,</span> <span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">)</span>
+        
+        <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_labels</span><span class="p">)[</span><span class="n">y</span><span class="p">]</span>
+        
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
+        <span class="n">costPositive</span> <span class="o">=</span> <span class="o">-</span><span class="n">Y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">costNegative</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">cost</span> <span class="o">=</span> <span class="n">costPositive</span> <span class="o">-</span> <span class="n">costNegative</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span> <span class="o">/</span> <span class="n">m</span>
+        
+        <span class="k">if</span> <span class="n">reg_lambda</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">t1f</span> <span class="o">=</span> <span class="n">t1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+            <span class="n">t2f</span> <span class="o">=</span> <span class="n">t2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+            <span class="n">reg</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_lambda</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sumsqr</span><span class="p">(</span><span class="n">t1f</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">sumsqr</span><span class="p">(</span><span class="n">t2f</span><span class="p">))</span>
+            <span class="n">J</span> <span class="o">=</span> <span class="n">J</span> <span class="o">+</span> <span class="n">reg</span>
+        <span class="k">return</span> <span class="n">J</span>
+        
+    <span class="k">def</span> <span class="nf">function_prime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thetas</span><span class="p">,</span> <span class="n">input_layer_size</span><span class="p">,</span> <span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">reg_lambda</span><span class="p">):</span>
+        <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unpack_thetas</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">input_layer_size</span><span class="p">,</span> <span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">)</span>
+        
+        <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">t1f</span> <span class="o">=</span> <span class="n">t1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+        <span class="n">t2f</span> <span class="o">=</span> <span class="n">t2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_labels</span><span class="p">)[</span><span class="n">y</span><span class="p">]</span>
+        
+        <span class="n">Delta1</span><span class="p">,</span> <span class="n">Delta2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+            <span class="n">a1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">z3</span><span class="p">,</span> <span class="n">a3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
+            
+            <span class="c"># Backprop</span>
+            <span class="n">d3</span> <span class="o">=</span> <span class="n">a3</span> <span class="o">-</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">d2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">t2f</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">d3</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation_func_prime</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
+            
+            <span class="n">Delta2</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">d3</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">a2</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
+            <span class="n">Delta1</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">d2</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">a1</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
+            
+        <span class="n">Theta1_grad</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">Delta1</span>
+        <span class="n">Theta2_grad</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">Delta2</span>
+        
+        <span class="k">if</span> <span class="n">reg_lambda</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">Theta1_grad</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">Theta1_grad</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">(</span><span class="n">reg_lambda</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">t1f</span>
+            <span class="n">Theta2_grad</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">Theta2_grad</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">(</span><span class="n">reg_lambda</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">t2f</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pack_thetas</span><span class="p">(</span><span class="n">Theta1_grad</span><span class="p">,</span> <span class="n">Theta2_grad</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">num_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">input_layer_size</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">num_labels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        
+        <span class="n">theta1_0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rand_init</span><span class="p">(</span><span class="n">input_layer_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layer_size</span><span class="p">)</span>
+        <span class="n">theta2_0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rand_init</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">)</span>
+        <span class="n">thetas0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pack_thetas</span><span class="p">(</span><span class="n">theta1_0</span><span class="p">,</span> <span class="n">theta2_0</span><span class="p">)</span>
+        
+        <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;maxiter&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxiter</span><span class="p">}</span>
+        <span class="n">_res</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">function</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">function_prime</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> 
+                                 <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">input_layer_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unpack_thetas</span><span class="p">(</span><span class="n">_res</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">input_layer_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">h</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  How good is it?
+</h3>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's test it with the allways good iris dataset using a single split for cross validation</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">sklearn.datasets</span> <span class="kn">as</span> <span class="nn">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cross_validation</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN_1HL</span><span class="p">()</span>
+<span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="output_subarea output_stream output_stderr">
+<pre class="ipynb">-c:64: RuntimeWarning: divide by zero encountered in log
+-c:64: RuntimeWarning: invalid value encountered in multiply
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0.96666666666666667</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nice 96% on the cross validation dataset! </p>
+<p>But wait the iris dataset is quite simple how well other algorithms do? What about my other favorite algorithm: Random Forest?</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">RandomForestClassifier(bootstrap=True, compute_importances=False,
+            criterion=&apos;gini&apos;, max_depth=None, max_features=&apos;auto&apos;,
+            min_density=0.1, min_samples_leaf=1, min_samples_split=2,
+            n_estimators=50, n_jobs=1, oob_score=False, random_state=None,
+            verbose=0)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rfc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0.96666666666666667</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>OK, the same result that is good, sometimes you get 96% or 98% because of the random state of the algorithms, but is fine.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  Really, How good is it?!!
+</h3>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets try again with a more complex example, the same example of the coursera course: recognize hand writter numbers [5000 rows, 400 dimmensions].</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">loadmat</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="s">&#39;ex3data1.mat&#39;</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;X&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;y&#39;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c"># Fix notation # TODO: Automaticlly fix that on the class</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN_1HL</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0.91349999999999998</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">RandomForestClassifier(bootstrap=True, compute_importances=False,
+            criterion=&apos;gini&apos;, max_depth=None, max_features=&apos;auto&apos;,
+            min_density=0.1, min_samples_leaf=1, min_samples_split=2,
+            n_estimators=50, n_jobs=1, oob_score=False, random_state=None,
+            verbose=0)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rfc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[18]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0.91600000000000004</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  Conclusions
+</h3>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Basiclly the same result for both algorithms. Lets decide a winner by the time they took to train.</p>
+<p>It took a long time to train the neural network on the second example, don't have and exact number but ... ok let's get that number (god I love <a href="http://danielfrg.github.io/blog/2013/03/08/pelican-ipython-notebook-plugin/">blogging with ipython notebooks</a>):</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN_1HL</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="o">%</span><span class="k">timeit</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="output_subarea output_stream output_stdout">
+<pre class="ipynb">1 loops, best of 3: 119 s per loop
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, it took 119s, thats it <a href="https://www.google.com/search?q=119s+in+minues&amp;oq=119s+in+minues&amp;aqs=chrome.0.57j0.3758j0&amp;sourceid=chrome&amp;ie=UTF-8">1.98 minutes</a> using a maximum number of iterations of 200, more will probably improve a little bit the results.</p>
+<p>On the other hand the Random Forest took:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="o">%</span><span class="k">timeit</span> <span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="output_subarea output_stream output_stdout">
+<pre class="ipynb">1 loops, best of 3: 7.44 s per loop
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Just 7.38 seconds definitely an improvement and the accuracy of both algorithms was very similar on the validation dataset, so Random Forest is a winner on this round.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I am not completlly sure if the delay is because of my implementation or python. Probably a combination of both but my guess is that my implementation has some of the fault. But honestly I don't think that a lot, the Matlab implementation I did (and compare to some I found online) is pretty vectorized and I don't see any obvious mistake on it. I honestly believe that Neural Networks just take longer to train. But as it should be obvious from this post I am not an expert.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Probably the next step is to generallize the implementation to a different number of hidden layers and test the algorith in another dataset, both iris and digit recognition are pretty standard. </p>
+<p>Also to try a tool like <a href="http://numba.pydata.org">numba</a> to see if it speeds up the code with some magic. I don't have a lot of expectation because of the vectorized implementation I did should be pretty optimized via numpy, but who knows.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a final conclusion I was pretty amazed by the results, a really simple implementation got some pretty decent results.</p>
+<p>I was also amazed by the state of the scipy library, the <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">optimization routines</a> are state of the are from my point of view, amazing work.</p>
+</div></div>
+        </div>
+    </article>
+
+    <div class="metadata">
+        <ul>
+            <li>
+                <strong>Published:</strong>
+                <i><time datetime="2013-07-03T00:00:00">03.07.2013</time></i>
+            </li>
+            <li>
+                <strong>In:</strong>
+                <a href="http://danielfrg.github.io/category/machine-learning.html">Machine Learning</a>
+            </li>
+                        <li>
+                <strong>Tags:</strong>
+                <a href="http://danielfrg.github.io/tag/python.html">python</a> 
+                <a href="http://danielfrg.github.io/tag/machine-learning.html">machine learning</a> 
+                <a href="http://danielfrg.github.io/tag/neural-networks.html">neural networks</a> 
+                            </li>
+                        <li>
+                <strong>Written by:</strong>
+                <a href="http://danielfrg.github.io/author/daniel-rodriguez.html">Daniel Rodriguez</a>
+            </li>
+        </ul>
+    </div>
+</div>
+        </div>
+
+        <footer>
+            <section class='footer'>
+    <div class="post social container row-fluid">
+        <div class="span3">
+            <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+        </div>
+        <div class="span3">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="danielfrg">Tweet</a>
+        </div>
+
+        <div class="span3">
+            <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
+        </div>
+
+        <div class="span3 hn">
+            <span id="hnews"></span>
+        </div>
+    </div>
+
+    <div id="disqus_thread" class="comments container"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+<script src="/theme/js/social.js"></script>
+        </footer>
+    </body>
+</html>

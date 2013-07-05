@@ -1,6 +1,5 @@
 import os
 import shutil
-import distutils
 from fabric.api import local
 
 
@@ -18,6 +17,7 @@ def clean():
             else:
                 os.remove(fpath)
 
+
 def _move(src_dir, dest_dir):
     fileList = os.listdir(src_dir)
     for i in fileList:
@@ -31,10 +31,12 @@ def _move(src_dir, dest_dir):
                 os.remove(dest)
         shutil.move(src, dest_dir)
 
+
 def move():
     src_dir = './output'
     dest_dir = '../'
     _move(src_dir, dest_dir)
+
 
 def deploy():
     clean()
@@ -42,4 +44,3 @@ def deploy():
     move()
     # local("git push")
     # clean()
-
