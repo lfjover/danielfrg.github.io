@@ -643,9 +643,11 @@
 	},
 	"file_history":
 	[
+		"/Users/danielfrg/.bash_profile",
+		"/Users/danielfrg/Documents/blog/__source__/themes/middle/templates/analytics.html",
+		"/Users/danielfrg/Documents/blog/__source__/themes/middle/templates/base.html",
 		"/Users/danielfrg/Documents/blog/__source__/pelicanconf.py",
 		"/Users/danielfrg/Documents/blog/__source__/fabfile.py",
-		"/Users/danielfrg/.bash_profile",
 		"/Users/danielfrg/Documents/blog/__source__/content/articles/2013/07/nn-1hl.ipynb",
 		"/Users/danielfrg/Documents/blog/__source__/themes/middle/templates/list.html",
 		"/Users/danielfrg/Documents/blog/__source__/themes/middle/templates/tag.html",
@@ -670,7 +672,6 @@
 		"/Users/danielfrg/Documents/blog/__source__/content/articles/2013/01/copper-machine-learning.ipynb",
 		"/Users/danielfrg/Documents/blog/__source__/content/articles/2013/01/new-blog-using-jekyll-and-ipython.md",
 		"/Users/danielfrg/Documents/blog/__source__/themes/old/templates/index.html",
-		"/Users/danielfrg/Documents/blog/__source__/themes/middle/templates/base.html",
 		"/Users/danielfrg/Documents/blog/__source__/themes/middle/templates/article.html",
 		"/Users/danielfrg/Documents/blog/__source__/themes/old/templates/article.html",
 		"/Users/danielfrg/Documents/blog/__source__/themes/old/templates/base.html",
@@ -769,8 +770,7 @@
 		"/home/danielfrg/.virtualenvs/copper/lib/python3.2/site-packages/IPython/frontend/html/__init__.py",
 		"/home/danielfrg/projects/heroku-ipython/runtime.txt",
 		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/generators.py",
-		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/plugins/related_posts.py",
-		"/home/danielfrg/projects/blog/__source__/themes/subtle/templates/list.html"
+		"/home/danielfrg/.virtualenvs/blog/lib/python2.7/site-packages/pelican/plugins/related_posts.py"
 	],
 	"find":
 	{
