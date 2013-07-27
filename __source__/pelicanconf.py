@@ -22,7 +22,9 @@ SITEMAP = {
 }
 
 PLUGIN_PATH = './plugins'
-PLUGINS = ['assets', 'sitemap', 'ipythonnb']
+PLUGINS = ['assets', 'sitemap', 'ipythonnb',
+           'liquid_tags.img', 'liquid_tags.video', 'liquid_tags.include_code']
+           # 'liquid_tags.notebook']
 
 GOOGLE_ANALYTICS = 'UA-35523657-2'
 
