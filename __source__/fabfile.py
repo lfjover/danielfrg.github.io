@@ -38,7 +38,7 @@ def move():
     _move(src_dir, dest_dir)
 
 
-def deploy():
+def update():
     clean()
     local('make html')
     move()

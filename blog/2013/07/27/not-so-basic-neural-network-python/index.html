@@ -40,17 +40,17 @@
         </header>
         <div class='post-content'>
             <div class="ipynb"><div class="text_cell_render border-box-sizing rendered_html">
-<p>My <a href="http://danielfrg.github.io/blog/2013/07/03/basic-neural-network-python/">previous post</a> on implementing a basic Neural Network on python got a lot of attention staying one whole day on HN front page. I was very happy about that but more about the <a href="https://news.ycombinator.com/item?id=5994851">feedback</a> I got. The community gave me a lot of tips and tricks on how to improve. So now I am presenting an improved version which supports multiple hidden layers and some optimization options. Maybe I can get some page-views by using the same topic :P</p>
+<p>My <a href="http://danielfrg.github.io/blog/2013/07/03/basic-neural-network-python/">previous post</a> on implementing a basic Neural Network on python got a lot of attention staying one whole day on HN front page. I was very happy about that but more about the <a href="https://news.ycombinator.com/item?id=5994851">feedback</a> I got. The community gave me a lot of tips and tricks on how to improve. So now I am presenting an improved version which supports multiple hidden layers,  more optimization options using minibatches and a more maintainable/understandable code (or so I believe).</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I kept reading a lot about Neural Networks mainly by watching some videos from <a href="https://class.coursera.org/neuralnets-2012-001/class/index">Geoffrey's Hinton Neural Network course</a> on coursera. Also reading more on <a href="http://deeplearning.net/tutorial/">deeplearning.net</a> and trying to read some papers. That last task was definitely the hardest one because of the complexity of the papers. If I cannot event read them I can just imagine how hard is to write them.</p>
+<p>I kept reading a lot about Neural Networks mainly by watching some videos from <a href="https://class.coursera.org/neuralnets-2012-001/class/index">Geoffrey's Hinton Neural Network course</a> on coursera. Also reading more on <a href="http://deeplearning.net/tutorial/">deeplearning.net</a> and trying to read some papers. That last task was definitely the hardest one because of the complexity of the papers. If I cannot even read them I can just imagine how hard is to write them.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>About the Neural networks course I did not like it as much as the Machine Learning course. The main reason is that I had to watch most videos 3 or 4 times before understanding (something). This is definitely my fault because the material is great but it focuses more on the theory (math) which I am not that good at and not on the implementation which I am more interested. But I take it as a learning experience and I will try to finish those videos.</p>
+<p>About the Neural networks course I didn't like it as much as the Machine Learning course. The main reason is that I had to watch most videos 3 or 4 times before understanding (something). This is definitely my fault because the material is great but it focuses more on the theory (math) which I am not that good at and not on the implementation which I am more interested. But I take it as a learning experience and I will try to finish those videos.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Some people criticized (besides my orthography, sorry about my spanglish :P) that I did not used cross-validation or more complex dataset on my previous post. I agree that both things are needed but I am not trying to make this post as a scientific paper with complete benchmarks of different optimization algorithms I leave that to the researchers who have spent years studying neural networks.</p>
-<p>My objective was to learn about them and to have some personal implementation of the algorithm, just to say that I have done it :P; but in on this case I am using the MNIST dataset to compare.</p>
+<p>Some people criticized (besides my orthography, sorry about my spanglish :P) that I didn't use any cross-validation and that the iris and digits examples are way to simple datasets. I agree that both things are necessary but I am not trying to make this post as a scientific paper with complete benchmarks of different optimization algorithms I leave that to the researchers who have spent years studying neural networks. But in on this case I am using the MNIST dataset to compare.</p>
+<p>My objective was to learn about them and to have some personal implementation of the algorithm, just to say that I have done it :P</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 class="ipynb">
@@ -58,22 +58,29 @@
 </h2>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I was very tempted to use <a href="http://deeplearning.net/software/theano/">theano</a> and but at the end I decide to keep using a pure numpy implementation.</p>
-<p>It is defenitly possible (and not that hard neither that easy) to create a theano implementation and I like some of the ideas such as creating a class for each layer because it makes easier to combine and create different implementations. But besides that I still cannot see the value of using theano. Of course the speed up is important but I thing I prefer the <a href="http://numba.pydata.org/">Numba</a> approach.</p>
+<p>I was very tempted to use <a href="http://deeplearning.net/software/theano/">theano</a> and but at the end I decided to do a pure numpy implementation.</p>
+<p>It is defenitly possible (and not that hard neither that easy) to create a theano implementation and I took some of the ideas from their site such as creating a class for each layer because it makes easier to combine and create different implementations and makes the code more mantainable. But other than the optimization I still cannot see the value of using theano, of course the speed up is important but I thing I prefer the <a href="http://numba.pydata.org/">Numba</a> approach.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The implementation is very similar to the previous post, the differences are:</p>
 <ol>
-<li>Supports multiple hidden layers is using a similar implementation as the previous post: changed the gradient calculation to a for loop.</li>
-<li>Support for Minibach optimization, which is definitely a must have with bigger datasets.</li>
+<li>Support for multiple hidden layers. I still train the network using a big 1d-array of weights because that allows to use the scipy optimizations.</li>
+<li>A more "smart" random initialization for the arrays.</li>
+<li>Support for mini-batch optimization, which is a must have with bigger datasets.</li>
+<li>Created a Layer class which weights are mapped to slices of the big weight array that is optimized so they are sharing that part of memory. That allows to a more maintainable code and probably to include pre-training in a future.</li>
 </ol>
+<p>One feature that I think is nice is that when fitting one can actually interrupt (not restart) the ipython kernel and the last weights are going to be saved in the class (<code>NN.coef_</code>) so one doesn't have to start the training from nothing, also I added a callback on each epoch so one can for example see the score in a validation dataset.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  Basic classes and functions
+</h3>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
 </pre></div>
@@ -85,8 +92,24 @@
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">build_network</span><span class="p">(</span><span class="n">layers</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[(</span><span class="n">layers</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">layers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">class</span> <span class="nc">Layer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_in</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">W</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">random_state</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">rnd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rnd</span> <span class="o">=</span> <span class="n">random_state</span>
+        
+        <span class="k">if</span> <span class="n">W</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">W</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_out</span><span class="p">,</span> <span class="n">n_in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">W</span> <span class="o">=</span> <span class="n">W</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">activation</span> <span class="o">=</span> <span class="n">activation</span>
+        
+    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">linear_output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="n">linear_output</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -96,9 +119,8 @@
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">pack_weigths</span><span class="p">(</span><span class="o">*</span><span class="n">weights</span><span class="p">):</span>
-    <span class="n">tuples</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">theta</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">weights</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">tuples</span><span class="p">)</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -108,29 +130,29 @@
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">unpack_weigths_gen</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">):</span>
-    <span class="n">start_pos</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">weights_meta</span><span class="p">:</span>
-        <span class="n">end_pos</span> <span class="o">=</span> <span class="n">start_pos</span> <span class="o">+</span> <span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">theta</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="n">start_pos</span><span class="p">:</span><span class="n">end_pos</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-        <span class="k">yield</span> <span class="n">theta</span>
-        <span class="n">start_pos</span> <span class="o">=</span> <span class="n">end_pos</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">class</span> <span class="nc">SigmoidLayer</span><span class="p">(</span><span class="n">Layer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_in</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">W</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">Layer</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_in</span><span class="p">,</span> <span class="n">n_out</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">sigmoid</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  Cost function and gradient
+</h3>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">unpack_weigths_gen_inv</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">):</span>
-    <span class="n">end_pos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">weights_meta</span><span class="p">):</span>
-        <span class="n">start_pos</span> <span class="o">=</span> <span class="n">end_pos</span> <span class="o">-</span> <span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">theta</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="n">start_pos</span><span class="p">:</span><span class="n">end_pos</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-        <span class="k">yield</span> <span class="n">theta</span>
-        <span class="n">end_pos</span> <span class="o">=</span> <span class="n">start_pos</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">unpack_weigths</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">):</span>
+    <span class="n">start_pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">weights_meta</span><span class="p">:</span>
+        <span class="n">end_pos</span> <span class="o">=</span> <span class="n">start_pos</span> <span class="o">+</span> <span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">yield</span> <span class="n">weights</span><span class="p">[</span><span class="n">start_pos</span><span class="p">:</span><span class="n">end_pos</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">start_pos</span> <span class="o">=</span> <span class="n">end_pos</span>
 </pre></div>
 
 </div>
@@ -140,11 +162,21 @@
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">rand_init</span><span class="p">(</span><span class="n">weights_meta</span><span class="p">,</span> <span class="n">epsilon_init</span><span class="p">):</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">weights_meta</span><span class="p">:</span>
-        <span class="n">s</span> <span class="o">+=</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">epsilon_init</span> <span class="o">-</span> <span class="n">epsilon_init</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">):</span>
+    <span class="c"># Forward</span>
+    <span class="n">act_prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">unpack_weigths</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">):</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">act_prev</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+        <span class="n">activation</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">act_prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">activation</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_labels</span><span class="p">)[</span><span class="n">y</span><span class="p">]</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">activation</span>
+    <span class="n">costPositive</span> <span class="o">=</span> <span class="o">-</span><span class="n">Y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">costNegative</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">costPositive</span> <span class="o">-</span> <span class="n">costNegative</span><span class="p">)</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">J</span>
 </pre></div>
 
 </div>
@@ -154,8 +186,12 @@
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">)))</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">unpack_weigths_inv</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">):</span>
+    <span class="n">end_pos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">weights_meta</span><span class="p">):</span>
+        <span class="n">start_pos</span> <span class="o">=</span> <span class="n">end_pos</span> <span class="o">-</span> <span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">yield</span> <span class="n">weights</span><span class="p">[</span><span class="n">start_pos</span><span class="p">:</span><span class="n">end_pos</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">end_pos</span> <span class="o">=</span> <span class="n">start_pos</span>
 </pre></div>
 
 </div>
@@ -165,317 +201,240 @@
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">act_func</span><span class="p">):</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-            
-    <span class="n">a_prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>  <span class="c"># Input layer</span>
-    <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">unpack_weigths_gen</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">):</span>
-        <span class="c"># Hidden Layers</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">a_prev</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">act_func</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="n">a_prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">a</span>  <span class="c"># Output layer</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">cost_prime</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">):</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_labels</span><span class="p">)[</span><span class="n">y</span><span class="p">]</span>
+    <span class="n">Deltas</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">weights_meta</span><span class="p">]</span>
+    
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="c"># Forward</span>
+        <span class="c">#row = np.array([row])</span>
+        <span class="n">act_prev</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="n">activations</span> <span class="o">=</span> <span class="p">(</span><span class="n">act_prev</span><span class="p">,</span> <span class="p">)</span>
+        <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">unpack_weigths</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">):</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">act_prev</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+            <span class="n">activation</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="n">act_prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="p">)</span>
+            <span class="n">activations</span> <span class="o">=</span> <span class="n">activations</span> <span class="o">+</span> <span class="p">(</span><span class="n">act_prev</span><span class="p">,</span> <span class="p">)</span>
+        
+        <span class="c"># Backprop</span>
+        <span class="n">prev_delta</span> <span class="o">=</span> <span class="n">activations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>  <span class="c"># last delta</span>
+        <span class="n">deltas</span> <span class="o">=</span> <span class="p">(</span><span class="n">prev_delta</span><span class="p">,</span> <span class="p">)</span>  <span class="c"># deltas[0] == delta2</span>
+        <span class="k">for</span> <span class="n">act</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">activations</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">unpack_weigths_inv</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">)):</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">prev_delta</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="p">(</span><span class="n">act</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">act</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">deltas</span> <span class="o">=</span> <span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="p">)</span> <span class="o">+</span> <span class="n">deltas</span>
+            <span class="n">prev_delta</span> <span class="o">=</span> <span class="n">delta</span>
+
+        <span class="c"># Accumulate errors</span>
+        <span class="k">for</span> <span class="n">delta</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">deltas</span><span class="p">,</span> <span class="n">activations</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Deltas</span><span class="p">))):</span>
+            <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">delta</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">act</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Deltas</span><span class="p">)):</span>
+        <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="nb">tuple</span><span class="p">([</span><span class="n">D</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">Deltas</span><span class="p">]))</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  Optimization
+</h3>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This class is simulating a <code>MinibatchOpti</code> module.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">sumsqr</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">class</span> <span class="nc">MinibatchOpti</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">minibatches</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">random_state</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">rnd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">random_state</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">rnd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+           <span class="n">rnd</span> <span class="o">=</span> <span class="n">random_state</span>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span> <span class="k">if</span> <span class="n">batch_size</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">))</span>
+        <span class="n">max_batchs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">))</span>
+        
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">random_indices</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">m</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_batchs</span><span class="p">):</span>
+                <span class="n">batch_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span>
+                <span class="n">indices</span> <span class="o">=</span> <span class="n">random_indices</span><span class="p">[</span><span class="n">batch_indices</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">X</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">X</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">GD</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">jac</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+        <span class="n">weights</span> <span class="o">-=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">jac</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate_decay&#39;</span><span class="p">]</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">GD_momentum</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">jac</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+        <span class="n">bigjump</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;momentum&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;step&#39;</span><span class="p">]</span>
+        <span class="n">weights</span> <span class="o">-=</span> <span class="n">bigjump</span>
+        <span class="n">correction</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">jac</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">weights</span> <span class="o">-=</span> <span class="n">correction</span>
+        <span class="n">options</span><span class="p">[</span><span class="s">&#39;step&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bigjump</span> <span class="o">+</span> <span class="n">correction</span>
+        <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate_decay&#39;</span><span class="p">]</span>
+        <span class="n">options</span><span class="p">[</span><span class="s">&#39;momentum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;momemtum_decay&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;momentum&#39;</span><span class="p">]</span>
+        
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">RMSPROP</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">jac</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+        <span class="n">gradient</span> <span class="o">=</span> <span class="n">jac</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">options</span><span class="p">[</span><span class="s">&#39;moving_mean_squared&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;decay&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;moving_mean_squared&#39;</span><span class="p">]</span> \
+                                         <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;decay&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="n">gradient</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">weights</span> <span class="o">-=</span> <span class="n">gradient</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s">&#39;moving_mean_squared&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">)</span>
+        
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">CG</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">jac</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">jac</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;CG&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;maxiter&#39;</span><span class="p">:</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;mb_maxiter&#39;</span><span class="p">]})</span>
+        <span class="n">weights</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">x</span>
+        
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">LBFGSB</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">jac</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">jac</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;L-BFGS-B&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;maxiter&#39;</span><span class="p">:</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;mb_maxiter&#39;</span><span class="p">]})</span>
+        <span class="n">weights</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">x</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">minimize</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">jac</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> 
+                 <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s">&#39;GD&#39;</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="s">&#39;learning_rate&#39;</span> <span class="ow">in</span> <span class="n">options</span><span class="p">,</span> <span class="s">&#39;GD needs a learning rate&#39;</span>
+            <span class="k">if</span> <span class="s">&#39;learning_rate_decay&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+                <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate_decay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="s">&#39;momentum&#39;</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s">&#39;momemtum_decay&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+                    <span class="n">options</span><span class="p">[</span><span class="s">&#39;momemtum_decay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">options</span><span class="p">[</span><span class="s">&#39;step&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">update</span> <span class="o">=</span> <span class="n">MinibatchOpti</span><span class="o">.</span><span class="n">GD_momentum</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">update</span> <span class="o">=</span> <span class="n">MinibatchOpti</span><span class="o">.</span><span class="n">GD</span>
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s">&#39;RMSPROP&#39;</span><span class="p">:</span>
+            <span class="n">options</span><span class="p">[</span><span class="s">&#39;moving_mean_squared&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">update</span> <span class="o">=</span> <span class="n">MinibatchOpti</span><span class="o">.</span><span class="n">RMSPROP</span>
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s">&#39;CG&#39;</span><span class="p">:</span>
+            <span class="n">update</span> <span class="o">=</span> <span class="n">MinibatchOpti</span><span class="o">.</span><span class="n">CG</span>
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s">&#39;L-BFGS-B&#39;</span><span class="p">:</span>
+            <span class="n">update</span> <span class="o">=</span> <span class="n">MinibatchOpti</span><span class="o">.</span><span class="n">LBFGSB</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&#39;Optimization method not found&#39;</span><span class="p">)</span>
+
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">prev_cost</span> <span class="o">=</span> <span class="mf">1e8</span>
+        <span class="k">for</span> <span class="n">_X</span><span class="p">,</span> <span class="n">_y</span> <span class="ow">in</span> <span class="n">MinibatchOpti</span><span class="o">.</span><span class="n">minibatches</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">):</span>
+            <span class="n">update</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">jac</span><span class="p">,</span> <span class="n">_X</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+            <span class="n">new_cost</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="n">new_cost</span> <span class="o">-</span> <span class="n">prev_cost</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">verbose</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">print</span> <span class="s">&#39;Minimum tolerance reached in </span><span class="si">%i</span><span class="s"> iterations&#39;</span> <span class="o">%</span> <span class="n">i</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">maxiter</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">verbose</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="p">:</span>
+                    <span class="k">print</span> <span class="s">&#39;Maximum number of iterations reached&#39;</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">verbose</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">newJ</span>    
+            <span class="k">if</span> <span class="n">callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">stop</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">stop</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+                    <span class="k">break</span>
+            <span class="n">prev_cost</span> <span class="o">=</span> <span class="n">new_cost</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  The sklearn-stlye class
+</h3>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">,</span> <span class="n">reg_lambda</span><span class="p">,</span> <span class="n">act_func</span><span class="p">):</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_labels</span><span class="p">)[</span><span class="n">y</span><span class="p">]</span>
-    
-    <span class="n">h</span> <span class="o">=</span> <span class="n">forward</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">act_func</span><span class="p">)</span>
-    <span class="n">costPositive</span> <span class="o">=</span> <span class="o">-</span><span class="n">Y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">costNegative</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">cost</span> <span class="o">=</span> <span class="n">costPositive</span> <span class="o">-</span> <span class="n">costNegative</span>
-    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span> <span class="o">/</span> <span class="n">m</span>
-    
-    <span class="k">if</span> <span class="n">reg_lambda</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">sums_qr</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">unpack_weigths_gen</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">):</span>
-            <span class="n">theta_filtered</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
-            <span class="n">sums_qr</span> <span class="o">+=</span> <span class="n">sumsqr</span><span class="p">(</span><span class="n">theta_filtered</span><span class="p">)</span>
-        <span class="n">reg</span> <span class="o">=</span> <span class="p">(</span><span class="n">reg_lambda</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">sums_qr</span><span class="p">)</span>
-        <span class="n">J</span> <span class="o">=</span> <span class="n">J</span> <span class="o">+</span> <span class="n">reg</span>
-    <span class="k">return</span> <span class="n">J</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">function_prime</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">,</span> <span class="n">reg_lambda</span><span class="p">,</span> <span class="n">act_func</span><span class="p">):</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_labels</span><span class="p">)[</span><span class="n">y</span><span class="p">]</span>
-    <span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
-    
-    <span class="n">d_s</span> <span class="o">=</span> <span class="p">()</span>
-    <span class="n">Deltas</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">weights_meta</span><span class="p">)]</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-        <span class="c"># Forward</span>
-        <span class="n">a_prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span> <span class="n">row</span><span class="p">))</span>  <span class="c"># Input layer</span>
-        <span class="n">a_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">a_prev</span><span class="p">,</span> <span class="p">)</span>  <span class="c"># a_s[0] == a1</span>
-        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">theta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unpack_weigths_gen</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">)):</span>
-            <span class="c"># Hidden Layers</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">a_prev</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="n">act_func</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-            <span class="n">a_prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
-            <span class="n">a_s</span> <span class="o">=</span> <span class="n">a_s</span> <span class="o">+</span> <span class="p">(</span><span class="n">a_prev</span><span class="p">,</span> <span class="p">)</span>
-                
-        <span class="c"># Backprop</span>
-        <span class="n">d_prev</span> <span class="o">=</span> <span class="n">a_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>  <span class="c"># last d</span>
-        <span class="n">d_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">d_prev</span><span class="p">,</span> <span class="p">)</span>  <span class="c"># d_s[0] == d2 </span>
-        <span class="k">for</span> <span class="n">a_i</span><span class="p">,</span> <span class="n">theta</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">a_s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">unpack_weigths_gen_inv</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">)):</span>
-            <span class="n">d_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">theta</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">d_prev</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a_i</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a_i</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
-            <span class="n">d_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">d_new</span><span class="p">,</span> <span class="p">)</span> <span class="o">+</span> <span class="n">d_s</span>
-            <span class="n">d_prev</span> <span class="o">=</span> <span class="n">d_new</span>
-        <span class="k">for</span> <span class="n">d_i</span><span class="p">,</span> <span class="n">a_i</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">d_s</span><span class="p">),</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">a_s</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Deltas</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
-            <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">d_i</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">a_i</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
-    
-    <span class="n">thetas_gen</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="k">if</span> <span class="n">reg_lambda</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">thetas_gen</span> <span class="o">=</span> <span class="n">unpack_weigths_gen</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">weights_meta</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Deltas</span><span class="p">)):</span>
-        <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">m</span>
-        <span class="k">if</span> <span class="n">reg_lambda</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">Deltas</span><span class="p">[</span><span class="n">i</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">(</span><span class="n">reg_lambda</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">thetas_gen</span><span class="o">.</span><span class="n">next</span><span class="p">()[:,</span> <span class="mi">1</span><span class="p">:]</span>
-    <span class="k">return</span> <span class="n">pack_weigths</span><span class="p">(</span><span class="o">*</span><span class="nb">tuple</span><span class="p">(</span><span class="n">Deltas</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">minibatch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span> <span class="k">if</span> <span class="n">batch_size</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">))</span>
-    <span class="n">max_batchs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">))</span>
-    
-    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">m</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_batchs</span><span class="p">):</span>
-            <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span>
-            <span class="k">yield</span> <span class="n">X</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">mb_gd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">func_prime</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;batch_size&#39;</span><span class="p">]</span>
-    <span class="n">maxiter</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;maxiter&#39;</span><span class="p">]</span>
-    <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate&#39;</span><span class="p">]</span>
-    <span class="n">tol</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;tol&#39;</span><span class="p">]</span>
-    <span class="n">disp</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;disp&#39;</span><span class="p">]</span>
-    <span class="n">thetas</span> <span class="o">=</span> <span class="n">thetas0</span>
-    <span class="n">diff</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">prevJ</span> <span class="o">=</span> <span class="mi">1000</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">_X</span><span class="p">,</span> <span class="n">_y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxiter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">minibatch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)):</span>
-        <span class="n">thetas</span> <span class="o">=</span> <span class="n">thetas</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">func_prime</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">_X</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-        <span class="n">newJ</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">))</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">newJ</span><span class="p">)</span> <span class="ow">and</span> <span class="n">newJ</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s">&quot;inf&quot;</span><span class="p">):</span>
-            <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">newJ</span> <span class="o">-</span> <span class="n">prevJ</span><span class="p">)</span>
-            
-            <span class="n">prevJ</span> <span class="o">=</span> <span class="n">newJ</span>
-            <span class="k">if</span> <span class="n">diff</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">maxiter</span><span class="p">:</span>
-                <span class="k">break</span>
-        <span class="k">if</span> <span class="n">disp</span><span class="p">:</span>
-            <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">newJ</span>    
-        <span class="k">if</span> <span class="n">callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">callback</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">thetas</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">thetas</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">mb_rmsprop</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">func_prime</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;batch_size&#39;</span><span class="p">]</span>
-    <span class="n">maxiter</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;maxiter&#39;</span><span class="p">]</span>
-    <span class="n">tol</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;tol&#39;</span><span class="p">]</span>
-    <span class="n">disp</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;disp&#39;</span><span class="p">]</span>
-    <span class="n">thetas</span> <span class="o">=</span> <span class="n">thetas0</span>
-    <span class="n">diff</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">prevJ</span> <span class="o">=</span> <span class="mi">1000</span>
-    <span class="n">rms</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">_X</span><span class="p">,</span> <span class="n">_y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxiter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">minibatch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)):</span>
-        <span class="n">grad</span> <span class="o">=</span> <span class="n">func_prime</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">_X</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-        <span class="n">rms</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">rms</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span>
-        <span class="n">thetas</span> <span class="o">=</span> <span class="n">thetas</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">grad</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rms</span><span class="p">))</span>
-        <span class="n">newJ</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">))</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">newJ</span><span class="p">)</span> <span class="ow">and</span> <span class="n">newJ</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s">&quot;inf&quot;</span><span class="p">):</span>
-            <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">newJ</span> <span class="o">-</span> <span class="n">prevJ</span><span class="p">)</span>
-            <span class="n">prevJ</span> <span class="o">=</span> <span class="n">newJ</span>
-            <span class="k">if</span> <span class="n">diff</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">maxiter</span><span class="p">:</span>
-                <span class="k">break</span>
-        <span class="k">if</span> <span class="n">disp</span><span class="p">:</span>
-            <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">newJ</span>    
-        <span class="k">if</span> <span class="n">callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">callback</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">thetas</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">thetas</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">mb_scipy</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">func_prime</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;batch_size&#39;</span><span class="p">]</span>
-    <span class="n">maxiter</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;maxiter&#39;</span><span class="p">]</span>
-    <span class="n">tol</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;tol&#39;</span><span class="p">]</span>
-    <span class="n">disp</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;disp&#39;</span><span class="p">]</span>
-    <span class="n">thetas</span> <span class="o">=</span> <span class="n">thetas0</span>
-    <span class="n">diff</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">prevJ</span> <span class="o">=</span> <span class="mi">1000</span>
-    <span class="n">thetas</span> <span class="o">=</span> <span class="n">thetas0</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">_X</span><span class="p">,</span> <span class="n">_y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxiter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">minibatch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)):</span>
-        <span class="n">ans</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">thetas</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">func_prime</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s">&#39;mb_opti&#39;</span><span class="p">],</span> 
-                                <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">_X</span><span class="p">,</span> <span class="n">_y</span><span class="p">)</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
-                                <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;maxiter&#39;</span><span class="p">:</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;mb_opti_maxiter&#39;</span><span class="p">]})</span>
-        <span class="n">thetas</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">x</span>
-        <span class="n">newJ</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">))</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">newJ</span><span class="p">)</span> <span class="ow">and</span> <span class="n">newJ</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s">&quot;inf&quot;</span><span class="p">):</span>
-            <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">newJ</span> <span class="o">-</span> <span class="n">prevJ</span><span class="p">)</span>
-            
-            <span class="n">prevJ</span> <span class="o">=</span> <span class="n">newJ</span>
-            <span class="k">if</span> <span class="n">diff</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">maxiter</span><span class="p">:</span>
-                <span class="k">break</span>
-        <span class="k">if</span> <span class="n">disp</span><span class="p">:</span>
-            <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">newJ</span>
-        <span class="k">if</span> <span class="n">callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">callback</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">thetas</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">thetas</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">mb_opti</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">func_prime</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;mb_opti&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;GD&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">mb_gd</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">function_prime</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;mb_opti&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;RMSPROP&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">mb_rmsprop</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">function_prime</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">mb_scipy</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">function_prime</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="k">class</span> <span class="nc">NN</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidden_layers</span><span class="p">,</span> 
-                 <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;MB&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">,</span> 
-                 <span class="n">mb_opti</span><span class="o">=</span><span class="s">&#39;CG&#39;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
-                 <span class="n">mb_opti_maxiter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-                 <span class="n">disp</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">opti_callback</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                 <span class="n">act_func</span><span class="o">=</span><span class="n">sigmoid</span><span class="p">,</span>
-                 <span class="n">epsilon_init</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
-                 <span class="n">reg_lambda</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">coef0</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidden_layers</span><span class="p">,</span> <span class="n">coef0</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;GD&#39;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+                 <span class="n">opti_options</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span> <span class="o">=</span> <span class="n">hidden_layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="bp">None</span> <span class="k">if</span> <span class="n">coef0</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">coef0</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">random_state</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rnd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">random_state</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rnd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rnd</span> <span class="o">=</span> <span class="n">random_state</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">opti_method</span> <span class="o">=</span> <span class="n">opti_method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">maxiter</span> <span class="o">=</span> <span class="n">maxiter</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tol</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mb_opti</span> <span class="o">=</span> <span class="n">mb_opti</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mb_opti_maxiter</span> <span class="o">=</span> <span class="n">mb_opti_maxiter</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">disp</span> <span class="o">=</span> <span class="n">disp</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">opti_callback</span> <span class="o">=</span> <span class="n">opti_callback</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">act_func</span> <span class="o">=</span> <span class="n">act_func</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_init</span> <span class="o">=</span> <span class="n">epsilon_init</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reg_lambda</span> <span class="o">=</span> <span class="n">reg_lambda</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coef0</span> <span class="o">=</span> <span class="n">coef0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">meta_</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opti_options</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">opti_options</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">opti_options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
+        
+    <span class="k">def</span> <span class="nf">rand_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights_info</span><span class="p">,</span> <span class="n">random_state</span><span class="p">):</span>
+        <span class="n">w_sizes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">layer_info</span> <span class="ow">in</span> <span class="n">weights_info</span><span class="p">:</span>
+            <span class="n">w_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">layer_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">layer_info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">w_sizes</span><span class="p">))</span>
+        
+        <span class="c"># &quot;Smart&quot; random initialization</span>
+        <span class="n">start_pos</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">weights_info</span><span class="p">):</span>
+            <span class="n">end_pos</span> <span class="o">=</span> <span class="n">start_pos</span> <span class="o">+</span> <span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">gap</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">6.</span> <span class="o">/</span> <span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">ans</span><span class="p">[</span><span class="n">start_pos</span><span class="p">:</span><span class="n">end_pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="n">gap</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">gap</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">w_sizes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">start_pos</span> <span class="o">=</span> <span class="n">end_pos</span> 
+        <span class="k">return</span> <span class="n">ans</span>
     
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span>
+   
     <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">forward</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_func</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="n">layers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span>
+        <span class="n">layers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span><span class="p">)</span>  <span class="c"># Copy</span>
         <span class="n">layers</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">layers</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">weight_metadata</span> <span class="o">=</span> <span class="n">build_network</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">meta_</span> <span class="o">=</span> <span class="n">weight_metadata</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights_info</span> <span class="o">=</span> <span class="p">[(</span><span class="n">layers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">layers</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opti_options</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opti_options</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         
-        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
-        <span class="n">thetas0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coef0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">coef0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">rand_init</span><span class="p">(</span><span class="n">weight_metadata</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_init</span><span class="p">)</span>
-        <span class="n">num_labels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rand_init</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights_info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rnd</span><span class="p">)</span>
+
+        <span class="c"># Unpack the weights and assign them to the layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">start_pos</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">w_info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights_info</span><span class="p">:</span>
+            <span class="n">end_pos</span> <span class="o">=</span> <span class="n">start_pos</span> <span class="o">+</span> <span class="n">w_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">w_info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="n">start_pos</span><span class="p">:</span><span class="n">end_pos</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">w_info</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">w_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SigmoidLayer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="n">weight</span><span class="p">))</span>
+            <span class="n">start_pos</span> <span class="o">=</span> <span class="n">end_pos</span>
         
-        <span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">options</span><span class="p">[</span><span class="s">&#39;maxiter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxiter</span>
-        <span class="n">options</span><span class="p">[</span><span class="s">&#39;disp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">disp</span>
-        <span class="n">_callback</span> <span class="o">=</span> <span class="bp">None</span>
-        
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">opti_method</span> <span class="o">==</span> <span class="s">&#39;MB&#39;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">opti_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-                <span class="k">def</span> <span class="nf">_callback</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">thetas</span><span class="p">):</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">thetas</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">opti_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-            
-            <span class="n">options</span><span class="p">[</span><span class="s">&#39;mb_opti&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mb_opti</span>
-            <span class="n">options</span><span class="p">[</span><span class="s">&#39;batch_size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
-            <span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span>
-            <span class="n">options</span><span class="p">[</span><span class="s">&#39;tol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span>
-            <span class="n">options</span><span class="p">[</span><span class="s">&#39;mb_opti_maxiter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mb_opti_maxiter</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="n">mb_opti</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">function_prime</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">_callback</span><span class="p">,</span>
-                          <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">weight_metadata</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_lambda</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_func</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">opti_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-                <span class="k">def</span> <span class="nf">_callback</span><span class="p">(</span><span class="n">thetas</span><span class="p">):</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">thetas</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">opti_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">thetas0</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">function_prime</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">opti_method</span><span class="p">,</span> 
-                                    <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">weight_metadata</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_lambda</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_func</span><span class="p">),</span>
-                                    <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">_callback</span><span class="p">)</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">ans</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights_info</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+        <span class="n">MinibatchOpti</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">cost_prime</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">opti_method</span><span class="p">,</span>
+                               <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rnd</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">maxiter</span><span class="p">,</span> 
+                               <span class="n">tol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">opti_options</span><span class="p">,</span>
+                               <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -483,7 +442,7 @@
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 class="ipynb">
-  MNIST
+  MNINST
 </h2>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -493,7 +452,7 @@
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">cPickle</span><span class="o">,</span> <span class="nn">gzip</span><span class="o">,</span> <span class="nn">numpy</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;mnist.pkl.gz&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
@@ -506,9 +465,10 @@
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">train_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">valid_set</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">valid_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -516,17 +476,7 @@
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">valid_set</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">valid_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
 </pre></div>
@@ -536,17 +486,161 @@
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 class="ipynb">
-  MB-GD
+  Gradient decent
 </h3>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>First let's try using a simple gradient decent, the bad part is that one needs to input <a href="http://arxiv.org/abs/1206.1106">the pesky learning rate</a></p>
+<p>First let's try using a simple gradient decent, the bad part is that one needs to input that <a href="http://arxiv.org/abs/1206.1106">pesky learning rate</a>.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">options</span><span class="p">[</span><span class="s">&#39;learning_rate_decay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN</span><span class="p">([</span><span class="mi">25</span><span class="p">],</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;GD&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">opti_options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="output_subarea output_stream output_stdout">
+<pre class="ipynb">Maximum number of iterations reached
+1 loops, best of 1: 284 s per loop
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">),</span> <span class="n">y_valid</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0.83160000000000001</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  RMSPROP
+</h3>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To remove the learning rate an easy solution is to use RMSPROP.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">options</span><span class="p">[</span><span class="s">&#39;decay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.9</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN</span><span class="p">([</span><span class="mi">25</span><span class="p">],</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;RMSPROP&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">opti_options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="output_subarea output_stream output_stdout">
+<pre class="ipynb">Maximum number of iterations reached
+1 loops, best of 1: 297 s per loop
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">),</span> <span class="n">y_valid</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb">0.18629999999999999</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb">
+  Conjugate gradient
+</h3>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally my personal favorite is just to use the scipy optimization methods, one has to be careful though because most are for full-batch optimization. But the Conjugate Gradient and L-BFGS-B works on mini-batches. Personally I prefer CG because gave me better results.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN</span><span class="p">(</span><span class="n">hidden_layers</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;MB&#39;</span><span class="p">,</span> <span class="n">mb_opti</span><span class="o">=</span><span class="s">&#39;GD&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">options</span><span class="p">[</span><span class="s">&#39;mb_maxiter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
 </pre></div>
 
 </div>
@@ -556,20 +650,9 @@
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN</span><span class="p">([</span><span class="mi">25</span><span class="p">],</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;CG&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">opti_options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
 </pre></div>
 
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt"></div>
-<div class="output_subarea output_stream output_stdout">
-<pre class="ipynb">1 loops, best of 1: 131 s per loop
-</pre>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -577,7 +660,7 @@
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">),</span> <span class="n">y_valid</span><span class="p">)</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -585,52 +668,20 @@
 <div class="vbox output_wrapper">
 <div class="output vbox">
 <div class="hbox output_area">
-<div class="prompt output_prompt">Out[24]:</div>
-<div class="output_subarea output_pyout">
-<pre class="ipynb">0.68469999999999998</pre>
+<div class="prompt output_prompt"></div>
+<div class="output_subarea output_stream output_stdout">
+<pre class="ipynb">Maximum number of iterations reached
+1 loops, best of 1: 349 s per loop
+</pre>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>It took 131 seconds with a 68.46% accuracy, not amazing, let's give him another 100 iterations by setting the <code>coef0</code> argument.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN</span><span class="p">(</span><span class="n">hidden_layers</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;MB&#39;</span><span class="p">,</span> <span class="n">mb_opti</span><span class="o">=</span><span class="s">&#39;GD&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">coef0</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt"></div>
-<div class="output_subarea output_stream output_stdout">
-<pre class="ipynb">1 loops, best of 1: 135 s per loop
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">),</span> <span class="n">y_valid</span><span class="p">)</span>
 </pre></div>
 
@@ -639,264 +690,25 @@
 <div class="vbox output_wrapper">
 <div class="output vbox">
 <div class="hbox output_area">
-<div class="prompt output_prompt">Out[27]:</div>
+<div class="prompt output_prompt">Out[25]:</div>
 <div class="output_subarea output_pyout">
-<pre class="ipynb">0.82030000000000003</pre>
+<pre class="ipynb">0.86070000000000002</pre>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Much better, more time will probably give better results.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 class="ipynb">
-  RMSPROP
-</h3>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>RMSPROP is an idea from Geoffrey Hinton which is very simple to implement and removes the learning rate. The idea is to reduce the learning rates of each gradient by a RMS of previous batches.</p>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN</span><span class="p">(</span><span class="n">hidden_layers</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;MB&#39;</span><span class="p">,</span> <span class="n">mb_opti</span><span class="o">=</span><span class="s">&#39;RMSPROP&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt"></div>
-<div class="output_subarea output_stream output_stdout">
-<pre class="ipynb">1 loops, best of 1: 139 s per loop
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">),</span> <span class="n">y_valid</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt">Out[30]:</div>
-<div class="output_subarea output_pyout">
-<pre class="ipynb">0.41310000000000002</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Not amazing lets try another 100 iterations.</p>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN</span><span class="p">(</span><span class="n">hidden_layers</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;MB&#39;</span><span class="p">,</span> <span class="n">mb_opti</span><span class="o">=</span><span class="s">&#39;RMSPROP&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">coef0</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt"></div>
-<div class="output_subarea output_stream output_stdout">
-<pre class="ipynb">1 loops, best of 1: 135 s per loop
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">),</span> <span class="n">y_valid</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt">Out[33]:</div>
-<div class="output_subarea output_pyout">
-<pre class="ipynb">0.44140000000000001</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Hum... Not really good, lets give <strong>more</strong> time</p>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN</span><span class="p">(</span><span class="n">hidden_layers</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;MB&#39;</span><span class="p">,</span> <span class="n">mb_opti</span><span class="o">=</span><span class="s">&#39;RMSPROP&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">coef0</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt"></div>
-<div class="output_subarea output_stream output_stdout">
-<pre class="ipynb">1 loops, best of 1: 688 s per loop
-</pre>
-</div>
-</div>
-<div class="hbox output_area">
-<div class="prompt output_prompt"></div>
-<div class="output_subarea output_stream output_stderr">
-<pre class="ipynb">-c:2: RuntimeWarning: overflow encountered in exp
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">),</span> <span class="n">y_valid</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt">Out[36]:</div>
-<div class="output_subarea output_pyout">
-<pre class="ipynb">0.69699999999999995</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Wow, that took a while, and not amazing results to be honest.</p>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 class="ipynb">
-  MB-CG
-</h3>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally my personal favorite is just to use the scipy optimization methods, one has to be careful though because most are for batch optimization. But the Conjugate Gradient and L-BFGS-B works on mini-batches. Personally I prefer CG because gave me better results.</p>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">nn</span> <span class="o">=</span> <span class="n">NN</span><span class="p">(</span><span class="n">hidden_layers</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">opti_method</span><span class="o">=</span><span class="s">&#39;MB&#39;</span><span class="p">,</span> <span class="n">mb_opti</span><span class="o">=</span><span class="s">&#39;CG&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt"></div>
-<div class="output_subarea output_stream output_stdout">
-<pre class="ipynb">1 loops, best of 1: 218 s per loop
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">accuracy_score</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">),</span> <span class="n">y_valid</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-<div class="vbox output_wrapper">
-<div class="output vbox">
-<div class="hbox output_area">
-<div class="prompt output_prompt">Out[39]:</div>
-<div class="output_subarea output_pyout">
-<pre class="ipynb">0.89280000000000004</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 class="ipynb">
   Comparison
-</h4>
+</h3>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's look at the results in a beautiful pandas DataFrame.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
@@ -906,9 +718,9 @@
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">266</span><span class="p">,</span> <span class="mf">0.8203</span><span class="p">],</span> <span class="p">[</span><span class="mi">700</span><span class="p">,</span> <span class="mi">962</span><span class="p">,</span> <span class="mf">0.6969</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">218</span><span class="p">,</span> <span class="mf">0.8928</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;GD&#39;</span><span class="p">,</span> <span class="s">&#39;RMSPROP&#39;</span><span class="p">,</span> <span class="s">&#39;CG&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;# Iter&#39;</span><span class="p">,</span> <span class="s">&#39;Time [s]&#39;</span><span class="p">,</span> <span class="s">&#39;Accuracy&#39;</span><span class="p">])</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">284</span><span class="p">,</span> <span class="mf">0.8316</span><span class="p">],</span> <span class="p">[</span><span class="mi">297</span><span class="p">,</span> <span class="mf">0.1863</span><span class="p">],</span> <span class="p">[</span><span class="mi">314</span><span class="p">,</span> <span class="mf">0.8607</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;GD&#39;</span><span class="p">,</span> <span class="s">&#39;RMSPROP&#39;</span><span class="p">,</span> <span class="s">&#39;CG&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;Time [s]&#39;</span><span class="p">,</span> <span class="s">&#39;Accuracy&#39;</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -916,14 +728,13 @@
 <div class="vbox output_wrapper">
 <div class="output vbox">
 <div class="hbox output_area">
-<div class="prompt output_prompt">Out[46]:</div>
+<div class="prompt output_prompt">Out[27]:</div>
 <div class="output_subarea output_pyout output_html rendered_html">
 <div style="max-height:1000px;max-width:540px;overflow:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th># Iter</th>
       <th>Time [s]</th>
       <th>Accuracy</th>
     </tr>
@@ -931,21 +742,18 @@
   <tbody>
     <tr>
       <th>GD</th>
-      <td> 200</td>
-      <td> 266</td>
-      <td> 0.8203</td>
+      <td> 284</td>
+      <td> 0.8316</td>
     </tr>
     <tr>
       <th>RMSPROP</th>
-      <td> 700</td>
-      <td> 962</td>
-      <td> 0.6969</td>
+      <td> 297</td>
+      <td> 0.1863</td>
     </tr>
     <tr>
       <th>CG</th>
-      <td> 100</td>
-      <td> 218</td>
-      <td> 0.8928</td>
+      <td> 314</td>
+      <td> 0.8607</td>
     </tr>
   </tbody>
 </table>
@@ -956,37 +764,31 @@
 </div>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In all three benchmarks the winner was CG. Personally I was disapointed about RMSPROP, probally my implementation is wrong, if anyone can spot the mistake I will be happy to know.</p>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 class="ipynb">
   Conclusions
 </h2>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The scipy optimization methods are amazing, for basic stuff just use those. Don't have to specify a learning rate and are faster.</p>
+<p>Even though gradient decent did well I still prefer the scipy optimization methods, maybe because they are just more robust and don't have a learning rate. It takes more time but is not the end of the world. I don't know what is wrong with my RMSPROP implementation I looked at some implementations online and couldn't found the error, if someone sees anything suspicious let me know.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Something that is not going to be in this post but I want to try is to use mini-batches until some point and then use full-batch to do some fine tuning when mini-batch is not working anymore.</p>
+<p>Some improvements I would love to do and ideas I want to test:</p>
+<ol>
+<li>Use Numba to speed up the process, in theory having the cost function, its gradient and optimization in different "well" defined functions it should be easy.</li>
+<li>Try more optimization methods or why not use an existing implementation because there are many python implementations of these and more algorithms online, just to name a few I found: <a href="https://github.com/amarack/python-rl">python-rl</a> and <a href="https://github.com/BRML/climin">climin</a>.</li>
+<li>Do pretraining using RBMs: I am just starting to read about them. </li>
+<li>Use minibatches to some point and then switch to bigger minibatches or even full batch optimization.</li>
+<li>People suggested me to use a lookup table for the sigmoid. I tried but the accuracy I got was really bad, I have to check that code again.</li>
+</ol>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Also people suggested to use a lookup table for the sigmoid. I tried but the accuracy I got was really bad, I have to check that code again.</p>
+<p>I have to admit that I cheated a little bit on the post. Because the neural network supports multiple hidden layers but I only used one!
+<strong>Why?</strong>: Mainly because it takes a long time to train those networks and I am lazy. Second, I couldn't find a way to make those networks converge without using the scipy advanced optimization methods.</p>
+<p>From what I understand the problem are the initial weights, and as a side note I spent almost 2 days trying to find a bug while training the MNIST dataset and it was that I started all the layers weights with similar values. The <a href="http://www.cs.toronto.edu/~gdahl/papers/momentumNesterovDeepLearning.pdf">initial weights are <strong>very</strong> important</a>.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As improvements I would love to do is create a general Minibatch optimization and probably use a decorator on RMPSPROP and other optimization options just to follow DRY. Or why not use an existing implemenatation because there are many python implementations of these and more algorithms online, just to name a few I found: <a href="https://github.com/amarack/python-rl">python-rl</a> and <a href="https://github.com/BRML/climin">climin</a>.</p>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>I think I have learned enough about neural networks for my personal satisfaction, so this is probablly the last iteration of my Neural network. I will definitely keep looking at the updates of NN research but not as almost fulltime as I been doing the past weeks. Is an imposible mission to catch up that amount of information in my free time.</p>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Having spent almost a month reading about NN my (obvious) conclusion is that researchers are just scratching the surface of what is possible, and the next years are going to be exciting. </p>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>There is even free <a href="http://www.cs.toronto.edu/~gdahl/">python (gpu) implementation</a> of a Deep belief net by one person on Geoffrey Hinton group which I havent look but seams promising and hopefully he will release more code. </p>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally I have to admit that I cheated a little bit on the post. Because the neural network supports multiple hidden layers but I only used one!
-<strong>Why?</strong> because I couldn't find a way to make those network converge without full-batch learning, and the MNIST dataset is too big for that. I have tried on the Iris dataset and is working. Don't trust me? try yourself: the code is on <a href="https://github.com/danielfrg/copper">github</a>.</p>
+<p>I think I have learned enough about neural networks for my personal satisfaction, so this is probably the last iteration of my Neural network. I will definitely keep looking at the updates of NN research but not as almost fulltime as I been doing the past weeks. Is an imposible mission to catch up that amount of information in my free time. Having spent almost a month reading about NN my (obvious) conclusion is that researchers are just scratching the surface of what is possible, and the next years are going to be exciting.</p>
+<p>If you are looking for a more complete implementation of a deep belif network there is free <a href="http://www.cs.toronto.edu/~gdahl/">python (gpu) implementation</a> by one person on Geoffrey Hinton group which I haven't look but seams promising and hopefully he will release more code. </p>
 </div></div>
         </div>
     </article>
