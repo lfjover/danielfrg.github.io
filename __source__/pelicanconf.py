@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*- #
 
-# SITEURL = '/'
+SITEURL = '/'
 SITEURL = 'http://danielfrg.github.io'
-AUTHOR = u'Daniel Rodriguez'
-SITENAME = u'Daniel Rodriguez'
+AUTHOR = 'Daniel Rodriguez'
+SITENAME = 'Daniel Rodriguez'
 TIMEZONE = 'America/Regina'
-DEFAULT_LANG = u'en'
-DEFAULT_PAGINATION = 5
+DEFAULT_LANG = 'en'
+DEFAULT_PAGINATION = 10
 MARKUP = ('md', 'ipynb')
 DEFAULT_DATE_FORMAT = '%d.%m.%Y'
 
@@ -22,9 +22,7 @@ SITEMAP = {
 }
 
 PLUGIN_PATH = './plugins'
-PLUGINS = ['assets', 'sitemap', 'ipythonnb',
-           'liquid_tags.img', 'liquid_tags.video', 'liquid_tags.include_code']
-           # 'liquid_tags.notebook']
+PLUGINS = ['sitemap', 'ipythonnb']
 
 GOOGLE_ANALYTICS = 'UA-35523657-2'
 

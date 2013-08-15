@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ SITENAME }}</title>
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="Blog is written by Daniel Rodriguez. He writes about coding, python, data science and his projects.">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed"
+              href="/feeds/all.atom.xml" />
+        <link rel="stylesheet" href="/theme/css/normalize.min.css">
+        <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
+        <link rel="stylesheet" href="/theme/css/fonts/ss-standard.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/ipython.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+    </head>
+<body>
+
+<div class="index">
+    <p class='intro'>
+      This blog is written by <i>Daniel Rodriguez</i>. He writes about coding, python, data science and his projects.
+    </p>
+
+    <div class="list">
+        <p>Posts:</p>
+        <ul>
+        {% for article in articles %}
+          <li>
+            <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2>
+              <span>[ {{ article.locale_date }} ]</span>
+            </a>
+          </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript" href="/theme/js/d3.js"></script>
+<script type="text/javascript">
+var dataset = [];
+for (var i = 0; i < 25; i++) {
+    var newNumber = Math.random() * 30;
+    dataset.push(newNumber);
+}
+</script>
+</body>
+</html>

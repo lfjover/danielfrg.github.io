@@ -3,6 +3,14 @@ import shutil
 from fabric.api import local
 
 
+def build():
+    local('pelican content/ -o output/ -s pelicanconf.py')
+
+
+def serve():
+    local('cd output && python -m pelican.server')
+
+
 def clean():
     local('make clean')
     # --
@@ -33,6 +41,7 @@ def _move(src_dir, dest_dir):
 
 
 def move():
+    # local('mv output/* ../')  # maybe?
     src_dir = './output'
     dest_dir = '../'
     _move(src_dir, dest_dir)
