@@ -5,7 +5,6 @@ from pelican.readers import EXTENSIONS, Reader
 try:
     import json
     import markdown
-    from functools import reduce
 
     from IPython.config import Config
     from IPython.nbconvert.exporters import HTMLExporter
