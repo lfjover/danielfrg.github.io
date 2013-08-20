@@ -56,7 +56,7 @@ except ImportError:
 from IPython.nbconvert.filters.highlight import _pygment_highlight
 from pygments.formatters import HtmlFormatter
 
-from IPython.nbconvert.exporters import BasicHTMLExporter
+from IPython.nbconvert.exporters import HTMLExporter
 from IPython.config import Config
 
 from IPython.nbformat import current as nbformat
@@ -105,23 +105,19 @@ pre.ipynb {
   font-size: 13px;
 }
 
-img.anim_icon{padding:0; border:0; -webkit-box-shadow:none; -box-shadow:none}
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
 </style>
 
 <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-"""
 
-# This, for some reason, results in paranthetical statements being rendered
-# in math mode.
-DONT_USE = """
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
         // MathJax loaded
         MathJax.Hub.Config({
             tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                inlineMath: [ ['$','$'] ],
+                displayMath: [ ['$$','$$'] ]
             },
             displayAlign: 'left', // Change this to 'center' to center equations.
             "HTML-CSS": {
@@ -166,16 +162,16 @@ class SubCell(Transformer):
         nbc = deepcopy(nb)
         for worksheet in nbc.worksheets :
             cells = worksheet.cells[:]
-            worksheet.cells = cells[self.start:self.end]                    
+            worksheet.cells = cells[self.start:self.end]
         return nbc, resources
 
 
 #----------------------------------------------------------------------
 # Customize the html template:
 #  This changes the <pre> tags in basic_html.tpl to <pre class="ipynb"
-pelican_loader = DictLoader({'pelicanhtml.tpl': 
+pelican_loader = DictLoader({'pelicanhtml.tpl':
 """
-{%- extends 'basichtml.tpl' -%} 
+{%- extends 'basichtml.tpl' -%}
 
 {% block stream_stdout -%}
 <div class="box-flex1 output_subarea output_stream output_stdout">
@@ -252,10 +248,11 @@ def notebook(preprocessor, tag, markup):
                 'SubCell':
                     {'enabled':True, 'start':start, 'end':end}})
 
-    exporter = BasicHTMLExporter(config=c,
-                                 filters={'highlight': custom_highlighter},
-                                 transformers=[SubCell],
-                                 extra_loaders=[pelican_loader])
+    exporter = HTMLExporter(config=c,
+                            template_file='basic',
+                            filters={'highlight2html': custom_highlighter},
+                            transformers=[SubCell],
+                            extra_loaders=[pelican_loader])
 
     # read and parse the notebook
     with open(nb_path) as f:

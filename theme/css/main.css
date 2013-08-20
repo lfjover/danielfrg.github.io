@@ -33,8 +33,8 @@ p {
   background: #333;
 }
 div#content {
-  width: 100%;
-  height: 100%;
+  /*width: 100%;*/
+  /*height: 100%;*/
 }
 div.index p.intro {
   max-width: 850px;
@@ -163,10 +163,6 @@ div.index .list ul li span {
   line-height: 16px;
   page-break-inside: avoid;
   word-wrap: break-word;
-}
-.post .cell.border-box-sizing.code_cell.vbox {
-  max-width: 750px;
-  margin: 0 auto;
 }
 .post .metadata {
   max-width: 750px;
