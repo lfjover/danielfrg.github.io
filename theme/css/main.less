@@ -1,6 +1,8 @@
 
 body {
     font-family: "proxima_nova_regular", Helvetica, Arial, sans-serif;
+    // width: 100%;
+    // heigth: 100%;
 }
 
 a {
@@ -41,11 +43,6 @@ p {
     }
 }
 
-div#content {
-    width: 100%;
-    height: 100%;
-}
-
 div.index {
 
     p.intro {
@@ -72,11 +69,11 @@ div.index {
             margin: 15px 0 0 0;
             padding: 0;
         }
-        
+
         ul {
             padding: 0;
             list-style-type: none;
-            
+
             li {
                 padding: 5px 0;
 
@@ -145,7 +142,7 @@ div.index {
         padding: 7px 20px 7px 20px;
     }
 
-    p.gray, p.note { 
+    p.gray, p.note {
         max-width: 750px;
         background: #f5f5f5;
         border-left: 8px solid #ddd;
@@ -214,9 +211,14 @@ div.index {
     }
 }
 
-.footer {
+footer {
     background: #333333;
     color: #fff;
+    min-height: 50px;
+
+    a.dsq-brlink {
+        display: none;
+    }
 
     .social {
         max-width: 640px;
