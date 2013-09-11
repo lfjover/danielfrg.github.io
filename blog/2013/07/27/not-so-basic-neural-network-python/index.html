@@ -19,7 +19,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     </head>
 
-    <body ng-controller="MainCtrl" scroll>
+    <body ng-controller="MainCtrl">
         <div class="header">
             <div class="navbar">
                 <a href="/" class="ss-icon" title="home">home</a>
@@ -2602,6 +2602,7 @@ In&nbsp;[27]:
                 ngProgressProvider.setHeight('2px');
             });
 
+            /*
             app.directive("scroll", function ($window) {
                 return function(scope, element, attrs) {
                     angular.element($window).bind("scroll", function() {
@@ -2616,12 +2617,13 @@ In&nbsp;[27]:
                     });
                 };
             });
+            */
 
             var MainCtrl = function($scope, $timeout, ngProgress) {
                 ngProgress.start();
                 $timeout(function(){
                     ngProgress.complete();
-                    ngProgress.set(0);
+                    // ngProgress.set(0);
                 }, 2000);
 
                 $scope.updateProgress = function(percent) {
