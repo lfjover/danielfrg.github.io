@@ -2,11 +2,9 @@ Title: New blog using Jekyll & iPython
 Date: 2013-1-31
 Category: Blogging
 Tags: jekyll,ipython,python
-Slug: new-blog-using-jekyll-and-ipython
 Author: Daniel Rodriguez
+Slug: new-blog-using-jekyll-and-ipython
 Summary: Short version for index and feeds
-featured_img: /static/images/posters/writting.jpg
-
 
 Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using [octopress](http://octopress.org/) ([jekyll](https://github.com/mojombo/jekyll)) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.
 

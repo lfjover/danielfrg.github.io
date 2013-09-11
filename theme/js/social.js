@@ -1,4 +1,3 @@
-
 (function(doc, script) {
     //Async Social Buttons
     var js,

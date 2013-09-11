@@ -2689,7 +2689,7 @@ In&amp;nbsp;[22]:
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;As usual the code is on github: &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="data transformation"></category><category term="data analysis"></category></entry><entry><title>Copper - Bootstrap and Bagging</title><link href="http://danielfrg.github.io/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" rel="alternate"></link><updated>2013-01-30T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category></entry><entry><title>Copper - Bootstrap and Bagging</title><link href="http://danielfrg.github.io/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" rel="alternate"></link><updated>2013-01-30T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -9555,4 +9555,4 @@ dtypes: float64(7), int64(26)
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Thats it for now, the next week I hope to get the integration with scikit-learn to make comparison of models as easy (and why not easier) than with SAS.&lt;/p&gt;
 &lt;p&gt;The code is on github: &lt;a href="https://github.com/danielfrg/copper" title="Copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category><category term="data analysis"></category></entry></feed>
+&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry></feed>

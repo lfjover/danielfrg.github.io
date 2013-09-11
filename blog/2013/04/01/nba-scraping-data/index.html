@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="app">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Extracting NBA data from ESPN | Daniel Rodriguez</title>
         <meta name="author" content="Daniel Rodriguez">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <title>Extracting NBA data from ESPN | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-
         <link rel="stylesheet" href="/theme/css/normalize.min.css">
         <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
         <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
         <link rel="stylesheet" href="/theme/css/fonts/ss-standard.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     </head>
 
-    <body>
+    <body ng-controller="MainCtrl" scroll>
         <div class="header">
             <div class="navbar">
                 <a href="/" class="ss-icon" title="home">home</a>
@@ -41,18 +42,18 @@
             <h1>Extracting NBA data from ESPN</h1>
         </header>
         <div class='post-content'>
-            <p>I've been wanting to play with some sports data for a while. Today I decide to 
+            <p>I've been wanting to play with some sports data for a while. Today I decide to
 stop procastinating and do it. The problems was that after searching a
-while (15 minutes) for some data I was unable to find the data I wanted. 
+while (15 minutes) for some data I was unable to find the data I wanted.
 Even in the <a href="http://www.databasebasketball.com/">Basktetball Database</a>
 (not really sure I undestand the site).</p>
 <p>A friend showed me the <a href="http://espn.go.com/nba/">ESPN</a> stats and ask me if I
-knew how to scrap the data from a website. I lied and told him Yes. 
+knew how to scrap the data from a website. I lied and told him Yes.
 But I know python and its magic powers so after reading 15 minutes I knew how to do it.</p>
-<p>I used <a href="http://docs.python-requests.org/en/latest/">requests</a> and 
+<p>I used <a href="http://docs.python-requests.org/en/latest/">requests</a> and
 <a href="http://www.crummy.com/software/BeautifulSoup/">beautifulsoup</a> to download and
-scrap the data from the ESPN site. Then used <a href="http://pandas.pydata.org/">pandas</a> 
-to order, slice, and save the data into simple csv files. Also used 
+scrap the data from the ESPN site. Then used <a href="http://pandas.pydata.org/">pandas</a>
+to order, slice, and save the data into simple csv files. Also used
 <a href="http://ipython.org/">iPython notebooks</a> to develop the code faster.
 And a little bit of my <a href="https://github.com/danielfrg/copper">copper</a>
 project to use the data analysis project structure.</p>
@@ -127,12 +128,12 @@ csv file and for each team make a request and parse the data. On this case
 <span class="n">visit_team_score</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">teams</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">_team</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">&#39;team&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">&#39;url&#39;</span><span class="p">]</span> 
+    <span class="n">_team</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">&#39;team&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">&#39;url&#39;</span><span class="p">]</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">BASE_URL</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">&#39;prefix_1&#39;</span><span class="p">],</span> <span class="n">year</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s">&#39;prefix_2&#39;</span><span class="p">]))</span>
     <span class="n">table</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">table</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]:</span> <span class="c"># Remove header</span>
         <span class="n">columns</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)</span>
-        <span class="k">try</span><span class="p">:</span> 
+        <span class="k">try</span><span class="p">:</span>
             <span class="n">_home</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">li</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="s">&#39;vs&#39;</span> <span class="k">else</span> <span class="bp">False</span>
             <span class="n">_other_team</span> <span class="o">=</span> <span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
             <span class="n">_score</span> <span class="o">=</span> <span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">)</span>
@@ -162,7 +163,7 @@ csv file and for each team make a request and parse the data. On this case
             <span class="k">pass</span> <span class="c"># Not all columns row are a match, is OK</span>
             <span class="c"># print(e)</span>
 
-<span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="n">match_id</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="n">dates</span><span class="p">,</span> <span class="s">&#39;home_team&#39;</span><span class="p">:</span> <span class="n">home_team</span><span class="p">,</span> <span class="s">&#39;visit_team&#39;</span><span class="p">:</span> <span class="n">visit_team</span><span class="p">,</span> 
+<span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="n">match_id</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="n">dates</span><span class="p">,</span> <span class="s">&#39;home_team&#39;</span><span class="p">:</span> <span class="n">home_team</span><span class="p">,</span> <span class="s">&#39;visit_team&#39;</span><span class="p">:</span> <span class="n">visit_team</span><span class="p">,</span>
         <span class="s">&#39;home_team_score&#39;</span><span class="p">:</span> <span class="n">home_team_score</span><span class="p">,</span> <span class="s">&#39;visit_team_score&#39;</span><span class="p">:</span> <span class="n">visit_team_score</span><span class="p">}</span>
 
 <span class="n">games</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">cols</span><span class="o">=</span><span class="s">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">)</span>
@@ -250,9 +251,9 @@ Then for each game I download all players stats for that game. The result was
 
 <h2>Conclusion</h2>
 <p>I love python more.</p>
-<p>Still a <strong>lot</strong> of work is needed in order to make sense of all that data. But 
+<p>Still a <strong>lot</strong> of work is needed in order to make sense of all that data. But
 at least now I have some data.</p>
-<p>Next step is probably to insert the data into a <a href="http://www.postgresql.org/">postgres</a> 
+<p>Next step is probably to insert the data into a <a href="http://www.postgresql.org/">postgres</a>
 database. Or just be crazy and do some machine learning as it is.</p>
 <p>The data and code is on github <a href="https://github.com/danielfrg/nba">nba</a>.</p>
         </div>
@@ -266,12 +267,12 @@ database. Or just be crazy and do some machine learning as it is.</p>
             </li>
             <li>
                 <strong>In:</strong>
-                <a href="http://danielfrg.github.io/category/data-analysis.html">Data analysis</a>
+                <a href="http://danielfrg.github.io/category/crawling.html">Crawling</a>
             </li>
                         <li>
                 <strong>Tags:</strong>
                 <a href="http://danielfrg.github.io/tag/python.html">python</a>
-                <a href="http://danielfrg.github.io/tag/data-analysis.html">data analysis</a>
+                <a href="http://danielfrg.github.io/tag/crawling.html">crawling</a>
                 <a href="http://danielfrg.github.io/tag/pandas.html">pandas</a>
                 <a href="http://danielfrg.github.io/tag/requests.html">requests</a>
                 <a href="http://danielfrg.github.io/tag/beautifulsoup.html">beautifulsoup</a>
@@ -325,6 +326,43 @@ database. Or just be crazy and do some machine learning as it is.</p>
 <script src="/theme/js/social.js"></script>
         </footer>
 
+        <script src="/theme/js/ngProgress.js"></script>
+        <script>
+            var app = angular.module('app', ['ngProgress']);
+
+            app.config(function(ngProgressProvider){
+                ngProgressProvider.setColor('black');
+                ngProgressProvider.setHeight('2px');
+            });
+
+            app.directive("scroll", function ($window) {
+                return function(scope, element, attrs) {
+                    angular.element($window).bind("scroll", function() {
+                        var body = document.body;
+                        var html = document.documentElement;
+
+                        var height = Math.max(body.scrollHeight, body.offsetHeight,
+                                              html.clientHeight, html.scrollHeight, html.offsetHeight);
+                        // scope.updateProgress(this.scrollY / this.window.height);
+                        scope.updateProgress(this.scrollY / height);
+                        scope.$apply();
+                    });
+                };
+            });
+
+            var MainCtrl = function($scope, $timeout, ngProgress) {
+                ngProgress.start();
+                $timeout(function(){
+                    ngProgress.complete();
+                    ngProgress.set(0);
+                }, 2000);
+
+                $scope.updateProgress = function(percent) {
+                    ngProgress.set(percent * 100);
+                }
+            }
+
+        </script>
         
 <script type="text/javascript">
 var _gaq = _gaq || [];

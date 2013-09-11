@@ -13,7 +13,7 @@
 &lt;p&gt;So I finally got out of my python comfort zone and re-learn Javascript, I had used it but was very simple examples using JQuery and a very long time ago, everything has changed now the cool people use Backbone.js which is a &lt;strong&gt;fabulous&lt;/strong&gt; creation to give structure to Javascript. So I read a lot of beginner tutorials of backbone and D3 and this is the result.&lt;/p&gt;
 &lt;h2&gt;What I wanted&lt;/h2&gt;
 &lt;p&gt;For &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;, my python data analysis library, I use matplotlib to plot histograms like this:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Matplotlib Histogram" src="/static/images/blog/2013/2/matplotlib_hist.png" title="Matplotlib histogram" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Matplotlib Histogram" src="/static/images/blog/2013/02/matplotlib_hist.png" title="Matplotlib histogram" /&gt;&lt;/p&gt;
 &lt;p&gt;The histograms work and are great so I wanted to do the same with D3.js to explore a &lt;code&gt;csv&lt;/code&gt; file using pandas.&lt;/p&gt;
 &lt;p&gt;Data - I am using data from a Business Intelligence project I am currently working on, available here: &lt;a href="https://raw.github.com/danielfrg/copper/master/tests/data/expedia/train.csv"&gt;expedia.csv&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Python: REST API&lt;/h2&gt;
@@ -223,7 +223,7 @@
 
 
 &lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="D3.js Histogram" src="/static/images/blog/2013/2/d3-hist.png" title="D3.js Histogram" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="D3.js Histogram" src="/static/images/blog/2013/02/d3-hist.png" title="D3.js Histogram" /&gt;&lt;/p&gt;
 &lt;p&gt;Changing the number of bins or the column automaticlly re-draws the histogram.&lt;/p&gt;
 &lt;p&gt;It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.&lt;/p&gt;
 &lt;p&gt;I include the whole code on &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt; (my data analysis package) which is not yet available via pip, so to use this need to download the &lt;code&gt;explore&lt;/code&gt; folder of the package and run &lt;code&gt;python explore.py&lt;/code&gt; (requires tornado and pandas). Remember to change the &lt;code&gt;explore.csv&lt;/code&gt; to explore other data.&lt;/p&gt;</summary><category term="python"></category><category term="javascript"></category><category term="D3.js"></category><category term="backbone"></category><category term="tornado"></category><category term="pandas"></category></entry></feed>

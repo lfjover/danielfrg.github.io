@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="app">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Plugin for blogging with iPython notebooks in Pelican | Daniel Rodriguez</title>
         <meta name="author" content="Daniel Rodriguez">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <title>Plugin for blogging with iPython notebooks in Pelican | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-
         <link rel="stylesheet" href="/theme/css/normalize.min.css">
         <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
         <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
         <link rel="stylesheet" href="/theme/css/fonts/ss-standard.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     </head>
 
-    <body>
+    <body ng-controller="MainCtrl" scroll>
         <div class="header">
             <div class="navbar">
                 <a href="/" class="ss-icon" title="home">home</a>
@@ -41,14 +42,14 @@
             <h1>Plugin for blogging with iPython notebooks in Pelican</h1>
         </header>
         <div class='post-content'>
-            <p>This is just a little update on my previous post about <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks with pelican</a>. </p>
+            <p>This is just a little update on my previous post about <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks with pelican</a>.</p>
 <p>One of the people behind pelican helped me to convert the <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">previous code</a> to a pelican plugin and I just made it available via github: <a href="https://github.com/danielfrg/pelican-ipythonnb">pelican-ipythonnb</a>.</p>
 <p>The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).</p>
 <p>An example is my last post about a <a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">cleaning data for a Kaggle competition</a>.</p>
 <p>Happy blogging!</p>
 <h2>Installation</h2>
 <p>Download plugin files: <code>plugin/ipythonnb.py</code> and the <code>plugin/nbconverter</code> directory.</p>
-<p>The esiest way is to locate the pelican directory (for example: <code>~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/</code>) and paste plugins files in the <code>pelican/plugins</code> folder. 
+<p>The esiest way is to locate the pelican directory (for example: <code>~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/</code>) and paste plugins files in the <code>pelican/plugins</code> folder.
 Then in the <code>pelicanconf.py</code> put: <code>PLUGINS = ['pelican.plugins.ipythonnb']</code>.</p>
 <p>But is also is possible to add plugins on the same directory of the pelican project:
 Create a folder called <code>custom_plugins_dir</code> (NOTE: the name can be anything but do not use <code>plugins</code>) and paste the plugin files there.
@@ -156,6 +157,43 @@ Then in the <code>pelicanconf.py</code> put: <code>PLUGINS = ['custom_plugins_di
 <script src="/theme/js/social.js"></script>
         </footer>
 
+        <script src="/theme/js/ngProgress.js"></script>
+        <script>
+            var app = angular.module('app', ['ngProgress']);
+
+            app.config(function(ngProgressProvider){
+                ngProgressProvider.setColor('black');
+                ngProgressProvider.setHeight('2px');
+            });
+
+            app.directive("scroll", function ($window) {
+                return function(scope, element, attrs) {
+                    angular.element($window).bind("scroll", function() {
+                        var body = document.body;
+                        var html = document.documentElement;
+
+                        var height = Math.max(body.scrollHeight, body.offsetHeight,
+                                              html.clientHeight, html.scrollHeight, html.offsetHeight);
+                        // scope.updateProgress(this.scrollY / this.window.height);
+                        scope.updateProgress(this.scrollY / height);
+                        scope.$apply();
+                    });
+                };
+            });
+
+            var MainCtrl = function($scope, $timeout, ngProgress) {
+                ngProgress.start();
+                $timeout(function(){
+                    ngProgress.complete();
+                    ngProgress.set(0);
+                }, 2000);
+
+                $scope.updateProgress = function(percent) {
+                    ngProgress.set(percent * 100);
+                }
+            }
+
+        </script>
         
 <script type="text/javascript">
 var _gaq = _gaq || [];

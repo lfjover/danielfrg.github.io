@@ -1,11 +1,10 @@
 Title: Using D3, backbone and tornado to visualize histograms of a csv file
+Slug: d3-backbone-tornado-histogram-csv
 Date: 2013-2-5
 Tags: python,javascript,D3.js,backbone,tornado,pandas
 Category: Vizualization
-Slug: d3-backbone-tornado-histogram-csv
 Author: Daniel Rodriguez
 Summary: Short version for index and feeds
-featured_img: /static/images/blog/2013/2/d3_backbone_hist.png
 code: True
 
 After being procrastinating for weeks the learning of [D3.js][d3] and [backbone.js][backbone] I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):
@@ -27,7 +26,7 @@ So I finally got out of my python comfort zone and re-learn Javascript, I had us
 
 For [copper][copper], my python data analysis library, I use matplotlib to plot histograms like this:
 
-![Matplotlib Histogram](/static/images/blog/2013/2/matplotlib_hist.png "Matplotlib histogram")
+![Matplotlib Histogram](/static/images/blog/2013/02/matplotlib_hist.png "Matplotlib histogram")
 
 The histograms work and are great so I wanted to do the same with D3.js to explore a `csv` file using pandas.
 
@@ -243,7 +242,7 @@ $(function(){
 ```
 ## Conclusion
 
-![D3.js Histogram](/static/images/blog/2013/2/d3-hist.png "D3.js Histogram")
+![D3.js Histogram](/static/images/blog/2013/02/d3-hist.png "D3.js Histogram")
 
 Changing the number of bins or the column automaticlly re-draws the histogram.
 

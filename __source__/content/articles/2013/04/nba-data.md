@@ -1,26 +1,26 @@
 Title: Extracting NBA data from ESPN
-Date: 2013-4-1
-Tags: python,data analysis, pandas, requests, beautifulsoup
-Category: Data analysis
 Slug: nba-scraping-data
+Date: 2013-4-1
+Tags: python,crawling,pandas,requests,beautifulsoup
+Category: Crawling
 Author: Daniel Rodriguez
 Summary: Short version for index and feeds
 code: true
 
-I've been wanting to play with some sports data for a while. Today I decide to 
+I've been wanting to play with some sports data for a while. Today I decide to
 stop procastinating and do it. The problems was that after searching a
-while (15 minutes) for some data I was unable to find the data I wanted. 
+while (15 minutes) for some data I was unable to find the data I wanted.
 Even in the [Basktetball Database](http://www.databasebasketball.com/)
 (not really sure I undestand the site).
 
 A friend showed me the [ESPN](http://espn.go.com/nba/) stats and ask me if I
-knew how to scrap the data from a website. I lied and told him Yes. 
+knew how to scrap the data from a website. I lied and told him Yes.
 But I know python and its magic powers so after reading 15 minutes I knew how to do it.
 
-I used [requests](http://docs.python-requests.org/en/latest/) and 
+I used [requests](http://docs.python-requests.org/en/latest/) and
 [beautifulsoup](http://www.crummy.com/software/BeautifulSoup/) to download and
-scrap the data from the ESPN site. Then used [pandas](http://pandas.pydata.org/) 
-to order, slice, and save the data into simple csv files. Also used 
+scrap the data from the ESPN site. Then used [pandas](http://pandas.pydata.org/)
+to order, slice, and save the data into simple csv files. Also used
 [iPython notebooks](http://ipython.org/) to develop the code faster.
 And a little bit of my [copper](https://github.com/danielfrg/copper)
 project to use the data analysis project structure.
@@ -102,12 +102,12 @@ visit_team = []
 visit_team_score = []
 
 for index, row in teams.iterrows():
-    _team, url = row['team'], row['url'] 
+    _team, url = row['team'], row['url']
     r = requests.get(BASE_URL.format(row['prefix_1'], year, row['prefix_2']))
     table = BeautifulSoup(r.text).table
     for row in table.find_all('tr')[1:]: # Remove header
         columns = row.find_all('td')
-        try: 
+        try:
             _home = True if columns[1].li.text == 'vs' else False
             _other_team = columns[1].find_all('a')[1].text
             _score = columns[2].a.text.split(' ')[0].split('-')
@@ -118,7 +118,7 @@ for index, row in teams.iterrows():
             visit_team.append(_team if not _home else _other_team)
             d = datetime.strptime(columns[0].text, '%a, %b %d')
             dates.append(date(year, d.month, d.day))
-            
+
             if _home:
                 if _won:
                     home_team_score.append(_score[0])
@@ -137,9 +137,9 @@ for index, row in teams.iterrows():
             pass # Not all columns row are a match, is OK
             # print(e)
 
-dic = {'id': match_id, 'date': dates, 'home_team': home_team, 'visit_team': visit_team, 
+dic = {'id': match_id, 'date': dates, 'home_team': home_team, 'visit_team': visit_team,
         'home_team_score': home_team_score, 'visit_team_score': visit_team_score}
-        
+
 games = pd.DataFrame(dic).drop_duplicates(cols='id').set_index('id')
 print(games)
 copper.save(games, 'games')
@@ -182,7 +182,7 @@ def get_players(players, team_name):
         for j in range(1, len(headers) + 1):
             if not cols[1].text.startswith('DNP'):
                 array[i, j] = cols[j].text
-    
+
     frame = pd.DataFrame(columns=columns)
     for x in array:
         line = np.concatenate(([index, team_name], x)).reshape(1,len(columns))
@@ -201,7 +201,7 @@ for index, row in games.iterrows():
     team_1_players = bodies[0].find_all('tr') + bodies[1].find_all('tr')
     team_1_players = get_players(team_1_players, team_1)
     players = players.append(team_1_players)
-    
+
     team_2 = heads[3].th.text
     team_2_players = bodies[3].find_all('tr') + bodies[4].find_all('tr')
     team_2_players = get_players(team_2_players, team_2)
@@ -228,10 +228,10 @@ The file looks like this
 
 I love python more.
 
-Still a **lot** of work is needed in order to make sense of all that data. But 
+Still a **lot** of work is needed in order to make sense of all that data. But
 at least now I have some data.
 
-Next step is probably to insert the data into a [postgres](http://www.postgresql.org/) 
+Next step is probably to insert the data into a [postgres](http://www.postgresql.org/)
 database. Or just be crazy and do some machine learning as it is.
 
 The data and code is on github [nba](https://github.com/danielfrg/nba).

@@ -1,14 +1,13 @@
 Title: Plugin for blogging with iPython notebooks in Pelican
+Slug: pelican-ipython-notebook-plugin
 Date: 2013-3-8
 Tags: python,pelican
 Category: Blogging
-Slug: pelican-ipython-notebook-plugin
 Author: Daniel Rodriguez
 Summary: Short version for index and feeds
-featured_img: /static/images/posters/writting.jpg
 code: true
 
-This is just a little update on my previous post about [Blogging with iPython notebooks with pelican](|filename|../02/blogging-pelican-ipython-notebook.md). 
+This is just a little update on my previous post about [Blogging with iPython notebooks with pelican](|filename|../02/blogging-pelican-ipython-notebook.md).
 
 One of the people behind pelican helped me to convert the [previous code](|filename|../02/blogging-pelican-ipython-notebook.md) to a pelican plugin and I just made it available via github: [pelican-ipythonnb](https://github.com/danielfrg/pelican-ipythonnb).
 
@@ -22,7 +21,7 @@ Happy blogging!
 
 Download plugin files: `plugin/ipythonnb.py` and the `plugin/nbconverter` directory.
 
-The esiest way is to locate the pelican directory (for example: `~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/`) and paste plugins files in the `pelican/plugins` folder. 
+The esiest way is to locate the pelican directory (for example: `~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/`) and paste plugins files in the `pelican/plugins` folder.
 Then in the `pelicanconf.py` put: `PLUGINS = ['pelican.plugins.ipythonnb']`.
 
 But is also is possible to add plugins on the same directory of the pelican project:
