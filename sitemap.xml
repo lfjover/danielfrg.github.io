@@ -4,365 +4,365 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://danielfrg.github.io/index.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/index.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/archives.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/archives.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tags.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tags.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/categories.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/categories.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/pages/about.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/pages/about.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/09/21/word2vec-yhat/</loc>
+<loc>/blog/2013/09/21/word2vec-yhat/</loc>
 <lastmod>2013-09-21T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/</loc>
+<loc>/blog/2013/09/11/django-celery-readability-crawler/</loc>
 <lastmod>2013-09-11T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/</loc>
+<loc>/blog/2013/08/20/relevant-content-blog-crawler/</loc>
 <lastmod>2013-08-20T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/07/27/not-so-basic-neural-network-python/</loc>
+<loc>/blog/2013/07/27/not-so-basic-neural-network-python/</loc>
 <lastmod>2013-07-27T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/07/03/basic-neural-network-python/</loc>
+<loc>/blog/2013/07/03/basic-neural-network-python/</loc>
 <lastmod>2013-07-03T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/04/01/nba-scraping-data/</loc>
+<loc>/blog/2013/04/01/nba-scraping-data/</loc>
 <lastmod>2013-04-01T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/03/08/pelican-ipython-notebook-plugin/</loc>
+<loc>/blog/2013/03/08/pelican-ipython-notebook-plugin/</loc>
 <lastmod>2013-03-08T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</loc>
+<loc>/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</loc>
 <lastmod>2013-03-07T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/</loc>
+<loc>/blog/2013/02/16/blogging-pelican-ipython-notebook/</loc>
 <lastmod>2013-02-16T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/02/13/copper-quick-data-transformation-python/</loc>
+<loc>/blog/2013/02/13/copper-quick-data-transformation-python/</loc>
 <lastmod>2013-02-13T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/02/05/d3-backbone-tornado-histogram-csv/</loc>
+<loc>/blog/2013/02/05/d3-backbone-tornado-histogram-csv/</loc>
 <lastmod>2013-02-05T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/02/04/coursera-data-analysis-quiz-2-python/</loc>
+<loc>/blog/2013/02/04/coursera-data-analysis-quiz-2-python/</loc>
 <lastmod>2013-02-04T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/01/31/new-blog-using-jekyll-and-ipython/</loc>
+<loc>/blog/2013/01/31/new-blog-using-jekyll-and-ipython/</loc>
 <lastmod>2013-01-31T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</loc>
+<loc>/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</loc>
 <lastmod>2013-01-30T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/01/27/copper-machine-learning-python/</loc>
+<loc>/blog/2013/01/27/copper-machine-learning-python/</loc>
 <lastmod>2013-01-27T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</loc>
+<loc>/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</loc>
 <lastmod>2013-01-26T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/category/blogging.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/category/blogging.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/category/copper.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/category/copper.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/category/crawling.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/category/crawling.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/category/data-analysis.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/category/data-analysis.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/category/machine-learning.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/category/machine-learning.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/category/vizualization.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/category/vizualization.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/category/word2vec.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/category/word2vec.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/python.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/ipython.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/pandas.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/readability.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/neural-networks.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/django.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/crawling.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/tornado.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/celery.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/javascript.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/backbone.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/d3js.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/requests.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/copper.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/jekyll.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/data-analysis.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/machine-learning.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/neural-networks.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/copper.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/requests.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/pelican.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/pandas.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/yhat.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/python.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/beautifulsoup.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/jekyll.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/d3js.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/celery.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/word2vec.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/crawling.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/javascript.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/yhat.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/ipython.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/backbone.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/kaggle.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/beautifulsoup.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/tornado.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/coursera.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/django.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/machine-learning.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/readability.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/kaggle.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/data-analysis.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/word2vec.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/tag/coursera.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/tag/pelican.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://danielfrg.github.io/author/daniel-rodriguez.html</loc>
-<lastmod>2013-09-28T19:00:30-00:00</lastmod>
+<loc>/author/daniel-rodriguez.html</loc>
+<lastmod>2013-09-29T11:31:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
