@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }}{% endblock %}
 
+{% block extra_head %}
+{% if 'angular' in article.include %}
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+{% endif %}
+{% if 'jquery' in article.include %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+{% endif %}
+{% endblock %}
+
+
 {% block content %}
+
 <div class="post">
     <article>
         <header>
@@ -40,18 +51,16 @@
 
 {% block footer %}
     <div class="post social container">
-        <div class="span3">
-            <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-        </div>
-        <div class="span3">
+
+        <div class="span4">
             <a href="https://twitter.com/share" class="twitter-share-button" data-via="{{TWITTER_USERNAME}}">Tweet</a>
         </div>
 
-        <div class="span3">
+        <div class="span4">
             <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
         </div>
 
-        <div class="span3 hn">
+        <div class="span4 hn">
             <span id="hnews"></span>
         </div>
     </div>

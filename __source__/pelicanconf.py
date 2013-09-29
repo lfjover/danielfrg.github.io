@@ -11,7 +11,7 @@ DEFAULT_DATE_FORMAT = '%d.%m.%Y'
 
 PATH = './'
 PAGE_DIR = './pages'
-ARTICLE_DIR = './articles'
+ARTICLE_DIR = './blog'
 
 THEME = "./themes/middle/"
 STATIC_PATHS = ["images"]

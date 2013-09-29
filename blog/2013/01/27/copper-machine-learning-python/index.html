@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -16,10 +16,9 @@
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    </head>
+            </head>
 
-    <body ng-controller="MainCtrl">
+    <body>
         <div class="header">
             <div class="navbar">
                 <a href="/" class="ss-icon" title="home">home</a>
@@ -36,7 +35,8 @@
         </div>
 
         <div id="content">
-            <div class="post">
+            
+<div class="post">
     <article>
         <header>
             <h1>Copper - Machine Learning</h1>
@@ -2702,18 +2702,16 @@ Name: Revenue of not using ML
 
         <footer>
                 <div class="post social container">
-        <div class="span3">
-            <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-        </div>
-        <div class="span3">
+
+        <div class="span4">
             <a href="https://twitter.com/share" class="twitter-share-button" data-via="danielfrg">Tweet</a>
         </div>
 
-        <div class="span3">
+        <div class="span4">
             <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
         </div>
 
-        <div class="span3 hn">
+        <div class="span4 hn">
             <span id="hnews"></span>
         </div>
     </div>
@@ -2740,45 +2738,6 @@ Name: Revenue of not using ML
 <script src="/theme/js/social.js"></script>
         </footer>
 
-        <script src="/theme/js/ngProgress.js"></script>
-        <script>
-            var app = angular.module('app', ['ngProgress']);
-
-            app.config(function(ngProgressProvider){
-                ngProgressProvider.setColor('black');
-                ngProgressProvider.setHeight('2px');
-            });
-
-            /*
-            app.directive("scroll", function ($window) {
-                return function(scope, element, attrs) {
-                    angular.element($window).bind("scroll", function() {
-                        var body = document.body;
-                        var html = document.documentElement;
-
-                        var height = Math.max(body.scrollHeight, body.offsetHeight,
-                                              html.clientHeight, html.scrollHeight, html.offsetHeight);
-                        // scope.updateProgress(this.scrollY / this.window.height);
-                        scope.updateProgress(this.scrollY / height);
-                        scope.$apply();
-                    });
-                };
-            });
-            */
-
-            var MainCtrl = function($scope, $timeout, ngProgress) {
-                ngProgress.start();
-                $timeout(function(){
-                    ngProgress.complete();
-                    // ngProgress.set(0);
-                }, 2000);
-
-                $scope.updateProgress = function(percent) {
-                    ngProgress.set(percent * 100);
-                }
-            }
-
-        </script>
         
 <script type="text/javascript">
 var _gaq = _gaq || [];

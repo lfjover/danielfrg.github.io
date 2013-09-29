@@ -7,9 +7,8 @@
         {{HOMEPAGE_INTRO}}
     </p>
 
-    <div class="list">
-        <p>Posts:</p>
-        <ul>
+    <div>
+        <ul class="double-list">
         {% for article in articles %}
           <li>
             <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2>
