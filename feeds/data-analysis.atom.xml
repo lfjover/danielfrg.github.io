@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/data-analysis.atom.xml" rel="self"></link><id>/</id><updated>2013-03-07T00:00:00+00:00</updated><entry><title>Kaggle bulldozers: Basic cleaning</title><link href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" rel="alternate"></link><updated>2013-03-07T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="http://danielfrg.github.io/" rel="alternate"></link><link href="http://danielfrg.github.io/feeds/data-analysis.atom.xml" rel="self"></link><id>http://danielfrg.github.io/</id><updated>2013-03-07T00:00:00+00:00</updated><entry><title>Kaggle bulldozers: Basic cleaning</title><link href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" rel="alternate"></link><updated>2013-03-07T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -1414,8 +1414,7 @@ input.engine_num_input{height:20px;margin-bottom:2px;padding-top:0;padding-botto
 .ansibgpurple{background-color:magenta;}
 .ansibgcyan{background-color:cyan;}
 .ansibggray{background-color:gray;}
-.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}.cell.selected{border-radius:4px;border:thin #ababab solid;}
-div.cell{width:100%;padding:5px 5px 5px 0px;margin:2px 0px 2px 7px;outline:none;}
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;padding:5px 5px 5px 0px;margin:2px 0px 2px 7px;outline:none;}div.cell.selected{border-radius:4px;border:thin #ababab solid;}
 div.prompt{width:11ex;padding:0.4em;margin:0px;font-family:monospace;text-align:right;line-height:1.231em;}
 .celltoolbar{border:thin solid #CFCFCF;border-bottom:none;background:#EEE;border-top-right-radius:3px;border-top-left-radius:3px;width:100%;-webkit-box-pack:end;height:22px;}
 .no_input_radius{border-top-right-radius:0px;border-top-left-radius:0px;}
@@ -3441,7 +3440,7 @@ In&amp;nbsp;[42]:
 &lt;p&gt;Removing and addind columns using copper Datasets is really easy and the new join feature makes easier this kind of tasks.&lt;/p&gt;
 &lt;p&gt;What I don't like is that I removed 43 columns and I dont have very high expectations only using the remaining 10 for machine learning. Usually the dates are not that useful, but will see the, and I prefer to have less columns with good information than 43 columns with 95% missing values. But that is the data available so I guess there is nothing much to do.&lt;/p&gt;
 &lt;p&gt;I created a repo for this &lt;a href="https://github.com/danielfrg/kaggle-bulldozers"&gt;kaggle competition&lt;/a&gt;, there are only 30 days left so I want to make a few submisions, stay tunned for imputation and some machine learning. The code for &lt;a href="https://github.com/danielfrg/copper"&gt;copper is on github&lt;/a&gt; too.&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="kaggle"></category><category term="copper"></category></entry><entry><title>Coursera Data Analysis - Quiz 2 on python</title><link href="/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" rel="alternate"></link><updated>2013-02-04T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-04:blog/2013/02/04/coursera-data-analysis-quiz-2-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;/div&gt;</summary><category term="python"></category><category term="kaggle"></category><category term="copper"></category></entry><entry><title>Coursera Data Analysis - Quiz 2 on python</title><link href="http://danielfrg.github.io/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" rel="alternate"></link><updated>2013-02-04T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-02-04:blog/2013/02/04/coursera-data-analysis-quiz-2-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -4856,8 +4855,7 @@ input.engine_num_input{height:20px;margin-bottom:2px;padding-top:0;padding-botto
 .ansibgpurple{background-color:magenta;}
 .ansibgcyan{background-color:cyan;}
 .ansibggray{background-color:gray;}
-.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}.cell.selected{border-radius:4px;border:thin #ababab solid;}
-div.cell{width:100%;padding:5px 5px 5px 0px;margin:2px 0px 2px 7px;outline:none;}
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;padding:5px 5px 5px 0px;margin:2px 0px 2px 7px;outline:none;}div.cell.selected{border-radius:4px;border:thin #ababab solid;}
 div.prompt{width:11ex;padding:0.4em;margin:0px;font-family:monospace;text-align:right;line-height:1.231em;}
 .celltoolbar{border:thin solid #CFCFCF;border-bottom:none;background:#EEE;border-top-right-radius:3px;border-top-left-radius:3px;width:100%;-webkit-box-pack:end;height:22px;}
 .no_input_radius{border-top-right-radius:0px;border-top-left-radius:0px;}

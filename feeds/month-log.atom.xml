@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="http://danielfrg.github.io/" rel="alternate"></link><link href="http://danielfrg.github.io/feeds/month-log.atom.xml" rel="self"></link><id>http://danielfrg.github.io/</id><updated>2013-10-31T00:00:00+00:00</updated><entry><title>Month-Log.oct.2013</title><link href="http://danielfrg.github.io/blog/2013/10/31/month-log/" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-10-31:blog/2013/10/31/month-log/</id><summary type="html">&lt;p&gt;I've been busy with real work to write any specific posts for the blog but I realize it was
+a productive month. I worked a lot and learned quite a few things and  new technologies and
+I have some thoughts about them, I usually use twitter to share simple thoughts but they usually get
+lost on the noise.&lt;/p&gt;
+&lt;p&gt;So I am going to start a monthly series in which I discuss a little bit about what I have done that month.
+Hopefully mixing with regular posts I am hoping that this makes me learn more and more stuff every month so I have something to write about. On this case is October and a few weeks of September.&lt;/p&gt;
+&lt;h2&gt;Books I read&lt;/h2&gt;
+&lt;p&gt;I had to do some &lt;a href="http://pig.apache.org/"&gt;pig&lt;/a&gt; for my job so I used this opportunity to
+consolidate a little bit my knowledge.
+I had worked with pig a little bit before thanks to &lt;a href="https://class.coursera.org/datasci-001/class"&gt;Coursera Data Science&lt;/a&gt; course but this time I went
+to the source and read &lt;a href="http://shop.oreilly.com/product/0636920018087.do"&gt;Programming Pig&lt;/a&gt; by O'reilly.&lt;/p&gt;
+&lt;p&gt;I highly recommend the book to anyone starting with pig but as every technology there is
+nothing as getting the hands dirty and do real stuff. The book gives you the foundation you need
+and gets in enough depth so you can write &lt;strong&gt;and understand&lt;/strong&gt; latin pig scripts.&lt;/p&gt;
+&lt;p&gt;I also learned how to run a pig job using a jython UDF on EMR, after some try and error I found the solution
+and put it on a &lt;a href="https://gist.github.com/danielfrg/7220473"&gt;gist&lt;/a&gt;.
+I found that the people of &lt;a href="http://www.mortardata.com/"&gt;mortardata.com&lt;/a&gt; do the same but with &lt;em&gt;real&lt;/em&gt;
+python so one can use all the libraries available (e.g. NLTK).
+(FYI they open source their code and is on the new version of pig, 0.12)
+I cannot recommend enough &lt;a href="http://www.mortardata.com/"&gt;mortardata.com&lt;/a&gt; just create an account and be amazed.&lt;/p&gt;
+&lt;h2&gt;Nutch&lt;/h2&gt;
+&lt;p&gt;I had to do a lot of crawling this month. The universal solution on this case is
+&lt;a href="http://nutch.apache.org/"&gt;Apache Nutch&lt;/a&gt;.
+It was not the most pleasant experience to be honest. It gets the job done? Yes. Do I like it? No.&lt;/p&gt;
+&lt;p&gt;The best part of Nutch is that is "easy" to run it on top of Hadoop and distribute the load
+and maybe I just don't like it that much because I haven't been able to clean all the data as I want
+and I am blaming Nutch. Another option is &lt;a href="http://scrapy.org/"&gt;scrapy&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Vagrant and Saltstack&lt;/h2&gt;
+&lt;p&gt;I had finally decided to try &lt;a href="http://www.vagrantup.com/"&gt;vagrant&lt;/a&gt; and I love it. I regret all the time
+that I knew about its existence and didn't read about it.&lt;/p&gt;
+&lt;p&gt;The idea is create a &lt;strong&gt;clean&lt;/strong&gt; virtual box based on a bootstrap so one can know &lt;strong&gt;exactly&lt;/strong&gt; the
+requirements to run every project. Then is possible deploy it to EC2 using a
+simple command so the &lt;em&gt;same&lt;/em&gt; box will be available online. I was so happy that I could develop
+and deploy in the same box. It feels clean.&lt;/p&gt;
+&lt;p&gt;Then we have &lt;a href="http://docs.opscode.com/"&gt;chef&lt;/a&gt; or &lt;a href="http://www.saltstack.com/"&gt;salt&lt;/a&gt;.
+With chef recipes or salt modules one can setup not one virtual local machine but a thousand boxes
+on the cloud using the same configuration file.
+The magic occurs when vagrant uses chef recipes or salt modules to create the VM. Development
+and deployment using the same configuration. Amazing.&lt;/p&gt;
+&lt;p&gt;As a pythonista it was easy to choose salt on top of chef (ruby) but I also read &lt;a href="http://www.linuxjournal.com/content/getting-started-salt-stack-other-configuration-management-system-built-python"&gt;this&lt;/a&gt;
+and I was convinced.&lt;/p&gt;
+&lt;p&gt;I just got started with those technologies but I am very exited and cannot wait to use them more and more
+to make my work more deployable and production ready.&lt;/p&gt;
+&lt;p&gt;I am also keeping an eye on &lt;a href="https://www.docker.io/"&gt;docker&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Luigi&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/spotify/luigi?source=c"&gt;Luigi&lt;/a&gt; is a small project to create pipelines in python.
+It doesn't try to solve parallelization: it includes support for Hadoop. It doesn't try to solve
+task scheduling or distribution: &lt;a href="http://www.celeryproject.org/"&gt;celery&lt;/a&gt; exists.&lt;/p&gt;
+&lt;p&gt;Is solves a very specific problem and it was designed with data pipelines in mind. Is a young
+project but it is developed but guys at spotify and I can see a bright future.&lt;/p&gt;
+&lt;p&gt;Also the pipeline structures makes code very clean, easy to understand and debug.&lt;/p&gt;
+&lt;p&gt;I did a couple of examples and put them on gists:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/danielfrg/7091876"&gt;Clean HTML and Index it into Solr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/danielfrg/7091940"&gt;Merge files in HDFS and count a json field&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="pig"></category><category term="nutch"></category><category term="crawling"></category><category term="vagrant"></category><category term="salt"></category><category term="luigi"></category></entry></feed>
