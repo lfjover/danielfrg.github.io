@@ -1609,6 +1609,18 @@ pre {
     font-size: 1em;
 }
 
+/* Forcing DataFrame table styles */
+table.dataframe {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
 &lt;/style&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -5048,6 +5060,18 @@ pre.ipynb {
 
 pre {
     font-size: 1em;
+}
+
+/* Forcing DataFrame table styles */
+table.dataframe {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
 }
 
 &lt;/style&gt;
