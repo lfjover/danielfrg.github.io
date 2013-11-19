@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/10.atom.xml" rel="self"></link><id>/</id><updated>2013-10-31T00:00:00+00:00</updated><entry><title>Month-Log.oct.2013</title><link href="/blog/2013/10/31/month-log/" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-10-31:blog/2013/10/31/month-log/</id><summary type="html">&lt;p&gt;I've been busy with real work to write any specific posts for the blog but I realize it was
+a productive month. I worked a lot and learned quite a few things and  new technologies and
+I have some thoughts about them, I usually use twitter to share simple thoughts but they usually get
+lost on the noise.&lt;/p&gt;
+&lt;p&gt;So I am going to start a monthly series in which I discuss a little bit about what I have done that month.
+Hopefully mixing with regular posts I am hoping that this makes me learn more and more stuff every month so I have something to write about. On this case is October and a few weeks of September.&lt;/p&gt;
+&lt;h2&gt;Books I read&lt;/h2&gt;
+&lt;p&gt;I had to do some &lt;a href="http://pig.apache.org/"&gt;pig&lt;/a&gt; for my job so I used this opportunity to
+consolidate a little bit my knowledge.
+I had worked with pig a little bit before thanks to &lt;a href="https://class.coursera.org/datasci-001/class"&gt;Coursera Data Science&lt;/a&gt; course but this time I went
+to the source and read &lt;a href="http://shop.oreilly.com/product/0636920018087.do"&gt;Programming Pig&lt;/a&gt; by O'reilly.&lt;/p&gt;
+&lt;p&gt;I highly recommend the book to anyone starting with pig but as every technology there is
+nothing as getting the hands dirty and do real stuff. The book gives you the foundation you need
+and gets in enough depth so you can write &lt;strong&gt;and understand&lt;/strong&gt; latin pig scripts.&lt;/p&gt;
+&lt;p&gt;I also learned how to run a pig job using a jython UDF on EMR, after some try and error I found the solution
+and put it on a &lt;a href="https://gist.github.com/danielfrg/7220473"&gt;gist&lt;/a&gt;.
+I found that the people of &lt;a href="http://www.mortardata.com/"&gt;mortardata.com&lt;/a&gt; do the same but with &lt;em&gt;real&lt;/em&gt;
+python so one can use all the libraries available (e.g. NLTK).
+(FYI they open source their code and is on the new version of pig, 0.12)
+I cannot recommend enough &lt;a href="http://www.mortardata.com/"&gt;mortardata.com&lt;/a&gt; just create an account and be amazed.&lt;/p&gt;
+&lt;h2&gt;Nutch&lt;/h2&gt;
+&lt;p&gt;I had to do a lot of crawling this month. The universal solution on this case is
+&lt;a href="http://nutch.apache.org/"&gt;Apache Nutch&lt;/a&gt;.
+It was not the most pleasant experience to be honest. It gets the job done? Yes. Do I like it? No.&lt;/p&gt;
+&lt;p&gt;The best part of Nutch is that is "easy" to run it on top of Hadoop and distribute the load
+and maybe I just don't like it that much because I haven't been able to clean all the data as I want
+and I am blaming Nutch. Another option is &lt;a href="http://scrapy.org/"&gt;scrapy&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Vagrant and Saltstack&lt;/h2&gt;
+&lt;p&gt;I had finally decided to try &lt;a href="http://www.vagrantup.com/"&gt;vagrant&lt;/a&gt; and I love it. I regret all the time
+that I knew about its existence and didn't read about it.&lt;/p&gt;
+&lt;p&gt;The idea is create a &lt;strong&gt;clean&lt;/strong&gt; virtual box based on a bootstrap so one can know &lt;strong&gt;exactly&lt;/strong&gt; the
+requirements to run every project. Then is possible deploy it to EC2 using a
+simple command so the &lt;em&gt;same&lt;/em&gt; box will be available online. I was so happy that I could develop
+and deploy in the same box. It feels clean.&lt;/p&gt;
+&lt;p&gt;Then we have &lt;a href="http://docs.opscode.com/"&gt;chef&lt;/a&gt; or &lt;a href="http://www.saltstack.com/"&gt;salt&lt;/a&gt;.
+With chef recipes or salt modules one can setup not one virtual local machine but a thousand boxes
+on the cloud using the same configuration file.
+The magic occurs when vagrant uses chef recipes or salt modules to create the VM. Development
+and deployment using the same configuration. Amazing.&lt;/p&gt;
+&lt;p&gt;As a pythonista it was easy to choose salt on top of chef (ruby) but I also read &lt;a href="http://www.linuxjournal.com/content/getting-started-salt-stack-other-configuration-management-system-built-python"&gt;this&lt;/a&gt;
+and I was convinced.&lt;/p&gt;
+&lt;p&gt;I just got started with those technologies but I am very exited and cannot wait to use them more and more
+to make my work more deployable and production ready.&lt;/p&gt;
+&lt;p&gt;I am also keeping an eye on &lt;a href="https://www.docker.io/"&gt;docker&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Luigi&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/spotify/luigi?source=c"&gt;Luigi&lt;/a&gt; is a small project to create pipelines in python.
+It doesn't try to solve parallelization: it includes support for Hadoop. It doesn't try to solve
+task scheduling or distribution: &lt;a href="http://www.celeryproject.org/"&gt;celery&lt;/a&gt; exists.&lt;/p&gt;
+&lt;p&gt;Is solves a very specific problem and it was designed with data pipelines in mind. Is a young
+project but it is developed but guys at spotify and I can see a bright future.&lt;/p&gt;
+&lt;p&gt;Also the pipeline structures makes code very clean, easy to understand and debug.&lt;/p&gt;
+&lt;p&gt;I did a couple of examples and put them on gists:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/danielfrg/7091876"&gt;Clean HTML and Index it into Solr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/danielfrg/7091940"&gt;Merge files in HDFS and count a json field&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="month-log"></category><category term="python"></category><category term="pig"></category><category term="nutch"></category><category term="crawling"></category><category term="vagrant"></category><category term="salt"></category><category term="luigi"></category></entry><entry><title>Making your own DDNS with Django and AppFog</title><link href="/blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/" rel="alternate"></link><updated>2012-10-20T21:45:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-10-20:blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/</id><summary type="html">&lt;p&gt;I love web-apps as the data is always in sync magically via the cloud, but
+sometimes I just need to access my computer via remote access to use
+some app, get some file or just to start downloading some torrents(shh).
+Remember/Email/Evernote
+a changing
+&lt;abbr style="text-align:justify;" title="Wide area network IP"&gt;WAN
+IP&lt;/abbr&gt; is tedious that is were a
+&lt;abbr style="text-align:justify;" title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt;
+comes in. My previous and old Belkin router had a bunch of options for
+&lt;abbr style="text-align:justify;" title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt;s
+fortunately one was free; unfortunately
+and unbelievable my new &lt;a href="http://www.belkin.com/us/p/P-F9K1103" title="Belkin N750"&gt;Belkin N750 DB router&lt;/a&gt; has only one option:
+&lt;a href="http://dyn.com/dns/" title="Dyn"&gt;Dyn&lt;/a&gt; which is not free :(.&lt;/p&gt;
+&lt;p&gt;So I decide to make my own
+&lt;abbr title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt; with &lt;a href="https://www.djangoproject.com" title="Django"&gt;Django&lt;/a&gt; and
+with a free &lt;abbr title="Platform as a Service"&gt;PaaS&lt;/abbr&gt;.
+&lt;!--more--&gt;
+The first decision was to select a
+&lt;abbr title="Platform as a Service"&gt;PaaS&lt;/abbr&gt; and there are a lot of
+option currently; the list got narrowed because I needed a
+free &lt;abbr title="Platform as a Service"&gt;PaaS&lt;/abbr&gt; for such a simple
+and small app that it is just for me. Some options were: &lt;a href="https://openshift.redhat.com/app/" title="Open Shift"&gt;OpenShift&lt;/a&gt;
+from Red Hat, &lt;a href="https://www.dotcloud.com/" title="dotCloud"&gt;dotCloud&lt;/a&gt; which looks pretty good but not so simple to
+use and never understand if is really free or not, and other thousand
+options that are paid and free. I choose &lt;a href="http://appfog.com" title="appfog"&gt;AppFog&lt;/a&gt; because I recently
+read that they acquire Nodster (which I loved) and the service is &lt;strong&gt;so
+simple&lt;/strong&gt; to use; just what I needed for this project.&lt;/p&gt;
+&lt;p&gt;The project consist on two parts; The first one is a Django server which
+stores previous IPs and acts as the DDNS domain and the second one is a
+python script that get the WAN IP and request the server to store it.&lt;/p&gt;
+&lt;h2&gt;1. Django Server on AppFog&lt;/h2&gt;
+&lt;p&gt;Create the app on AppFog (2 clicks via its web app), download the code
+via its &lt;abbr title="Command Line Interface"&gt;CLI&lt;/abbr&gt; (&lt;a href="http://blog.appfog.com/getting-started-with-appfogs-command-line/" title="AppFog CLI help"&gt;help&lt;/a&gt;) and
+create a new Django app called &lt;em&gt;ddns&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: AppFog
+currently runs Django 1.3.1 (current version is 1.4) be sure to look at
+the correct &lt;a href="https://docs.djangoproject.com/en/1.3/intro/tutorial01/" title="Django Tutorial"&gt;tutorial/docs&lt;/a&gt; on their site.&lt;/p&gt;
+&lt;h3&gt;1.1 Create Django users on AppFog&lt;/h3&gt;
+&lt;p&gt;Since it is not possible to do an SSH connection on AppFog (to run
+commands from the terminal to create the users to access the admin web
+interface; wow 3 to's on a single phrase that needs to be some kind of
+record) the simplest solution I could find was to create the with a view
+and then access it  with a URL to create the user, and then change the
+password ;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;createuser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;authenticate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;daniel&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;pass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;User already created ;)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create_user&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;daniel&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;daniel@ctrl68.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;pass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_staff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_superuser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;User created! :)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exc_info&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Couldnt&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;&amp;#39; create user :(&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;1.2 Models&lt;/h3&gt;
+&lt;p&gt;Just one model to store the IPs by date:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;IP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;IP&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DateTimeField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;date&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__unicode__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; @ &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ctime&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Meta&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;get_latest_by&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;date&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;1.3 Other Views&lt;/h3&gt;
+&lt;p&gt;index which does nothing, one to add new IP addresses available via POST
+or GET requests, and one to redirect to the latest IP.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;loader&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;context&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Context&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="s"&gt;&amp;#39;var&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="p"&gt;})&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;addip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GET&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ip&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;POST&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ip&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ip_txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+      &lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+      &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;IP &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; added.&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;ip_txt&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;No IP.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Couldnt add &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; to db.&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;ip_txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;redirect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;latest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;date&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponseRedirect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;1.4 Fix Django Admin on AppFog&lt;/h3&gt;
+&lt;p&gt;The Django Admin on AppFog doesn't load the CSS from static files
+correctly I found a solution that is probably not the best but for such
+a small project, well it is OK. On the main urls.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib.staticfiles.urls&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;staticfiles_urlpatterns&lt;/span&gt;
+&lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;staticfiles_urlpatterns&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Django UI" src="/images/blog/2012/10/django-ddns-appfog/2012-10-20_22h07_15.png" title="How it looks on the admin interface" /&gt;&lt;/p&gt;
+&lt;h2&gt;2. Python Script&lt;/h2&gt;
+&lt;p&gt;The other part is a python script which reads &lt;a href="http://automation.whatismyip.com/n09230945.asp" title="WAN IP detector"&gt;this&lt;/a&gt; page; a nice page
+that the people of &lt;a href="http://whatismyip.com" title="whatismyip.com"&gt;whatismyip.com&lt;/a&gt; create to help automation
+processes like this one.&lt;/p&gt;
+&lt;p&gt;It makes a GET request to the Django app and also saves a file on
+&lt;a href="http://dropbox.com" title="Dropbox"&gt;Dropbox&lt;/a&gt; (before this I was using Dropbox as a temporally solution).
+All inside a while True with a sleep of 10 minutes.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Script" src="/images/blog/2012/10/django-ddns-appfog/2012-10-20_22h06_431.png" title="Output from the script" /&gt;&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Thats it! Now I can access my PC from daniel-pc.aws.af.cm - no DDoS please :P
+I want to look more other PaaS solutions, mainly OpenShift, more coming soon.&lt;/p&gt;
+&lt;p&gt;Complete code is on &lt;a href="https://github.com/dfrodriguez143/django-ddns" title="Django DDNS on Github"&gt;github&lt;/a&gt;.&lt;/p&gt;</summary><category term="appFog"></category><category term="DDNS"></category><category term="django"></category><category term="python"></category></entry><entry><title>Desktop app to easily create new tasks on all task management web apps</title><link href="/blog/2012/10/14/desktop-app-to-easily-create-new-tasks/" rel="alternate"></link><updated>2012-10-14T23:51:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-10-14:blog/2012/10/14/desktop-app-to-easily-create-new-tasks/</id><summary type="html">&lt;p&gt;Recently I have been looking for new ways of manage my tasks, looking
+for being more productive and organized with my
+master, &lt;a href="http://coursera.org/"&gt;coursera&lt;/a&gt; courses, blog and programming tasks. I am a huge
+fan of web apps and the past week I tried almost every (decent = nice
+landing page) app on the internet, just to name a
+few: &lt;a href="http://do.com/"&gt;do&lt;/a&gt;, &lt;a href="http://doit.im/"&gt;doit&lt;/a&gt;, &lt;a href="http://producteev.com/"&gt;producteev&lt;/a&gt;, &lt;a href="http://orchestra.com/"&gt;orchestra&lt;/a&gt;, &lt;a href="http://wunderlist.com/"&gt;wunderlist&lt;/a&gt;, &lt;a href="http://asana.com/"&gt;asana&lt;/a&gt;,
+&lt;a href="http://42tasks.com/"&gt;42tasks&lt;/a&gt; to finally choose &lt;a href="http://nirvanahq.com/"&gt;nirvana&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I selected nirvana because it was the best GTD app I could find and the UI
+(very important to me) is pretty good. I haven't read a lot about GTD,
+mostly a few videos, but the methodology have been working really great
+for me and I have notice a big boost to my organization, before I was
+using only Google Calendar. The inbox, next, waiting, schedule, someday
+and projects lists are a very good way of organize tasks.&lt;/p&gt;
+&lt;p&gt;Even though I love web apps because I can access them from everywhere
+one big disadvantage of a GTD web app is the task creation process: type
+the URL, wait for the app to load and then write the new task. The
+solution most web GTD apps have done is to allow the creation of tasks
+via email this is good but it is not enough if want to really follow the
+GTD approach. The task creation need to be really fast, collect first
+and then organize. Having the app on one tab all the time to gain some
+seconds is not a solution.&lt;/p&gt;
+&lt;p&gt;I wanted to use GTD the way it is supposed to so I create a little app
+to create task fast via email, so it works on nivana and any other major
+task management app that have the option of create tasks via email.&lt;/p&gt;
+&lt;p&gt;I am a web (HTML5, JS, Django, etc...) fan and try to use web
+technologies in most on my projects but the web is not there yet and a
+native solution was necessary. I am a python fan, but not even close to
+an expert and before this little project never use it to create a
+desktop application with UI.&lt;/p&gt;
+&lt;p&gt;It was really fun to make a desktop app again, almost 3 years have
+passed since my time with Java in college. The UI library I select
+was &lt;a href="http://wxpython.org/"&gt;wxPython&lt;/a&gt; just because it makes sense with what I already knew
+from java: the use of grids, vertical and horizontal boxes... also a
+pretty decent documentation, support and fits the requirements I had for
+the app. Honorable mention to &lt;a href="http://kivy.org/"&gt;kivy&lt;/a&gt; that looks good but couldn't make
+it work.&lt;/p&gt;
+&lt;p&gt;The app is pretty simple: just a mailer application. Enter the username
+(gmail), password and email to send and start sending tasks to your
+favorite web task management app.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Settings window" src="/images/blog/2012/10/tasks-app/2012-10-13_23h20_48.png" title="Settings windows" /&gt;&lt;/p&gt;
+&lt;p&gt;As I said the speed was the most important requirement on this app, so
+it  uses a global hot-key (WIN+DEL, just because it works nice on my
+keyboard) to summon the application then only needs to write the new
+task, press enter and the app hides on the notification area with a
+pretty nice icon I get from somewhere. If no longer wants to create the
+task press &lt;em&gt;esc &lt;/em&gt;and it hides waiting to be called.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Main window" src="/images/blog/2012/10/tasks-app/2012-10-13_22h57_271.png" title="Main windows" /&gt;&lt;/p&gt;
+&lt;p&gt;Other stuff I learned from making this app was to &lt;a href="https://www.dlitz.net/software/pycrypto/"&gt;encrypt with
+AES&lt;/a&gt; for the password and to create a .exe via &lt;a href="http://py2exe.org/"&gt;py2exe&lt;/a&gt;. Cannot
+compile to other operating systems because I just don't have them.
+Programmers and download the source can run the app ;)&lt;/p&gt;
+&lt;p&gt;This is a very simple app but it has been working for me and probably
+will work for other person. Suggestions are always welcome.&lt;/p&gt;
+&lt;p&gt;The code is on &lt;a href="https://github.com/dfrodriguez143/newtask"&gt;github&lt;/a&gt; and a &lt;a href="https://github.com/dfrodriguez143/newtask/blob/master/dist.zip?raw=true"&gt;zip&lt;/a&gt; file with the
+compiled &lt;code&gt;.exe&lt;/code&gt; is available.&lt;/p&gt;</summary><category term="Python"></category><category term="Ecryption"></category><category term="AES"></category><category term="GTD"></category><category term="wxPython"></category><category term="pyexe"></category></entry><entry><title>Creating a blog in 2012</title><link href="/blog/2012/10/05/creating-a-blog-in-2012/" rel="alternate"></link><updated>2012-10-05T03:22:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-10-05:blog/2012/10/05/creating-a-blog-in-2012/</id><summary type="html">&lt;p&gt;Yes, I am creating a blog on October 5, 2012!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why?&lt;/strong&gt; Having a flu is one of the reasons. Other reason is that I and
+want to improve my English and have a lot of time to waste (not having a
+car on the US is hard). Also having a blog in 2012 is old-stylish
+and that is &lt;strong&gt;always &lt;/strong&gt;cool.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;About me: &lt;/strong&gt;Originally from Colombia and currently living in Frisco,
+TX (DFW Area) pursuing a Master in Information Technology and Management
+on the University of Texas at Dallas.&lt;/p&gt;
+&lt;p&gt;Dog lover, book reader, TV Series Fanatic and amateur gamer. Passionate
+about new technologies, always wanting to learn something new (mainly
+about technology). Hopes to keep writing for a long time.&lt;/p&gt;
+&lt;p&gt;-Dan&lt;/p&gt;</summary><category term="This blog"></category></entry></feed>

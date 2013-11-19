@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="http://danielfrg.github.io/" rel="alternate"></link><link href="http://danielfrg.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://danielfrg.github.io/</id><updated>2013-10-31T00:00:00+00:00</updated><entry><title>Month-Log.oct.2013</title><link href="http://danielfrg.github.io/blog/2013/10/31/month-log/" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-10-31:blog/2013/10/31/month-log/</id><summary type="html">&lt;p&gt;I've been busy with real work to write any specific posts for the blog but I realize it was
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/all-en.atom.xml" rel="self"></link><id>/</id><updated>2013-10-31T00:00:00+00:00</updated><entry><title>Month-Log.oct.2013</title><link href="/blog/2013/10/31/month-log/" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-10-31:blog/2013/10/31/month-log/</id><summary type="html">&lt;p&gt;I've been busy with real work to write any specific posts for the blog but I realize it was
 a productive month. I worked a lot and learned quite a few things and  new technologies and
 I have some thoughts about them, I usually use twitter to share simple thoughts but they usually get
 lost on the noise.&lt;/p&gt;
@@ -54,7 +54,7 @@ project but it is developed but guys at spotify and I can see a bright future.&l
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://gist.github.com/danielfrg/7091876"&gt;Clean HTML and Index it into Solr&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://gist.github.com/danielfrg/7091940"&gt;Merge files in HDFS and count a json field&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="python"></category><category term="pig"></category><category term="nutch"></category><category term="crawling"></category><category term="vagrant"></category><category term="salt"></category><category term="luigi"></category></entry><entry><title>word2vec in yhat: Word vector similarity</title><link href="http://danielfrg.github.io/blog/2013/09/21/word2vec-yhat/" rel="alternate"></link><updated>2013-09-21T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-09-21:blog/2013/09/21/word2vec-yhat/</id><summary type="html">&lt;p&gt;A &lt;a href="http://google-opensource.blogspot.com/2013/08/learning-meaning-behind-words.html"&gt;few weeks ago&lt;/a&gt;
+&lt;/ul&gt;</summary><category term="month-log"></category><category term="python"></category><category term="pig"></category><category term="nutch"></category><category term="crawling"></category><category term="vagrant"></category><category term="salt"></category><category term="luigi"></category></entry><entry><title>word2vec in yhat: Word vector similarity</title><link href="/blog/2013/09/21/word2vec-yhat/" rel="alternate"></link><updated>2013-09-21T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-09-21:blog/2013/09/21/word2vec-yhat/</id><summary type="html">&lt;p&gt;A &lt;a href="http://google-opensource.blogspot.com/2013/08/learning-meaning-behind-words.html"&gt;few weeks ago&lt;/a&gt;
 Google released some code to convert words to vectors called
 &lt;a href="https://code.google.com/p/word2vec/"&gt;word2vec&lt;/a&gt;.
 The company I am currently working on does something similar and I was quite amazed by the performance
@@ -209,10 +209,10 @@ var MainCtrl = function($scope, $http) {
 open sourcing the code and thanks to yhat for a good product. I had to do something similar a few
 weeks ago and my solution was to use ZMQ to connect the rest endpoint with the actual
 classifier yhat makes that possible in 5% of the time.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Found some interesting relations?&lt;/strong&gt; Let me know in the comments below.&lt;/p&gt;</summary><category term="python"></category><category term="word2vec"></category><category term="yhat"></category><category term="machine learning"></category></entry><entry><title>Django + Celery + Readability = Python relevant content crawler</title><link href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/" rel="alternate"></link><updated>2013-09-11T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-09-11:blog/2013/09/11/django-celery-readability-crawler/</id><summary type="html">&lt;p&gt;I have written a &lt;a href="http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/"&gt;few&lt;/a&gt; &lt;a href="http://danielfrg.github.io/blog/2013/04/01/nba-scraping-data/"&gt;posts&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;Found some interesting relations?&lt;/strong&gt; Let me know in the comments below.&lt;/p&gt;</summary><category term="python"></category><category term="word2vec"></category><category term="yhat"></category><category term="machine learning"></category></entry><entry><title>Django + Celery + Readability = Python relevant content crawler</title><link href="/blog/2013/09/11/django-celery-readability-crawler/" rel="alternate"></link><updated>2013-09-11T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-09-11:blog/2013/09/11/django-celery-readability-crawler/</id><summary type="html">&lt;p&gt;I have written a &lt;a href="/blog/2013/08/20/relevant-content-blog-crawler/"&gt;few&lt;/a&gt; &lt;a href="/blog/2013/04/01/nba-scraping-data/"&gt;posts&lt;/a&gt;
 about crawling content from the web. Mainly because I know the power of data
 and the biggest data source in the world is the web, Google knew it and we all now how they are
-doing. In my &lt;a href="http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/"&gt;last post&lt;/a&gt; I wrote about crawling relevant content
+doing. In my &lt;a href="/blog/2013/08/20/relevant-content-blog-crawler/"&gt;last post&lt;/a&gt; I wrote about crawling relevant content
 from blogs; It worked but what if I want an admin UI to control the crawling. What if I just put
 the crawler in an EC2 instance and just call it when I need to crawl.&lt;/p&gt;
 &lt;p&gt;The solution was pretty simple thanks to some python projects.
@@ -383,12 +383,12 @@ I used &lt;a href="http://www.rabbitmq.com/"&gt;rabbitmq&lt;/a&gt; as the broker
 
 &lt;h2&gt;UI&lt;/h2&gt;
 &lt;p&gt;The admin UI, using the &lt;a href="http://djangosuit.com/"&gt;beautiful django suit&lt;/a&gt;, looks like this.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Home admin UI" src="/static/images/blog/2013/09/home_admin.png" title="Home admin UI" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Home admin UI" src="/images/blog/2013/09/django-crawler/home_admin.png" title="Home admin UI" /&gt;&lt;/p&gt;
 &lt;p&gt;Note: don't ask me why is I am using that blog to test&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Blog admin UI" src="/static/images/blog/2013/09/blogs_admin.png" title="Blogs admin UI" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Posts admin UI" src="/static/images/blog/2013/09/posts_admin.png" title="Posts admin UI" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Blog admin UI" src="/images/blog/2013/09/django-crawler/blogs_admin.png" title="Blogs admin UI" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Posts admin UI" src="/images/blog/2013/09/django-crawler/posts_admin.png" title="Posts admin UI" /&gt;&lt;/p&gt;
 &lt;p&gt;You can see the running tasks, or previous tasks.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Tasks admin UI" src="/static/images/blog/2013/09/tasks.png" title="Tasks admin UI" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Tasks admin UI" src="/images/blog/2013/09/django-crawler/tasks.png" title="Tasks admin UI" /&gt;&lt;/p&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;I was pretty happy with this result. With very little effort I was able to build a quite complex
 system. PostgreSQL for the database, rabbitmq + celery for message/tasks queuing and finally
@@ -401,7 +401,7 @@ people can build amazing stuff faster and easier than ever.&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://haystacksearch.org/"&gt;Haystack&lt;/a&gt; + Solr for search&lt;/li&gt;
 &lt;li&gt;MongoDB instead of Postgres. Apparently is &lt;em&gt;really&lt;/em&gt; easy using &lt;a href="https://github.com/django-nonrel/mongodb-engine"&gt;django-nonrel&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;As usual everything is on github: &lt;a href="https://github.com/danielfrg/django_crawler"&gt;django-crawler&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="django"></category><category term="celery"></category><category term="readability"></category><category term="crawling"></category></entry><entry><title>Relevant content blog crawler</title><link href="http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/" rel="alternate"></link><updated>2013-08-20T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-08-20:blog/2013/08/20/relevant-content-blog-crawler/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;p&gt;As usual everything is on github: &lt;a href="https://github.com/danielfrg/django_crawler"&gt;django-crawler&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="django"></category><category term="celery"></category><category term="readability"></category><category term="crawling"></category></entry><entry><title>Relevant content blog crawler</title><link href="/blog/2013/08/20/relevant-content-blog-crawler/" rel="alternate"></link><updated>2013-08-20T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-08-20:blog/2013/08/20/relevant-content-blog-crawler/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -2021,6 +2021,14 @@ table.dataframe {
 table.dataframe th, td {
     padding: 4px;
     text-align: left;
+}
+
+.anchor-link {
+    display: none;
+}
+
+.anchor-link:hover {
+    display: blockquote;
 }
 
 &lt;/style&gt;
@@ -2331,7 +2339,7 @@ In&amp;nbsp;[13]:
 &lt;p&gt;A: One easy way to double the speed of crawling is to create another readbility account and &lt;a href="http://docs.python.org/2/library/itertools.html#itertools.cycle"&gt;cycle&lt;/a&gt; though the parsers or even better just contact readability ;)&lt;/p&gt;
 &lt;p&gt;Q: Why is this data usefull (spoiler of my next post)?&lt;/p&gt;
 &lt;p&gt;A: https://code.google.com/p/word2vec/&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="crawling"></category><category term="beautifulsoup"></category><category term="readability"></category></entry><entry><title>A not so basic neural network on python</title><link href="http://danielfrg.github.io/blog/2013/07/27/not-so-basic-neural-network-python/" rel="alternate"></link><updated>2013-07-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-07-27:blog/2013/07/27/not-so-basic-neural-network-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;/div&gt;</summary><category term="python"></category><category term="crawling"></category><category term="beautifulsoup"></category><category term="readability"></category></entry><entry><title>A not so basic neural network on python</title><link href="/blog/2013/07/27/not-so-basic-neural-network-python/" rel="alternate"></link><updated>2013-07-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-07-27:blog/2013/07/27/not-so-basic-neural-network-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -3951,6 +3959,14 @@ table.dataframe {
 table.dataframe th, td {
     padding: 4px;
     text-align: left;
+}
+
+.anchor-link {
+    display: none;
+}
+
+.anchor-link:hover {
+    display: blockquote;
 }
 
 &lt;/style&gt;
@@ -4824,7 +4840,7 @@ In&amp;nbsp;[27]:
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;I think I have learned enough about neural networks for my personal satisfaction, so this is probably the last iteration of my Neural network. I will definitely keep looking at the updates of NN research but not as almost fulltime as I been doing the past weeks. Is an imposible mission to catch up that amount of information in my free time. Having spent almost a month reading about NN my (obvious) conclusion is that researchers are just scratching the surface of what is possible, and the next years are going to be exciting.&lt;/p&gt;
 &lt;p&gt;If you are looking for a more complete implementation of a deep belif network there is free &lt;a href="http://www.cs.toronto.edu/~gdahl/"&gt;python (gpu) implementation&lt;/a&gt; by one person on Geoffrey Hinton group which I haven't look but seams promising and hopefully he will release more code.&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="machine learning"></category><category term="neural networks"></category></entry><entry><title>Basic [1 hidden layer] neural network on Python</title><link href="http://danielfrg.github.io/blog/2013/07/03/basic-neural-network-python/" rel="alternate"></link><updated>2013-07-03T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-07-03:blog/2013/07/03/basic-neural-network-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;/div&gt;</summary><category term="python"></category><category term="machine learning"></category><category term="neural networks"></category></entry><entry><title>Basic [1 hidden layer] neural network on Python</title><link href="/blog/2013/07/03/basic-neural-network-python/" rel="alternate"></link><updated>2013-07-03T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-07-03:blog/2013/07/03/basic-neural-network-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -6444,6 +6460,14 @@ table.dataframe {
 table.dataframe th, td {
     padding: 4px;
     text-align: left;
+}
+
+.anchor-link {
+    display: none;
+}
+
+.anchor-link:hover {
+    display: blockquote;
 }
 
 &lt;/style&gt;
@@ -7073,7 +7097,7 @@ In&amp;nbsp;[20]:
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;As a final conclusion I was pretty amazed by the results, a really simple implementation got some pretty decent results.&lt;/p&gt;
 &lt;p&gt;I was also amazed by the state of the scipy library, the &lt;a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html"&gt;optimization routines&lt;/a&gt; are state of the are from my point of view, amazing work.&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="machine learning"></category><category term="neural networks"></category></entry><entry><title>Extracting NBA data from ESPN</title><link href="http://danielfrg.github.io/blog/2013/04/01/nba-scraping-data/" rel="alternate"></link><updated>2013-04-01T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-04-01:blog/2013/04/01/nba-scraping-data/</id><summary type="html">&lt;p&gt;I've been wanting to play with some sports data for a while. Today I decide to
+&lt;/div&gt;</summary><category term="python"></category><category term="machine learning"></category><category term="neural networks"></category></entry><entry><title>Extracting NBA data from ESPN</title><link href="/blog/2013/04/01/nba-scraping-data/" rel="alternate"></link><updated>2013-04-01T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-04-01:blog/2013/04/01/nba-scraping-data/</id><summary type="html">&lt;p&gt;I've been wanting to play with some sports data for a while. Today I decide to
 stop procastinating and do it. The problems was that after searching a
 while (15 minutes) for some data I was unable to find the data I wanted.
 Even in the &lt;a href="http://www.databasebasketball.com/"&gt;Basktetball Database&lt;/a&gt;
@@ -7286,10 +7310,10 @@ Then for each game I download all players stats for that game. The result was
 at least now I have some data.&lt;/p&gt;
 &lt;p&gt;Next step is probably to insert the data into a &lt;a href="http://www.postgresql.org/"&gt;postgres&lt;/a&gt;
 database. Or just be crazy and do some machine learning as it is.&lt;/p&gt;
-&lt;p&gt;The data and code is on github &lt;a href="https://github.com/danielfrg/nba"&gt;nba&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="crawling"></category><category term="pandas"></category><category term="requests"></category><category term="beautifulsoup"></category></entry><entry><title>Plugin for blogging with iPython notebooks in Pelican</title><link href="http://danielfrg.github.io/blog/2013/03/08/pelican-ipython-notebook-plugin/" rel="alternate"></link><updated>2013-03-08T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-03-08:blog/2013/03/08/pelican-ipython-notebook-plugin/</id><summary type="html">&lt;p&gt;This is just a little update on my previous post about &lt;a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;Blogging with iPython notebooks with pelican&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;One of the people behind pelican helped me to convert the &lt;a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;previous code&lt;/a&gt; to a pelican plugin and I just made it available via github: &lt;a href="https://github.com/danielfrg/pelican-ipythonnb"&gt;pelican-ipythonnb&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The data and code is on github &lt;a href="https://github.com/danielfrg/nba"&gt;nba&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="crawling"></category><category term="pandas"></category><category term="requests"></category><category term="beautifulsoup"></category></entry><entry><title>Plugin for blogging with iPython notebooks in Pelican</title><link href="/blog/2013/03/08/pelican-ipython-notebook-plugin/" rel="alternate"></link><updated>2013-03-08T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-03-08:blog/2013/03/08/pelican-ipython-notebook-plugin/</id><summary type="html">&lt;p&gt;This is just a little update on my previous post about &lt;a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;Blogging with iPython notebooks with pelican&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One of the people behind pelican helped me to convert the &lt;a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;previous code&lt;/a&gt; to a pelican plugin and I just made it available via github: &lt;a href="https://github.com/danielfrg/pelican-ipythonnb"&gt;pelican-ipythonnb&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).&lt;/p&gt;
-&lt;p&gt;An example is my last post about a &lt;a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/"&gt;cleaning data for a Kaggle competition&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;An example is my last post about a &lt;a href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/"&gt;cleaning data for a Kaggle competition&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Happy blogging!&lt;/p&gt;
 &lt;h2&gt;Installation&lt;/h2&gt;
 &lt;p&gt;Download plugin files: &lt;code&gt;plugin/ipythonnb.py&lt;/code&gt; and the &lt;code&gt;plugin/nbconverter&lt;/code&gt; directory.&lt;/p&gt;
@@ -7333,7 +7357,7 @@ Then in the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;PLUGINS = [
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;And thats it! Add the &lt;code&gt;.ipynb&lt;/code&gt; file to the &lt;code&gt;content&lt;/code&gt; folder in the pelican project and should generate a new post.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Kaggle bulldozers: Basic cleaning</title><link href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" rel="alternate"></link><updated>2013-03-07T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;p&gt;And thats it! Add the &lt;code&gt;.ipynb&lt;/code&gt; file to the &lt;code&gt;content&lt;/code&gt; folder in the pelican project and should generate a new post.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Kaggle bulldozers: Basic cleaning</title><link href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" rel="alternate"></link><updated>2013-03-07T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -8953,6 +8977,14 @@ table.dataframe {
 table.dataframe th, td {
     padding: 4px;
     text-align: left;
+}
+
+.anchor-link {
+    display: none;
+}
+
+.anchor-link:hover {
+    display: blockquote;
 }
 
 &lt;/style&gt;
@@ -10786,10 +10818,10 @@ In&amp;nbsp;[42]:
 &lt;p&gt;Removing and addind columns using copper Datasets is really easy and the new join feature makes easier this kind of tasks.&lt;/p&gt;
 &lt;p&gt;What I don't like is that I removed 43 columns and I dont have very high expectations only using the remaining 10 for machine learning. Usually the dates are not that useful, but will see the, and I prefer to have less columns with good information than 43 columns with 95% missing values. But that is the data available so I guess there is nothing much to do.&lt;/p&gt;
 &lt;p&gt;I created a repo for this &lt;a href="https://github.com/danielfrg/kaggle-bulldozers"&gt;kaggle competition&lt;/a&gt;, there are only 30 days left so I want to make a few submisions, stay tunned for imputation and some machine learning. The code for &lt;a href="https://github.com/danielfrg/copper"&gt;copper is on github&lt;/a&gt; too.&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="kaggle"></category><category term="copper"></category></entry><entry><title>Blogging with iPython notebooks in pelican</title><link href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/" rel="alternate"></link><updated>2013-02-16T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</id><summary type="html">&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="http://danielfrg.github.io/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</summary><category term="python"></category><category term="kaggle"></category><category term="copper"></category></entry><entry><title>Blogging with iPython notebooks in pelican</title><link href="/blog/2013/02/16/blogging-pelican-ipython-notebook/" rel="alternate"></link><updated>2013-02-16T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</id><summary type="html">&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;It seems that I spend most time redesigning/developing this blog than actually
-blogging xD, just a few weeks ago I wrote about how I was &lt;a href="http://danielfrg.github.io/blog/2013/01/31/new-blog-using-jekyll-and-ipython/"&gt;blogging using jekyll
+blogging xD, just a few weeks ago I wrote about how I was &lt;a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/"&gt;blogging using jekyll
 with iPython notebooks&lt;/a&gt;
 and now I am talking about doing the same different static blog engine.&lt;/p&gt;
 &lt;p&gt;The fact is that a few days ago I found &lt;a href="http://www.getpelican.com"&gt;pelican&lt;/a&gt;, the first serious
@@ -10923,10 +10955,10 @@ so you in your pelican &lt;code&gt;article.html&lt;/code&gt; template should do:
 
 
 &lt;p&gt;This particular post uses markdown but most of my previous posts are now converted
-from ipython notebooks for example: &lt;a href="http://danielfrg.github.io/blog/2013/02/13/copper-quick-data-transformation-python/"&gt;copper-quick-data-transformation&lt;/a&gt;&lt;/p&gt;
+from ipython notebooks for example: &lt;a href="/blog/2013/02/13/copper-quick-data-transformation-python/"&gt;copper-quick-data-transformation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If are curious about my pelican config or theme check it out on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Happy blogging!&lt;/p&gt;
-&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="http://danielfrg.github.io/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Copper - Quick and automatic data transformation</title><link href="http://danielfrg.github.io/blog/2013/02/13/copper-quick-data-transformation-python/" rel="alternate"></link><updated>2013-02-13T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-02-13:blog/2013/02/13/copper-quick-data-transformation-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Copper - Quick and automatic data transformation</title><link href="/blog/2013/02/13/copper-quick-data-transformation-python/" rel="alternate"></link><updated>2013-02-13T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-13:blog/2013/02/13/copper-quick-data-transformation-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -12546,6 +12578,14 @@ table.dataframe {
 table.dataframe th, td {
     padding: 4px;
     text-align: left;
+}
+
+.anchor-link {
+    display: none;
+}
+
+.anchor-link:hover {
+    display: blockquote;
 }
 
 &lt;/style&gt;
@@ -13627,7 +13667,7 @@ In&amp;nbsp;[22]:
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;As usual the code is on github: &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category></entry><entry><title>Using D3, backbone and tornado to visualize histograms of a csv file</title><link href="http://danielfrg.github.io/blog/2013/02/05/d3-backbone-tornado-histogram-csv/" rel="alternate"></link><updated>2013-02-05T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-02-05:blog/2013/02/05/d3-backbone-tornado-histogram-csv/</id><summary type="html">&lt;p&gt;After being procrastinating for weeks the learning of &lt;a href="http://d3js.org"&gt;D3.js&lt;/a&gt; and &lt;a href="http://backbonejs.org"&gt;backbone.js&lt;/a&gt; I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):&lt;/p&gt;
+&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category></entry><entry><title>Using D3, backbone and tornado to visualize histograms of a csv file</title><link href="/blog/2013/02/05/d3-backbone-tornado-histogram-csv/" rel="alternate"></link><updated>2013-02-05T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-05:blog/2013/02/05/d3-backbone-tornado-histogram-csv/</id><summary type="html">&lt;p&gt;After being procrastinating for weeks the learning of &lt;a href="http://d3js.org"&gt;D3.js&lt;/a&gt; and &lt;a href="http://backbonejs.org"&gt;backbone.js&lt;/a&gt; I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Great web frameworks as &lt;a href="https://www.djangoproject.com"&gt;Django&lt;/a&gt; and &lt;a href="http://www.tornadoweb.org"&gt;Tornado&lt;/a&gt; - "fighting" with ruby (&lt;a href="http://rubyonrails.org"&gt;rails&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Great Data Analysis packages such as &lt;a href="http://pandas.pydata.org/"&gt;pandas&lt;/a&gt; - "fighting" with &lt;a href="http://www.r-project.org"&gt;R&lt;/a&gt;&lt;/li&gt;
@@ -13641,7 +13681,7 @@ In&amp;nbsp;[22]:
 &lt;p&gt;So I finally got out of my python comfort zone and re-learn Javascript, I had used it but was very simple examples using JQuery and a very long time ago, everything has changed now the cool people use Backbone.js which is a &lt;strong&gt;fabulous&lt;/strong&gt; creation to give structure to Javascript. So I read a lot of beginner tutorials of backbone and D3 and this is the result.&lt;/p&gt;
 &lt;h2&gt;What I wanted&lt;/h2&gt;
 &lt;p&gt;For &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;, my python data analysis library, I use matplotlib to plot histograms like this:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Matplotlib Histogram" src="/static/images/blog/2013/02/matplotlib_hist.png" title="Matplotlib histogram" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Matplotlib Histogram" src="/images/blog/2013/02/d3-hist/matplotlib_hist.png" title="Matplotlib histogram" /&gt;&lt;/p&gt;
 &lt;p&gt;The histograms work and are great so I wanted to do the same with D3.js to explore a &lt;code&gt;csv&lt;/code&gt; file using pandas.&lt;/p&gt;
 &lt;p&gt;Data - I am using data from a Business Intelligence project I am currently working on, available here: &lt;a href="https://raw.github.com/danielfrg/copper/master/tests/data/expedia/train.csv"&gt;expedia.csv&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Python: REST API&lt;/h2&gt;
@@ -13851,10 +13891,10 @@ In&amp;nbsp;[22]:
 
 
 &lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="D3.js Histogram" src="/static/images/blog/2013/02/d3-hist.png" title="D3.js Histogram" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="D3.js Histogram" src="/images/blog/2013/02/d3-hist/d3-hist.png" title="D3.js Histogram" /&gt;&lt;/p&gt;
 &lt;p&gt;Changing the number of bins or the column automaticlly re-draws the histogram.&lt;/p&gt;
 &lt;p&gt;It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.&lt;/p&gt;
-&lt;p&gt;I include the whole code on &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt; (my data analysis package) which is not yet available via pip, so to use this need to download the &lt;code&gt;explore&lt;/code&gt; folder of the package and run &lt;code&gt;python explore.py&lt;/code&gt; (requires tornado and pandas). Remember to change the &lt;code&gt;explore.csv&lt;/code&gt; to explore other data.&lt;/p&gt;</summary><category term="python"></category><category term="javascript"></category><category term="D3.js"></category><category term="backbone"></category><category term="tornado"></category><category term="pandas"></category></entry><entry><title>Coursera Data Analysis - Quiz 2 on python</title><link href="http://danielfrg.github.io/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" rel="alternate"></link><updated>2013-02-04T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-02-04:blog/2013/02/04/coursera-data-analysis-quiz-2-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;p&gt;I include the whole code on &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt; (my data analysis package) which is not yet available via pip, so to use this need to download the &lt;code&gt;explore&lt;/code&gt; folder of the package and run &lt;code&gt;python explore.py&lt;/code&gt; (requires tornado and pandas). Remember to change the &lt;code&gt;explore.csv&lt;/code&gt; to explore other data.&lt;/p&gt;</summary><category term="python"></category><category term="javascript"></category><category term="D3.js"></category><category term="backbone"></category><category term="tornado"></category><category term="pandas"></category></entry><entry><title>Coursera Data Analysis - Quiz 2 on python</title><link href="/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" rel="alternate"></link><updated>2013-02-04T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-04:blog/2013/02/04/coursera-data-analysis-quiz-2-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -15474,6 +15514,14 @@ table.dataframe {
 table.dataframe th, td {
     padding: 4px;
     text-align: left;
+}
+
+.anchor-link {
+    display: none;
+}
+
+.anchor-link:hover {
+    display: blockquote;
 }
 
 &lt;/style&gt;
@@ -16172,7 +16220,7 @@ dtypes: float64(333), int64(89), object(4)
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;I believe python is catching up on data analysis with tools as pandas and scikit-learn, the problem is that it is just catching up while R has years of being consolidated as &lt;strong&gt;the&lt;/strong&gt; tool for doind data analysis but I believe python is the future for its integration with other technologies such as the web with &lt;a href="https://www.djangoproject.com/"&gt;django&lt;/a&gt;; python is a language that is fighting on all fronts that can be good or bad, lets hope that is good.&lt;/p&gt;
 &lt;p&gt;FYI, I almost don't get question 8 xD.&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="coursera"></category><category term="data analysis"></category></entry><entry><title>New blog using Jekyll &amp; iPython</title><link href="http://danielfrg.github.io/blog/2013/01/31/new-blog-using-jekyll-and-ipython/" rel="alternate"></link><updated>2013-01-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-01-31:blog/2013/01/31/new-blog-using-jekyll-and-ipython/</id><summary type="html">&lt;p&gt;Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using &lt;a href="http://octopress.org/"&gt;octopress&lt;/a&gt; (&lt;a href="https://github.com/mojombo/jekyll"&gt;jekyll&lt;/a&gt;) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.&lt;/p&gt;
+&lt;/div&gt;</summary><category term="python"></category><category term="coursera"></category><category term="data analysis"></category></entry><entry><title>New blog using Jekyll &amp; iPython</title><link href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/" rel="alternate"></link><updated>2013-01-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-31:blog/2013/01/31/new-blog-using-jekyll-and-ipython/</id><summary type="html">&lt;p&gt;Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using &lt;a href="http://octopress.org/"&gt;octopress&lt;/a&gt; (&lt;a href="https://github.com/mojombo/jekyll"&gt;jekyll&lt;/a&gt;) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Is not fast enough&lt;/li&gt;
 &lt;li&gt;Can't have custom analytics and the wordpress analytics sucks.&lt;/li&gt;
@@ -16192,7 +16240,7 @@ dtypes: float64(333), int64(89), object(4)
 &lt;p&gt;Github pages support Jekyll but not some of its plugins such as the &lt;a href="http://lesscss.org/"&gt;LESS&lt;/a&gt; plugins. There is a very simple workaround for that. Just have to run Jekyll locally with all the plugins you want, and then just upload the compiled HTML,CSS,JS,... to the repository and github will display the static/compiled content.&lt;/p&gt;
 &lt;p&gt;So in my repository I have all the templates, posts, images, markdown, and everything else on folder named &lt;code&gt;source&lt;/code&gt;; that way jekyll creates the static content into &lt;code&gt;source/_site&lt;/code&gt;. Then when I am happy with new post or new design I use a very simple python &lt;a href="http://fabfile.org/"&gt;fabfile&lt;/a&gt; to clean the root (ignoring the &lt;code&gt;source&lt;/code&gt; and &lt;code&gt;.git&lt;/code&gt; folders) then it moves the contents of &lt;code&gt;source/_site&lt;/code&gt; to the root of the repository, then commits the changes and finally clean the root again.&lt;/p&gt;
 &lt;p&gt;I try to make the site plugin agnostic because I don't now ruby but I try to complement that with a few YAML tags and if's on the layous, for example only have to put a YAML tag on each post file and the picture is added automaticly to the index and post pages. That also happens with youtube and vimeo videos.&lt;/p&gt;
-&lt;p&gt;Finally the source of the site is on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt; if anyone want to take a look.&lt;/p&gt;</summary><category term="jekyll"></category><category term="ipython"></category><category term="python"></category></entry><entry><title>Copper - Bootstrap and Bagging</title><link href="http://danielfrg.github.io/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" rel="alternate"></link><updated>2013-01-30T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;p&gt;Finally the source of the site is on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt; if anyone want to take a look.&lt;/p&gt;</summary><category term="jekyll"></category><category term="ipython"></category><category term="python"></category></entry><entry><title>Copper - Bootstrap and Bagging</title><link href="/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" rel="alternate"></link><updated>2013-01-30T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -17812,6 +17860,14 @@ table.dataframe {
 table.dataframe th, td {
     padding: 4px;
     text-align: left;
+}
+
+.anchor-link {
+    display: none;
+}
+
+.anchor-link:hover {
+    display: blockquote;
 }
 
 &lt;/style&gt;
@@ -19494,7 +19550,7 @@ IezS/wLBosSDUGolewAAAABJRU5ErkJggg==
 &lt;p&gt;I did not select any parameter for the Decision Trees, only the max-depth=10, playing with more models and more parameters I am sure bagging is going to be even better. To solve this problem next I want to take a look at &lt;a href="http://scikit-learn.org/dev/modules/grid_search.html#grid-search"&gt;Grid Search&lt;/a&gt; and see how it can help me to improve this results.&lt;/p&gt;
 &lt;p&gt;I really believe that the potential of bagging is to do some conditional scoring, for example only ask models that are good with high Income when the entry income is higher than $10000 for example. Also probably is a good idea to use different classifiers, instead o 20 decision trees 5 DT, 5 SVM, and so on. But is just something that cross my mind.&lt;/p&gt;
 &lt;p&gt;As usual the code is on github: &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Machine Learning</title><link href="http://danielfrg.github.io/blog/2013/01/27/copper-machine-learning-python/" rel="alternate"></link><updated>2013-01-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-01-27:blog/2013/01/27/copper-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Machine Learning</title><link href="/blog/2013/01/27/copper-machine-learning-python/" rel="alternate"></link><updated>2013-01-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-27:blog/2013/01/27/copper-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -21114,6 +21170,14 @@ table.dataframe {
 table.dataframe th, td {
     padding: 4px;
     text-align: left;
+}
+
+.anchor-link {
+    display: none;
+}
+
+.anchor-link:hover {
+    display: blockquote;
 }
 
 &lt;/style&gt;
@@ -23158,7 +23222,7 @@ Name: Revenue of not using ML
 &lt;p&gt;&lt;strong&gt;I know&lt;/strong&gt; that SAS has a &lt;strong&gt;lot&lt;/strong&gt; of more features but I am just getting started :P. I also learn today a that &lt;a href="http://scikit-learn.org/"&gt;scikit-learn&lt;/a&gt; has &lt;strong&gt;tons&lt;/strong&gt; of features that I had never heard about such as cross-validation, I will definitely take a closer look at those features.&lt;/p&gt;
 &lt;p&gt;For now this will only work for prototyping some Machine Learning but is what I have learned on my Business Intelligence classes so far, I will update the package as I learn more.&lt;/p&gt;
 &lt;p&gt;The code is on github: &lt;a href="https://github.com/danielfrg/copper" title="Copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Easy data analysis and machine learning on python</title><link href="http://danielfrg.github.io/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/" rel="alternate"></link><updated>2013-01-26T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:danielfrg.github.io,2013-01-26:blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Easy data analysis and machine learning on python</title><link href="/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/" rel="alternate"></link><updated>2013-01-26T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-26:blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -24780,6 +24844,14 @@ table.dataframe th, td {
     text-align: left;
 }
 
+.anchor-link {
+    display: none;
+}
+
+.anchor-link:hover {
+    display: blockquote;
+}
+
 &lt;/style&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -25633,4 +25705,1009 @@ dtypes: float64(7), int64(26)
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Thats it for now, the next week I hope to get the integration with scikit-learn to make comparison of models as easy (and why not easier) than with SAS.&lt;/p&gt;
 &lt;p&gt;The code is on github: &lt;a href="https://github.com/danielfrg/copper" title="Copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry></feed>
+&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Python to replace SAS Enterprise Miner (basic)</title><link href="/blog/2013/01/02/python-replace-sas/" rel="alternate"></link><updated>2013-01-02T17:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-02:blog/2013/01/02/python-replace-sas/</id><summary type="html">&lt;h2&gt;Why?&lt;/h2&gt;
+&lt;p&gt;The last fall (2012) I took a class called Business Intelligence (at
+UT Dallas) which is the same as Data Mining or Machine Learning
+to business people. On that class they taught us to use SAS Enterprise
+Miner. I used it but I &lt;strong&gt;hate&lt;/strong&gt; to use it. First of all I had to &lt;strong&gt;pay&lt;/strong&gt;
+for it: like $100 dollars, not much because the University has an
+arrangement with SAS but I had to pay that again soon, and I have to pay
+a lot of money to use it without the University help. Second, is
+&lt;strong&gt;slow&lt;/strong&gt; as hell, I was going mad using that piece of $%#\^ :-P. And
+don't get me wrong, the software is "good", but is not for me.&lt;/p&gt;
+&lt;p&gt;That is the reason why during this time I learn the basics of R (from
+&lt;a href="http://coursera.org" title="Coursera"&gt;coursera&lt;/a&gt;) and python data analysis packages, mainly pandas. The
+objective on this case is to use Python to replace the functionality I
+learned this semester of &lt;a href="http://www.sas.com/technologies/analytics/datamining/miner/" title="SAS Enterprise Miner"&gt;SAS Enterprise Miner&lt;/a&gt;. I already knew basic
+the basics of pandas, numpy and scipy but I still had on my ToDo list
+learn &lt;a href="http://scikit-learn.org/stable/" title="Scikit-learn"&gt;Scikit-learn&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;What I wanted to do&lt;/h2&gt;
+&lt;p&gt;I wanted to replace the functionality I learned this semester from SAS
+EM, that is, the very basics:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Import data&lt;/li&gt;
+&lt;li&gt;Basic data transformation&lt;/li&gt;
+&lt;li&gt;Model training&lt;/li&gt;
+&lt;li&gt;Model comparison&lt;/li&gt;
+&lt;li&gt;Model scoring&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So I needed to do the same with iPython, Pandas, Scikit-learn and
+Matplotlib. On SAS EM a basic project looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SAS EM Basic Project" src="/images/blog/2013/01/replace-sas-python/screenshot-from-2012-12-31-200944.png" title="SAS EM Basic Project" /&gt;&lt;/p&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;I already had installed iPython, pandas and numpy but not Scikit-learn,
+and since I am using Python 3 (3.2.3) I had to compile scikit-learn from
+the last development source code: as easy as download the last version
+from &lt;a href="https://github.com/scikit-learn/scikit-learn" title="Scikit-learn github"&gt;Github&lt;/a&gt; and ran &lt;code&gt;python setup.py install&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Example&lt;/h2&gt;
+&lt;p&gt;The data I used is the same I used for a project on the Business
+Intelligence class, so I could compare the results I obtained from SAS.&lt;/p&gt;
+&lt;p&gt;In a tweet the project is: The data is from people who order products
+from a catalog, and the idea was to help the company to target the
+customers who receive the catalogs in order to reduce expenses. There
+are two &lt;code&gt;CSV&lt;/code&gt; files of 2000 records each, one for training and one for
+testing. The available data is:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;NGIF: number of orders in the 24 months&lt;/li&gt;
+&lt;li&gt;RAMN: Total order amounts in dollars in the last 24 months&lt;/li&gt;
+&lt;li&gt;LASG: Amount of last order&lt;/li&gt;
+&lt;li&gt;LASD: Date of last order (you may need to convert it to number of
+    months elapsed to 01/01/2007)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RFA1: Frequency of order&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;1=One order in the last 24 months&lt;/li&gt;
+&lt;li&gt;2=Two orders in the last 24 months&lt;/li&gt;
+&lt;li&gt;3=Three orders in the last 24 months&lt;/li&gt;
+&lt;li&gt;4=Four or more orders in the last 24 months&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RFA2: Order amount category (as defined by the firm) of the last
+    order&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;1=$0.01 - $1.99&lt;/li&gt;
+&lt;li&gt;2=$2.00 - $2.99&lt;/li&gt;
+&lt;li&gt;3=$3.00 e - $4.99&lt;/li&gt;
+&lt;li&gt;4=$5.00 - $9.99&lt;/li&gt;
+&lt;li&gt;5=$10.00 - $14.99&lt;/li&gt;
+&lt;li&gt;6=$15.00 - $24.99&lt;/li&gt;
+&lt;li&gt;7=$25.00 and above&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Money: money amount eventually a customer will spend on next order
+    (if she places orders), only available for “testing”.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Order: Actual response (1: response, 0: no response)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The file looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;CustomerID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;NGIF&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;RAMN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;LASG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;LASD&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;RFA1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;RFA2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Order&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;207&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;105&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+       &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The good part is that the data is clean, everything is a number and
+there are no missing values. This is far from real, but for a first
+example is perfect.&lt;/p&gt;
+&lt;h3&gt;1. Import data&lt;/h3&gt;
+&lt;p&gt;As simple as:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;training.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;testing.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;CustomerID&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;CustomerID&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2. Data transform&lt;/h3&gt;
+&lt;p&gt;Is necesary to convert the LASG (Date of last order) to a normal number;
+I decide to use MSLO (number of Months Since Last Order). Knowing that
+the data is from February, 2007 the equation to convert I use is:
+&lt;code&gt;MSLO = 12*(2007 - YEAR) - MONTH + 2&lt;/code&gt;. On python it translates to:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;MSLO&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;LASD&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2007&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;MSLO&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MSLO&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then just need to remove the LASD column and add the MSLO data:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;del&lt;/span&gt; &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;LASD&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;MSLO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MSLO&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;3. Model Training&lt;/h3&gt;
+&lt;p&gt;This is covered by scikit-learn, they have tons of models, from Decision
+Tree to &lt;strong&gt;a lot&lt;/strong&gt; of models, seriously. For this example I use the
+always good Decision Tree also Support Vector Machine and Naive Bayes.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;X_train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;NGIF&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;RAMN&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;LASG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;MSLO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;RFA1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s"&gt;&amp;#39;RFA2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;
+&lt;span class="n"&gt;Y_train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Order&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;
+
+&lt;span class="n"&gt;svm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SVC&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;svm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;probability&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;svm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;tree&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DecisionTreeClassifier&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_depth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;out&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;export_graphviz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;out_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tree.dot&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;gnb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;GaussianNB&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;gnb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;4. Model Scoring/Comparison&lt;/h3&gt;
+&lt;p&gt;Scikit-learn comes with Confusion Matrix and ROC Chart included:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;tree_score&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;svm_score&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;svm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;gnb_score&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gnb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;tree_cm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;confusion_matrix&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tree_score&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;svm_cm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;confusion_matrix&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;svm_score&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;gnb_cm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;confusion_matrix&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gnb_score&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# tree&lt;/span&gt;
+&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1365&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;67&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;506&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;62&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;span class="cp"&gt;# svm&lt;/span&gt;
+&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1362&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;531&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;37&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;span class="cp"&gt;#gnb&lt;/span&gt;
+&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1196&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;236&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;406&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;162&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;tree_probas&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict_proba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;svm_probas&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;svm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict_proba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;gnb_probas&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gnb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict_proba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;tree_fpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tree_tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tree_thresholds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;roc_curve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;tree_probas&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;svm_fpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;svm_tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;svm_thresholds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;roc_curve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;svm_probas&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;gnb_fpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gnb_tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gnb_thresholds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;roc_curve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;gnb_probas&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tree_fpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tree_tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Tree&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;svm_fpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;svm_tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;SVM&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gnb_fpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gnb_tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;GNB&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;False Positive Rate&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;True Positive Rate&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Receiver operating characteristic&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;lower right&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="ROC Comparison" src="/images/blog/2013/01/replace-sas-python/roc.png" title="ROC Comparison" /&gt;&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;With this quick example I was able to get most of the results I learned
+on my BI class. The analysis of the results is more important but not
+the objective of this post. Enterprise Miner produces a lot of results
+but they are useless unless you understand them, is better to get few
+results and use understand them correctly. Other chart I learned was the
+Lift chart but scikit-learn does not have this option.&lt;/p&gt;
+&lt;p&gt;I was able to get the results a &lt;strong&gt;lot&lt;/strong&gt; quicker with iPython than with
+SAS EM, for this project it took me like 4 or 5 hours with SAS EM and
+less than 1 hour on Python.&lt;/p&gt;
+&lt;p&gt;The complete iPython notebook (also visible &lt;a href="http://nbviewer.ipython.org/urls/raw.github.com/dfrodriguez143/PythonDataAnalysisExamples/master/catalog-marketing/catalog-marketing.ipynb"&gt;here&lt;/a&gt;) and data is
+available on Github: &lt;a href="https://github.com/dfrodriguez143/PythonDataAnalysisExamples/tree/master/catalog-marketing" title="Catalog Marketing"&gt;Data Analysis Examples Python - Catalog
+Marketing&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note : I know this is the most very basic example of Machine Learning on
+Python, more complex examples will come later.&lt;/p&gt;</summary><category term="pandas"></category><category term="python"></category><category term="SAS"></category><category term="scikit-learn"></category></entry><entry><title>Python Finance Package v0.035 - Event study and market simulator Integration + Example</title><link href="/blog/2012/12/28/python-finance-package-v0-035-event-study-and-market-simulator-integration-example/" rel="alternate"></link><updated>2012-12-28T15:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-12-28:blog/2012/12/28/python-finance-package-v0-035-event-study-and-market-simulator-integration-example/</id><summary type="html">&lt;p&gt;Ok, here come the first "Real Life" example. As I mention on previous
+posts my finance knowledge is mostly null so I cannot say this can be
+used on real life but what I found playing with the utils I have created
+is very interesting.&lt;/p&gt;
+&lt;p&gt;If anyone use this techniques and win/lose money I would love to hear :P
+Also if anyone find discrepancies on the results &lt;strong&gt;please&lt;/strong&gt; tell me.&lt;/p&gt;
+&lt;h2&gt;Changes since last time&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;span style="line-height:13px;"&gt;Bug Fixes on Multiple Event Study:
+    Missing values are now filled: forward and then backwards.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Multiple Event Studies: Graph with error bars (std)&lt;/li&gt;
+&lt;li&gt;Integration between the Event Study Finder and Market Simulator&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Example&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Use the S&amp;amp;P 500 symbols from 2012&lt;/li&gt;
+&lt;li&gt;Look in all 2011 for events when the value of the stock went below
+    $5&lt;/li&gt;
+&lt;li&gt;Discover how to use this opportunity to invest on the equities&lt;/li&gt;
+&lt;li&gt;Simulate if we would make some money from that&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;1. Setup&lt;/h3&gt;
+&lt;p&gt;In [1]: Imports&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.utils&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BasicUtils&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.utils&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FileManager&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.utils&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ListUtils&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.evtstudy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;EventFinder&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.evtstudy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MultipleEvents&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.sim&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MarketSimulator&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In [2]: Download all the information on 2011 of all S&amp;amp;P 500 equities on
+2012&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;SP500_2012&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ListUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SP500&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FileManager&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;end&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;SP500_2012&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out [2]:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mi"&gt;498&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2. Event: Went Below 5 - One event per Equity&lt;/h3&gt;
+&lt;p&gt;In [5]: Look for events&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;evtf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;EventFinder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;symbols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SP500_2012&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start_date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;end_date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;went_below&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In [6]:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;num_events&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out [6]: 5 Events where found&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In [7]: Analyse the 5 Events&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mevt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MultipleEvents&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;market&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;SPY&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lookback_days&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lookforward_days&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;estimation_period&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;250&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In [8]: Graph the mean cumulative abnornal return&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean_cumulative_abnormal_return&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Mean Cumulative Abnormal Return" src="/images/blog/2012/12/finance035/mean_car.png" title="Mean Cumulative Abnormal Return" /&gt;&lt;/p&gt;
+&lt;p&gt;The graph tell us that in average after the event (day 0) the return
+goes up, but what about the risk?&lt;/p&gt;
+&lt;p&gt;In [9]: Print the Cumulative Abnormal Return with Error Bars&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;car&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Mean Cumulative Abnormal Return with error bars" src="/images/blog/2012/12/finance035/mean_car_error_bars.png" title="Mean Cumulative Abnormal Return with error bars" /&gt;&lt;/p&gt;
+&lt;p&gt;Ok, the graph tell us that the risk is going up as the time passes, this
+was expected.
+Since we are looking the data in 2011 we can see what happen in
+reality.&lt;/p&gt;
+&lt;p&gt;We use the market simulator but we create the orders from the event
+list.
+The instructions are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;On the event day: Buy 100 shares&lt;/li&gt;
+&lt;li&gt;20 days after the event: Sell the 100 Shares&lt;/li&gt;
+&lt;li&gt;Initial cash = $1000&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In [10]: Use the market simulator&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sim&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MarketSimulator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;./data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;quot&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;Adj&lt;/span&gt; &lt;span class="n"&gt;Close&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;quot&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;initial_cash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;
+&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create_trades_from_event&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;eventDayAction&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Buy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;eventDayShares&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;actionAfter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Sell&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;daysAfter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sharesAfter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simulate&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;trades&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out [10]: This are the trades generated by the Simulator&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;symbol&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;  &lt;span class="n"&gt;num_of_shares&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;08&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;08&lt;/span&gt;   &lt;span class="n"&gt;HBAN&lt;/span&gt;    &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;09&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;06&lt;/span&gt;   &lt;span class="n"&gt;HBAN&lt;/span&gt;    &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;09&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;   &lt;span class="n"&gt;GNW&lt;/span&gt;     &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;   &lt;span class="n"&gt;AMD&lt;/span&gt;     &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;   &lt;span class="n"&gt;GNW&lt;/span&gt;     &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;31&lt;/span&gt;   &lt;span class="n"&gt;AMD&lt;/span&gt;     &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;   &lt;span class="n"&gt;HCBK&lt;/span&gt;    &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;   &lt;span class="n"&gt;BAC&lt;/span&gt;     &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;   &lt;span class="n"&gt;HCBK&lt;/span&gt;    &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;   &lt;span class="n"&gt;BAC&lt;/span&gt;     &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In [11]: Graph of the portfolio value:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;portfolio&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;BasicUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;total_return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;portfolio&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out [11]:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mf"&gt;0.501&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I obtain 5 events and a total return of 0.501 with just 10 trades.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Portfolio value for the events" src="/images/blog/2012/12/finance035/mean_car.png" title="Portfolio value for the events" /&gt;&lt;/p&gt;
+&lt;h3&gt;3. Event: Went below 5 - more than one event per equity&lt;/h3&gt;
+&lt;p&gt;From what I saw on the events when one event occurred more events
+occurred soon (less than 20 days later), that didn't look good for me
+that's why I tried first with no repeating events. But from my
+&lt;a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing"&gt;computational investing&lt;/a&gt; course I notice that they use all the events
+so I tried that to: The code is the same just change this on the event
+finder:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;oneEventPerEquity&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;On this case I found 21 events with a total return of: 0.684; chart:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Portfolio value for the events" src="/images/blog/2012/12/finance035/portfolio2.png" title="Portfolio value for the events" /&gt;&lt;/p&gt;
+&lt;h2&gt;Conlusion&lt;/h2&gt;
+&lt;p&gt;Also if anyone find discrepancies on the results &lt;strong&gt;please&lt;/strong&gt; tell me.&lt;/p&gt;
+&lt;p&gt;First, I obtain a total return of 0.501 with just 10 trades; that means
+that the final value of the portfolio was $1,501. When I saw this I was
+amazed, just buying shares of very cheap stocks (100 stocks @ &amp;lt;$5 =
+500) and then selling those stocks 20 days later was possible to make
+$501 in just 6 months. Even more if use the second event study.&lt;/p&gt;
+&lt;p&gt;Second, the utils works very well together and with a considerable
+amount of data, not just 2 equities as before.&lt;/p&gt;
+&lt;p&gt;Third, &lt;strong&gt;I am rich! weee!&lt;/strong&gt; Ok no, not really. But the results are
+&lt;strong&gt;very&lt;/strong&gt; interesting, at least I was amazed, I never believe of finding
+a return greater than 0.5.&lt;/p&gt;
+&lt;p&gt;The code + the complete example is on GitHub: &lt;a href="https://github.com/danielfrg/PythonFinance" title="Python Finance Package"&gt;PythonFinance&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is &lt;strong&gt;far&lt;/strong&gt; from the end but the &lt;a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing"&gt;computational investing&lt;/a&gt; course
+ends with this example so I have no longer a source of inspiration, I am
+searching for book on quantitative finance to keep learning and
+developing the package.&lt;/p&gt;</summary><category term="coursera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry><entry><title>Python Finance Package V0.03 – Date Utils, Lists Utils, Event Studies</title><link href="/blog/2012/12/26/python-finance-package-v0-03-date-utils-lists-utils-event-studies/" rel="alternate"></link><updated>2012-12-26T21:48:00+00:00</updated><author><name>Daniel Rodriguezs</name></author><id>tag:,2012-12-26:blog/2012/12/26/python-finance-package-v0-03-date-utils-lists-utils-event-studies/</id><summary type="html">&lt;p&gt;Continuing with the
+&lt;a href="https://github.com/danielfrg/PythonFinance"&gt;Python Finance Package&lt;/a&gt;. This update took longer because I change my setup to Linux
+(&lt;a href="http://elementaryos.org/" title="elemenaryos"&gt;elementaryos&lt;/a&gt;), also things are getting complicated/interesting as
+my finance knowledge is mostly null, so I am learning as I develop the
+package, that was part of the plan so no complains about that.&lt;/p&gt;
+&lt;p&gt;The objective was to solve the Computational Investing Homework 4. Using
+the current code on the package (EventFinder + MarketSimulator) is
+possible to solve the homework, but I will cover that on a later post.&lt;/p&gt;
+&lt;h2&gt;Changes since last time&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Bug fixes on File Manager and Data Access&lt;/li&gt;
+&lt;li&gt;Improved tests&lt;/li&gt;
+&lt;li&gt;Added Date Utils and List Utils to manage the open dates from NYSE&lt;/li&gt;
+&lt;li&gt;Added Event Studies&lt;ol&gt;
+&lt;li&gt;(Single) Past Event&lt;/li&gt;
+&lt;li&gt;Event Finder&lt;/li&gt;
+&lt;li&gt;Multiple Events&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Date Utils&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Returns the dates the market was open between two dates.&lt;/li&gt;
+&lt;li&gt;Looks for the closer date on a list of dates and returns the index
+    of that date on the list&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;nyse_dates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+&lt;span class="n"&gt;insideSearch&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;lookbackDays&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lookforwardDays&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;search_closer_date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dates&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exact&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;searchBack&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;maxDistance&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.utils&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;DateUtils&lt;/span&gt;
+
+&lt;span class="n"&gt;all_dates&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DateUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nyse_dates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;all_dates&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;DateUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nyse_dates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+
+&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DateUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search_closer_date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2009&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;all_dates&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;all_dates&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+ &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="cp"&gt;# Note: Length: 3268&lt;/span&gt;
+
+&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;02&lt;/span&gt;    &lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;02&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;
+&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;    &lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;
+&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;    &lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;
+&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;07&lt;/span&gt;    &lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;07&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;
+   &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;    &lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;
+&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt;    &lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;
+&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;    &lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;
+&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt;    &lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;
+&lt;span class="nl"&gt;Length:&lt;/span&gt; &lt;span class="mi"&gt;1258&lt;/span&gt;
+
+&lt;span class="mi"&gt;2262&lt;/span&gt; &lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;31&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;
+&lt;span class="cp"&gt;# Note 2009-1-1 was not open, closer date looking back is 2008-12-31&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;List Utils&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Date Utils extends the List Utils of dates which only returns all
+    the NYSE dates&lt;/li&gt;
+&lt;li&gt;List Utils also provides the symbols from S&amp;amp;P500 each year&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.utils&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ListUtils&lt;/span&gt;
+
+&lt;span class="n"&gt;sp500_2012&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ListUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SP500&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sp500_2012&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;sp500_2012&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mi"&gt;501&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;AA&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;AAPL&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;...&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;YUM&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ZION&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ZMH&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Simple Past Event&lt;/h2&gt;
+&lt;p&gt;Input: date of interest, equity to analyze, market symbol to compare,
+event window length (back and forward) and estimation period length.&lt;/p&gt;
+&lt;p&gt;Output: The program downloads the necessary information and analyse the
+event: expected return, abnormal return, cumulative abnormal return,
+t-test.&lt;/p&gt;
+&lt;p&gt;Example (same from: &lt;a href="http://www.youtube.com/watch?v=FRNabkJ48vs"&gt;http://www.youtube.com/watch?v=FRNabkJ48vs&lt;/a&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.evtstudy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;PastEvent&lt;/span&gt;
+
+&lt;span class="n"&gt;pevt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PastEvent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;./data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;symbol&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;AAPL&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;pevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;market&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;\^gspc&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;pevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lookback_days&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="n"&gt;pevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lookforward_days&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="n"&gt;pevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;estimation_period&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;252&lt;/span&gt;
+&lt;span class="n"&gt;pevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2009&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c"&gt;# print(pevt.expected_return)&lt;/span&gt;
+&lt;span class="c"&gt;# print(pevt.abnormal_return)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cumulative_abnormal_return&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# print(pevt.t_test)&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt;
+&lt;span class="n"&gt;matplotlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Qt4Agg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;#  Probably most people dont need this line&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="n"&gt;pevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;expected_return&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Date&lt;/span&gt;
+&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mf"&gt;0.024165&lt;/span&gt;
+&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="mf"&gt;0.028294&lt;/span&gt;
+&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.000580&lt;/span&gt;
+&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="mf"&gt;0.016884&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="mi"&gt;2009&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt; &lt;span class="mf"&gt;0.038178&lt;/span&gt;
+&lt;span class="mi"&gt;2009&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="mf"&gt;0.014626&lt;/span&gt;
+&lt;span class="mi"&gt;2009&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.004774&lt;/span&gt;
+&lt;span class="mi"&gt;2009&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.002890&lt;/span&gt;
+&lt;span class="nl"&gt;Name:&lt;/span&gt; &lt;span class="n"&gt;Cumulative&lt;/span&gt; &lt;span class="n"&gt;Abnormal&lt;/span&gt; &lt;span class="n"&gt;Return&lt;/span&gt;
+&lt;span class="cp"&gt;# NOTE: Length: 21&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Event Study Expected Return" src="/images/blog/2012/12/finance03/expected_return.png" title="Event Study Expected Return" /&gt;&lt;/p&gt;
+&lt;h2&gt;Event Finder&lt;/h2&gt;
+&lt;p&gt;Input: List of equities, date range to search for events,
+event_function [defaults: went_blow(amount), went_above(amount),
+increase(amount), decrease(amount)]&lt;/p&gt;
+&lt;p&gt;Output: Looks each equity on each date and creates an event matrix&lt;/p&gt;
+&lt;p&gt;Optional/Defaults:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Loads/saves a cache (pickle) version of the data.&lt;/li&gt;
+&lt;li&gt;By default only takes the first event on each equity&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;evtf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;EventFinder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;./data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;symbols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;AMD&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;CBG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start_date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;end_date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2010&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;went_below&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;num_events&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;matrix&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+
+            &lt;span class="n"&gt;AMD&lt;/span&gt;  &lt;span class="n"&gt;CBG&lt;/span&gt;
+&lt;span class="n"&gt;Date&lt;/span&gt;
+&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;27&lt;/span&gt;    &lt;span class="mi"&gt;1&lt;/span&gt;  &lt;span class="n"&gt;NaN&lt;/span&gt;
+&lt;span class="mi"&gt;2009&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;27&lt;/span&gt;  &lt;span class="n"&gt;NaN&lt;/span&gt;    &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Multiple Events&lt;/h2&gt;
+&lt;p&gt;Input: Uses the matrix created on the Event Finder and analyse each
+event&lt;/p&gt;
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;For each event&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Expected return&lt;/li&gt;
+&lt;li&gt;Abnormal return&lt;/li&gt;
+&lt;li&gt;Cumulative abnormal return&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mean of:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Expected returns&lt;/li&gt;
+&lt;li&gt;Abnormal returns&lt;/li&gt;
+&lt;li&gt;Cumulative abnormal returns&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.evtstudy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;EventFinder&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;MultipleEvents&lt;/span&gt;
+
+&lt;span class="n"&gt;evtf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;EventFinder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;./data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;symbols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;AMD&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;CBG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start_date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;end_date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2009&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;went_below&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;mevt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MultipleEvents&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;./data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;matrix&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;evtf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;matrix&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;market&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;SPY&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lookback_days&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lookforward_days&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;estimation_period&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean_abnormal_return&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt;
+&lt;span class="n"&gt;matplotlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Qt4Agg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;#  Probably most people dont need this line&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="n"&gt;mevt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean_cumulative_abnormal_return&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;   &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.064385&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;    &lt;span class="mf"&gt;0.073792&lt;/span&gt;
+ &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;    &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.011918&lt;/span&gt;
+ &lt;span class="mi"&gt;0&lt;/span&gt;     &lt;span class="mf"&gt;0.009591&lt;/span&gt;
+ &lt;span class="mi"&gt;1&lt;/span&gt;    &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.119249&lt;/span&gt;
+ &lt;span class="p"&gt;...&lt;/span&gt;
+ &lt;span class="mi"&gt;19&lt;/span&gt;   &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.076149&lt;/span&gt;
+ &lt;span class="mi"&gt;20&lt;/span&gt;   &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.097525&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Event Study - Mean Cumulative Abnormal Returns" src="/images/blog/2012/12/finance03/expected_return.png" title="Event Study - Mean Cumulative Abnormal Returns" /&gt;&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;As usual the code is on github: &lt;a href="https://github.com/danielfrg/PythonFinance"&gt;PythonFinance&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;What is next?&lt;/em&gt; A more real-life example using ipython&lt;/p&gt;</summary><category term="coursera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry><entry><title>Python Finance Package v0.02 – Basic Utils and Market Simulator</title><link href="/blog/2012/12/17/python-finance-package-v0-02-basic-utils-and-market-simulator/" rel="alternate"></link><updated>2012-12-17T15:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-12-17:blog/2012/12/17/python-finance-package-v0-02-basic-utils-and-market-simulator/</id><summary type="html">&lt;p&gt;Continuing with the &lt;strong&gt;(Basic)&lt;/strong&gt; Python Finance Package. Now has some
+basic utils: total-return, daily-returns, and sharpe-ratio calculations.
+Also a Market Simulator, the purpose was to solve the &lt;a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing"&gt;Computational
+Investing&lt;/a&gt; Homework 3.&lt;/p&gt;
+&lt;h2&gt;Changes on DataAccess&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Now the index of the DataFrame is DatetimeIndex not string. With
+    this is possible to index it with datetimes.&lt;/li&gt;
+&lt;li&gt;Moved the classes folder from './data/' to './utils/'&lt;/li&gt;
+&lt;li&gt;Improved Documentation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Market Simulator&lt;/h2&gt;
+&lt;p&gt;Reads a .csv file with the orders/trades. Downloads the necessary data
+(symbols and dates between the ). Makes a simulation of the orders:&lt;/p&gt;
+&lt;p&gt;The .csv file looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;month&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;day&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;symbol&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;num_of_shares&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;AAPL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;AAPL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IBM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4000&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;GOOG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;XOM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4000&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;XOM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4000&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;GOOG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IBM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2200&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IBM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3300&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IBM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;AAPL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1200&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;GOOG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;55&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;GOOG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;55&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;AAPL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1200&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;How to use it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Set the initial amount of cash&lt;/li&gt;
+&lt;li&gt;Run the simulation,  as an argument give the path to the csv file&lt;/li&gt;
+&lt;li&gt;See the the information&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.sim&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MarketSimulator&lt;/span&gt;
+
+&lt;span class="n"&gt;sim&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MarketSimulator&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;initial_cash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt;
+&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simulate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;quot&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;MarketSimulator_orders&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;quot&lt;/span&gt;&lt;span class="p"&gt;;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;portfolio&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt;
+&lt;span class="n"&gt;matplotlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Qt4Agg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; \&lt;span class="c"&gt;# Probably most people dont need this line&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;portfolio&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;           &lt;span class="n"&gt;Portfolio&lt;/span&gt;
+&lt;span class="n"&gt;Date&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;  &lt;span class="mi"&gt;1000000&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;   &lt;span class="mi"&gt;998785&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;  &lt;span class="mi"&gt;1002940&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;  &lt;span class="mi"&gt;1004815&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;  &lt;span class="mi"&gt;1009415&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;  &lt;span class="mi"&gt;1011935&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;  &lt;span class="mi"&gt;1031495&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;  &lt;span class="mi"&gt;1031935&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt;  &lt;span class="mi"&gt;1030775&lt;/span&gt;
+&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;  &lt;span class="mi"&gt;1046815&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Simulated portfolio value" src="/images/blog/2012/12/finance02/portfolio_value.png" title="Simulated portfolio value" /&gt;&lt;/p&gt;
+&lt;h2&gt;Basic Utils&lt;/h2&gt;
+&lt;p&gt;With the portfolio ready we can get some info about it, for example the
+total return and sharpe ratio.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Total Return:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;total_return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;portfolio&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Portfolio&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sharpe_ratio&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;portfolio&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;extraAnswers&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Which prints:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Total&lt;/span&gt; &lt;span class="n"&gt;Return&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.1338600000000001&lt;/span&gt;
+
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;std&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.0071901402219816928&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;sharpe_ratio&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;1.1836398092874625&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mean&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.0005493527495690362&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Next step is to implement an Event Profiler to solve Homework 4.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Where to find the code?&lt;/strong&gt; On github: &lt;a href="https://github.com/danielfrg/PythonFinance"&gt;PythonFinance&lt;/a&gt;&lt;/p&gt;</summary><category term="cousera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry><entry><title>Python Finance Package v0.01 - Data Manager</title><link href="/blog/2012/12/13/python-finance-package-v0-01-data-manager/" rel="alternate"></link><updated>2012-12-13T12:59:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-12-13:blog/2012/12/13/python-finance-package-v0-01-data-manager/</id><summary type="html">&lt;p&gt;I have learned a lot from my most recent Coursera Course: &lt;a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing - Part 1"&gt;Computational
+Investing Part 1&lt;/a&gt;. The language used on the class is Python so I
+couldn't be happier; we are using a package called &lt;a href="http://wiki.quantsoftware.org/index.php?title=QuantSoftware_ToolKit" title="QSTK"&gt;QSTK&lt;/a&gt;developed by
+some people at Georgia Tech, how also is responsible for the class.&lt;/p&gt;
+&lt;p&gt;The quality of the package is amazing, has a tons of features, but one
+area I notice the package to has to be improved is the data downloading
+and management.&lt;/p&gt;
+&lt;p&gt;I decide to write some python scripts to help me with this problem, and
+later on I decide to write a very simple Python Package with a few utils
+to help me on this class and future finance projects. A little bit an
+alternative to QSTK and a little bit a complement for it.&lt;/p&gt;
+&lt;p&gt;At the same time I decide to make the jump from Python 2.7 to Python
+3.2, this makes QSTK useless for now. The transition from 2.7 to 3.2 was
+very smooth, I still write &lt;code&gt;print var&lt;/code&gt; instead of &lt;code&gt;print(var)&lt;/code&gt; a &lt;strong&gt;lot&lt;/strong&gt;
+of times but is a minor issue.&lt;/p&gt;
+&lt;p&gt;For now the package only has the Data Management part but yesterday I
+finished my final exams so I have a little bit of time to work on this.&lt;/p&gt;
+&lt;h2&gt;How it works&lt;/h2&gt;
+&lt;p&gt;You tell the symbol/symbols, dates  and the fields (columns) you want
+from the stocks. The package automatically downloads the information
+from Yahoo! Finance and loads the information into a Pandas DataFrame.
+Before downloading the package checks if the information is already
+downloaded looking into already downloaded information, and
+optional (default True) saves a pickled version of the DataFrame to load
+faster the next time.&lt;/p&gt;
+&lt;h2&gt;Example&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;finance.data&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;DataAccess&lt;/span&gt;
+
+&lt;span class="n"&gt;da&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DataAccess&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;./data/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;symbols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;AAPL&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;GLD&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;GOOG&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;SPY&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;XOM&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;start_date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;end_date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2009&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fields&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Close&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;close&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;da&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;symbols&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;start_date&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;end_date&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fields&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Little Benchmark&lt;/h3&gt;
+&lt;p&gt;Just using &lt;code&gt;clock()&lt;/code&gt; and &lt;code&gt;time()&lt;/code&gt; to see if it was worth it. It is.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Directory&lt;/span&gt; &lt;span class="n"&gt;empty&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Download&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;save&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;stocks&lt;/span&gt;
+    &lt;span class="mf"&gt;1.4336301090943933&lt;/span&gt; &lt;span class="mf"&gt;1.434000015258789&lt;/span&gt;
+&lt;span class="n"&gt;Load&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;stocks&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;
+    &lt;span class="mf"&gt;0.023402424167761726&lt;/span&gt; &lt;span class="mf"&gt;0.023000001907348633&lt;/span&gt;
+&lt;span class="n"&gt;Load&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;stocks&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;serialized&lt;/span&gt;
+    &lt;span class="mf"&gt;0.0007370202310554852&lt;/span&gt; &lt;span class="mf"&gt;0.0009999275207519531&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Where to find the code&lt;/h2&gt;
+&lt;p&gt;On github: &lt;a href="https://github.com/danielfrg/PythonFinance" title="PythonFinance"&gt;PythonFinance&lt;/a&gt;. This is such a small package is necessary
+to manually download it and put it on a folder where you have other
+python packages.&lt;/p&gt;
+&lt;p&gt;I use sublime text so I have this on my &lt;code&gt;Python.sublime-build&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;env&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;PYTHONPATH&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Users&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Daniel&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Documents&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;projects&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;packages&amp;quot;&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;cmd&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;pythonw&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;-u&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$file&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;file_regex&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;^[ ]*File &lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;(...*?)&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;, line ([0-9]*)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;selector&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;source.python&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="coursera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry><entry><title>Using cloud9 to save computing power and to code from everywhere too</title><link href="/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/" rel="alternate"></link><updated>2012-11-03T14:46:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-11-03:blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/</id><summary type="html">&lt;p&gt;I am taking my second course on &lt;a href="https://www.coursera.org/" title="Coursera"&gt;Coursera&lt;/a&gt; Computational Investing -
+Part 1; pretty fun so far. The homework 1 was to find a portfolio of 4
+equities with the best (highest) Sharpe ratio from 2011. With a little
+bit of coding in python I was able to download all SPY stocks and loop
+through out the different combinations of them with different weights to
+find the best portfolio. The problem I found was that my PC is to slow
+for this task :(&lt;/p&gt;
+&lt;p&gt;First I have to said I am not an algorithm expert so the process is
+linear, but I was able to optimize a little bit the process by loading
+into memory first all the data and some other little stuff that makes
+the calculation faster; that is from 1 1/2 minutes initially to 30
+seconds combining 5 stocks. And I was able to combine up to 8 stocks on
+my PC without any problem but when I try to combine more than 8 well it
+was so much for my PC; I even take a shower and the calculation wasn't
+over, that is my limit :P&lt;/p&gt;
+&lt;p&gt;There are solutions to make this type of calculation on the cloud such
+as &lt;a href="http://www.picloud.com/" title="PiCloud"&gt;PiCloud&lt;/a&gt; a service that I am definitely going to try out soon but
+I found &lt;a href="https://c9.io/" title="Cloud9"&gt;cloud9&lt;/a&gt; was a solution to this problem too.&lt;/p&gt;
+&lt;p&gt;Cloud 9 says they are the Google Docs for code and they really are.
+Initially I had my doubts about the online editor mainly because I love
+&lt;a href="http://www.sublimetext.com/" title="Sublime Text"&gt;Sublime text&lt;/a&gt;, and yes it is not so powerful as sublime but is
+&lt;strong&gt;very&lt;/strong&gt; good. But the features such the Github integration and the
+online terminal sold me the service ;I test it and didn't disappoint me.&lt;/p&gt;
+&lt;p&gt;I was able with one-click to clone the repository on my Github and run
+the code on their infrastructure (powered by &lt;a href="https://openshift.redhat.com/app/" title="OpenShift"&gt;OpenShift&lt;/a&gt;) with no
+problems at all. Just need to install the required libraries (&lt;a href="http://numpy.scipy.org/" title="numpy"&gt;numpy&lt;/a&gt;
+- running&lt;em&gt;easy_install numpy&lt;/em&gt;) and then it was as simple as run &lt;em&gt;python
+portfolio.py&lt;/em&gt; and see the code running much faster than on my PC.&lt;/p&gt;
+&lt;p&gt;Also the ability to run the code and edit it from everywhere is amazing.
+I was able to connect from my University and keep testing better
+portfolios. On the image below I ran 83 iteration of the code in less
+than 3 seconds, on my PC takes 20 seconds or more. The max number of
+iterations I ran was up to 250k taking up to 8 minutes. And after
+modifying the code I was able to push from Cloud9 directly to my Github
+and back to my PC. Git makes the flow is very smooth and the terminal
+from Cloud9 good enough for that and more.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Django UI" src="/images/blog/2012/11/cloud9/comp-investing-cloud9-google-chrome_001.png" title="Running code in the Cloud9 Terminal" /&gt;&lt;/p&gt;
+&lt;p&gt;The service has some problems, sometimes the terminal goes crazy for no
+reason (that I could find) and I had to refresh the page, but in general
+works great.&lt;/p&gt;
+&lt;p&gt;I found this a very easy way to execute code on the cloud saving
+computing power and getting faster responses. Next I want to try
+&lt;a href="http://www.picloud.com/" title="PiCloud"&gt;PiCloud&lt;/a&gt; and &lt;a href="https://openshift.redhat.com/app/" title="OpenShift"&gt;OpenShift&lt;/a&gt; directly.&lt;/p&gt;
+&lt;p&gt;The code for the computational investing is on &lt;a href="https://github.com/dfrodriguez143/comp-investing" title="Computational Investing on Github "&gt;my Github&lt;/a&gt; if anyone
+is interested, is going to be updated as the course goes through.&lt;/p&gt;</summary><category term="cloud9"></category><category term="computational investing"></category><category term="coursera"></category><category term="numpy"></category><category term="python"></category></entry><entry><title>Making your own DDNS with Django and AppFog</title><link href="/blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/" rel="alternate"></link><updated>2012-10-20T21:45:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-10-20:blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/</id><summary type="html">&lt;p&gt;I love web-apps as the data is always in sync magically via the cloud, but
+sometimes I just need to access my computer via remote access to use
+some app, get some file or just to start downloading some torrents(shh).
+Remember/Email/Evernote
+a changing
+&lt;abbr style="text-align:justify;" title="Wide area network IP"&gt;WAN
+IP&lt;/abbr&gt; is tedious that is were a
+&lt;abbr style="text-align:justify;" title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt;
+comes in. My previous and old Belkin router had a bunch of options for
+&lt;abbr style="text-align:justify;" title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt;s
+fortunately one was free; unfortunately
+and unbelievable my new &lt;a href="http://www.belkin.com/us/p/P-F9K1103" title="Belkin N750"&gt;Belkin N750 DB router&lt;/a&gt; has only one option:
+&lt;a href="http://dyn.com/dns/" title="Dyn"&gt;Dyn&lt;/a&gt; which is not free :(.&lt;/p&gt;
+&lt;p&gt;So I decide to make my own
+&lt;abbr title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt; with &lt;a href="https://www.djangoproject.com" title="Django"&gt;Django&lt;/a&gt; and
+with a free &lt;abbr title="Platform as a Service"&gt;PaaS&lt;/abbr&gt;.
+&lt;!--more--&gt;
+The first decision was to select a
+&lt;abbr title="Platform as a Service"&gt;PaaS&lt;/abbr&gt; and there are a lot of
+option currently; the list got narrowed because I needed a
+free &lt;abbr title="Platform as a Service"&gt;PaaS&lt;/abbr&gt; for such a simple
+and small app that it is just for me. Some options were: &lt;a href="https://openshift.redhat.com/app/" title="Open Shift"&gt;OpenShift&lt;/a&gt;
+from Red Hat, &lt;a href="https://www.dotcloud.com/" title="dotCloud"&gt;dotCloud&lt;/a&gt; which looks pretty good but not so simple to
+use and never understand if is really free or not, and other thousand
+options that are paid and free. I choose &lt;a href="http://appfog.com" title="appfog"&gt;AppFog&lt;/a&gt; because I recently
+read that they acquire Nodster (which I loved) and the service is &lt;strong&gt;so
+simple&lt;/strong&gt; to use; just what I needed for this project.&lt;/p&gt;
+&lt;p&gt;The project consist on two parts; The first one is a Django server which
+stores previous IPs and acts as the DDNS domain and the second one is a
+python script that get the WAN IP and request the server to store it.&lt;/p&gt;
+&lt;h2&gt;1. Django Server on AppFog&lt;/h2&gt;
+&lt;p&gt;Create the app on AppFog (2 clicks via its web app), download the code
+via its &lt;abbr title="Command Line Interface"&gt;CLI&lt;/abbr&gt; (&lt;a href="http://blog.appfog.com/getting-started-with-appfogs-command-line/" title="AppFog CLI help"&gt;help&lt;/a&gt;) and
+create a new Django app called &lt;em&gt;ddns&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: AppFog
+currently runs Django 1.3.1 (current version is 1.4) be sure to look at
+the correct &lt;a href="https://docs.djangoproject.com/en/1.3/intro/tutorial01/" title="Django Tutorial"&gt;tutorial/docs&lt;/a&gt; on their site.&lt;/p&gt;
+&lt;h3&gt;1.1 Create Django users on AppFog&lt;/h3&gt;
+&lt;p&gt;Since it is not possible to do an SSH connection on AppFog (to run
+commands from the terminal to create the users to access the admin web
+interface; wow 3 to's on a single phrase that needs to be some kind of
+record) the simplest solution I could find was to create the with a view
+and then access it  with a URL to create the user, and then change the
+password ;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;createuser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;authenticate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;daniel&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;pass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;User already created ;)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create_user&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;daniel&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;daniel@ctrl68.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;pass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_staff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_superuser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;User created! :)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exc_info&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Couldnt&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;&amp;#39; create user :(&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;1.2 Models&lt;/h3&gt;
+&lt;p&gt;Just one model to store the IPs by date:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;IP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;IP&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DateTimeField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;date&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__unicode__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; @ &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ctime&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Meta&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;get_latest_by&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;date&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;1.3 Other Views&lt;/h3&gt;
+&lt;p&gt;index which does nothing, one to add new IP addresses available via POST
+or GET requests, and one to redirect to the latest IP.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;loader&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;context&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Context&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="s"&gt;&amp;#39;var&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="p"&gt;})&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;addip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GET&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ip&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;POST&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ip&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ip_txt&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ip_txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+      &lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+      &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;IP &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; added.&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;ip_txt&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;No IP.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Couldnt add &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; to db.&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;ip_txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;redirect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;latest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;date&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponseRedirect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;1.4 Fix Django Admin on AppFog&lt;/h3&gt;
+&lt;p&gt;The Django Admin on AppFog doesn't load the CSS from static files
+correctly I found a solution that is probably not the best but for such
+a small project, well it is OK. On the main urls.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib.staticfiles.urls&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;staticfiles_urlpatterns&lt;/span&gt;
+&lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;staticfiles_urlpatterns&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Django UI" src="/images/blog/2012/10/django-ddns-appfog/2012-10-20_22h07_15.png" title="How it looks on the admin interface" /&gt;&lt;/p&gt;
+&lt;h2&gt;2. Python Script&lt;/h2&gt;
+&lt;p&gt;The other part is a python script which reads &lt;a href="http://automation.whatismyip.com/n09230945.asp" title="WAN IP detector"&gt;this&lt;/a&gt; page; a nice page
+that the people of &lt;a href="http://whatismyip.com" title="whatismyip.com"&gt;whatismyip.com&lt;/a&gt; create to help automation
+processes like this one.&lt;/p&gt;
+&lt;p&gt;It makes a GET request to the Django app and also saves a file on
+&lt;a href="http://dropbox.com" title="Dropbox"&gt;Dropbox&lt;/a&gt; (before this I was using Dropbox as a temporally solution).
+All inside a while True with a sleep of 10 minutes.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Script" src="/images/blog/2012/10/django-ddns-appfog/2012-10-20_22h06_431.png" title="Output from the script" /&gt;&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Thats it! Now I can access my PC from daniel-pc.aws.af.cm - no DDoS please :P
+I want to look more other PaaS solutions, mainly OpenShift, more coming soon.&lt;/p&gt;
+&lt;p&gt;Complete code is on &lt;a href="https://github.com/dfrodriguez143/django-ddns" title="Django DDNS on Github"&gt;github&lt;/a&gt;.&lt;/p&gt;</summary><category term="appFog"></category><category term="DDNS"></category><category term="django"></category><category term="python"></category></entry><entry><title>Desktop app to easily create new tasks on all task management web apps</title><link href="/blog/2012/10/14/desktop-app-to-easily-create-new-tasks/" rel="alternate"></link><updated>2012-10-14T23:51:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-10-14:blog/2012/10/14/desktop-app-to-easily-create-new-tasks/</id><summary type="html">&lt;p&gt;Recently I have been looking for new ways of manage my tasks, looking
+for being more productive and organized with my
+master, &lt;a href="http://coursera.org/"&gt;coursera&lt;/a&gt; courses, blog and programming tasks. I am a huge
+fan of web apps and the past week I tried almost every (decent = nice
+landing page) app on the internet, just to name a
+few: &lt;a href="http://do.com/"&gt;do&lt;/a&gt;, &lt;a href="http://doit.im/"&gt;doit&lt;/a&gt;, &lt;a href="http://producteev.com/"&gt;producteev&lt;/a&gt;, &lt;a href="http://orchestra.com/"&gt;orchestra&lt;/a&gt;, &lt;a href="http://wunderlist.com/"&gt;wunderlist&lt;/a&gt;, &lt;a href="http://asana.com/"&gt;asana&lt;/a&gt;,
+&lt;a href="http://42tasks.com/"&gt;42tasks&lt;/a&gt; to finally choose &lt;a href="http://nirvanahq.com/"&gt;nirvana&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I selected nirvana because it was the best GTD app I could find and the UI
+(very important to me) is pretty good. I haven't read a lot about GTD,
+mostly a few videos, but the methodology have been working really great
+for me and I have notice a big boost to my organization, before I was
+using only Google Calendar. The inbox, next, waiting, schedule, someday
+and projects lists are a very good way of organize tasks.&lt;/p&gt;
+&lt;p&gt;Even though I love web apps because I can access them from everywhere
+one big disadvantage of a GTD web app is the task creation process: type
+the URL, wait for the app to load and then write the new task. The
+solution most web GTD apps have done is to allow the creation of tasks
+via email this is good but it is not enough if want to really follow the
+GTD approach. The task creation need to be really fast, collect first
+and then organize. Having the app on one tab all the time to gain some
+seconds is not a solution.&lt;/p&gt;
+&lt;p&gt;I wanted to use GTD the way it is supposed to so I create a little app
+to create task fast via email, so it works on nivana and any other major
+task management app that have the option of create tasks via email.&lt;/p&gt;
+&lt;p&gt;I am a web (HTML5, JS, Django, etc...) fan and try to use web
+technologies in most on my projects but the web is not there yet and a
+native solution was necessary. I am a python fan, but not even close to
+an expert and before this little project never use it to create a
+desktop application with UI.&lt;/p&gt;
+&lt;p&gt;It was really fun to make a desktop app again, almost 3 years have
+passed since my time with Java in college. The UI library I select
+was &lt;a href="http://wxpython.org/"&gt;wxPython&lt;/a&gt; just because it makes sense with what I already knew
+from java: the use of grids, vertical and horizontal boxes... also a
+pretty decent documentation, support and fits the requirements I had for
+the app. Honorable mention to &lt;a href="http://kivy.org/"&gt;kivy&lt;/a&gt; that looks good but couldn't make
+it work.&lt;/p&gt;
+&lt;p&gt;The app is pretty simple: just a mailer application. Enter the username
+(gmail), password and email to send and start sending tasks to your
+favorite web task management app.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Settings window" src="/images/blog/2012/10/tasks-app/2012-10-13_23h20_48.png" title="Settings windows" /&gt;&lt;/p&gt;
+&lt;p&gt;As I said the speed was the most important requirement on this app, so
+it  uses a global hot-key (WIN+DEL, just because it works nice on my
+keyboard) to summon the application then only needs to write the new
+task, press enter and the app hides on the notification area with a
+pretty nice icon I get from somewhere. If no longer wants to create the
+task press &lt;em&gt;esc &lt;/em&gt;and it hides waiting to be called.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Main window" src="/images/blog/2012/10/tasks-app/2012-10-13_22h57_271.png" title="Main windows" /&gt;&lt;/p&gt;
+&lt;p&gt;Other stuff I learned from making this app was to &lt;a href="https://www.dlitz.net/software/pycrypto/"&gt;encrypt with
+AES&lt;/a&gt; for the password and to create a .exe via &lt;a href="http://py2exe.org/"&gt;py2exe&lt;/a&gt;. Cannot
+compile to other operating systems because I just don't have them.
+Programmers and download the source can run the app ;)&lt;/p&gt;
+&lt;p&gt;This is a very simple app but it has been working for me and probably
+will work for other person. Suggestions are always welcome.&lt;/p&gt;
+&lt;p&gt;The code is on &lt;a href="https://github.com/dfrodriguez143/newtask"&gt;github&lt;/a&gt; and a &lt;a href="https://github.com/dfrodriguez143/newtask/blob/master/dist.zip?raw=true"&gt;zip&lt;/a&gt; file with the
+compiled &lt;code&gt;.exe&lt;/code&gt; is available.&lt;/p&gt;</summary><category term="Python"></category><category term="Ecryption"></category><category term="AES"></category><category term="GTD"></category><category term="wxPython"></category><category term="pyexe"></category></entry><entry><title>Creating a blog in 2012</title><link href="/blog/2012/10/05/creating-a-blog-in-2012/" rel="alternate"></link><updated>2012-10-05T03:22:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-10-05:blog/2012/10/05/creating-a-blog-in-2012/</id><summary type="html">&lt;p&gt;Yes, I am creating a blog on October 5, 2012!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why?&lt;/strong&gt; Having a flu is one of the reasons. Other reason is that I and
+want to improve my English and have a lot of time to waste (not having a
+car on the US is hard). Also having a blog in 2012 is old-stylish
+and that is &lt;strong&gt;always &lt;/strong&gt;cool.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;About me: &lt;/strong&gt;Originally from Colombia and currently living in Frisco,
+TX (DFW Area) pursuing a Master in Information Technology and Management
+on the University of Texas at Dallas.&lt;/p&gt;
+&lt;p&gt;Dog lover, book reader, TV Series Fanatic and amateur gamer. Passionate
+about new technologies, always wanting to learn something new (mainly
+about technology). Hopes to keep writing for a long time.&lt;/p&gt;
+&lt;p&gt;-Dan&lt;/p&gt;</summary><category term="This blog"></category></entry></feed>

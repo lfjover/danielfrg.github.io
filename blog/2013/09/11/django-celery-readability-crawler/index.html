@@ -42,10 +42,10 @@
             <h1>Django + Celery + Readability = Python relevant content crawler</h1>
         </header>
         <div class='post-content'>
-            <p>I have written a <a href="http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/">few</a> <a href="http://danielfrg.github.io/blog/2013/04/01/nba-scraping-data/">posts</a>
+            <p>I have written a <a href="/blog/2013/08/20/relevant-content-blog-crawler/">few</a> <a href="/blog/2013/04/01/nba-scraping-data/">posts</a>
 about crawling content from the web. Mainly because I know the power of data
 and the biggest data source in the world is the web, Google knew it and we all now how they are
-doing. In my <a href="http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/">last post</a> I wrote about crawling relevant content
+doing. In my <a href="/blog/2013/08/20/relevant-content-blog-crawler/">last post</a> I wrote about crawling relevant content
 from blogs; It worked but what if I want an admin UI to control the crawling. What if I just put
 the crawler in an EC2 instance and just call it when I need to crawl.</p>
 <p>The solution was pretty simple thanks to some python projects.
@@ -216,12 +216,12 @@ I used <a href="http://www.rabbitmq.com/">rabbitmq</a> as the broker.</p>
 
 <h2>UI</h2>
 <p>The admin UI, using the <a href="http://djangosuit.com/">beautiful django suit</a>, looks like this.</p>
-<p><img alt="Home admin UI" src="/static/images/blog/2013/09/home_admin.png" title="Home admin UI" /></p>
+<p><img alt="Home admin UI" src="/images/blog/2013/09/django-crawler/home_admin.png" title="Home admin UI" /></p>
 <p>Note: don't ask me why is I am using that blog to test</p>
-<p><img alt="Blog admin UI" src="/static/images/blog/2013/09/blogs_admin.png" title="Blogs admin UI" /></p>
-<p><img alt="Posts admin UI" src="/static/images/blog/2013/09/posts_admin.png" title="Posts admin UI" /></p>
+<p><img alt="Blog admin UI" src="/images/blog/2013/09/django-crawler/blogs_admin.png" title="Blogs admin UI" /></p>
+<p><img alt="Posts admin UI" src="/images/blog/2013/09/django-crawler/posts_admin.png" title="Posts admin UI" /></p>
 <p>You can see the running tasks, or previous tasks.</p>
-<p><img alt="Tasks admin UI" src="/static/images/blog/2013/09/tasks.png" title="Tasks admin UI" /></p>
+<p><img alt="Tasks admin UI" src="/images/blog/2013/09/django-crawler/tasks.png" title="Tasks admin UI" /></p>
 <h2>Conclusion</h2>
 <p>I was pretty happy with this result. With very little effort I was able to build a quite complex
 system. PostgreSQL for the database, rabbitmq + celery for message/tasks queuing and finally
@@ -245,20 +245,12 @@ people can build amazing stuff faster and easier than ever.</p>
                 <i><time datetime="2013-09-11T00:00:00">11.09.2013</time></i>
             </li>
             <li>
-                <strong>In:</strong>
-                <a href="http://danielfrg.github.io/category/crawling.html">Crawling</a>
-            </li>
-            <li>
                 <strong>Tags:</strong>
-<a href="http://danielfrg.github.io/tag/python.html">python</a>
-<a href="http://danielfrg.github.io/tag/django.html">django</a>
-<a href="http://danielfrg.github.io/tag/celery.html">celery</a>
-<a href="http://danielfrg.github.io/tag/readability.html">readability</a>
-<a href="http://danielfrg.github.io/tag/crawling.html">crawling</a>
-            </li>
-            <li>
-                <strong>Written by:</strong>
-                <a href="http://danielfrg.github.io/author/daniel-rodriguez.html">Daniel Rodriguez</a>
+<a href="/tag/python.html">python</a>
+<a href="/tag/django.html">django</a>
+<a href="/tag/celery.html">celery</a>
+<a href="/tag/readability.html">readability</a>
+<a href="/tag/crawling.html">crawling</a>
             </li>
         </ul>
     </div>
