@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/11.atom.xml" rel="self"></link><id>/</id><updated>2013-11-17T00:00:00+00:00</updated><entry><title>NLP at scale: Semafor + salt + celery and more</title><link href="/blog/2013/11/17/nlp-scale-semafor-salt-celery-more/" rel="alternate"></link><updated>2013-11-17T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-11-17:blog/2013/11/17/nlp-scale-semafor-salt-celery-more/</id><summary type="html">&lt;p&gt;This posts describes the implementation of a simple system to parse web pages using SEMAFOR (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/11.atom.xml" rel="self"></link><id>/</id><updated>2013-11-17T00:00:00+00:00</updated><entry><title>NLP at scale: Semafor + salt + celery and more</title><link href="/blog/2013/11/17/nlp-scale-semafor-salt-celery-more/" rel="alternate"></link><updated>2013-11-17T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-11-17:blog/2013/11/17/nlp-scale-semafor-salt-celery-more/</id><summary type="html">&lt;p&gt;This posts describes the implementation of a simple system to parse web pages using &lt;a href="http://www.ark.cs.cmu.edu/SEMAFOR/"&gt;SEMAFOR&lt;/a&gt; (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.&lt;/p&gt;
 &lt;p&gt;The whole source can be found on github: &lt;a href="https://github.com/danielfrg/semafor-parsing"&gt;danielfrg/semafor-parsing&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The main idea is the following:&lt;/p&gt;
 &lt;ol&gt;
@@ -12,7 +12,7 @@
 &lt;/ol&gt;
 &lt;p&gt;The diagram below tries to describe the system.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="System" src="/images/blog/2013/11/semafor-dist/diagram.png" title="System description" /&gt;&lt;/p&gt;
-&lt;p&gt;If you dont know what semafor is take a look at the example demo or this is just a basic idea:&lt;/p&gt;
+&lt;p&gt;If you dont know what semafor is take a look at the &lt;a href="http://demo.ark.cs.cmu.edu/parse"&gt;example demo&lt;/a&gt; or this is just a basic example:&lt;/p&gt;
 &lt;p&gt;Input:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;There&amp;#39;s a Santa Claus!
 &lt;/pre&gt;&lt;/div&gt;
@@ -66,7 +66,7 @@
 &lt;h2&gt;Improvements to be made&lt;/h2&gt;
 &lt;p&gt;I am always looking for opportunities to improve and try new tools, this are some thing I would love to do.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;An alternative readability: I love the product, but I would &lt;strong&gt;love&lt;/strong&gt; to have the same output offline, I have tried &lt;strong&gt;tons&lt;/strong&gt; of boilerplate removal tools, in various languages (python,java,and more) but the best output is always readability.&lt;/li&gt;
+&lt;li&gt;An alternative to readability: I love the product, but I would &lt;strong&gt;love&lt;/strong&gt; to have the same output offline, I have tried &lt;strong&gt;tons&lt;/strong&gt; of boilerplate removal tools, in various languages (python,java,and more) but the best output is always readability.&lt;/li&gt;
 &lt;li&gt;Django integration with celery so one has an UI to call the tasks. I read that the integration has improved in &lt;a href="http://docs.celeryproject.org/en/latest/whatsnew-3.1.html#django-supported-out-of-the-box"&gt;celery 3.1&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Location of the documents: In general should be a good idea to crawl first and the do the semafor parsing. One of my previous posts: &lt;a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/"&gt;Django + Celery + Readability = Python relevant content crawler&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Location of the semafor output: A better place where analytics can be run easily, maybe a graph database. &lt;a href="http://www.neo4j.org/"&gt;Neo4j&lt;/a&gt; should be easy to get running and integrated, but havn't use it.&lt;/li&gt;

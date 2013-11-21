@@ -42,7 +42,7 @@
             <h1>NLP at scale: Semafor + salt + celery and more</h1>
         </header>
         <div class='post-content'>
-            <p>This posts describes the implementation of a simple system to parse web pages using SEMAFOR (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.</p>
+            <p>This posts describes the implementation of a simple system to parse web pages using <a href="http://www.ark.cs.cmu.edu/SEMAFOR/">SEMAFOR</a> (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.</p>
 <p>The whole source can be found on github: <a href="https://github.com/danielfrg/semafor-parsing">danielfrg/semafor-parsing</a></p>
 <p>The main idea is the following:</p>
 <ol>
@@ -55,7 +55,7 @@
 </ol>
 <p>The diagram below tries to describe the system.</p>
 <p><img alt="System" src="/images/blog/2013/11/semafor-dist/diagram.png" title="System description" /></p>
-<p>If you dont know what semafor is take a look at the example demo or this is just a basic idea:</p>
+<p>If you dont know what semafor is take a look at the <a href="http://demo.ark.cs.cmu.edu/parse">example demo</a> or this is just a basic example:</p>
 <p>Input:</p>
 <div class="highlight"><pre>There&#39;s a Santa Claus!
 </pre></div>
@@ -109,7 +109,7 @@
 <h2>Improvements to be made</h2>
 <p>I am always looking for opportunities to improve and try new tools, this are some thing I would love to do.</p>
 <ul>
-<li>An alternative readability: I love the product, but I would <strong>love</strong> to have the same output offline, I have tried <strong>tons</strong> of boilerplate removal tools, in various languages (python,java,and more) but the best output is always readability.</li>
+<li>An alternative to readability: I love the product, but I would <strong>love</strong> to have the same output offline, I have tried <strong>tons</strong> of boilerplate removal tools, in various languages (python,java,and more) but the best output is always readability.</li>
 <li>Django integration with celery so one has an UI to call the tasks. I read that the integration has improved in <a href="http://docs.celeryproject.org/en/latest/whatsnew-3.1.html#django-supported-out-of-the-box">celery 3.1</a></li>
 <li>Location of the documents: In general should be a good idea to crawl first and the do the semafor parsing. One of my previous posts: <a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/">Django + Celery + Readability = Python relevant content crawler</a></li>
 <li>Location of the semafor output: A better place where analytics can be run easily, maybe a graph database. <a href="http://www.neo4j.org/">Neo4j</a> should be easy to get running and integrated, but havn't use it.</li>
