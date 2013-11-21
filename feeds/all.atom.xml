@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2013-10-31T00:00:00+00:00</updated><entry><title>Month-Log.oct.2013</title><link href="/blog/2013/10/31/month-log/" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-10-31:blog/2013/10/31/month-log/</id><summary type="html">&lt;p&gt;I've been busy with real work to write any specific posts for the blog but I realize it was
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2013-11-17T00:00:00+00:00</updated><entry><title>NLP at scale: Semafor + salt + celery and more</title><link href="/blog/2013/11/17/nlp-scale-semafor-salt-celery-more/" rel="alternate"></link><updated>2013-11-17T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-11-17:blog/2013/11/17/nlp-scale-semafor-salt-celery-more/</id><summary type="html">&lt;p&gt;This posts describes the implementation of a simple system to parse web pages using SEMAFOR (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.&lt;/p&gt;
+&lt;p&gt;The whole source can be found on github: &lt;a href="https://github.com/danielfrg/semafor-parsing"&gt;danielfrg/semafor-parsing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The main idea is the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We are going to have one master box that has: salt master + celery worker that is going to be waiting for tasks&lt;/li&gt;
+&lt;li&gt;When the master receives a query (list of urls to parse) is going to spin up N number of minions/workers using boto and is going to provision all of them using salt&lt;/li&gt;
+&lt;li&gt;Each minion/worker is going to have SEMAFOR and a celery worker waiting for parsing tasks&lt;/li&gt;
+&lt;li&gt;The master creates a set of parsing tasks based on the number of docs and number of instances&lt;/li&gt;
+&lt;li&gt;Each minion/worker parses the document first using the readability API to get text content from HTML then tokenizing the text into sentences using NLTK and finally parses the sentences using SEMAFOR&lt;/li&gt;
+&lt;li&gt;Each minion/worker uploads the results to S3&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The diagram below tries to describe the system.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="System" src="/images/blog/2013/11/semafor-dist/diagram.png" title="System description" /&gt;&lt;/p&gt;
+&lt;p&gt;If you dont know what semafor is take a look at the example demo or this is just a basic idea:&lt;/p&gt;
+&lt;p&gt;Input:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;There&amp;#39;s a Santa Claus!
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;frames&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:[{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;target&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Existence&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;spans&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:[{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;start&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;end&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;There &amp;#39;s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}]},&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;annotationSets&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:[{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;rank&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;score&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;52.10168633235354&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;frameElements&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:[{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Entity&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;spans&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:[{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;start&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;end&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;a Santa Claus&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}]}]}]}],&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;tokens&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;There&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;#39;s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Santa&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Claus&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The basic idea is: &lt;em&gt;"Existing"&lt;/em&gt; is related to &lt;em&gt;"There 's"&lt;/em&gt; and &lt;em&gt;"Entity"&lt;/em&gt; is related to &lt;em&gt;"a Santa Claus"&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;How to run this?&lt;/h2&gt;
+&lt;p&gt;Very simple, only need to get running the master box. Other options are described in the project README but the easiest way is to use vagrant with the AWS provider, just need to run &lt;code&gt;vagrant up --provider aws&lt;/code&gt; in the master directory, this is going to provision the master box.&lt;/p&gt;
+&lt;p&gt;When the box is ready just ssh (&lt;code&gt;vagrant ssh&lt;/code&gt;) and:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Edit &lt;code&gt;~/semafor/master/app/master/settings.py&lt;/code&gt; OR create/edit &lt;code&gt;~/semafor/master/app/local_settings.py&lt;/code&gt; to look like this.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;S3_PATH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;WHERE THE SEMAFOR FILES WILL BE UPLOADED&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;AWS_ACCESS_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;AWS ACCOUNT KEY&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;AWS_SECRET_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;AAWS ACCOUNT SECRET&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;READABILITY_TOKEN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;READABILITY API TOKEN&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;SALT_MASTER_PUBLIC_ADDRESS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;THE IP OF THE MASTER&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;LUIGI_CENTRAL_SCHEDULER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;THE IP OF THE LUIGI SCHEDULER, CAN BE THE SAME SALT MASTER&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;Run celery worker: &lt;code&gt;cd ~/semafor/app/master/&lt;/code&gt; and &lt;code&gt;sh start_worker.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Everything is ready now!&lt;/p&gt;
+&lt;p&gt;Get some URLS you want to parse and call the celery task &lt;code&gt;semafor_parse(urls, n_instances=1)&lt;/code&gt;. A helper script is provided in &lt;code&gt;semafor/master/test.py&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;How it looks&lt;/h2&gt;
+&lt;p&gt;This are some screenshots I took while running it:&lt;/p&gt;
+&lt;p&gt;EC2 dashboard when creating 10 instances&lt;/p&gt;
+&lt;p&gt;&lt;img alt="EC2 instances" src="/images/blog/2013/11/semafor-dist/instances_ec2.png" title="EC2 instances" /&gt;&lt;/p&gt;
+&lt;p&gt;Log on celery when creating 10 instances&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Instances log" src="/images/blog/2013/11/semafor-dist/instances_log.png" title="Instances log" /&gt;&lt;/p&gt;
+&lt;p&gt;Celery log when the instances are provisioned via salt and the celery workers are connected
+&lt;img alt="Celery workers log" src="/images/blog/2013/11/semafor-dist/celery_workers.png" title="Celery workers log" /&gt;&lt;/p&gt;
+&lt;p&gt;Luigi UI while running
+&lt;img alt="Luigi UI" src="/images/blog/2013/11/semafor-dist/luigi_summary.png" title="Luigi UI" /&gt;&lt;/p&gt;
+&lt;p&gt;Luigi dependency graph, really simple for this case.
+&lt;img alt="Luigi dependency graph" src="/images/blog/2013/11/semafor-dist/luigi_graph.png" title="Luigi dependency graph" /&gt;&lt;/p&gt;
+&lt;h2&gt;Discussion&lt;/h2&gt;
+&lt;p&gt;I used this opportunity to create a real-life example and keep learning (and loving) salt. At the same time I kept playing with celery and luigi that are 2 libraries that I love mainly because they solve very specific problems and are really easy to use.&lt;/p&gt;
+&lt;p&gt;The system took me a few nights and a weekend to build but I am very happy to the results, it was &lt;strong&gt;way&lt;/strong&gt; easier than I originally though and what makes me even happier is that a few months ago I would consider this a 2/3 month project but I did it in less than a week. Definitely using the right tool for the every step is crucial.&lt;/p&gt;
+&lt;p&gt;I cannot image to provision the EC2 instances in other way that is not salt, the states are not easy to understand at first but they are really powerful. Also not relying on AMIs was a requirement, they are nice in some cases but &lt;strong&gt;not&lt;/strong&gt; for reproducibility. Salt solves this.&lt;/p&gt;
+&lt;p&gt;Celery makes perfect sense when distributing tasks between different servers, and luigi is perfect for developing the data pipeline in every worker: download text + tokenizing + semafor parsing + upload output. Not to mention that develop the distributed tasks are really easy to develop using celery and the data pipeline is super easy to develop using luigi.&lt;/p&gt;
+&lt;p&gt;When building this distributed systems using celery I am always thinking: "I should do this on hadoop...” And I love and use hadoop but the reason I did it using other tools is simple: sometimes is just to hard to do it on hadoop... &lt;strong&gt;specially&lt;/strong&gt; when one needs to manage different steps, external tools and intermediate files such as the semafor output.&lt;/p&gt;
+&lt;p&gt;On this particular case one advantage is that semafor is written in Java so it should be "easy" to create some Hadoop job on Java, specially with semafor 3 (currently in alpha) that generates a handy .jar with everything in it. But to be honest I have no idea how to write a hadoop job in Java and I have zero interest in learning. I just want to use hadoop as a service, using pig, hive, MRJob or others. I didn’t want to mess with Java or the semafor source code I just wanted to use it and get the output, and in that case celery + luigi made it easy to develop.&lt;/p&gt;
+&lt;h2&gt;Improvements to be made&lt;/h2&gt;
+&lt;p&gt;I am always looking for opportunities to improve and try new tools, this are some thing I would love to do.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An alternative readability: I love the product, but I would &lt;strong&gt;love&lt;/strong&gt; to have the same output offline, I have tried &lt;strong&gt;tons&lt;/strong&gt; of boilerplate removal tools, in various languages (python,java,and more) but the best output is always readability.&lt;/li&gt;
+&lt;li&gt;Django integration with celery so one has an UI to call the tasks. I read that the integration has improved in &lt;a href="http://docs.celeryproject.org/en/latest/whatsnew-3.1.html#django-supported-out-of-the-box"&gt;celery 3.1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Location of the documents: In general should be a good idea to crawl first and the do the semafor parsing. One of my previous posts: &lt;a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/"&gt;Django + Celery + Readability = Python relevant content crawler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Location of the semafor output: A better place where analytics can be run easily, maybe a graph database. &lt;a href="http://www.neo4j.org/"&gt;Neo4j&lt;/a&gt; should be easy to get running and integrated, but havn't use it.&lt;/li&gt;
+&lt;li&gt;Progress bars are always nice, a solution as described &lt;a href="http://docs.celeryproject.org/en/latest/userguide/tasks.html#custom-task-classes"&gt;here&lt;/a&gt; and &lt;a href="https://djangosnippets.org/snippets/2898/"&gt;integration with django&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have any other suggestion, improvement or question leave a comment.
+Or did you ran this on the whole &lt;a href="http://www.lsi.upc.edu/~nlp/wikicorpus/"&gt;wikipedia&lt;/a&gt; and found something interesting? Let me know that to.&lt;/p&gt;</summary><category term="python"></category><category term="NLP"></category><category term="semafor"></category><category term="salt"></category><category term="celery"></category><category term="luigi"></category><category term="vagrant"></category></entry><entry><title>Month-Log.oct.2013</title><link href="/blog/2013/10/31/month-log/" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-10-31:blog/2013/10/31/month-log/</id><summary type="html">&lt;p&gt;I've been busy with real work to write any specific posts for the blog but I realize it was
 a productive month. I worked a lot and learned quite a few things and  new technologies and
 I have some thoughts about them, I usually use twitter to share simple thoughts but they usually get
 lost on the noise.&lt;/p&gt;
