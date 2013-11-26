@@ -1,21 +1,26 @@
+.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
+  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+
 body {
-    font-family: "proxima_nova", Helvetica, Arial, sans-serif;
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
 a {
     color: #444;
     text-decoration: none;
-    border-bottom: #ddd 1px solid;
+    border-bottom: #CCC 1px solid;
 }
 
 a:hover {
-    color: #444;
+    color: #000;
     border-bottom: #000 1px solid;
 }
 
 p {
     margin: 10px auto;
-    // text-align: justify;
     font-size: 1em;
     line-height: 1.8;
 }
@@ -43,15 +48,19 @@ ul.double-list {
     .navbar {
         height: 22px;
         margin: 0 auto;
-        padding: 2px 0 0 0;
-        max-width: 160px;
+        padding: 0 0 0 0;
+        max-width: 210px;
 
         a {
             color: #333;
-            font-size: 0.95em;
-            padding: 2px;
-            text-decoration: none;
+            padding: 5px 5px 3px 5px;
+            border-bottom: none;
+
+            i {
+                font-size: 16.5px
+            }
         }
+
         a:hover {
             color: #FFF;
             background: #333;
@@ -59,13 +68,14 @@ ul.double-list {
     }
 }
 
-div.index {
+.index {
 
     p.intro {
         max-width: 850px;
         margin: 15px auto;
         padding: 0 10px;
         font-size: 3em;
+        font-weight: 300;
         line-height: 1em;
         margin-bottom: 0;
         color: #000;
@@ -211,18 +221,34 @@ div.index {
 
     .metadata {
         max-width: 750px;
-        margin: 10px auto 20px;
-        padding: 10px 10px 10px 50px;
-        background-color: #f8f8f8;
-        border: 1px solid #d2d2d2;
+        margin: 50px auto 50px;
+        padding: 20px 0;
+        border-top: 1px solid #AAA;
 
-        ul {
-            list-style: none;
-            padding: 0;
+        p {
+            font-size: 14px;
+        }
+    }
+
+    .social {
+        width: 100%;
+        min-height: 25px;
+        margin: 0 auto;
+        padding-top: 15px;
+
+        span {
             margin: 0;
-            li {
-                font-size: 14px;
-            }
+            padding: 0;
+        }
+
+        .span3 {
+            width: 25%;
+            float: left;
+        }
+
+        .hn iframe {
+            margin:-9px 0 0 -8px;
+            border: none;
         }
     }
 }
@@ -235,26 +261,8 @@ footer {
         display: none;
     }
 
-    .social {
-        max-width: 640px;
-        min-height: 50px;
-        margin: 0px auto;
-        padding: 15px 20px 0;
-
-        .span4 {
-            width: 31.914893617021278%;
-            *width: 31.861702127659576%;
-            float: left;
-        }
-
-        .hn iframe {
-            margin:-9px 0 0 -8px;
-            border: none;
-        }
-    }
-
     .comments {
-        margin: 15px auto 0;
+        margin: 0 auto;
         max-width: 1000px;
         padding: 40px 20px 0;
 
