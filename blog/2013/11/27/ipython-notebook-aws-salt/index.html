@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>One-liner to: Python scientific stack with IPython notebook on AWS | Daniel Rodriguez</title>
+
+        <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/normalize.min.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="navbar">
+                <a href="/" title="home"><i class="fa fa-home"></i></a>
+                <a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a>
+
+                    <a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a>
+
+                    <a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a>
+
+                    <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a>
+
+                    <a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a>
+
+                    <a href="mailto:df.rodriguez143@gmail.com" title="email me"><i class="fa fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div id="content">
+
+<div class="post">
+    <article>
+        <header>
+            <h1>One-liner to: Python scientific stack with IPython notebook on AWS</h1>
+        </header>
+        <div class='post-content'>
+            <p><strong>Problem:</strong> How many times have you needed to create a powerful EC2 instance with the the python scientific stack
+installed and the ipython notebook running? I have to do this at least 2 or 3 times every week.</p>
+<p>A simple solution is to have an AMI with all the libraries ready and create a new instance every time,
+you can even have the ipython notebook as an upstart service in ubuntu so it runs when the instance is ready.
+That was my previous solution, but that was before I learned <a href="http://saltstack.com/">salt</a>.</p>
+<p>The problem with the AMI solution is that it gets dated really quickly and while update it is not hard, it is
+annoying. Also having to login into AWS, look for the AMI and spin up and instance is annoying.</p>
+<p><strong>Solution:</strong> <a href="http://saltstack.com/">Salt</a> + <a href="http://continuum.io/downloads">Anaconda</a> + <a href="http://www.vagrantup.com/">Vagrant</a></p>
+<p>Salt will do the provisioning of the instance using states, that makes the updates of new instances simple as changing a YAML file.
+Anaconda is the best python scientific distribution I have found and the conda package manager is the perfect solution to install the scientific libraries, I don't want to compile numpy and scipy every time I create the instances, that takes at least 30 minutes.
+Vagrant is used to create the instance and provision it with salt using one command.</p>
+<p>Install conda using a salt states is pretty easy because salt has support for pip, and conda is pip
+installable (you have to run <code>conda init</code> after <code>pip install conda</code>) so is as simple as:</p>
+<div class="highlight"><pre><span class="n">pip</span><span class="o">-</span><span class="n">packages</span><span class="o">:</span>
+  <span class="n">pip</span><span class="p">.</span><span class="n">installed</span><span class="o">:</span>
+    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">root</span>
+    <span class="o">-</span> <span class="n">names</span><span class="o">:</span>
+      <span class="o">-</span> <span class="n">conda</span>
+    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
+      <span class="o">-</span> <span class="n">pkg</span><span class="o">:</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span>
+      <span class="o">-</span> <span class="n">pkg</span><span class="o">:</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
+
+<span class="n">conda</span><span class="o">-</span><span class="n">check</span><span class="o">:</span>
+  <span class="n">cmd</span><span class="p">.</span><span class="n">run</span><span class="o">:</span>
+    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">ubuntu</span>
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="s">&quot;[ -d /usr/conda-meta ] &amp;&amp; echo &#39;changed=no&#39; || echo &#39;changed=yes&#39;&quot;</span>
+    <span class="o">-</span> <span class="n">stateful</span><span class="o">:</span> <span class="n">True</span>
+    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
+      <span class="o">-</span> <span class="n">pip</span><span class="o">:</span> <span class="n">conda</span>
+
+<span class="cp"># This will create some files into /usr, needs root</span>
+<span class="n">conda</span><span class="o">-</span><span class="n">init</span><span class="o">:</span>
+  <span class="n">cmd</span><span class="p">.</span><span class="n">wait</span><span class="o">:</span>
+    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">root</span>
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="s">&quot;conda init&quot;</span>
+    <span class="o">-</span> <span class="n">watch</span><span class="o">:</span>
+        <span class="o">-</span> <span class="n">cmd</span><span class="o">:</span> <span class="n">conda</span><span class="o">-</span><span class="n">check</span>
+</pre></div>
+
+
+<p>The main issue was that salt didn't have support for conda, so I <a href="http://github.com/danielfrg/salt-conda/blob/master/conda.py">wrote my first salt module</a> to manage conda virtual environments using salt.
+The code below will create a conda virtual env and
+install the ipython-notebook, numpy, scipy and pandas libraries using the conda repository
+also will install luigi (or any other python library you want) using regular pip.
+All of this will be inside the conda virtual env, because you <strong>should</strong> use virtual envs.</p>
+<div class="highlight"><pre><span class="n">venv</span><span class="o">:</span>
+  <span class="n">conda</span><span class="o">.</span><span class="na">managed</span><span class="o">:</span>
+    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">ubuntu</span>
+    <span class="o">-</span> <span class="n">pkgs</span><span class="o">:</span> <span class="n">ipython</span><span class="o">-</span><span class="n">notebook</span><span class="o">,</span><span class="n">numpy</span><span class="o">,</span><span class="n">scipy</span><span class="o">,</span><span class="n">pandas</span><span class="o">,</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
+      <span class="o">-</span> <span class="n">cmd</span><span class="o">:</span> <span class="n">conda</span><span class="o">-</span><span class="n">init</span>
+
+<span class="n">venv</span><span class="o">-</span><span class="n">pip</span><span class="o">:</span>
+  <span class="n">pip</span><span class="o">.</span><span class="na">installed</span><span class="o">:</span>
+    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">ubuntu</span>
+    <span class="o">-</span> <span class="n">names</span><span class="o">:</span>
+      <span class="o">-</span> <span class="n">luigi</span>
+    <span class="o">-</span> <span class="n">bin_env</span><span class="o">:</span> <span class="sr">/home/ubuntu/envs/venv/bin/</span><span class="n">pip</span>
+    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
+      <span class="o">-</span> <span class="n">conda</span><span class="o">:</span> <span class="n">venv</span>
+</pre></div>
+
+
+<p>I created another module to start the ipython notebook in the background since salt does not support this natively, the state looks like this:</p>
+<div class="highlight"><pre><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">vagrant</span><span class="o">/</span><span class="n">nbserver</span><span class="p">.</span><span class="n">pid</span><span class="o">:</span>
+  <span class="n">nbserver</span><span class="p">.</span><span class="n">start_server</span><span class="o">:</span>
+    <span class="o">-</span> <span class="n">ip</span><span class="o">:</span> <span class="mf">0.0.0.0</span>
+    <span class="o">-</span> <span class="n">port</span><span class="o">:</span> <span class="mi">80</span>
+    <span class="o">-</span> <span class="n">nb_dir</span><span class="o">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">notebooks</span>
+    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
+      <span class="o">-</span> <span class="n">conda</span><span class="o">:</span> <span class="n">venv</span>
+</pre></div>
+
+
+<p>The final peace of the puzzle is how to spin up the instance quickly, Vagrant with the AWS provider is the solution.</p>
+<p>Vagrant is mainly used for development, and I use it to develop this solution but it also has a nice
+integration with AWS, so on the <code>Vagrantfile</code> you only need to change the AWS credentials and the
+instance configuration.</p>
+<div class="highlight"><pre><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="no">VAGRANTFILE_API_VERSION</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="c1"># AWS Provider</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="ss">:aws</span> <span class="k">do</span> <span class="o">|</span><span class="n">aws</span><span class="p">,</span> <span class="n">override</span><span class="o">|</span>
+    <span class="n">aws</span><span class="o">.</span><span class="n">access_key_id</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">aws</span><span class="o">.</span><span class="n">secret_access_key</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">aws</span><span class="o">.</span><span class="n">keypair_name</span> <span class="o">=</span> <span class="s2">&quot;daniel_keypair&quot;</span>
+
+    <span class="n">aws</span><span class="o">.</span><span class="n">security_groups</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;default&quot;</span><span class="o">]</span>
+    <span class="n">aws</span><span class="o">.</span><span class="n">instance_type</span> <span class="o">=</span> <span class="s2">&quot;c3.xlarge&quot;</span>
+    <span class="n">aws</span><span class="o">.</span><span class="n">availability_zone</span> <span class="o">=</span> <span class="s2">&quot;us-east-a&quot;</span>
+    <span class="n">aws</span><span class="o">.</span><span class="n">ami</span> <span class="o">=</span> <span class="s2">&quot;ami-a73264ce&quot;</span>  <span class="c1"># Precise 12.04 64 bits</span>
+
+    <span class="n">override</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;dummy&quot;</span>
+    <span class="n">override</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;ubuntu&quot;</span>
+    <span class="n">override</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">private_key_path</span> <span class="o">=</span> <span class="s2">&quot;~/.ssh/my_keypair.pem&quot;</span>
+  <span class="k">end</span>
+</pre></div>
+
+
+<p>How you only need to run <code>vagrant up --provider aws</code> and it will create an instance and provision it
+with salt. Then just go to the URL of the EC2 instance and the notebook will be running in port 80.</p>
+<p>NOTE: Be sure to use a security group with port 22 and 80 open</p>
+<p>There are more things you can configure for your notebook such as passwords and more security, take a look <a href="https://gist.github.com/iamatypeofwalrus/5183133">here</a>. Also there are more solutions available
+such as <a href="https://www.wakari.io/">Continnums Wakari</a> that I personally think is an overkill, I am sure is perfect for some people but not for me.</p>
+<p>This solution gives you the notebook up and running in two minutes, and if you need more control on the instance you can just SSH to it and do whatever you want. Also you only pay the Amazon fees, so for my personal needs is the perfect solution.</p>
+<p>The whole code is on github: <a href="https://github.com/danielfrg/salt-conda">salt conda module</a>, look in <code>example/ipythonnb</code></p>
+        </div>
+    </article>
+
+    <div class="metadata">
+        <p>
+            <strong>Published:</strong>
+            <i><time datetime="2013-11-27T00:00:00">
+                November 27, 2013
+            </time></i>
+        </p>
+        <p>
+            <strong>Tags:</strong>
+                <a href="/tag/python.html">python</a>
+                <a href="/tag/aws.html">aws</a>
+                <a href="/tag/salt.html">salt</a>
+                <a href="/tag/ipython-notebook.html">ipython-notebook</a>
+        </p>
+
+    </div>
+</div>
+        </div>
+
+        <footer>
+
+    <div id="disqus_thread" class="comments container"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'danielfrg'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </footer>
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35523657-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+    </body>
+</html>
