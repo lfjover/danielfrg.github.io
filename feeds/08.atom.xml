@@ -1935,6 +1935,6 @@ In&amp;nbsp;[13]:
 &lt;p&gt;That is it! just need to call &lt;code&gt;crawl(blogs)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Q: I need to crawl faster!&lt;/p&gt;
 &lt;p&gt;A: One easy way to double the speed of crawling is to create another readbility account and &lt;a href="http://docs.python.org/2/library/itertools.html#itertools.cycle"&gt;cycle&lt;/a&gt; though the parsers or even better just contact readability ;)&lt;/p&gt;
-&lt;p&gt;Q: Why is this data usefull (spoiler of my next post)?&lt;/p&gt;
+&lt;p&gt;Q: Why is this data useful (spoiler of my next post)?&lt;/p&gt;
 &lt;p&gt;A: https://code.google.com/p/word2vec/&lt;/p&gt;
 &lt;/div&gt;</summary><category term="python"></category><category term="crawling"></category><category term="beautifulsoup"></category><category term="readability"></category></entry></feed>
