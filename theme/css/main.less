@@ -5,18 +5,17 @@
 }
 
 body {
-    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Merriweather', Georgia, serif;
 }
 
 a {
-    color: #444;
+    color: #307EA9;
     text-decoration: none;
-    border-bottom: #CCC 1px solid;
 }
 
 a:hover {
-    color: #000;
-    border-bottom: #000 1px solid;
+    color: #307EA9;
+    text-decoration: underline;
 }
 
 p {
@@ -92,24 +91,12 @@ ul.double-list {
         li {
             padding: 5px 0;
 
-            a {
-                display: block;
-            }
-
             h2 {
                 font-size: 0.9em;
                 display: inline;
                 font-weight: normal;
             }
 
-            span {
-                text-align: right;
-                float: right;
-                padding-top: 3px;
-                text-transform: uppercase;
-                font-size: 12px;
-                color: #999;
-            }
         }
     }
 }
@@ -159,7 +146,7 @@ ul.double-list {
 
     p.yellow, p.update {
         max-width: 700px;
-        background-color: #f8eab0;
+        background-color: #fef9c7;
         border-left: 8px solid #ecd163;
         padding: 7px 20px 7px 20px;
     }
@@ -187,7 +174,7 @@ ul.double-list {
 
     code {
         background-color: #f7f7f7;
-        border: 1px solid #e1e1e1;
+        border: 1px solid #ddd;
         padding: 2px 4px;
         font-size: 14px;
         white-space: nowrap;
@@ -228,50 +215,9 @@ ul.double-list {
         }
     }
 
-    .social {
-        width: 100%;
-        min-height: 25px;
-        margin: 0 auto;
-        padding-top: 15px;
-
-        span {
-            margin: 0;
-            padding: 0;
-        }
-
-        .span3 {
-            width: 25%;
-            float: left;
-        }
-
-        .hn iframe {
-            margin:-9px 0 0 -8px;
-            border: none;
-        }
-    }
 }
 
-footer {
-    background: #333333;
-    color: #fff;
-
-    a.dsq-brlink {
-        display: none;
-    }
-
-    .comments {
-        margin: 0 auto;
-        max-width: 1000px;
-        padding: 40px 20px 0;
-
-        a {
-            color: #FFF;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #FFF;
-            text-decoration: underline;
-        }
-    }
+#disqus_thread {
+    max-width: 900px;
+    margin: 0 auto;
 }

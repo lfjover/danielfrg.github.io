@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Python Finance Package v0.035 - Event study and market simulator Integration | Daniel Rodriguez</title>
+
+
+        <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="navbar">
+                <a href="/" title="home"><i class="fa fa-home"></i></a>
+                <a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a>
+
+                    <a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a>
+
+                    <a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a>
+
+                    <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a>
+
+                    <a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a>
+
+                    <a href="mailto:df.rodriguez143@gmail.com" title="email me"><i class="fa fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div id="content">
+
+<div class="post">
+    <article>
+        <header>
+            <h1>Python Finance Package v0.035 - Event study and market simulator Integration</h1>
+        </header>
+        <div class='post-content'>
+            <p>Ok, here come the first "Real Life" example. As I mention on previous
+posts my finance knowledge is mostly null so I cannot say this can be
+used on real life but what I found playing with the utils I have created
+is very interesting.</p>
+<p>If anyone use this techniques and win/lose money I would love to hear :P
+Also if anyone find discrepancies on the results <strong>please</strong> tell me.</p>
+<h2>Changes since last time</h2>
+<ol>
+<li><span style="line-height:13px;">Bug Fixes on Multiple Event Study:
+    Missing values are now filled: forward and then backwards.</span></li>
+<li>Multiple Event Studies: Graph with error bars (std)</li>
+<li>Integration between the Event Study Finder and Market Simulator</li>
+</ol>
+<h2>Example</h2>
+<ol>
+<li>Use the S&amp;P 500 symbols from 2012</li>
+<li>Look in all 2011 for events when the value of the stock went below
+    $5</li>
+<li>Discover how to use this opportunity to invest on the equities</li>
+<li>Simulate if we would make some money from that</li>
+</ol>
+<h3>1. Setup</h3>
+<p>In [1]: Imports</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">finance.utils</span> <span class="kn">import</span> <span class="n">BasicUtils</span>
+<span class="kn">from</span> <span class="nn">finance.utils</span> <span class="kn">import</span> <span class="n">FileManager</span>
+<span class="kn">from</span> <span class="nn">finance.utils</span> <span class="kn">import</span> <span class="n">ListUtils</span>
+<span class="kn">from</span> <span class="nn">finance.evtstudy</span> <span class="kn">import</span> <span class="n">EventFinder</span>
+<span class="kn">from</span> <span class="nn">finance.evtstudy</span> <span class="kn">import</span> <span class="n">MultipleEvents</span>
+<span class="kn">from</span> <span class="nn">finance.sim</span> <span class="kn">import</span> <span class="n">MarketSimulator</span>
+</pre></div>
+
+
+<p>In [2]: Download all the information on 2011 of all S&amp;P 500 equities on
+2012</p>
+<div class="highlight"><pre><span class="n">SP500_2012</span> <span class="o">=</span> <span class="n">ListUtils</span><span class="o">.</span><span class="n">SP500</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2012</span><span class="p">)</span>
+<span class="n">fm</span> <span class="o">=</span> <span class="n">FileManager</span><span class="p">()</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">SP500_2012</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Out [2]:</p>
+<div class="highlight"><pre><span class="mi">498</span>
+</pre></div>
+
+
+<h3>2. Event: Went Below 5 - One event per Equity</h3>
+<p>In [5]: Look for events</p>
+<div class="highlight"><pre><span class="n">evtf</span> <span class="o">=</span> <span class="n">EventFinder</span><span class="p">()</span>
+<span class="n">evtf</span><span class="o">.</span><span class="n">symbols</span> <span class="o">=</span> <span class="n">SP500_2012</span>
+<span class="n">evtf</span><span class="o">.</span><span class="n">start_date</span> <span class="o">=</span> <span class="n">start</span>
+<span class="n">evtf</span><span class="o">.</span><span class="n">end_date</span> <span class="o">=</span> <span class="n">end</span>
+<span class="n">evtf</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="n">evtf</span><span class="o">.</span><span class="n">went_below</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">evtf</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+</pre></div>
+
+
+<p>In [6]:</p>
+<div class="highlight"><pre><span class="n">evtf</span><span class="o">.</span><span class="n">num_events</span>
+</pre></div>
+
+
+<p>Out [6]: 5 Events where found</p>
+<div class="highlight"><pre><span class="mi">5</span>
+</pre></div>
+
+
+<p>In [7]: Analyse the 5 Events</p>
+<div class="highlight"><pre><span class="n">mevt</span> <span class="o">=</span> <span class="n">MultipleEvents</span><span class="p">()</span>
+<span class="n">mevt</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="n">evtf</span><span class="o">.</span><span class="n">list</span>
+<span class="n">mevt</span><span class="o">.</span><span class="n">market</span> <span class="o">=</span> <span class="s">&#39;SPY&#39;</span>
+<span class="n">mevt</span><span class="o">.</span><span class="n">lookback_days</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">mevt</span><span class="o">.</span><span class="n">lookforward_days</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">mevt</span><span class="o">.</span><span class="n">estimation_period</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">mevt</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+
+<p>In [8]: Graph the mean cumulative abnornal return</p>
+<div class="highlight"><pre><span class="n">mevt</span><span class="o">.</span><span class="n">mean_cumulative_abnormal_return</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="Mean Cumulative Abnormal Return" src="/images/blog/2012/12/finance035/mean_car.png" title="Mean Cumulative Abnormal Return" /></p>
+<p>The graph tell us that in average after the event (day 0) the return
+goes up, but what about the risk?</p>
+<p>In [9]: Print the Cumulative Abnormal Return with Error Bars</p>
+<div class="highlight"><pre><span class="n">mevt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s">&#39;car&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="Mean Cumulative Abnormal Return with error bars" src="/images/blog/2012/12/finance035/mean_car_error_bars.png" title="Mean Cumulative Abnormal Return with error bars" /></p>
+<p>Ok, the graph tell us that the risk is going up as the time passes, this
+was expected.
+Since we are looking the data in 2011 we can see what happen in
+reality.</p>
+<p>We use the market simulator but we create the orders from the event
+list.
+The instructions are:</p>
+<ol>
+<li>On the event day: Buy 100 shares</li>
+<li>20 days after the event: Sell the 100 Shares</li>
+<li>Initial cash = $1000</li>
+</ol>
+<p>In [10]: Use the market simulator</p>
+<div class="highlight"><pre><span class="n">sim</span> <span class="o">=</span> <span class="n">MarketSimulator</span><span class="p">(</span><span class="s">&#39;./data&#39;</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">Adj</span> <span class="n">Close</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">initial_cash</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">create_trades_from_event</span><span class="p">(</span><span class="n">evtf</span><span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="n">eventDayAction</span><span class="o">=</span><span class="s">&#39;Buy&#39;</span><span class="p">,</span>
+<span class="n">eventDayShares</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">actionAfter</span><span class="o">=</span><span class="s">&#39;Sell&#39;</span><span class="p">,</span> <span class="n">daysAfter</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">sharesAfter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">simulate</span><span class="p">()</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">trades</span>
+</pre></div>
+
+
+<p>Out [10]: This are the trades generated by the Simulator</p>
+<div class="highlight"><pre><span class="n">symbol</span> <span class="n">action</span>  <span class="n">num_of_shares</span>
+<span class="mi">2011</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">08</span>   <span class="n">HBAN</span>    <span class="n">Buy</span>     <span class="mi">100</span>
+<span class="mi">2011</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mo">06</span>   <span class="n">HBAN</span>    <span class="n">Sell</span>    <span class="mi">100</span>
+<span class="mi">2011</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">22</span>   <span class="n">GNW</span>     <span class="n">Buy</span>     <span class="mi">100</span>
+<span class="mi">2011</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mo">03</span>   <span class="n">AMD</span>     <span class="n">Buy</span>     <span class="mi">100</span>
+<span class="mi">2011</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">20</span>   <span class="n">GNW</span>     <span class="n">Sell</span>    <span class="mi">100</span>
+<span class="mi">2011</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">31</span>   <span class="n">AMD</span>     <span class="n">Sell</span>    <span class="mi">100</span>
+<span class="mi">2011</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">23</span>   <span class="n">HCBK</span>    <span class="n">Buy</span>     <span class="mi">100</span>
+<span class="mi">2011</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">19</span>   <span class="n">BAC</span>     <span class="n">Buy</span>     <span class="mi">100</span>
+<span class="mi">2011</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>   <span class="n">HCBK</span>    <span class="n">Sell</span>    <span class="mi">100</span>
+<span class="mi">2012</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">19</span>   <span class="n">BAC</span>     <span class="n">Sell</span>    <span class="mi">100</span>
+</pre></div>
+
+
+<p>In [11]: Graph of the portfolio value:</p>
+<div class="highlight"><pre><span class="n">sim</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">BasicUtils</span><span class="o">.</span><span class="n">total_return</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">portfolio</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Out [11]:</p>
+<div class="highlight"><pre><span class="mf">0.501</span>
+</pre></div>
+
+
+<p>I obtain 5 events and a total return of 0.501 with just 10 trades.</p>
+<p><img alt="Portfolio value for the events" src="/images/blog/2012/12/finance035/mean_car.png" title="Portfolio value for the events" /></p>
+<h3>3. Event: Went below 5 - more than one event per equity</h3>
+<p>From what I saw on the events when one event occurred more events
+occurred soon (less than 20 days later), that didn't look good for me
+that's why I tried first with no repeating events. But from my
+<a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing">computational investing</a> course I notice that they use all the events
+so I tried that to: The code is the same just change this on the event
+finder:</p>
+<div class="highlight"><pre><span class="n">evtf</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">oneEventPerEquity</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p>On this case I found 21 events with a total return of: 0.684; chart:</p>
+<p><img alt="Portfolio value for the events" src="/images/blog/2012/12/finance035/portfolio2.png" title="Portfolio value for the events" /></p>
+<h2>Conlusion</h2>
+<p>Also if anyone find discrepancies on the results <strong>please</strong> tell me.</p>
+<p>First, I obtain a total return of 0.501 with just 10 trades; that means
+that the final value of the portfolio was $1,501. When I saw this I was
+amazed, just buying shares of very cheap stocks (100 stocks @ &lt;$5 =
+500) and then selling those stocks 20 days later was possible to make
+$501 in just 6 months. Even more if use the second event study.</p>
+<p>Second, the utils works very well together and with a considerable
+amount of data, not just 2 equities as before.</p>
+<p>Third, <strong>I am rich! weee!</strong> Ok no, not really. But the results are
+<strong>very</strong> interesting, at least I was amazed, I never believe of finding
+a return greater than 0.5.</p>
+<p>The code + the complete example is on GitHub: <a href="https://github.com/danielfrg/PythonFinance" title="Python Finance Package">PythonFinance</a></p>
+<p>This is <strong>far</strong> from the end but the <a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing">computational investing</a> course
+ends with this example so I have no longer a source of inspiration, I am
+searching for book on quantitative finance to keep learning and
+developing the package.</p>
+        </div>
+    </article>
+
+    <div class="metadata">
+        <p>
+            <strong>Published:</strong>
+            <i><time datetime="2012-12-28T15:00:00">
+                December 28, 2012
+            </time></i>
+        </p>
+        <p>
+            <strong>Tags:</strong>
+                <a href="http://danielfrg.github.io/tag/coursera.html">coursera</a>
+                <a href="http://danielfrg.github.io/tag/finance.html">finance</a>
+                <a href="http://danielfrg.github.io/tag/pandas.html">pandas</a>
+                <a href="http://danielfrg.github.io/tag/python.html">python</a>
+                <a href="http://danielfrg.github.io/tag/computational-investing.html">computational investing</a>
+        </p>
+
+        <button id="comments-button" class="pure-button pure-button-primary"><i class="fa fa-comment"></i> Comments</button>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+(function () {
+
+    'use strict';
+
+    // Global object
+    var App = {};
+
+
+    // Create button
+    App.commentsButton = document.getElementById('comments-button');
+
+    App.commentsButton.onclick = function () {
+        // Remove button on click
+        App.commentsButton.onclick = function () {
+        }
+
+        // Create comments container
+        App.disqusContainer = document.createElement('div');
+        App.disqusContainer.setAttribute('id', 'disqus_thread');
+
+        // Append container to body
+        document.body.appendChild( App.disqusContainer );
+
+        // Your Disqus shortname
+        App.disqus_shortname = 'danielfrg';
+
+        // Embed Disqus
+        var dsq = document.createElement('script');
+
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
+
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    };
+
+})();
+</script>
+
+        </div>
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35523657-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+    </body>
+</html>
