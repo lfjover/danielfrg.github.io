@@ -364,17 +364,23 @@ Just type any word and the number of close word vectors you want and click the b
 On the list that it generates you can click on any word and it will give you the neighbors for that word.&lt;/p&gt;
 &lt;div ng-app="app"&gt;
     &lt;div ng-controller="MainCtrl"&gt;
-        &lt;form class="pure-form" style="max-width: 520px;"&gt;
+        &lt;form class="pure-form" style="max-width: 350px;"&gt;
             &lt;input type="text" ng-model="form_word"&gt;
             &lt;input type="number" ng-model="form_n"&gt;
             &lt;button class="pure-button pure-button-primary" ng-click="formRequest()"&gt;Request&lt;/button&gt;
         &lt;/form&gt;
-        &lt;ul class="double-list" style="max-width: 200px;"&gt;
-            &lt;li ng-repeat="word in words"&gt;
-                &lt;a href="#example" ng-click="listRequest(word.word)" eat-click&gt;{{word.word}}&lt;/a&gt;
-                &lt;span&gt;[{{word.distance}}]&lt;/span&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
+        &lt;table style="max-width: 350px;"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;word&lt;/th&gt;
+                    &lt;th&gt;distance&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tr ng-repeat="word in words"&gt;
+                &lt;td&gt;&lt;a href="#example" ng-click="listRequest(word.word)" eat-click&gt;{{word.word}}&lt;/a&gt;&lt;/td&gt;
+                &lt;td&gt;{{word.distance}}&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -424,7 +430,7 @@ var MainCtrl = function($scope, $http) {
 &lt;/script&gt;
 
 &lt;h2&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;Definitely some interesting new technologies and tools to keep and eye on. Thats to Google for
+&lt;p&gt;Definitely some interesting new technologies and tools to keep and eye on. Thanks to Google for
 open sourcing the code and thanks to yhat for a good product. I had to do something similar a few
 weeks ago and my solution was to use ZMQ to connect the rest endpoint with the actual
 classifier yhat makes that possible in 5% of the time.&lt;/p&gt;

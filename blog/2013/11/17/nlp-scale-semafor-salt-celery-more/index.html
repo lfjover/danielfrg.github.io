@@ -8,34 +8,17 @@
         <meta name="viewport" content="width=device-width">
         <title>NLP at scale: Semafor + salt + celery and more | Daniel Rodriguez</title>
 
-
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
         <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
     </head>
 
     <body>
-        <div class="header">
-            <div class="navbar">
-                <a href="/" title="home"><i class="fa fa-home"></i></a>
-                <a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a>
-
-                    <a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a>
-
-                    <a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a>
-
-                    <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a>
-
-                    <a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a>
-
-                    <a href="mailto:df.rodriguez143@gmail.com" title="email me"><i class="fa fa-envelope"></i></a>
-            </div>
-        </div>
-
         <div id="content">
 
 <div class="post">
@@ -119,24 +102,37 @@ Or did you ran this on the whole <a href="http://www.lsi.upc.edu/~nlp/wikicorpus
     </article>
 
     <div class="metadata">
-        <p>
-            <strong>Published:</strong>
-            <i><time datetime="2013-11-17T00:00:00">
-                November 17, 2013
-            </time></i>
-        </p>
-        <p>
-            <strong>Tags:</strong>
-                <a href="http://danielfrg.github.io/tag/python.html">python</a>
-                <a href="http://danielfrg.github.io/tag/nlp.html">NLP</a>
-                <a href="http://danielfrg.github.io/tag/semafor.html">semafor</a>
-                <a href="http://danielfrg.github.io/tag/salt.html">salt</a>
-                <a href="http://danielfrg.github.io/tag/celery.html">celery</a>
-                <a href="http://danielfrg.github.io/tag/luigi.html">luigi</a>
-                <a href="http://danielfrg.github.io/tag/vagrant.html">vagrant</a>
-        </p>
 
-        <button id="comments-button" class="pure-button pure-button-primary"><i class="fa fa-comment"></i> Comments</button>
+        <div class="left">
+            <ul>
+                <li>
+                    <time datetime="2013-11-17T00:00:00">
+                        November 17, 2013
+                    </time>
+                </li>
+                <li>
+                    Tags:
+                        <a href="http://danielfrg.github.io/tag/python.html">python</a>
+                        <a href="http://danielfrg.github.io/tag/nlp.html">NLP</a>
+                        <a href="http://danielfrg.github.io/tag/semafor.html">semafor</a>
+                        <a href="http://danielfrg.github.io/tag/salt.html">salt</a>
+                        <a href="http://danielfrg.github.io/tag/celery.html">celery</a>
+                        <a href="http://danielfrg.github.io/tag/luigi.html">luigi</a>
+                        <a href="http://danielfrg.github.io/tag/vagrant.html">vagrant</a>
+                </li>
+                <li>
+                    <a id="comments-button" href="#disqus_thread">Show/read comments</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/tags">All tags</a></li>
+            </ul>
+        </div>
+
     </div>
 
 </div>
@@ -176,6 +172,8 @@ Or did you ran this on the whole <a href="http://www.lsi.upc.edu/~nlp/wikicorpus
         dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
 
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        window.scrollTo(0, dsq.offsetTop - 200);
     };
 
 })();

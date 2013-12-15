@@ -8,11 +8,11 @@
         <meta name="viewport" content="width=device-width">
         <title>word2vec in yhat: Word vector similarity | Daniel Rodriguez</title>
 
-
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
         <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
@@ -21,23 +21,6 @@
     </head>
 
     <body>
-        <div class="header">
-            <div class="navbar">
-                <a href="/" title="home"><i class="fa fa-home"></i></a>
-                <a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a>
-
-                    <a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a>
-
-                    <a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a>
-
-                    <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a>
-
-                    <a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a>
-
-                    <a href="mailto:df.rodriguez143@gmail.com" title="email me"><i class="fa fa-envelope"></i></a>
-            </div>
-        </div>
-
         <div id="content">
 
 <div class="post">
@@ -137,17 +120,23 @@ Just type any word and the number of close word vectors you want and click the b
 On the list that it generates you can click on any word and it will give you the neighbors for that word.</p>
 <div ng-app="app">
     <div ng-controller="MainCtrl">
-        <form class="pure-form" style="max-width: 520px;">
+        <form class="pure-form" style="max-width: 350px;">
             <input type="text" ng-model="form_word">
             <input type="number" ng-model="form_n">
             <button class="pure-button pure-button-primary" ng-click="formRequest()">Request</button>
         </form>
-        <ul class="double-list" style="max-width: 200px;">
-            <li ng-repeat="word in words">
-                <a href="#example" ng-click="listRequest(word.word)" eat-click>{{word.word}}</a>
-                <span>[{{word.distance}}]</span>
-            </li>
-        </ul>
+        <table style="max-width: 350px;">
+            <thead>
+                <tr>
+                    <th>word</th>
+                    <th>distance</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="word in words">
+                <td><a href="#example" ng-click="listRequest(word.word)" eat-click>{{word.word}}</a></td>
+                <td>{{word.distance}}</td>
+            </tr>
+        </table>
     </div>
 </div>
 
@@ -197,7 +186,7 @@ var MainCtrl = function($scope, $http) {
 </script>
 
 <h2>Conclusions</h2>
-<p>Definitely some interesting new technologies and tools to keep and eye on. Thats to Google for
+<p>Definitely some interesting new technologies and tools to keep and eye on. Thanks to Google for
 open sourcing the code and thanks to yhat for a good product. I had to do something similar a few
 weeks ago and my solution was to use ZMQ to connect the rest endpoint with the actual
 classifier yhat makes that possible in 5% of the time.</p>
@@ -206,21 +195,34 @@ classifier yhat makes that possible in 5% of the time.</p>
     </article>
 
     <div class="metadata">
-        <p>
-            <strong>Published:</strong>
-            <i><time datetime="2013-09-21T00:00:00">
-                September 21, 2013
-            </time></i>
-        </p>
-        <p>
-            <strong>Tags:</strong>
-                <a href="http://danielfrg.github.io/tag/python.html">python</a>
-                <a href="http://danielfrg.github.io/tag/word2vec.html">word2vec</a>
-                <a href="http://danielfrg.github.io/tag/yhat.html">yhat</a>
-                <a href="http://danielfrg.github.io/tag/machine-learning.html">machine learning</a>
-        </p>
 
-        <button id="comments-button" class="pure-button pure-button-primary"><i class="fa fa-comment"></i> Comments</button>
+        <div class="left">
+            <ul>
+                <li>
+                    <time datetime="2013-09-21T00:00:00">
+                        September 21, 2013
+                    </time>
+                </li>
+                <li>
+                    Tags:
+                        <a href="http://danielfrg.github.io/tag/python.html">python</a>
+                        <a href="http://danielfrg.github.io/tag/word2vec.html">word2vec</a>
+                        <a href="http://danielfrg.github.io/tag/yhat.html">yhat</a>
+                        <a href="http://danielfrg.github.io/tag/machine-learning.html">machine learning</a>
+                </li>
+                <li>
+                    <a id="comments-button" href="#disqus_thread">Show/read comments</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/tags">All tags</a></li>
+            </ul>
+        </div>
+
     </div>
 
 </div>
@@ -260,6 +262,8 @@ classifier yhat makes that possible in 5% of the time.</p>
         dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
 
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        window.scrollTo(0, dsq.offsetTop - 200);
     };
 
 })();
