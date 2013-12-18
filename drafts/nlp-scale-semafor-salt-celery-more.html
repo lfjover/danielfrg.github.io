@@ -9,31 +9,16 @@
         <title>NLP at scale: Semafor + salt + celery and more | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-        <link rel="stylesheet" href="/theme/css/normalize.min.css">
-        <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
-        <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
-        <link rel="stylesheet" href="/theme/css/fonts/ss-standard.css">
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
     </head>
 
     <body>
-        <div class="header">
-            <div class="navbar">
-                <a href="/" class="ss-icon" title="home">home</a>
-                <a href="/tags.html" class="ss-icon" title="tags">tag</a>
-
-                    <a href="http://twitter.com/danielfrg" class="ss-icon ss-social" title="on twitter">twitter</a>
-
-                <a href="http://github.com/danielfrg" class="ss-icon ss-social" title="on github">octocat</a>
-
-                <a href="/feeds/all.atom.xml" class="ss-icon ss-social" title="rss feed">rss</a>
-
-                <a href="mailto:df.rodriguez143@gmail.com" class="ss-icon" title="email me">mail</a>
-            </div>
-        </div>
-
         <div id="content">
 
 <div class="post">
@@ -42,31 +27,39 @@
             <h1>NLP at scale: Semafor + salt + celery and more</h1>
         </header>
         <div class='post-content'>
-            <p>This posts describes the implementation of a simple system to parse web pages using SEMAFOR (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.</p>
-<p>The whole source can be found on github: danielfrg/semafor-parsing</p>
+            <p>This posts describes the implementation of a simple system to parse web pages using <a href="http://www.ark.cs.cmu.edu/SEMAFOR/">SEMAFOR</a> (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.</p>
+<p>The whole source can be found on github: <a href="https://github.com/danielfrg/semafor-parsing">danielfrg/semafor-parsing</a></p>
 <p>The main idea is the following:</p>
 <ol>
 <li>We are going to have one master box that has: salt master + celery worker that is going to be waiting for tasks</li>
 <li>When the master receives a query (list of urls to parse) is going to spin up N number of minions/workers using boto and is going to provision all of them using salt</li>
 <li>Each minion/worker is going to have SEMAFOR and a celery worker waiting for parsing tasks</li>
 <li>The master creates a set of parsing tasks based on the number of docs and number of instances</li>
-<li>Each minion/worker parses the document first using the readability API to get text content from HTML then tokenizes the text into sentences using NLTK and finally parses the sentences using SEMAFOR</li>
+<li>Each minion/worker parses the document first using the readability API to get text content from HTML then tokenizing the text into sentences using NLTK and finally parses the sentences using SEMAFOR</li>
 <li>Each minion/worker uploads the results to S3</li>
 </ol>
 <p>The diagram below tries to describe the system.</p>
 <p><img alt="System" src="/images/blog/2013/11/semafor-dist/diagram.png" title="System description" /></p>
+<p>If you dont know what semafor is take a look at the <a href="http://demo.ark.cs.cmu.edu/parse">example demo</a> or this is just a basic example:</p>
+<p>Input: <code>There's a Santa Claus!</code></p>
+<p>Output:</p>
+<div class="highlight"><pre><span class="p">{</span><span class="nt">&quot;frames&quot;</span><span class="p">:[{</span><span class="nt">&quot;target&quot;</span><span class="p">:{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Existence&quot;</span><span class="p">,</span><span class="nt">&quot;spans&quot;</span><span class="p">:[{</span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;There &#39;s&quot;</span><span class="p">}]},</span><span class="nt">&quot;annotationSets&quot;</span><span class="p">:[{</span><span class="nt">&quot;rank&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="mf">52.10168633235354</span><span class="p">,</span><span class="nt">&quot;frameElements&quot;</span><span class="p">:[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span><span class="nt">&quot;spans&quot;</span><span class="p">:[{</span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;a Santa Claus&quot;</span><span class="p">}]}]}]}],</span><span class="nt">&quot;tokens&quot;</span><span class="p">:[</span><span class="s2">&quot;There&quot;</span><span class="p">,</span><span class="s2">&quot;&#39;s&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;Santa&quot;</span><span class="p">,</span><span class="s2">&quot;Claus&quot;</span><span class="p">,</span><span class="s2">&quot;!&quot;</span><span class="p">]}</span>
+</pre></div>
+
+
+<p>The basic idea is: <em>"Existing"</em> is related to <em>"There 's"</em> and <em>"Entity"</em> is related to <em>"a Santa Claus"</em>.</p>
 <h2>How to run this?</h2>
-<p>Very simple, only need to get running the master box. Other options are described in the project README but the easiest way is to use vagrant with the AWS provider, just need to run <code>vagrant up —provider aws</code> in the master directory, this is going to provision the master box.</p>
+<p>Very simple, only need to get running the master box. Other options are described in the project README but the easiest way is to use vagrant with the AWS provider, just need to run <code>vagrant up --provider aws</code> in the master directory, this is going to provision the master box.</p>
 <p>When the box is ready just ssh (<code>vagrant ssh</code>) and:</p>
 <ol>
 <li>Edit <code>~/semafor/master/app/master/settings.py</code> OR create/edit <code>~/semafor/master/app/local_settings.py</code> to look like this.</li>
 </ol>
-<div class="highlight"><pre><span class="n">S3_PATH</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">WHERE</span> <span class="n">THE</span> <span class="n">SEMAFOR</span> <span class="n">FILES</span> <span class="n">WILL</span> <span class="n">BE</span> <span class="n">UPLOADED</span><span class="err">&#39;</span>
-<span class="n">AWS_ACCESS_ID</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">AWS</span> <span class="n">ACCOUNT</span> <span class="n">KEY</span><span class="err">&#39;</span>
-<span class="n">AWS_SECRET_KEY</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">AAWS</span> <span class="n">ACCOUNT</span> <span class="n">SECRET</span><span class="err">&#39;</span>
-<span class="n">READABILITY_TOKEN</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">READABILITY</span> <span class="n">API</span> <span class="n">TOKEN</span><span class="err">&#39;</span>
-<span class="n">SALT_MASTER_PUBLIC_ADDRESS</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">THE</span> <span class="n">IP</span> <span class="n">OF</span> <span class="n">THE</span> <span class="n">MASTER</span><span class="err">&#39;</span>
-<span class="n">LUIGI_CENTRAL_SCHEDULER</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">THE</span> <span class="n">IP</span> <span class="n">OF</span> <span class="n">THE</span> <span class="n">LUIGI</span> <span class="n">SCHEDULER</span><span class="p">,</span> <span class="n">CAN</span> <span class="n">BE</span> <span class="n">THE</span> <span class="n">SAME</span> <span class="n">SALT</span> <span class="n">MASTER</span><span class="err">&#39;</span>
+<div class="highlight"><pre><span class="n">S3_PATH</span> <span class="o">=</span> <span class="s">&#39;WHERE THE SEMAFOR FILES WILL BE UPLOADED&#39;</span>
+<span class="n">AWS_ACCESS_ID</span> <span class="o">=</span> <span class="s">&#39;AWS ACCOUNT KEY&#39;</span>
+<span class="n">AWS_SECRET_KEY</span> <span class="o">=</span> <span class="s">&#39;AAWS ACCOUNT SECRET&#39;</span>
+<span class="n">READABILITY_TOKEN</span> <span class="o">=</span> <span class="s">&#39;READABILITY API TOKEN&#39;</span>
+<span class="n">SALT_MASTER_PUBLIC_ADDRESS</span> <span class="o">=</span> <span class="s">&#39;THE IP OF THE MASTER&#39;</span>
+<span class="n">LUIGI_CENTRAL_SCHEDULER</span> <span class="o">=</span> <span class="s">&#39;THE IP OF THE LUIGI SCHEDULER, CAN BE THE SAME SALT MASTER&#39;</span>
 </pre></div>
 
 
@@ -75,7 +68,18 @@
 </ol>
 <p>Everything is ready now!</p>
 <p>Get some URLS you want to parse and call the celery task <code>semafor_parse(urls, n_instances=1)</code>. A helper script is provided in <code>semafor/master/test.py</code></p>
-<p>Some pictures to generate some hype.</p>
+<h2>How it looks</h2>
+<p>This are some screenshots I took while running it:</p>
+<p>EC2 dashboard when creating 10 instances</p>
+<p><img alt="EC2 instances" src="/images/blog/2013/11/semafor-dist/instances_ec2.png" title="EC2 instances" /></p>
+<p>Log on celery when creating 10 instances</p>
+<p><img alt="Instances log" src="/images/blog/2013/11/semafor-dist/instances_log.png" title="Instances log" /></p>
+<p>Celery log when the instances are provisioned via salt and the celery workers are connected
+<img alt="Celery workers log" src="/images/blog/2013/11/semafor-dist/celery_workers.png" title="Celery workers log" /></p>
+<p>Luigi UI while running
+<img alt="Luigi UI" src="/images/blog/2013/11/semafor-dist/luigi_summary.png" title="Luigi UI" /></p>
+<p>Luigi dependency graph, really simple for this case.
+<img alt="Luigi dependency graph" src="/images/blog/2013/11/semafor-dist/luigi_graph.png" title="Luigi dependency graph" /></p>
 <h2>Discussion</h2>
 <p>I used this opportunity to create a real-life example and keep learning (and loving) salt. At the same time I kept playing with celery and luigi that are 2 libraries that I love mainly because they solve very specific problems and are really easy to use.</p>
 <p>The system took me a few nights and a weekend to build but I am very happy to the results, it was <strong>way</strong> easier than I originally though and what makes me even happier is that a few months ago I would consider this a 2/3 month project but I did it in less than a week. Definitely using the right tool for the every step is crucial.</p>
@@ -86,75 +90,99 @@
 <h2>Improvements to be made</h2>
 <p>I am always looking for opportunities to improve and try new tools, this are some thing I would love to do.</p>
 <ul>
-<li>An alternative readability: I love the product, but I would <strong>love</strong> to have the same output offline, I have tried <strong>tons</strong> of boilerplate removal tools, in various languages (python,java,and more) but the best output is always readability.</li>
+<li>An alternative to readability: I love the product, but I would <strong>love</strong> to have the same output offline, I have tried <strong>tons</strong> of boilerplate removal tools, in various languages (python,java,and more) but the best output is always readability.</li>
 <li>Django integration with celery so one has an UI to call the tasks. I read that the integration has improved in <a href="http://docs.celeryproject.org/en/latest/whatsnew-3.1.html#django-supported-out-of-the-box">celery 3.1</a></li>
 <li>Location of the documents: In general should be a good idea to crawl first and the do the semafor parsing. One of my previous posts: <a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/">Django + Celery + Readability = Python relevant content crawler</a></li>
 <li>Location of the semafor output: A better place where analytics can be run easily, maybe a graph database. <a href="http://www.neo4j.org/">Neo4j</a> should be easy to get running and integrated, but havn't use it.</li>
 <li>Progress bars are always nice, a solution as described <a href="http://docs.celeryproject.org/en/latest/userguide/tasks.html#custom-task-classes">here</a> and <a href="https://djangosnippets.org/snippets/2898/">integration with django</a></li>
 </ul>
 <p>If you have any other suggestion, improvement or question leave a comment.
-Or did you ran this on the whole <a href="http://www.lsi.upc.edu/~nlp/wikicorpus/">wikipedia</a> and found something iteresting? Let me know that to.</p>
+Or did you ran this on the whole <a href="http://www.lsi.upc.edu/~nlp/wikicorpus/">wikipedia</a> and found something interesting? Let me know that to.</p>
         </div>
     </article>
 
     <div class="metadata">
-        <ul>
-            <li>
-                <strong>Published:</strong>
-                <i><time datetime="2013-11-17T00:00:00">17.11.2013</time></i>
-            </li>
-            <li>
-                <strong>Tags:</strong>
-<a href="/tag/python.html">python</a>
-<a href="/tag/nlp.html">NLP</a>
-<a href="/tag/semafor.html">semafor</a>
-<a href="/tag/salt.html">salt</a>
-<a href="/tag/celery.html">celery</a>
-<a href="/tag/luigi.html">luigi</a>
-<a href="/tag/vagrant.html">vagrant</a>
-            </li>
-        </ul>
+
+        <div class="left">
+            <ul>
+                <li>
+                    <strong>Published: </strong>
+                    <i>
+                        <time datetime="2013-11-17T00:00:00">
+                            November 17, 2013
+                        </time>
+                    </i>
+                </li>
+                <li>
+                    <strong>Tags: </strong>
+                        <a href="http://danielfrg.github.io/tag/python.html">python</a>
+                        <a href="http://danielfrg.github.io/tag/nlp.html">NLP</a>
+                        <a href="http://danielfrg.github.io/tag/semafor.html">semafor</a>
+                        <a href="http://danielfrg.github.io/tag/salt.html">salt</a>
+                        <a href="http://danielfrg.github.io/tag/celery.html">celery</a>
+                        <a href="http://danielfrg.github.io/tag/luigi.html">luigi</a>
+                        <a href="http://danielfrg.github.io/tag/vagrant.html">vagrant</a>
+                </li>
+                <li>
+                    <a id="comments-button" href="#disqus_thread">Show/read comments</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/tags">All tags</a></li>
+            </ul>
+        </div>
+
     </div>
+
 </div>
+
+<script type="text/javascript">
+(function () {
+
+    'use strict';
+
+    // Global object
+    var App = {};
+
+
+    // Create button
+    App.commentsButton = document.getElementById('comments-button');
+
+    App.commentsButton.onclick = function () {
+        // Remove button on click
+        App.commentsButton.onclick = function () {
+        }
+
+        // Create comments container
+        App.disqusContainer = document.createElement('div');
+        App.disqusContainer.setAttribute('id', 'disqus_thread');
+
+        // Append container to body
+        document.body.appendChild( App.disqusContainer );
+
+        // Your Disqus shortname
+        App.disqus_shortname = 'danielfrg';
+
+        // Embed Disqus
+        var dsq = document.createElement('script');
+
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
+
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        window.scrollTo(0, dsq.offsetTop - 200);
+    };
+
+})();
+</script>
+
         </div>
-
-        <footer>
-    <div class="post social container">
-
-        <div class="span4">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="danielfrg">Tweet</a>
-        </div>
-
-        <div class="span4">
-            <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
-        </div>
-
-        <div class="span4 hn">
-            <span id="hnews"></span>
-        </div>
-    </div>
-
-    <div id="disqus_thread" class="comments container"></div>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'danielfrg'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-<script src="/theme/js/social.js"></script>
-        </footer>
 
 
 <script type="text/javascript">
