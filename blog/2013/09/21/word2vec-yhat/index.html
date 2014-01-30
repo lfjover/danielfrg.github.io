@@ -127,12 +127,17 @@ Just type any word and the number of close word vectors you want and click the b
 On the list that it generates you can click on any word and it will give you the neighbors for that word.</p>
 <div ng-app="app">
     <div ng-controller="MainCtrl">
-        <form class="pure-form" style="max-width: 350px;">
-            <input type="text" ng-model="form_word">
-            <input type="number" ng-model="form_n">
-            <button class="pure-button pure-button-primary" ng-click="formRequest()">Request</button>
+        <form class="form-inline" role="form" style="max-width: 550px; margin: 0 auto;">
+            <div class="form-group">
+                <input type="text" class="form-control" ng-model="form_word" placeholder="a word">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" ng-model="form_n">
+            </div>
+            <button class="btn btn-default" ng-click="formRequest()">Request</button>
         </form>
-        <table style="max-width: 350px;">
+
+        <table class="table" style="max-width: 350px; margin: 0 auto;">
             <thead>
                 <tr>
                     <th>word</th>
@@ -145,6 +150,7 @@ On the list that it generates you can click on any word and it will give you the
             </tr>
         </table>
     </div>
+
 </div>
 
 <script type="text/javascript">
@@ -160,7 +166,7 @@ app.directive('eatClick', function() {
 })
 
 var MainCtrl = function($scope, $http) {
-    $scope.form_word = 'shoes';
+    $scope.form_word = '';
     $scope.form_n = 10;
     $scope.words = [];
 
@@ -201,19 +207,20 @@ classifier yhat makes that possible in 5% of the time.</p>
   </article>
 
     <div class="metadata">
-        <div>
+        <div class="left">
             <strong>Published: </strong>
             <i>
                 <time datetime="article.date.isoformat()" pubdate>September 21, 2013</time>
             </i>
+            <div>
+                <strong>Tags: </strong>
+                    <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
+                    <a href="http://danielfrg.github.io/tag/word2vec.html" class="tag"><i class="fa fa-tag"></i> word2vec</a>
+                    <a href="http://danielfrg.github.io/tag/yhat.html" class="tag"><i class="fa fa-tag"></i> yhat</a>
+                    <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag"><i class="fa fa-tag"></i> machine learning</a>
+            </div>
         </div>
-        <div>
-            <strong>Tags: </strong>
-                <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-                <a href="http://danielfrg.github.io/tag/word2vec.html" class="tag"><i class="fa fa-tag"></i> word2vec</a>
-                <a href="http://danielfrg.github.io/tag/yhat.html" class="tag"><i class="fa fa-tag"></i> yhat</a>
-                <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag"><i class="fa fa-tag"></i> machine learning</a>
-
+        <div class="right">
             <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
         </div>
     </div>
