@@ -11,23 +11,30 @@
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
         <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
     </head>
 
     <body>
-        <div id="content">
-
-<div class="post">
+<div class="container post">
+<div class="container header">
+    <ul class="nav nav-pills pull-right">
+        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
+        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
+        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
+    </ul>
+    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+</div>
     <article>
-        <header>
-            <h1>Relevant content blog crawler</h1>
-        </header>
-        <div class='post-content'>
-            <style type="text/css">.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+        <h1>Relevant content blog crawler</h1>
+        <style type="text/css">.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -208,7 +215,6 @@ textarea{overflow:auto;vertical-align:top;}
 .container-fluid:after{clear:both;}
 .container-fluid:before,.container-fluid:after{display:table;content:"";line-height:0;}
 .container-fluid:after{clear:both;}
-p{margin:0 0 10px;}
 .lead{margin-bottom:20px;font-size:19.5px;font-weight:200;line-height:30px;}
 small{font-size:85%;}
 strong{font-weight:bold;}
@@ -222,24 +228,8 @@ cite{font-style:normal;}
 .text-left{text-align:left;}
 .text-right{text-align:right;}
 .text-center{text-align:center;}
-h1,h2,h3,h4,h5,h6{margin:10px 0;font-family:inherit;font-weight:bold;line-height:20px;color:inherit;text-rendering:optimizelegibility;}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-weight:normal;line-height:1;color:#999999;}
-h1,h2,h3{line-height:40px;}
-h1{font-size:35.75px;}
-h2{font-size:29.25px;}
-h3{font-size:22.75px;}
-h4{font-size:16.25px;}
-h5{font-size:13px;}
-h6{font-size:11.049999999999999px;}
-h1 small{font-size:22.75px;}
-h2 small{font-size:16.25px;}
-h3 small{font-size:13px;}
-h4 small{font-size:13px;}
 .page-header{padding-bottom:9px;margin:20px 0 30px;border-bottom:1px solid #eeeeee;}
-ul,ol{padding:0;margin:0 0 10px 25px;}
-ul ul,ul ol,ol ol,ol ul{margin-bottom:0;}
 li{line-height:20px;}
-ul.unstyled,ol.unstyled{margin-left:0;list-style:none;}
-ul.inline,ol.inline{margin-left:0;list-style:none;}ul.inline>li,ol.inline>li{display:inline-block;*display:inline;*zoom:1;padding-left:5px;padding-right:5px;}
 dl{margin-bottom:20px;}
 dt,dd{line-height:20px;}
 dt{font-weight:bold;}
@@ -259,8 +249,6 @@ blockquote.pull-right small:after{content:'\00A0 \2014';}
 q:before,q:after,blockquote:before,blockquote:after{content:"";}
 code,pre{padding:0 3px 2px;font-family:monospace;font-size:11px;color:#333333;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 code{padding:2px 4px;color:#d14;background-color:#f7f7f9;border:1px solid #e1e1e8;white-space:nowrap;}
-pre{display:block;padding:9.5px;margin:0 0 10px;font-size:12px;line-height:20px;word-break:break-all;word-wrap:break-word;white-space:pre;white-space:pre-wrap;background-color:#f5f5f5;border:1px solid #ccc;border:1px solid rgba(0, 0, 0, 0.15);-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}pre.prettyprint{margin-bottom:20px;}
-pre code{padding:0;color:inherit;white-space:pre;white-space:pre-wrap;background-color:transparent;border:0;}
 .pre-scrollable{max-height:340px;overflow-y:scroll;}
 form{margin:0 0 20px;}
 fieldset{padding:0;margin:0;border:0;}
@@ -1042,7 +1030,6 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini{*padding-top:1px;*padding-
 [class^="icon-"]:before,[class*=" icon-"]:before{text-decoration:inherit;display:inline-block;speak:none;}
 .icon-large:before{vertical-align:-10%;font-size:1.3333333333333333em;}
 [class^="icon-"].icon-fixed-width,[class*=" icon-"].icon-fixed-width{display:inline-block;width:1.2857142857142858em;text-align:center;}[class^="icon-"].icon-fixed-width.icon-large,[class*=" icon-"].icon-fixed-width.icon-large{width:1.5714285714285714em;}
-ul.icons-ul{list-style-type:none;text-indent:-0.7142857142857143em;margin-left:2.142857142857143em;}ul.icons-ul>li .icon-li{width:0.7142857142857143em;display:inline-block;text-align:center;}
 [class^="icon-"].hide,[class*=" icon-"].hide{display:none;}
 .icon-muted{color:#eeeeee;}
 .icon-light{color:#ffffff;}
@@ -1479,17 +1466,12 @@ div.output_prompt{color:darkred;}
 .completions{position:absolute;z-index:10;overflow:hidden;border:1px solid #ababab;border-radius:4px;-webkit-box-shadow:0px 6px 10px -1px #adadad;-moz-box-shadow:0px 6px 10px -1px #adadad;box-shadow:0px 6px 10px -1px #adadad;}
 .completions select{background:white;outline:none;border:none;padding:0px;margin:0px;overflow:auto;font-family:monospace;font-size:110%;color:#000000;}
 .completions select option.context{color:#0064cd;}
-pre code{display:block;padding:0.5em;}
 .highlight-base,pre code,pre .subst,pre .tag .title,pre .lisp .title,pre .clojure .built_in,pre .nginx .title{color:black;}
 .highlight-string,pre .string,pre .constant,pre .parent,pre .tag .value,pre .rules .value,pre .rules .value .number,pre .preprocessor,pre .ruby .symbol,pre .ruby .symbol .string,pre .aggregate,pre .template_tag,pre .django .variable,pre .smalltalk .class,pre .addition,pre .flow,pre .stream,pre .bash .variable,pre .apache .tag,pre .apache .cbracket,pre .tex .command,pre .tex .special,pre .erlang_repl .function_or_atom,pre .markdown .header{color:#BA2121;}
 .highlight-comment,pre .comment,pre .annotation,pre .template_comment,pre .diff .header,pre .chunk,pre .markdown .blockquote{color:#408080;font-style:italic;}
 .highlight-number,pre .number,pre .date,pre .regexp,pre .literal,pre .smalltalk .symbol,pre .smalltalk .char,pre .go .constant,pre .change,pre .markdown .bullet,pre .markdown .link_url{color:#080;}
-pre .label,pre .javadoc,pre .ruby .string,pre .decorator,pre .filter .argument,pre .localvars,pre .array,pre .attr_selector,pre .important,pre .pseudo,pre .pi,pre .doctype,pre .deletion,pre .envvar,pre .shebang,pre .apache .sqbracket,pre .nginx .built_in,pre .tex .formula,pre .erlang_repl .reserved,pre .prompt,pre .markdown .link_label,pre .vhdl .attribute,pre .clojure .attribute,pre .coffeescript .property{color:#8888ff;}
 .highlight-keyword,pre .keyword,pre .id,pre .phpdoc,pre .aggregate,pre .css .tag,pre .javadoctag,pre .phpdoc,pre .yardoctag,pre .smalltalk .class,pre .winutils,pre .bash .variable,pre .apache .tag,pre .go .typename,pre .tex .command,pre .markdown .strong,pre .request,pre .status{color:#008000;font-weight:bold;}
 .highlight-builtin,pre .built_in{color:#008000;}
-pre .markdown .emphasis{font-style:italic;}
-pre .nginx .built_in{font-weight:normal;}
-pre .coffeescript .javascript,pre .javascript .xml,pre .tex .formula,pre .xml .javascript,pre .xml .vbscript,pre .xml .css,pre .xml .cdata{opacity:0.5;}
 .cm-s-ipython span.cm-variable{color:black;}
 .cm-s-ipython span.cm-keyword{color:#008000;font-weight:bold;}
 .cm-s-ipython span.cm-number{color:#080;}
@@ -1509,11 +1491,7 @@ span#notebook_name{height:1em;line-height:1em;padding:3px;border:none;font-size:
 div#notebook_panel{margin:0px 0px 0px 0px;padding:0px;-webkit-box-shadow:0 -1px 10px rgba(0, 0, 0, 0.1);-moz-box-shadow:0 -1px 10px rgba(0, 0, 0, 0.1);box-shadow:0 -1px 10px rgba(0, 0, 0, 0.1);}
 div#notebook{overflow-y:scroll;overflow-x:auto;width:100%;padding:5px 5px 15px 5px;margin:0px;border-top:1px solid #ababab;}
 div.ui-widget-content{border:1px solid #ababab;outline:none;}
-pre.dialog{background-color:#f7f7f7;border:1px solid #ddd;border-radius:4px;padding:0.4em;padding-left:2em;}
-p.dialog{padding:0.2em;}
-pre,code,kbd,samp{white-space:pre-wrap;}
 #fonttest{font-family:monospace;}
-p{margin-bottom:0;}
 .end_space{height:200px;}
 #notification_area{z-index:10;}
 .notification_widget{color:#777777;padding:1px 12px;margin:2px 4px;z-index:10;border:1px solid #ccc;border-radius:4px;background:rgba(240, 240, 240, 0.5);}
@@ -1528,7 +1506,6 @@ div.output_latex{text-align:left;}
 div.raw_input{padding-top:0px;padding-bottom:0px;height:1em;line-height:1em;font-family:monospace;}
 span.input_prompt{font-family:inherit;}
 input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;margin:-2px 0px 0px 1px;padding-left:1px;padding-top:2px;height:1em;}
-p.p-space{margin-bottom:10px;}
 div#pager_splitter{height:8px;}
 #pager-container{position:relative;padding:15px 0px;}
 div#pager{overflow:auto;display:none;}div#pager pre{font-size:13px;line-height:1.231em;color:#000000;background-color:#f7f7f7;padding:0.4em;}
@@ -1539,7 +1516,6 @@ span#save_widget{padding:0px 5px;margin-top:12px;}
 span#checkpoint_status,span#autosave_status{font-size:small;}
 div.text_cell_input{color:#000000;border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
 div.text_cell_render{outline:none;resize:none;width:inherit;border-style:none;padding:5px;color:#000000;}
-h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
 .toolbar{padding:0px 10px;margin-top:-5px;}.toolbar select,.toolbar label{width:auto;height:26px;vertical-align:middle;margin-right:2px;margin-bottom:0px;display:inline;font-size:92%;margin-left:0.3em;margin-right:0.3em;padding:0px;padding-top:3px;}
 .toolbar .btn{padding:2px 8px;}
 .toolbar .btn-group{margin-top:0px;}
@@ -1617,24 +1593,24 @@ h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anch
 .highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
+
 div.input_area {
     border: none;
     background: none;
+    margin-left: 6px;
+}
+
+.cell {
+    font-size: 14px;
 }
 
 pre.ipynb {
     padding: 3px 9.5px;
+    font-size: 14px;
 }
 
-@media print{*{text-shadow:none !important;color:#000 !important;background:transparent !important;box-shadow:none !important;} a,a:visited{text-decoration:underline;} a[href]:after{content:" (" attr(href) ")";} abbr[title]:after{content:" (" attr(title) ")";} .ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:"";} pre,blockquote{border:1px solid #999;page-break-inside:avoid;} thead{display:table-header-group;} tr,img{page-break-inside:avoid;} img{max-width:100% !important;} @page {margin:0.5cm;}p,h2,h3{orphans:3;widows:3;} h2,h3{page-break-after:avoid;}}
-
-.cell.border-box-sizing.code_cell.vbox {
-  max-width: 750px;
-  margin: 0 auto;
-}
-
-pre {
-    font-size: 1em;
+div.output_subarea {
+    padding: 3px 0;
 }
 
 /* Forcing DataFrame table styles */
@@ -1656,6 +1632,8 @@ table.dataframe th, td {
 .anchor-link:hover {
     display: blockquote;
 }
+
+@media print{*{text-shadow:none !important;color:#000 !important;background:transparent !important;box-shadow:none !important;} a,a:visited{text-decoration:underline;} a[href]:after{content:" (" attr(href) ")";} abbr[title]:after{content:" (" attr(title) ")";} .ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:"";} pre,blockquote{border:1px solid #999;page-break-inside:avoid;} thead{display:table-header-group;} tr,img{page-break-inside:avoid;} img{max-width:100% !important;} @page {margin:0.5cm;}p,h2,h3{orphans:3;widows:3;} h2,h3{page-break-after:avoid;}}
 
 </style>
 
@@ -1966,53 +1944,33 @@ In&nbsp;[13]:
 <p>Q: Why is this data useful (spoiler of my next post)?</p>
 <p>A: https://code.google.com/p/word2vec/</p>
 </div>
-        </div>
-    </article>
+  </article>
 
     <div class="metadata">
-
-        <div class="left">
-            <ul>
-                <li>
-                    <strong>Published: </strong>
-                    <i>
-                        <time datetime="2013-08-20T00:00:00">
-                            August 20, 2013
-                        </time>
-                    </i>
-                </li>
-                <li>
-                    <strong>Tags: </strong>
-                        <a href="http://danielfrg.github.io/tag/python.html">python</a>
-                        <a href="http://danielfrg.github.io/tag/crawling.html">crawling</a>
-                        <a href="http://danielfrg.github.io/tag/beautifulsoup.html">beautifulsoup</a>
-                        <a href="http://danielfrg.github.io/tag/readability.html">readability</a>
-                </li>
-                <li>
-                    <a id="comments-button" href="#disqus_thread">Show/read comments</a>
-                </li>
-            </ul>
+        <div>
+            <strong>Published: </strong>
+            <i>
+                <time datetime="article.date.isoformat()" pubdate>August 20, 2013</time>
+            </i>
         </div>
+        <div>
+            <strong>Tags: </strong>
+                <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
+                <a href="http://danielfrg.github.io/tag/crawling.html" class="tag"><i class="fa fa-tag"></i> crawling</a>
+                <a href="http://danielfrg.github.io/tag/beautifulsoup.html" class="tag"><i class="fa fa-tag"></i> beautifulsoup</a>
+                <a href="http://danielfrg.github.io/tag/readability.html" class="tag"><i class="fa fa-tag"></i> readability</a>
 
-        <div class="right">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/tags">All tags</a></li>
-            </ul>
+            <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
         </div>
-
     </div>
-
-</div>
+    </div>
 
 <script type="text/javascript">
 (function () {
-
     'use strict';
 
     // Global object
     var App = {};
-
 
     // Create button
     App.commentsButton = document.getElementById('comments-button');
@@ -2025,9 +1983,12 @@ In&nbsp;[13]:
         // Create comments container
         App.disqusContainer = document.createElement('div');
         App.disqusContainer.setAttribute('id', 'disqus_thread');
+        App.disqusContainer.setAttribute('class', 'container');
 
         // Append container to body
-        document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+        // document.body.appendChild( App.disqusContainer );
 
         // Your Disqus shortname
         App.disqus_shortname = 'danielfrg';
@@ -2043,11 +2004,10 @@ In&nbsp;[13]:
 
         window.scrollTo(0, dsq.offsetTop - 200);
     };
-
 })();
 </script>
 
-        </div>
+</div>
 
 
 <script type="text/javascript">
