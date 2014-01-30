@@ -11,23 +11,30 @@
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
         <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
     </head>
 
     <body>
-        <div id="content">
-
-<div class="post">
+<div class="container post">
+<div class="container header">
+    <ul class="nav nav-pills pull-right">
+        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
+        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
+        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
+    </ul>
+    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+</div>
     <article>
-        <header>
-            <h1>Desktop app to easily create new tasks on all task management web apps</h1>
-        </header>
-        <div class='post-content'>
-            <p>Recently I have been looking for new ways of manage my tasks, looking
+        <h1>Desktop app to easily create new tasks on all task management web apps</h1>
+        <p>Recently I have been looking for new ways of manage my tasks, looking
 for being more productive and organized with my
 master, <a href="http://coursera.org/">coursera</a> courses, blog and programming tasks. I am a huge
 fan of web apps and the past week I tried almost every (decent = nice
@@ -82,55 +89,35 @@ Programmers and download the source can run the app ;)</p>
 will work for other person. Suggestions are always welcome.</p>
 <p>The code is on <a href="https://github.com/dfrodriguez143/newtask">github</a> and a <a href="https://github.com/dfrodriguez143/newtask/blob/master/dist.zip?raw=true">zip</a> file with the
 compiled <code>.exe</code> is available.</p>
-        </div>
-    </article>
+  </article>
 
     <div class="metadata">
-
-        <div class="left">
-            <ul>
-                <li>
-                    <strong>Published: </strong>
-                    <i>
-                        <time datetime="2012-10-14T23:51:00">
-                            October 14, 2012
-                        </time>
-                    </i>
-                </li>
-                <li>
-                    <strong>Tags: </strong>
-                        <a href="http://danielfrg.github.io/tag/python.html">Python</a>
-                        <a href="http://danielfrg.github.io/tag/ecryption.html">Ecryption</a>
-                        <a href="http://danielfrg.github.io/tag/aes.html">AES</a>
-                        <a href="http://danielfrg.github.io/tag/gtd.html">GTD</a>
-                        <a href="http://danielfrg.github.io/tag/wxpython.html">wxPython</a>
-                        <a href="http://danielfrg.github.io/tag/pyexe.html">pyexe</a>
-                </li>
-                <li>
-                    <a id="comments-button" href="#disqus_thread">Show/read comments</a>
-                </li>
-            </ul>
+        <div>
+            <strong>Published: </strong>
+            <i>
+                <time datetime="article.date.isoformat()" pubdate>October 14, 2012</time>
+            </i>
         </div>
+        <div>
+            <strong>Tags: </strong>
+                <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> Python</a>
+                <a href="http://danielfrg.github.io/tag/ecryption.html" class="tag"><i class="fa fa-tag"></i> Ecryption</a>
+                <a href="http://danielfrg.github.io/tag/aes.html" class="tag"><i class="fa fa-tag"></i> AES</a>
+                <a href="http://danielfrg.github.io/tag/gtd.html" class="tag"><i class="fa fa-tag"></i> GTD</a>
+                <a href="http://danielfrg.github.io/tag/wxpython.html" class="tag"><i class="fa fa-tag"></i> wxPython</a>
+                <a href="http://danielfrg.github.io/tag/pyexe.html" class="tag"><i class="fa fa-tag"></i> pyexe</a>
 
-        <div class="right">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/tags">All tags</a></li>
-            </ul>
+            <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
         </div>
-
     </div>
-
-</div>
+    </div>
 
 <script type="text/javascript">
 (function () {
-
     'use strict';
 
     // Global object
     var App = {};
-
 
     // Create button
     App.commentsButton = document.getElementById('comments-button');
@@ -143,9 +130,12 @@ compiled <code>.exe</code> is available.</p>
         // Create comments container
         App.disqusContainer = document.createElement('div');
         App.disqusContainer.setAttribute('id', 'disqus_thread');
+        App.disqusContainer.setAttribute('class', 'container');
 
         // Append container to body
-        document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+        // document.body.appendChild( App.disqusContainer );
 
         // Your Disqus shortname
         App.disqus_shortname = 'danielfrg';
@@ -161,11 +151,10 @@ compiled <code>.exe</code> is available.</p>
 
         window.scrollTo(0, dsq.offsetTop - 200);
     };
-
 })();
 </script>
 
-        </div>
+</div>
 
 
 <script type="text/javascript">

@@ -11,23 +11,30 @@
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
         <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
     </head>
 
     <body>
-        <div id="content">
-
-<div class="post">
+<div class="container post">
+<div class="container header">
+    <ul class="nav nav-pills pull-right">
+        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
+        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
+        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
+    </ul>
+    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+</div>
     <article>
-        <header>
-            <h1>New blog using Jekyll & iPython</h1>
-        </header>
-        <div class='post-content'>
-            <p>Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using <a href="http://octopress.org/">octopress</a> (<a href="https://github.com/mojombo/jekyll">jekyll</a>) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.</p>
+        <h1>New blog using Jekyll & iPython</h1>
+        <p>Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using <a href="http://octopress.org/">octopress</a> (<a href="https://github.com/mojombo/jekyll">jekyll</a>) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.</p>
 <ul>
 <li>Is not fast enough</li>
 <li>Can't have custom analytics and the wordpress analytics sucks.</li>
@@ -48,52 +55,32 @@
 <p>So in my repository I have all the templates, posts, images, markdown, and everything else on folder named <code>source</code>; that way jekyll creates the static content into <code>source/_site</code>. Then when I am happy with new post or new design I use a very simple python <a href="http://fabfile.org/">fabfile</a> to clean the root (ignoring the <code>source</code> and <code>.git</code> folders) then it moves the contents of <code>source/_site</code> to the root of the repository, then commits the changes and finally clean the root again.</p>
 <p>I try to make the site plugin agnostic because I don't now ruby but I try to complement that with a few YAML tags and if's on the layous, for example only have to put a YAML tag on each post file and the picture is added automaticly to the index and post pages. That also happens with youtube and vimeo videos.</p>
 <p>Finally the source of the site is on <a href="https://github.com/danielfrg/danielfrg.github.com">github</a> if anyone want to take a look.</p>
-        </div>
-    </article>
+  </article>
 
     <div class="metadata">
-
-        <div class="left">
-            <ul>
-                <li>
-                    <strong>Published: </strong>
-                    <i>
-                        <time datetime="2013-01-31T00:00:00">
-                            January 31, 2013
-                        </time>
-                    </i>
-                </li>
-                <li>
-                    <strong>Tags: </strong>
-                        <a href="http://danielfrg.github.io/tag/jekyll.html">jekyll</a>
-                        <a href="http://danielfrg.github.io/tag/ipython.html">ipython</a>
-                        <a href="http://danielfrg.github.io/tag/python.html">python</a>
-                </li>
-                <li>
-                    <a id="comments-button" href="#disqus_thread">Show/read comments</a>
-                </li>
-            </ul>
+        <div>
+            <strong>Published: </strong>
+            <i>
+                <time datetime="article.date.isoformat()" pubdate>January 31, 2013</time>
+            </i>
         </div>
+        <div>
+            <strong>Tags: </strong>
+                <a href="http://danielfrg.github.io/tag/jekyll.html" class="tag"><i class="fa fa-tag"></i> jekyll</a>
+                <a href="http://danielfrg.github.io/tag/ipython.html" class="tag"><i class="fa fa-tag"></i> ipython</a>
+                <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
 
-        <div class="right">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/tags">All tags</a></li>
-            </ul>
+            <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
         </div>
-
     </div>
-
-</div>
+    </div>
 
 <script type="text/javascript">
 (function () {
-
     'use strict';
 
     // Global object
     var App = {};
-
 
     // Create button
     App.commentsButton = document.getElementById('comments-button');
@@ -106,9 +93,12 @@
         // Create comments container
         App.disqusContainer = document.createElement('div');
         App.disqusContainer.setAttribute('id', 'disqus_thread');
+        App.disqusContainer.setAttribute('class', 'container');
 
         // Append container to body
-        document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+        // document.body.appendChild( App.disqusContainer );
 
         // Your Disqus shortname
         App.disqus_shortname = 'danielfrg';
@@ -124,11 +114,10 @@
 
         window.scrollTo(0, dsq.offsetTop - 200);
     };
-
 })();
 </script>
 
-        </div>
+</div>
 
 
 <script type="text/javascript">

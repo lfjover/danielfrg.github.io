@@ -11,23 +11,30 @@
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
         <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
     </head>
 
     <body>
-        <div id="content">
-
-<div class="post">
+<div class="container post">
+<div class="container header">
+    <ul class="nav nav-pills pull-right">
+        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
+        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
+        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
+    </ul>
+    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+</div>
     <article>
-        <header>
-            <h1>Using cloud9 to save computing power and to code from everywhere too</h1>
-        </header>
-        <div class='post-content'>
-            <p>I am taking my second course on <a href="https://www.coursera.org/" title="Coursera">Coursera</a> Computational Investing -
+        <h1>Using cloud9 to save computing power and to code from everywhere too</h1>
+        <p>I am taking my second course on <a href="https://www.coursera.org/" title="Coursera">Coursera</a> Computational Investing -
 Part 1; pretty fun so far. The homework 1 was to find a portfolio of 4
 equities with the best (highest) Sharpe ratio from 2011. With a little
 bit of coding in python I was able to download all SPY stocks and loop
@@ -72,54 +79,34 @@ computing power and getting faster responses. Next I want to try
 <a href="http://www.picloud.com/" title="PiCloud">PiCloud</a> and <a href="https://openshift.redhat.com/app/" title="OpenShift">OpenShift</a> directly.</p>
 <p>The code for the computational investing is on <a href="https://github.com/dfrodriguez143/comp-investing" title="Computational Investing on Github ">my Github</a> if anyone
 is interested, is going to be updated as the course goes through.</p>
-        </div>
-    </article>
+  </article>
 
     <div class="metadata">
-
-        <div class="left">
-            <ul>
-                <li>
-                    <strong>Published: </strong>
-                    <i>
-                        <time datetime="2012-11-03T14:46:00">
-                            November 03, 2012
-                        </time>
-                    </i>
-                </li>
-                <li>
-                    <strong>Tags: </strong>
-                        <a href="http://danielfrg.github.io/tag/cloud9.html">cloud9</a>
-                        <a href="http://danielfrg.github.io/tag/computational-investing.html">computational investing</a>
-                        <a href="http://danielfrg.github.io/tag/coursera.html">coursera</a>
-                        <a href="http://danielfrg.github.io/tag/numpy.html">numpy</a>
-                        <a href="http://danielfrg.github.io/tag/python.html">python</a>
-                </li>
-                <li>
-                    <a id="comments-button" href="#disqus_thread">Show/read comments</a>
-                </li>
-            </ul>
+        <div>
+            <strong>Published: </strong>
+            <i>
+                <time datetime="article.date.isoformat()" pubdate>November 03, 2012</time>
+            </i>
         </div>
+        <div>
+            <strong>Tags: </strong>
+                <a href="http://danielfrg.github.io/tag/cloud9.html" class="tag"><i class="fa fa-tag"></i> cloud9</a>
+                <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag"><i class="fa fa-tag"></i> computational investing</a>
+                <a href="http://danielfrg.github.io/tag/coursera.html" class="tag"><i class="fa fa-tag"></i> coursera</a>
+                <a href="http://danielfrg.github.io/tag/numpy.html" class="tag"><i class="fa fa-tag"></i> numpy</a>
+                <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
 
-        <div class="right">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/tags">All tags</a></li>
-            </ul>
+            <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
         </div>
-
     </div>
-
-</div>
+    </div>
 
 <script type="text/javascript">
 (function () {
-
     'use strict';
 
     // Global object
     var App = {};
-
 
     // Create button
     App.commentsButton = document.getElementById('comments-button');
@@ -132,9 +119,12 @@ is interested, is going to be updated as the course goes through.</p>
         // Create comments container
         App.disqusContainer = document.createElement('div');
         App.disqusContainer.setAttribute('id', 'disqus_thread');
+        App.disqusContainer.setAttribute('class', 'container');
 
         // Append container to body
-        document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+        // document.body.appendChild( App.disqusContainer );
 
         // Your Disqus shortname
         App.disqus_shortname = 'danielfrg';
@@ -150,11 +140,10 @@ is interested, is going to be updated as the course goes through.</p>
 
         window.scrollTo(0, dsq.offsetTop - 200);
     };
-
 })();
 </script>
 
-        </div>
+</div>
 
 
 <script type="text/javascript">

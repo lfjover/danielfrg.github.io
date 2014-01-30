@@ -1,57 +1,189 @@
-
-body {
+body, h1, h2, h3, h4, h5, h6 {
     font-family: 'Merriweather', Georgia, serif;
 }
 
 a {
-    color: #307EA9;
+    color: #0a8bc4;
+}
+
+a.tag {
+    font-family: sans-serif;
+    margin: 0 5px 0 0;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    color: #999;
+    font-size: .8em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+a.tag:hover {
+    text-decoration: none;
+    color: #fff;
+    border-color: #666;
+    background: #666;
+}
+
+a.read-more {
+    font-family: sans-serif;
+    font-size: .8em;
+    float: right;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    color: #0a8bc4;
+    border: 1px solid #0a8bc4;
+    border-radius: 3px;
+}
+
+a.read-more:hover {
+    color: #FFF;
+    background-color: #0a8bc4;
+    border-color: #0a8bc4;
     text-decoration: none;
 }
 
-a:hover {
-    color: #307EA9;
-    text-decoration: underline;
-}
+.header {
+    max-width: 620px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 40px;
 
-p {
-    margin: 10px auto;
-    padding: 6px 10px;
-    font-weight: 300;
-    font-size: 1em;
-    line-height: 1.8;
+    h3.brand {
+        margin: 14px 0 8px 0;
+
+        a {
+            color: #333;
+        }
+
+        a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+    }
+
+
+    .nav {
+        font-size: 20px;
+
+        a {
+            color: #333;
+        }
+    }
 }
 
 .index {
+    max-width: 620px;
 
-    p.intro {
-        max-width: 700px;
-        margin: 15px auto 20px;
-        padding: 0 10px;
-        font-size: 3em;
-        line-height: 1em;
-    }
+    article {
+        line-height: 1.8em;
 
-    .links {
-        display: -webkit-flex;
-        max-width: 300px;
-        margin: 20px auto;
-
-        .link {
-            margin: 0 10px;
-            width: 50px;
-            font-size: 48px;
-            display: inline-block;
+        h2 {
+            font-size: 2em;
+            font-weight: 700;
+            line-height: 1.3em;
 
             a {
+                font-family: 'Merriweather', Georgia, serif;
                 color: #000;
+            }
+
+            a:hover {
+                color: #0a8bc4;
+                text-decoration: none;
             }
         }
     }
 
+    .meta {
+        font-family: sans-serif;
+        font-size: 0.8em;
+        display: -webkit-flex;
+
+        time {
+            margin: 0 10px 0 0;
+            padding: 4px 8px 4px 2px;
+            color: #999;
+
+            a {
+                color: #999;
+            }
+            a:hover {
+                color: #999;
+                text-decoration: underline;
+            }
+        }
+
+        .left {
+            width: 85%;
+            display: inline-block;
+        }
+
+        .right {
+            width: 15%;
+            display: inline-block;
+            text-align: right;
+
+            a {
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .separator {
+        font-size: 2.5em;
+        text-align: center;
+        color: #BBB;
+        margin: 20px 0 50px 0;
+        -webkit-font-smoothing: none;
+    }
+
+    .pagination {
+        display: block;
+        text-align: center;
+        margin-bottom: 100px;
+    }
+}
+
+.post {
+    max-width: 750px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+
+    h1 {
+        font-family: 'Merriweather', Georgia, serif;
+        text-align: center;
+        font-size: 2.55em;
+        font-weight: 300;
+    }
+
+    .metadata {
+        margin: 50px auto 50px;
+        padding: 20px 0;
+        font-family: sans-serif;
+        font-size: 0.85em;
+        border-top: 1px solid #ccc;
+
+        div {
+            width: 100%;
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    #disqus_thread {
+        max-width: 100%;
+    }
+}
+
+.list {
+    max-width: 700px;
+
+    // Archives and articles from a tag
     ul.double-list {
-        max-width: 700px;
         margin: 0 auto 60px;
-        padding: 0 10px 0;
+        padding: 0;
         list-style-type: none;
 
         li {
@@ -72,188 +204,14 @@ p {
                 font-size: 12px;
                 color: #999;
             }
-
-        }
-    }
-}
-
-.post {
-
-    h1 {
-        max-width: 800px;
-        margin: 20px auto 0px;
-        padding: 0 10px;
-        text-align: center;
-        font-size: 2.55em;
-        font-weight: 300;
-    }
-
-    h2, h3, h4, h5, h6 {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 10px 10px;
-        font-family: sans-serif;
-    }
-
-
-    p {
-        max-width: 750px;
-        margin: 10px auto;
-        padding: 6px 10px;
-    }
-
-    p.gray, p.note {
-        max-width: 700px;
-        background: #f5f5f5;
-        border-left: 8px solid #ddd;
-        padding: 7px 20px 7px 20px;
-    }
-
-    p.yellow, p.update {
-        max-width: 700px;
-        background-color: #fef9c7;
-        border-left: 8px solid #ecd163;
-        padding: 7px 20px 7px 20px;
-    }
-
-    p.red {
-        max-width: 700px;
-        background-color: #EB8C8A;
-        border-left: 8px solid #d00;
-        padding: 7px 20px 7px 20px;
-    }
-
-    p.blue {
-        max-width: 700px;
-        background: #cae4f0;
-        border-left: 8px solid #8ec1da;
-        padding: 7px 20px 7px 20px;
-    }
-
-    img {
-        max-width: 750px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    ul, ol {
-        max-width: 750px;
-        margin: 0 auto;
-        padding: 0 0 0 60px;
-        list-style-type: square;
-        line-height: 1.4;
-
-        li {
-            padding: 3px 0;
-            line-height: 25px;
-            font-weight: 300;
         }
     }
 
-    blockquote {
-        margin: 1em 40px;
-        font-family: "Georgia", serif;
-        color: #666;
-        font-style: italic;
-        line-height: 1.8em;
-        border-left: 5px solid #ddd;
-        padding-left: 1.5em;
-    }
-
-    code {
-        background-color: #f7f7f7;
-        border: 1px solid #ddd;
-        padding: 2px 4px;
-        font-size: 14px;
-        white-space: nowrap;
-        page-break-inside: avoid;
-        word-wrap: break-word;
-    }
-
-    form {
-        max-width: 750px;
-        margin: 10px auto 0;
-    }
-
-    // Table styles copied from purecss.io
-
-    table {
-        margin: 10px auto;
-        border-collapse: collapse;
-        border-spacing: 0;
-        empty-cells: show;
-        border: 1px solid #cbcbcb;
-    }
-
-    thead {
-        background: #e0e0e0;
-        color: #000;
-        text-align: left;
-        vertical-align: bottom;
-    }
-
-    td, th {
-        border-left: 1px solid #cbcbcb;/*  inner column border */
-        border-width: 0 0 0 1px;
-        font-size: inherit;
-        margin: 0;
-        overflow: visible; /*to make ths where the title is really long work*/
-        padding: 6px 12px; /* cell padding */
-    }
-
-    td:first-child, th:first-child {
-        border-left-width: 0;
-    }
-
-    .highlight {
-        max-width: 750px;
-        margin: 6px auto;
-        padding: 6px 15px 6px 15px;
-        background: #f9f9f9;
-        border: 1px solid #ccc;
-
-        pre {
-            margin: 0;
-            padding: 0;
-            font-size: 15px;
-            padding: 0;
-            line-height: 16px;
-            page-break-inside: avoid;
-            word-wrap: break-word;
+    // List of tags
+    p.tags {
+        line-height: 2;
+        .tag {
+            margin: 0 5px 5px 0;
         }
     }
-
-    .metadata {
-        display: -webkit-flex;
-        width: 750px;
-        margin: 50px auto 50px;
-        padding: 20px 0;
-        border-top: 1px solid #ccc;
-        font-family: sans-serif;
-        font-size: 14px;
-        // color: #636363;
-
-        ul {
-            padding: 0;
-            list-style-type: none;
-        }
-
-        .left {
-            width: 80%;
-            display: inline-block;
-        }
-
-        .right {
-            width: 20%;
-            display: inline-block;
-            text-align: right;
-        }
-    }
-
-}
-
-#disqus_thread {
-    max-width: 900px;
-    margin: 0 auto;
 }

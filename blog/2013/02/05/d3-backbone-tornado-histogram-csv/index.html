@@ -11,23 +11,30 @@
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
         <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
     </head>
 
     <body>
-        <div id="content">
-
-<div class="post">
+<div class="container post">
+<div class="container header">
+    <ul class="nav nav-pills pull-right">
+        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
+        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
+        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
+    </ul>
+    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+</div>
     <article>
-        <header>
-            <h1>Using D3, backbone and tornado to visualize histograms of a csv file</h1>
-        </header>
-        <div class='post-content'>
-            <p>After being procrastinating for weeks the learning of <a href="http://d3js.org">D3.js</a> and <a href="http://backbonejs.org">backbone.js</a> I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):</p>
+        <h1>Using D3, backbone and tornado to visualize histograms of a csv file</h1>
+        <p>After being procrastinating for weeks the learning of <a href="http://d3js.org">D3.js</a> and <a href="http://backbonejs.org">backbone.js</a> I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):</p>
 <ul>
 <li>Great web frameworks as <a href="https://www.djangoproject.com">Django</a> and <a href="http://www.tornadoweb.org">Tornado</a> - "fighting" with ruby (<a href="http://rubyonrails.org">rails</a>)</li>
 <li>Great Data Analysis packages such as <a href="http://pandas.pydata.org/">pandas</a> - "fighting" with <a href="http://www.r-project.org">R</a></li>
@@ -255,55 +262,35 @@
 <p>Changing the number of bins or the column automaticlly re-draws the histogram.</p>
 <p>It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.</p>
 <p>I include the whole code on <a href="https://github.com/danielfrg/copper">copper</a> (my data analysis package) which is not yet available via pip, so to use this need to download the <code>explore</code> folder of the package and run <code>python explore.py</code> (requires tornado and pandas). Remember to change the <code>explore.csv</code> to explore other data.</p>
-        </div>
-    </article>
+  </article>
 
     <div class="metadata">
-
-        <div class="left">
-            <ul>
-                <li>
-                    <strong>Published: </strong>
-                    <i>
-                        <time datetime="2013-02-05T00:00:00">
-                            February 05, 2013
-                        </time>
-                    </i>
-                </li>
-                <li>
-                    <strong>Tags: </strong>
-                        <a href="http://danielfrg.github.io/tag/python.html">python</a>
-                        <a href="http://danielfrg.github.io/tag/javascript.html">javascript</a>
-                        <a href="http://danielfrg.github.io/tag/d3js.html">D3.js</a>
-                        <a href="http://danielfrg.github.io/tag/backbone.html">backbone</a>
-                        <a href="http://danielfrg.github.io/tag/tornado.html">tornado</a>
-                        <a href="http://danielfrg.github.io/tag/pandas.html">pandas</a>
-                </li>
-                <li>
-                    <a id="comments-button" href="#disqus_thread">Show/read comments</a>
-                </li>
-            </ul>
+        <div>
+            <strong>Published: </strong>
+            <i>
+                <time datetime="article.date.isoformat()" pubdate>February 05, 2013</time>
+            </i>
         </div>
+        <div>
+            <strong>Tags: </strong>
+                <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
+                <a href="http://danielfrg.github.io/tag/javascript.html" class="tag"><i class="fa fa-tag"></i> javascript</a>
+                <a href="http://danielfrg.github.io/tag/d3js.html" class="tag"><i class="fa fa-tag"></i> D3.js</a>
+                <a href="http://danielfrg.github.io/tag/backbone.html" class="tag"><i class="fa fa-tag"></i> backbone</a>
+                <a href="http://danielfrg.github.io/tag/tornado.html" class="tag"><i class="fa fa-tag"></i> tornado</a>
+                <a href="http://danielfrg.github.io/tag/pandas.html" class="tag"><i class="fa fa-tag"></i> pandas</a>
 
-        <div class="right">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/tags">All tags</a></li>
-            </ul>
+            <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
         </div>
-
     </div>
-
-</div>
+    </div>
 
 <script type="text/javascript">
 (function () {
-
     'use strict';
 
     // Global object
     var App = {};
-
 
     // Create button
     App.commentsButton = document.getElementById('comments-button');
@@ -316,9 +303,12 @@
         // Create comments container
         App.disqusContainer = document.createElement('div');
         App.disqusContainer.setAttribute('id', 'disqus_thread');
+        App.disqusContainer.setAttribute('class', 'container');
 
         // Append container to body
-        document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+        // document.body.appendChild( App.disqusContainer );
 
         // Your Disqus shortname
         App.disqus_shortname = 'danielfrg';
@@ -334,11 +324,10 @@
 
         window.scrollTo(0, dsq.offsetTop - 200);
     };
-
 })();
 </script>
 
-        </div>
+</div>
 
 
 <script type="text/javascript">
