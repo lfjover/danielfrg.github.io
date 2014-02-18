@@ -19,20 +19,23 @@
     </head>
 
     <body>
+        <header class="main-header">
+        <nav>
+            <div class="container">
+            <ul>
+                <li><a href="/" title="Home">Home</a></li>
+                <!-- <li><a href="/about.html" title="More information about this site">About</a></li> -->
+                <li><a href="http://github.com/danielfrg" title="Daniel's Github" rel="me">Github</a></li>
+                <li><a href="http://twitter.com/danielfrg" title="Daniel's Twitter" rel="me">Twitter</a></li>
+                <li><a href="/archives.html" title="Archive">Archives</a></li>
+                <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+            </ul>
+            </div>
+        </nav>
+        </header>
+
 <div class="container post">
-<nav class="navbar" role="navigation">
-    <div class="container-fluid">
-        <p class="navbar-text navbar-right">
-          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
-          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
-          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
-          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
-          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
-          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
-        </p>
-        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-      </div>
-  </nav>
+
     <article>
         <header>
             <h1>Plugin for blogging with iPython notebooks in Pelican</h1>
@@ -40,10 +43,10 @@
         </header>
 
         <div class="article_content">
-            <p>This is just a little update on my previous post about <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks with pelican</a>.</p>
-<p>One of the people behind pelican helped me to convert the <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">previous code</a> to a pelican plugin and I just made it available via github: <a href="https://github.com/danielfrg/pelican-ipythonnb">pelican-ipythonnb</a>.</p>
+            <p>This is just a little update on my previous post about <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks with pelican</a>.</p>
+<p>One of the people behind pelican helped me to convert the <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">previous code</a> to a pelican plugin and I just made it available via github: <a href="https://github.com/danielfrg/pelican-ipythonnb">pelican-ipythonnb</a>.</p>
 <p>The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).</p>
-<p>An example is my last post about a <a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">cleaning data for a Kaggle competition</a>.</p>
+<p>An example is my last post about a <a href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">cleaning data for a Kaggle competition</a>.</p>
 <p>Happy blogging!</p>
 <h2>Installation</h2>
 <p>Download plugin files: <code>plugin/ipythonnb.py</code> and the <code>plugin/nbconverter</code> directory.</p>
@@ -92,8 +95,8 @@ Then in the <code>pelicanconf.py</code> put: <code>PLUGINS = ['custom_plugins_di
 
         <div class="meta">
             <div>
-                    <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
-                    <a href="http://danielfrg.github.io/tag/pelican.html" class="tag">pelican</a>
+                    <a href="/tag/python.html" class="tag">python</a>
+                    <a href="/tag/pelican.html" class="tag">pelican</a>
             </div>
             <div>
                 <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
@@ -113,19 +116,19 @@ Then in the <code>pelicanconf.py</code> put: <code>PLUGINS = ['custom_plugins_di
     App.commentsButton = document.getElementById('comments-button');
 
     App.commentsButton.onclick = function () {
-        // Remove button on click
+        // Remove button action on click
         App.commentsButton.onclick = function () {
         }
 
         // Create comments container
         App.disqusContainer = document.createElement('div');
         App.disqusContainer.setAttribute('id', 'disqus_thread');
-        App.disqusContainer.setAttribute('class', 'container');
+        // App.disqusContainer.setAttribute('class', 'container');
 
-        // Append container to body
+        // Append container to body or div
+        // document.body.appendChild( App.disqusContainer );
         var container = document.getElementsByClassName('container post')[0];
         container.appendChild(App.disqusContainer);
-        // document.body.appendChild( App.disqusContainer );
 
         // Your Disqus shortname
         App.disqus_shortname = 'danielfrg';

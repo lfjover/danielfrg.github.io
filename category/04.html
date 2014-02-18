@@ -19,28 +19,31 @@
     </head>
 
     <body>
+        <header class="main-header">
+        <nav>
+            <div class="container">
+            <ul>
+                <li><a href="/" title="Home">Home</a></li>
+                <!-- <li><a href="/about.html" title="More information about this site">About</a></li> -->
+                <li><a href="http://github.com/danielfrg" title="Daniel's Github" rel="me">Github</a></li>
+                <li><a href="http://twitter.com/danielfrg" title="Daniel's Twitter" rel="me">Twitter</a></li>
+                <li><a href="/archives.html" title="Archive">Archives</a></li>
+                <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+            </ul>
+            </div>
+        </nav>
+        </header>
+
 <div class="container index">
-<nav class="navbar" role="navigation">
-    <div class="container-fluid">
-        <p class="navbar-text navbar-right">
-          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
-          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
-          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
-          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
-          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
-          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
-        </p>
-        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-      </div>
-  </nav>
+
   <article>
     <header>
-      <h2><a href="http://danielfrg.github.io/blog/2013/04/01/nba-scraping-data/">Extracting NBA data from ESPN</a></h2>
+      <h2><a href="/blog/2013/04/01/nba-scraping-data/">Extracting NBA data from ESPN</a></h2>
       <time datetime="" title="2013-04-01T00:00:00" pubdate>April 01, 2013</time>
     </header>
 
     <div class="article_content">
-      <p><p>I've been wanting to play with some sports data for a while. Today I decide to
+      <p>I've been wanting to play with some sports data for a while. Today I decide to
 stop procastinating and do it. The problems was that after searching a
 while (15 minutes) for some data I was unable to find the data I wanted.
 Even in the <a href="http://www.databasebasketball.com/">Basktetball Database</a>
@@ -54,20 +57,20 @@ scrap the data from the ESPN site. Then used <a href="http://pandas.pydata.org/"
 to order, slice, and save the data into simple csv files. Also used
 <a href="http://ipython.org/">iPython notebooks</a> to develop the code faster.
 And a little bit of my <a href="https://github.com/danielfrg/copper">copper</a>
-project to use ...</p></p>
+project to use ...</p>
     </div>
 
     <div class="meta">
       <div>
-        <a href="http://danielfrg.github.io/blog/2013/04/01/nba-scraping-data/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
+        <a href="/blog/2013/04/01/nba-scraping-data/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
-            <a href="http://danielfrg.github.io/tag/crawling.html" class="tag">crawling</a>
-            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag">pandas</a>
-            <a href="http://danielfrg.github.io/tag/requests.html" class="tag">requests</a>
-            <a href="http://danielfrg.github.io/tag/beautifulsoup.html" class="tag">beautifulsoup</a>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/crawling.html" class="tag">crawling</a>
+            <a href="/tag/pandas.html" class="tag">pandas</a>
+            <a href="/tag/requests.html" class="tag">requests</a>
+            <a href="/tag/beautifulsoup.html" class="tag">beautifulsoup</a>
       </div>
 
     </div>
@@ -75,7 +78,12 @@ project to use ...</p></p>
   </article>
   <div class="separator">&equiv;</div>
 
-  <div class="pagination">
+  <nav class="pagination row">
+    <div class="col-md-6 left">
+    </div>
+    <div class="col-md-6 right">
+    </div>
+  </nav>
 
   </div>
 

@@ -19,28 +19,31 @@
     </head>
 
     <body>
+        <header class="main-header">
+        <nav>
+            <div class="container">
+            <ul>
+                <li><a href="/" title="Home">Home</a></li>
+                <!-- <li><a href="/about.html" title="More information about this site">About</a></li> -->
+                <li><a href="http://github.com/danielfrg" title="Daniel's Github" rel="me">Github</a></li>
+                <li><a href="http://twitter.com/danielfrg" title="Daniel's Twitter" rel="me">Twitter</a></li>
+                <li><a href="/archives.html" title="Archive">Archives</a></li>
+                <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+            </ul>
+            </div>
+        </nav>
+        </header>
+
 <div class="container index">
-<nav class="navbar" role="navigation">
-    <div class="container-fluid">
-        <p class="navbar-text navbar-right">
-          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
-          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
-          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
-          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
-          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
-          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
-        </p>
-        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-      </div>
-  </nav>
+
   <article>
     <header>
-      <h2><a href="http://danielfrg.github.io/blog/2013/09/21/word2vec-yhat/">word2vec in yhat: Word vector similarity</a></h2>
+      <h2><a href="/blog/2013/09/21/word2vec-yhat/">word2vec in yhat: Word vector similarity</a></h2>
       <time datetime="" title="2013-09-21T00:00:00" pubdate>September 21, 2013</time>
     </header>
 
     <div class="article_content">
-      <p><p>A <a href="http://google-opensource.blogspot.com/2013/08/learning-meaning-behind-words.html">few weeks ago</a>
+      <p>A <a href="http://google-opensource.blogspot.com/2013/08/learning-meaning-behind-words.html">few weeks ago</a>
 Google released some code to convert words to vectors called
 <a href="https://code.google.com/p/word2vec/">word2vec</a>.
 The company I am currently working on does something similar and I was quite amazed by the performance
@@ -52,19 +55,19 @@ via twitter and after reading their blog I had to try their product. What they d
 but very useful: take some python (scikit-learn) or R classifier and create a REST
 endpoint to make predictions on new data. The product is still in very beta but the guys were
 very responsive and they helped me to solve some of my issues.</p>
-<p>The only restriction I had ...</p></p>
+<p>The only restriction I had ...</p>
     </div>
 
     <div class="meta">
       <div>
-        <a href="http://danielfrg.github.io/blog/2013/09/21/word2vec-yhat/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
+        <a href="/blog/2013/09/21/word2vec-yhat/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
-            <a href="http://danielfrg.github.io/tag/word2vec.html" class="tag">word2vec</a>
-            <a href="http://danielfrg.github.io/tag/yhat.html" class="tag">yhat</a>
-            <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag">machine learning</a>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/word2vec.html" class="tag">word2vec</a>
+            <a href="/tag/yhat.html" class="tag">yhat</a>
+            <a href="/tag/machine-learning.html" class="tag">machine learning</a>
       </div>
 
     </div>
@@ -73,15 +76,15 @@ very responsive and they helped me to solve some of my issues.</p>
   <div class="separator">&equiv;</div>
   <article>
     <header>
-      <h2><a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/">Django + Celery + Readability = Python relevant content crawler</a></h2>
+      <h2><a href="/blog/2013/09/11/django-celery-readability-crawler/">Django + Celery + Readability = Python relevant content crawler</a></h2>
       <time datetime="" title="2013-09-11T00:00:00" pubdate>September 11, 2013</time>
     </header>
 
     <div class="article_content">
-      <p><p>I have written a <a href="http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/">few</a> <a href="http://danielfrg.github.io/blog/2013/04/01/nba-scraping-data/">posts</a>
+      <p>I have written a <a href="/blog/2013/08/20/relevant-content-blog-crawler/">few</a> <a href="/blog/2013/04/01/nba-scraping-data/">posts</a>
 about crawling content from the web. Mainly because I know the power of data
 and the biggest data source in the world is the web, Google knew it and we all now how they are
-doing. In my <a href="http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/">last post</a> I wrote about crawling relevant content
+doing. In my <a href="/blog/2013/08/20/relevant-content-blog-crawler/">last post</a> I wrote about crawling relevant content
 from blogs; It worked but what if I want an admin UI to control the crawling. What if I just put
 the crawler in an EC2 instance and just call it when I need to crawl.</p>
 <p>The solution was pretty simple thanks to some python projects.
@@ -89,20 +92,20 @@ I just needed to move from <a href="http://www.sqlalchemy.org/">sqlalchemy</a> t
 <a href="https://docs.djangoproject.com/en/1.5/">django</a> ORM, create a few <a href="http://celeryproject.org/">celery</a> tasks
 and use <a href="https://github.com/celery/django-celery/">django-celery</a> to have a pretty UI of the tasks.</p>
 <p>I was amazed on how easy it was to integrate celery with django. I just created a few tasks to
-actually crawl blogs (I already had ...</p></p>
+actually crawl blogs (I already had ...</p>
     </div>
 
     <div class="meta">
       <div>
-        <a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
+        <a href="/blog/2013/09/11/django-celery-readability-crawler/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
-            <a href="http://danielfrg.github.io/tag/django.html" class="tag">django</a>
-            <a href="http://danielfrg.github.io/tag/celery.html" class="tag">celery</a>
-            <a href="http://danielfrg.github.io/tag/readability.html" class="tag">readability</a>
-            <a href="http://danielfrg.github.io/tag/crawling.html" class="tag">crawling</a>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/django.html" class="tag">django</a>
+            <a href="/tag/celery.html" class="tag">celery</a>
+            <a href="/tag/readability.html" class="tag">readability</a>
+            <a href="/tag/crawling.html" class="tag">crawling</a>
       </div>
 
     </div>
@@ -110,7 +113,12 @@ actually crawl blogs (I already had ...</p></p>
   </article>
   <div class="separator">&equiv;</div>
 
-  <div class="pagination">
+  <nav class="pagination row">
+    <div class="col-md-6 left">
+    </div>
+    <div class="col-md-6 right">
+    </div>
+  </nav>
 
   </div>
 

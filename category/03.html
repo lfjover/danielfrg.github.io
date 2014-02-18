@@ -19,28 +19,31 @@
     </head>
 
     <body>
+        <header class="main-header">
+        <nav>
+            <div class="container">
+            <ul>
+                <li><a href="/" title="Home">Home</a></li>
+                <!-- <li><a href="/about.html" title="More information about this site">About</a></li> -->
+                <li><a href="http://github.com/danielfrg" title="Daniel's Github" rel="me">Github</a></li>
+                <li><a href="http://twitter.com/danielfrg" title="Daniel's Twitter" rel="me">Twitter</a></li>
+                <li><a href="/archives.html" title="Archive">Archives</a></li>
+                <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+            </ul>
+            </div>
+        </nav>
+        </header>
+
 <div class="container index">
-<nav class="navbar" role="navigation">
-    <div class="container-fluid">
-        <p class="navbar-text navbar-right">
-          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
-          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
-          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
-          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
-          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
-          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
-        </p>
-        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-      </div>
-  </nav>
+
   <article>
     <header>
-      <h2><a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">Kaggle bulldozers: Basic cleaning</a></h2>
+      <h2><a href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">Kaggle bulldozers: Basic cleaning</a></h2>
       <time datetime="" title="2013-03-07T00:00:00" pubdate>March 07, 2013</time>
     </header>
 
     <div class="article_content">
-      <p>
+      
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the last (2) weeks I have been doing a project for my Business Intelligence class and I learned why people always say they spend 80% of their time clearning the data, couldn't be more true.</p>
 <p>To practice a little bit more I decide to try the <a href="http://www.kaggle.com/c/bluebook-for-bulldozers">Kaggle bulldozers</a> competition. The first thing I notice was that the data is huge (+450 Mgs), is by far the bigguest data I have dealed with, for most Big Data experts is probably tiny but for me was huge xD.</p>
@@ -49,18 +52,18 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I start by looking (and getting scared) the data on Excel then imported it into python (pandas); +401k and 53 columns.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">...</p>
+<div class="cell border-box-sizing code_cell vbox">...
     </div>
 
     <div class="meta">
       <div>
-        <a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
+        <a href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
-            <a href="http://danielfrg.github.io/tag/kaggle.html" class="tag">kaggle</a>
-            <a href="http://danielfrg.github.io/tag/copper.html" class="tag">copper</a>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/kaggle.html" class="tag">kaggle</a>
+            <a href="/tag/copper.html" class="tag">copper</a>
       </div>
 
     </div>
@@ -68,7 +71,12 @@
   </article>
   <div class="separator">&equiv;</div>
 
-  <div class="pagination">
+  <nav class="pagination row">
+    <div class="col-md-6 left">
+    </div>
+    <div class="col-md-6 right">
+    </div>
+  </nav>
 
   </div>
 

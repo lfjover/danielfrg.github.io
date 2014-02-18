@@ -19,20 +19,23 @@
     </head>
 
     <body>
+        <header class="main-header">
+        <nav>
+            <div class="container">
+            <ul>
+                <li><a href="/" title="Home">Home</a></li>
+                <!-- <li><a href="/about.html" title="More information about this site">About</a></li> -->
+                <li><a href="http://github.com/danielfrg" title="Daniel's Github" rel="me">Github</a></li>
+                <li><a href="http://twitter.com/danielfrg" title="Daniel's Twitter" rel="me">Twitter</a></li>
+                <li><a href="/archives.html" title="Archive">Archives</a></li>
+                <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+            </ul>
+            </div>
+        </nav>
+        </header>
+
 <div class="container post">
-<nav class="navbar" role="navigation">
-    <div class="container-fluid">
-        <p class="navbar-text navbar-right">
-          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
-          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
-          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
-          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
-          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
-          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
-        </p>
-        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-      </div>
-  </nav>
+
     <article>
         <header>
             <h1>Month-Log.oct.2013</h1>
@@ -100,14 +103,14 @@ project but it is developed but guys at spotify and I can see a bright future.</
 
         <div class="meta">
             <div>
-                    <a href="http://danielfrg.github.io/tag/month-log.html" class="tag">month-log</a>
-                    <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
-                    <a href="http://danielfrg.github.io/tag/pig.html" class="tag">pig</a>
-                    <a href="http://danielfrg.github.io/tag/nutch.html" class="tag">nutch</a>
-                    <a href="http://danielfrg.github.io/tag/crawling.html" class="tag">crawling</a>
-                    <a href="http://danielfrg.github.io/tag/vagrant.html" class="tag">vagrant</a>
-                    <a href="http://danielfrg.github.io/tag/salt.html" class="tag">salt</a>
-                    <a href="http://danielfrg.github.io/tag/luigi.html" class="tag">luigi</a>
+                    <a href="/tag/month-log.html" class="tag">month-log</a>
+                    <a href="/tag/python.html" class="tag">python</a>
+                    <a href="/tag/pig.html" class="tag">pig</a>
+                    <a href="/tag/nutch.html" class="tag">nutch</a>
+                    <a href="/tag/crawling.html" class="tag">crawling</a>
+                    <a href="/tag/vagrant.html" class="tag">vagrant</a>
+                    <a href="/tag/salt.html" class="tag">salt</a>
+                    <a href="/tag/luigi.html" class="tag">luigi</a>
             </div>
             <div>
                 <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
@@ -127,19 +130,19 @@ project but it is developed but guys at spotify and I can see a bright future.</
     App.commentsButton = document.getElementById('comments-button');
 
     App.commentsButton.onclick = function () {
-        // Remove button on click
+        // Remove button action on click
         App.commentsButton.onclick = function () {
         }
 
         // Create comments container
         App.disqusContainer = document.createElement('div');
         App.disqusContainer.setAttribute('id', 'disqus_thread');
-        App.disqusContainer.setAttribute('class', 'container');
+        // App.disqusContainer.setAttribute('class', 'container');
 
-        // Append container to body
+        // Append container to body or div
+        // document.body.appendChild( App.disqusContainer );
         var container = document.getElementsByClassName('container post')[0];
         container.appendChild(App.disqusContainer);
-        // document.body.appendChild( App.disqusContainer );
 
         // Your Disqus shortname
         App.disqus_shortname = 'danielfrg';
