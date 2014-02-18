@@ -9,10 +9,9 @@
         <title>Daniel Rodriguez - Articles by Daniel Rodriguez | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
@@ -21,245 +20,353 @@
 
     <body>
 <div class="container index">
-<div class="container header">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
-        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
-        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
-        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
-    </ul>
-    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <p class="navbar-text navbar-right">
+          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
+          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
+          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
+          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
+          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
+        </p>
+        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+      </div>
+  </nav>
+  <article>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">Kaggle bulldozers: Basic cleaning</a></h2>
+      <time datetime="" title="2013-03-07T00:00:00" pubdate>March 07, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the last (2) weeks I have been doing a project for my Business Intelligence class and I learned why people always say they spend 80% of their time clearning the data, couldn't be more true.</p>
+<p>To practice a little bit more I decide to try the <a href="http://www.kaggle.com/c/bluebook-for-bulldozers">Kaggle bulldozers</a> competition. The first thing I notice was that the data is huge (+450 Mgs), is by far the bigguest data I have dealed with, for most Big Data experts is probably tiny but for me was huge xD.</p>
+<p>I was curious to see if python was capable of dealing with that and make some basic cleaning, also I ended creating some functionality for <a href="https://github.com/danielfrg/copper">copper</a>, the date cleaning and join datasets.</p>
 </div>
-  <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">Kaggle bulldozers: Basic cleaning</a></h2>
-
-    In the last (2) weeks I have been doing a project for my Business Intelligence class and I learned why people always say they spend 80% of their time clearning the data, couldn't be more true. To practice a little bit more I decide to try the Kaggle bulldozers competition. The...
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I start by looking (and getting scared) the data on Excel then imported it into python (pandas); +401k and 53 columns.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">...</p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-03-07T00:00:00" pubdate><i class="fa fa-calendar-o"></i> March 07, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/kaggle.html" class="tag"><i class="fa fa-tag"></i> kaggle</a>
-            <a href="http://danielfrg.github.io/tag/copper.html" class="tag"><i class="fa fa-tag"></i> copper</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/kaggle.html" class="tag">kaggle</a>
+            <a href="http://danielfrg.github.io/tag/copper.html" class="tag">copper</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks in pelican</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks in pelican</a></h2>
+      <time datetime="" title="2013-02-16T00:00:00" pubdate>February 16, 2013</time>
+    </header>
 
-    Update: Check out the updated post on blogging with iPython notebook and pelican with a plugin. It seems that I spend most time redesigning/developing this blog than actually blogging xD, just a few weeks ago I wrote about how I was blogging using jekyll with iPython notebooks and now ...
+    <div class="article_content">
+      <p><p class='update'><strong>Update: </strong> Check out the updated post on <a href="http://danielfrg.github.io/blog/2013/03/08/pelican-ipython-notebook-plugin/">blogging with iPython notebook and pelican with a plugin</a>.</p>
+
+<p>It seems that I spend most time redesigning/developing this blog than actually
+blogging xD, just a few weeks ago I wrote about how I was <a href="http://danielfrg.github.io/blog/2013/01/31/new-blog-using-jekyll-and-ipython/">blogging using jekyll
+with iPython notebooks</a>
+and now I am talking about doing the same different static blog engine.</p>
+<p>The fact is that a few days ago I found <a href="http://www.getpelican.com">pelican</a>, the first serious
+python alternative to Jekyll I have found, and after reading 15 minutes about it I was
+downloading pelican and creating a theme based on my old Jekyll site.</p>
+<p>The switch was easy just needed move some files, change some of the tags from liquid to
+<a href="http://jinja.pocoo.org/docs/">jinja2</a> and add some metadata. The fact of having
+less than 10 posts also helped because I did that part manually.</p>
+<p>The fact that <a href="http://www.getpelican.com">pelican</a> is on python gave me ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-02-16T00:00:00" pubdate><i class="fa fa-calendar-o"></i> February 16, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/pelican.html" class="tag"><i class="fa fa-tag"></i> pelican</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/pelican.html" class="tag">pelican</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/02/13/copper-quick-data-transformation-python/">Copper - Quick and automatic data transformation</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/02/13/copper-quick-data-transformation-python/">Copper - Quick and automatic data transformation</a></h2>
+      <time datetime="" title="2013-02-13T00:00:00" pubdate>February 13, 2013</time>
+    </header>
 
-    Today I start working on the first assignment for the Coursera's Data Analysis course and I needed to make some basic transformation on the data so decide to include them on copper. I realize I was making some wrong decisions on the Type metadata on the Dataset. Since the money type...
+    <div class="article_content">
+      <p>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Today I start working on the first assignment for the Coursera's Data Analysis course and I needed to make some basic transformation on the data so decide to include them on <a href="https://github.com/danielfrg/copper">copper</a>.</p>
+<p>I realize I was making some wrong decisions on the Type metadata on the Dataset. Since the money type is just a number (similar to a percent number on the case of this example) it is not necessary to have it as a different type, just make the transformations I was doing so I decide to remove the Money type, now the only types are Number and Category.</p>
+<p>Lets dive into the example: dataset: <a href="https://raw.github.com/danielfrg/copper/master/examples/loans/data/loansData.csv">loansData.csv</a></p>
+<p>Import copper and set the project path</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">...</p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-02-13T00:00:00" pubdate><i class="fa fa-calendar-o"></i> February 13, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/copper.html" class="tag"><i class="fa fa-tag"></i> copper</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/02/13/copper-quick-data-transformation-python/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/02/13/copper-quick-data-transformation-python/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/copper.html" class="tag">copper</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/02/05/d3-backbone-tornado-histogram-csv/">Using D3, backbone and tornado to visualize histograms of a csv file</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/02/05/d3-backbone-tornado-histogram-csv/">Using D3, backbone and tornado to visualize histograms of a csv file</a></h2>
+      <time datetime="" title="2013-02-05T00:00:00" pubdate>February 05, 2013</time>
+    </header>
 
-    After being procrastinating for weeks the learning of D3.js and backbone.js I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who ...
+    <div class="article_content">
+      <p><p>After being procrastinating for weeks the learning of <a href="http://d3js.org">D3.js</a> and <a href="http://backbonejs.org">backbone.js</a> I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):</p>
+<ul>
+<li>Great web frameworks as <a href="https://www.djangoproject.com">Django</a> and <a href="http://www.tornadoweb.org">Tornado</a> - "fighting" with ruby (<a href="http://rubyonrails.org">rails</a>)</li>
+<li>Great Data Analysis packages such as <a href="http://pandas.pydata.org/">pandas</a> - "fighting" with <a href="http://www.r-project.org">R</a></li>
+<li>Great machine-learning libraries such as <a href="http://scikit-learn.org/">scikit-learn</a></li>
+<li>Probably not the most successful but has a good gaming library <a href="http://www.pygame.org/">pyGame</a></li>
+<li>Is a great general purpose language - I use it to program a robot for a NASA competition using a PS3 controller, serial-ports, web-server, cameras, and all in one language</li>
+<li>And the list could go for hours</li>
+</ul>
+<p>For me that is the python killer feature: do <strong>anything</strong> on one language, sometimes ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-02-05T00:00:00" pubdate><i class="fa fa-calendar-o"></i> February 05, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/javascript.html" class="tag"><i class="fa fa-tag"></i> javascript</a>
-            <a href="http://danielfrg.github.io/tag/d3js.html" class="tag"><i class="fa fa-tag"></i> D3.js</a>
-            <a href="http://danielfrg.github.io/tag/backbone.html" class="tag"><i class="fa fa-tag"></i> backbone</a>
-            <a href="http://danielfrg.github.io/tag/tornado.html" class="tag"><i class="fa fa-tag"></i> tornado</a>
-            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag"><i class="fa fa-tag"></i> pandas</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/02/05/d3-backbone-tornado-histogram-csv/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/02/05/d3-backbone-tornado-histogram-csv/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/javascript.html" class="tag">javascript</a>
+            <a href="http://danielfrg.github.io/tag/d3js.html" class="tag">D3.js</a>
+            <a href="http://danielfrg.github.io/tag/backbone.html" class="tag">backbone</a>
+            <a href="http://danielfrg.github.io/tag/tornado.html" class="tag">tornado</a>
+            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag">pandas</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/02/04/coursera-data-analysis-quiz-2-python/">Coursera Data Analysis - Quiz 2 on python</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/02/04/coursera-data-analysis-quiz-2-python/">Coursera Data Analysis - Quiz 2 on python</a></h2>
+      <time datetime="" title="2013-02-04T00:00:00" pubdate>February 04, 2013</time>
+    </header>
 
-    I am taking the Data Analysis class on coursera, I wanted to keep learning R since I previously took Computing for Data Analysis but since that I change it to python. I think I love python too much so I did this week quiz on python using pandas and numpy....
+    <div class="article_content">
+      <p>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I am taking the <a href="https://class.coursera.org/dataanalysis-001/">Data Analysis</a> class on <a href="http://coursera.org">coursera</a>, I wanted to keep learning R since I previously took <a href="https://class.coursera.org/compdata-2012-001/">Computing for Data Analysis</a> but since that I change it to python. I think I love python too much so I did this week quiz on python using pandas and numpy. Not sure if I will do this each week/quiz of the class, we will see.</p>
+<p>You can find the questions and solutions for the <a href="https://github.com/danielfrg/copper/raw/master/examples/coursera_data_analysis/week2/docs/quiz2.pdf">quiz2.pdf</a>, the data: <a href="https://raw.github.com/danielfrg/copper/master/examples/coursera_data_analysis/week2/data/ss06hid.csv">ss06hid.csv</a>, <a href="https://raw.github.com/danielfrg/copper/master/examples/coursera_data_analysis/week2/data/ss06pid.csv">ss06pid.csv</a> and the <a href="https://github.com/danielfrg/copper/raw/master/examples/coursera_data_analysis/week2/docs/PUMSDataDict06.pdf">metadata</a> on the github page.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">...</p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-02-04T00:00:00" pubdate><i class="fa fa-calendar-o"></i> February 04, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag"><i class="fa fa-tag"></i> coursera</a>
-            <a href="http://danielfrg.github.io/tag/data-analysis.html" class="tag"><i class="fa fa-tag"></i> data analysis</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag">coursera</a>
+            <a href="http://danielfrg.github.io/tag/data-analysis.html" class="tag">data analysis</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/01/31/new-blog-using-jekyll-and-ipython/">New blog using Jekyll & iPython</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/01/31/new-blog-using-jekyll-and-ipython/">New blog using Jekyll & iPython</a></h2>
+      <time datetime="" title="2013-01-31T00:00:00" pubdate>January 31, 2013</time>
+    </header>
 
-    Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using octopress (jekyll) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a ...
+    <div class="article_content">
+      <p><p>Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using <a href="http://octopress.org/">octopress</a> (<a href="https://github.com/mojombo/jekyll">jekyll</a>) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.</p>
+<ul>
+<li>Is not fast enough</li>
+<li>Can't have custom analytics and the wordpress analytics sucks.</li>
+<li>Can't modify HTML or even CSS</li>
+<li>Don't have markdown support</li>
+</ul>
+<p>Jekyll has all of that and nd github pages for hosting is just magnificent. Publish a new post with git is how <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">a hacker</a> should do it.</p>
+<p>I tried to find a python alternative, there are some specially <a href="http://ringce.com/hyde">Hyde</a> but the github page shows that the last commit was 2 years ago, while jekyll is actively developed and a much better alternative ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-01-31T00:00:00" pubdate><i class="fa fa-calendar-o"></i> January 31, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/jekyll.html" class="tag"><i class="fa fa-tag"></i> jekyll</a>
-            <a href="http://danielfrg.github.io/tag/ipython.html" class="tag"><i class="fa fa-tag"></i> ipython</a>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/01/31/new-blog-using-jekyll-and-ipython/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/01/31/new-blog-using-jekyll-and-ipython/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/jekyll.html" class="tag">jekyll</a>
+            <a href="http://danielfrg.github.io/tag/ipython.html" class="tag">ipython</a>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/">Copper - Bootstrap and Bagging</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/">Copper - Bootstrap and Bagging</a></h2>
+      <time datetime="" title="2013-01-30T00:00:00" pubdate>January 30, 2013</time>
+    </header>
 
-    This week on my Advance Business Intelligence class we took a look at Boosting and Bagging, two concepts well known by everybody in the machine learning world. The example on the class was take a simple Decision Tree and compare it to some bagged Decision Tree; FYI the example on...
+    <div class="article_content">
+      <p>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This week on my Advance Business Intelligence class we took a look at Boosting and Bagging, two concepts well known by everybody in the machine learning world. The example on the class was take a simple Decision Tree and compare it to some bagged Decision Tree; FYI the example on class failed: SAS told that a simple DT was &quot;better&quot; than the bagged one, some error on SAS Enterprise Miner that we could not found. Time to see if python is capable of doing it.</p>
+<p>This first part is just a recap of <a href="http://danielfrg.github.com/blog/2013/01/26/copper-easy-data-analysis-on-python/">Post #1</a> I am using the same <a href="https://raw.github.com/danielfrg/copper/master/examples/donors/data/data.csv">donors.csv</a> that I am using for my class. We import the data and set some roles for the variables</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">...</p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-01-30T00:00:00" pubdate><i class="fa fa-calendar-o"></i> January 30, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/copper.html" class="tag"><i class="fa fa-tag"></i> copper</a>
-            <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag"><i class="fa fa-tag"></i> machine learning</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/copper.html" class="tag">copper</a>
+            <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag">machine learning</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/01/27/copper-machine-learning-python/">Copper - Machine Learning</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/01/27/copper-machine-learning-python/">Copper - Machine Learning</a></h2>
+      <time datetime="" title="2013-01-27T00:00:00" pubdate>January 27, 2013</time>
+    </header>
 
-    I wanted to see really how fast and good is the API for the package for that reason I decide to repeat the project #3 of my basic Business Intelligence class. That project took me at least 16 hours to complete, of course that includes the creation of the report...
+    <div class="article_content">
+      <p>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I wanted to see really how fast and good is the API for the package for that reason I decide to repeat the project #3 of my basic &quot;Business Intelligence&quot; class. That project took me at least 16 hours to complete, of course that includes the creation of the report but I remember to spend from 5 to 6 hours on SAS doing the data mining.</p>
+<p>The data is about the customers of a catalog, the objective is to predict which customers are more likely to respond to the catalog campaign and send a catalog to those customers. There is a dataset for <a href="https://raw.github.com/danielfrg/copper/master/examples/catalog/data/training.csv">training</a> (2000 rows) and another one for <a href="https://raw.github.com/danielfrg/copper/master/examples/catalog/data/testing.csv">testing</a> (2000 rows). Each file has this columns:</p>
+<ol style="list-style-type: decimal">
+<li>NGIF: number of orders in the 24 months</li>
+<li>RAMN: Total order amounts in dollars in the last 24 months</li>
+<li>LASG: Amount of last order</li>
+<li>LASD: Date of last order (you may need to convert it to number of months elapsed to 01/01/2007)</li>...</p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-01-27T00:00:00" pubdate><i class="fa fa-calendar-o"></i> January 27, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/copper.html" class="tag"><i class="fa fa-tag"></i> copper</a>
-            <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag"><i class="fa fa-tag"></i> machine learning</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/01/27/copper-machine-learning-python/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/01/27/copper-machine-learning-python/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/copper.html" class="tag">copper</a>
+            <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag">machine learning</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/">Copper - Easy data analysis and machine learning on python</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/">Copper - Easy data analysis and machine learning on python</a></h2>
+      <time datetime="" title="2013-01-26T00:00:00" pubdate>January 26, 2013</time>
+    </header>
 
-    As part of my Master in IT Management this semester I am taking a class called Advanced Business Intelligence which is the same as machine learning or data analysis to the Business people; in general they teach how to use SAS (Enteprise Miner) to do data mining. SAS and Enterprise...
+    <div class="article_content">
+      <p>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As part of my Master in IT &amp; Management this semester I am taking a class called &quot;Advanced Business Intelligence&quot; which is the same as machine learning or data analysis to the Business people; in general they teach how to use SAS (Enteprise Miner) to do data mining.</p>
+<p>SAS and Enterprise Miner is a good software - with some problems:</p>
+<ul>
+<li>Costs a <strong>lot</strong> of money</li>
+<li>Is slow as hell, seriously</li>
+<li>Good for business people, not so much for engineers</li>
+<li>Costs a <strong>lot</strong> of money</li>
+</ul>
+<p>I was able to get it for $100 dollars because the university has an arrangement with SAS but without that is impossible to buy for personal use. For that reason I start learning R (from <a href="http://coursera.org/" title="Coursera">coursera</a>) and Python Data Analysis packages (pandas and scikit-learn), while I was taking my &quot;(basic) Business Intelligence&quot;.</p>
+<p>I learned that is possible to replace SAS with R or Python but some easy tasks can take a long time. I want to make a contribution by making some tasks easier and keep learning python. For that reason I am going to try to do <strong>everything</strong>...</p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-01-26T00:00:00" pubdate><i class="fa fa-calendar-o"></i> January 26, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/copper.html" class="tag"><i class="fa fa-tag"></i> copper</a>
-            <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag"><i class="fa fa-tag"></i> machine learning</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/copper.html" class="tag">copper</a>
+            <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag">machine learning</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/01/02/python-replace-sas/">Python to replace SAS Enterprise Miner (basic)</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/01/02/python-replace-sas/">Python to replace SAS Enterprise Miner (basic)</a></h2>
+      <time datetime="" title="2013-01-02T17:00:00" pubdate>January 02, 2013</time>
+    </header>
 
-    Why? The last fall (2012) I took a class called Business Intelligence (at UT Dallas) which is the same as Data Mining or Machine Learning to business people. On that class they taught us to use SAS Enterprise Miner. I used it but I hate to use it. First of ...
+    <div class="article_content">
+      <p><h2>Why?</h2>
+<p>The last fall (2012) I took a class called Business Intelligence (at
+UT Dallas) which is the same as Data Mining or Machine Learning
+to business people. On that class they taught us to use SAS Enterprise
+Miner. I used it but I <strong>hate</strong> to use it. First of all I had to <strong>pay</strong>
+for it: like $100 dollars, not much because the University has an
+arrangement with SAS but I had to pay that again soon, and I have to pay
+a lot of money to use it without the University help. Second, is
+<strong>slow</strong> as hell, I was going mad using that piece of $%#\^ :-P. And
+don't get me wrong, the software is "good", but is not for me.</p>
+<p>That is the reason why during this time I learn the basics of R (from
+<a href="http://coursera.org" title="Coursera">coursera</a>) and python data analysis packages, mainly pandas. The
+objective on this ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-01-02T17:00:00" pubdate><i class="fa fa-calendar-o"></i> January 02, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag"><i class="fa fa-tag"></i> pandas</a>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/sas.html" class="tag"><i class="fa fa-tag"></i> SAS</a>
-            <a href="http://danielfrg.github.io/tag/scikit-learn.html" class="tag"><i class="fa fa-tag"></i> scikit-learn</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/01/02/python-replace-sas/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/01/02/python-replace-sas/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag">pandas</a>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/sas.html" class="tag">SAS</a>
+            <a href="http://danielfrg.github.io/tag/scikit-learn.html" class="tag">scikit-learn</a>
       </div>
+
     </div>
 
   </article>

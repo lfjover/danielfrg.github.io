@@ -9,10 +9,9 @@
         <title>Plugin for blogging with iPython notebooks in Pelican | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
@@ -21,20 +20,27 @@
 
     <body>
 <div class="container post">
-<div class="container header">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
-        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
-        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
-        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
-    </ul>
-    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-</div>
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <p class="navbar-text navbar-right">
+          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
+          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
+          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
+          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
+          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
+        </p>
+        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+      </div>
+  </nav>
     <article>
-        <h1>Plugin for blogging with iPython notebooks in Pelican</h1>
-        <p>This is just a little update on my previous post about <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks with pelican</a>.</p>
+        <header>
+            <h1>Plugin for blogging with iPython notebooks in Pelican</h1>
+            <time datetime="article.date.isoformat()" pubdate>March 08, 2013</time>
+        </header>
+
+        <div class="article_content">
+            <p>This is just a little update on my previous post about <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks with pelican</a>.</p>
 <p>One of the people behind pelican helped me to convert the <a href="http://danielfrg.github.io/blog/2013/02/16/blogging-pelican-ipython-notebook/">previous code</a> to a pelican plugin and I just made it available via github: <a href="https://github.com/danielfrg/pelican-ipythonnb">pelican-ipythonnb</a>.</p>
 <p>The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).</p>
 <p>An example is my last post about a <a href="http://danielfrg.github.io/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">cleaning data for a Kaggle competition</a>.</p>
@@ -82,25 +88,19 @@ Then in the <code>pelicanconf.py</code> put: <code>PLUGINS = ['custom_plugins_di
 
 
 <p>And thats it! Add the <code>.ipynb</code> file to the <code>content</code> folder in the pelican project and should generate a new post.</p>
-  </article>
+        </div>
 
-    <div class="metadata">
-        <div class="left">
-            <strong>Published: </strong>
-            <i>
-                <time datetime="article.date.isoformat()" pubdate>March 08, 2013</time>
-            </i>
+        <div class="meta">
             <div>
-                <strong>Tags: </strong>
-                    <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-                    <a href="http://danielfrg.github.io/tag/pelican.html" class="tag"><i class="fa fa-tag"></i> pelican</a>
+                    <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+                    <a href="http://danielfrg.github.io/tag/pelican.html" class="tag">pelican</a>
+            </div>
+            <div>
+                <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
             </div>
         </div>
-        <div class="right">
-            <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
-        </div>
-    </div>
-    </div>
+    </article>
+</div>
 
 <script type="text/javascript">
 (function () {

@@ -9,10 +9,9 @@
         <title>NLP at scale: Semafor + salt + celery and more | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
@@ -21,20 +20,27 @@
 
     <body>
 <div class="container post">
-<div class="container header">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
-        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
-        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
-        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
-    </ul>
-    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-</div>
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <p class="navbar-text navbar-right">
+          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
+          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
+          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
+          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
+          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
+        </p>
+        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+      </div>
+  </nav>
     <article>
-        <h1>NLP at scale: Semafor + salt + celery and more</h1>
-        <p>This posts describes the implementation of a simple system to parse web pages using <a href="http://www.ark.cs.cmu.edu/SEMAFOR/">SEMAFOR</a> (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.</p>
+        <header>
+            <h1>NLP at scale: Semafor + salt + celery and more</h1>
+            <time datetime="article.date.isoformat()" pubdate>November 17, 2013</time>
+        </header>
+
+        <div class="article_content">
+            <p>This posts describes the implementation of a simple system to parse web pages using <a href="http://www.ark.cs.cmu.edu/SEMAFOR/">SEMAFOR</a> (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.</p>
 <p>The whole source can be found on github: <a href="https://github.com/danielfrg/semafor-parsing">danielfrg/semafor-parsing</a></p>
 <p>The main idea is the following:</p>
 <ol>
@@ -105,30 +111,24 @@
 </ul>
 <p>If you have any other suggestion, improvement or question leave a comment.
 Or did you ran this on the whole <a href="http://www.lsi.upc.edu/~nlp/wikicorpus/">wikipedia</a> and found something interesting? Let me know that to.</p>
-  </article>
+        </div>
 
-    <div class="metadata">
-        <div class="left">
-            <strong>Published: </strong>
-            <i>
-                <time datetime="article.date.isoformat()" pubdate>November 17, 2013</time>
-            </i>
+        <div class="meta">
             <div>
-                <strong>Tags: </strong>
-                    <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-                    <a href="http://danielfrg.github.io/tag/nlp.html" class="tag"><i class="fa fa-tag"></i> NLP</a>
-                    <a href="http://danielfrg.github.io/tag/semafor.html" class="tag"><i class="fa fa-tag"></i> semafor</a>
-                    <a href="http://danielfrg.github.io/tag/salt.html" class="tag"><i class="fa fa-tag"></i> salt</a>
-                    <a href="http://danielfrg.github.io/tag/celery.html" class="tag"><i class="fa fa-tag"></i> celery</a>
-                    <a href="http://danielfrg.github.io/tag/luigi.html" class="tag"><i class="fa fa-tag"></i> luigi</a>
-                    <a href="http://danielfrg.github.io/tag/vagrant.html" class="tag"><i class="fa fa-tag"></i> vagrant</a>
+                    <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+                    <a href="http://danielfrg.github.io/tag/nlp.html" class="tag">NLP</a>
+                    <a href="http://danielfrg.github.io/tag/semafor.html" class="tag">semafor</a>
+                    <a href="http://danielfrg.github.io/tag/salt.html" class="tag">salt</a>
+                    <a href="http://danielfrg.github.io/tag/celery.html" class="tag">celery</a>
+                    <a href="http://danielfrg.github.io/tag/luigi.html" class="tag">luigi</a>
+                    <a href="http://danielfrg.github.io/tag/vagrant.html" class="tag">vagrant</a>
+            </div>
+            <div>
+                <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
             </div>
         </div>
-        <div class="right">
-            <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
-        </div>
-    </div>
-    </div>
+    </article>
+</div>
 
 <script type="text/javascript">
 (function () {

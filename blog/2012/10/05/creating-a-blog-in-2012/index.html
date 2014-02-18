@@ -9,10 +9,9 @@
         <title>Creating a blog in 2012 | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
@@ -21,20 +20,27 @@
 
     <body>
 <div class="container post">
-<div class="container header">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
-        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
-        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
-        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
-    </ul>
-    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-</div>
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <p class="navbar-text navbar-right">
+          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
+          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
+          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
+          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
+          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
+        </p>
+        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+      </div>
+  </nav>
     <article>
-        <h1>Creating a blog in 2012</h1>
-        <p>Yes, I am creating a blog on October 5, 2012!</p>
+        <header>
+            <h1>Creating a blog in 2012</h1>
+            <time datetime="article.date.isoformat()" pubdate>October 05, 2012</time>
+        </header>
+
+        <div class="article_content">
+            <p>Yes, I am creating a blog on October 5, 2012!</p>
 <p><strong>Why?</strong> Having a flu is one of the reasons. Other reason is that I and
 want to improve my English and have a lot of time to waste (not having a
 car on the US is hard). Also having a blog in 2012 is old-stylish
@@ -46,24 +52,18 @@ on the University of Texas at Dallas.</p>
 about new technologies, always wanting to learn something new (mainly
 about technology). Hopes to keep writing for a long time.</p>
 <p>-Dan</p>
-  </article>
+        </div>
 
-    <div class="metadata">
-        <div class="left">
-            <strong>Published: </strong>
-            <i>
-                <time datetime="article.date.isoformat()" pubdate>October 05, 2012</time>
-            </i>
+        <div class="meta">
             <div>
-                <strong>Tags: </strong>
-                    <a href="http://danielfrg.github.io/tag/this-blog.html" class="tag"><i class="fa fa-tag"></i> This blog</a>
+                    <a href="http://danielfrg.github.io/tag/this-blog.html" class="tag">This blog</a>
+            </div>
+            <div>
+                <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
             </div>
         </div>
-        <div class="right">
-            <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
-        </div>
-    </div>
-    </div>
+    </article>
+</div>
 
 <script type="text/javascript">
 (function () {

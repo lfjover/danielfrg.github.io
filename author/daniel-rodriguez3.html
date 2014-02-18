@@ -9,10 +9,9 @@
         <title>Daniel Rodriguez - Articles by Daniel Rodriguez | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
@@ -21,184 +20,310 @@
 
     <body>
 <div class="container index">
-<div class="container header">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
-        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
-        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
-        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
-    </ul>
-    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-</div>
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <p class="navbar-text navbar-right">
+          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
+          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
+          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
+          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
+          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
+        </p>
+        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+      </div>
+  </nav>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2012/12/28/python-finance-package-v0-035-event-study-and-market-simulator-integration/">Python Finance Package v0.035 - Event study and market simulator Integration</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2012/12/28/python-finance-package-v0-035-event-study-and-market-simulator-integration/">Python Finance Package v0.035 - Event study and market simulator Integration</a></h2>
+      <time datetime="" title="2012-12-28T15:00:00" pubdate>December 28, 2012</time>
+    </header>
 
-    Ok, here come the first "Real Life" example. As I mention on previous posts my finance knowledge is mostly null so I cannot say this can be used on real life but what I found playing with the utils I have created is very interesting. If anyone use this techniques ...
+    <div class="article_content">
+      <p><p>Ok, here come the first "Real Life" example. As I mention on previous
+posts my finance knowledge is mostly null so I cannot say this can be
+used on real life but what I found playing with the utils I have created
+is very interesting.</p>
+<p>If anyone use this techniques and win/lose money I would love to hear :P
+Also if anyone find discrepancies on the results <strong>please</strong> tell me.</p>
+<h2>Changes since last time</h2>
+<ol>
+<li><span style="line-height:13px;">Bug Fixes on Multiple Event Study:
+    Missing values are now filled: forward and then backwards.</span></li>
+<li>Multiple Event Studies: Graph with error bars (std)</li>
+<li>Integration between the Event Study Finder and Market Simulator</li>
+</ol>
+<h2>Example</h2>
+<ol>
+<li>Use the S&amp;P 500 symbols from 2012</li>
+<li>Look in all 2011 for events when the value of the stock went below
+    $5</li>
+<li>Discover how to use this opportunity to invest on the equities</li>
+<li>Simulate if we would make some money from ...</li></ol></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2012-12-28T15:00:00" pubdate><i class="fa fa-calendar-o"></i> December 28, 2012</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag"><i class="fa fa-tag"></i> coursera</a>
-            <a href="http://danielfrg.github.io/tag/finance.html" class="tag"><i class="fa fa-tag"></i> finance</a>
-            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag"><i class="fa fa-tag"></i> pandas</a>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag"><i class="fa fa-tag"></i> computational investing</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2012/12/28/python-finance-package-v0-035-event-study-and-market-simulator-integration/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2012/12/28/python-finance-package-v0-035-event-study-and-market-simulator-integration/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag">coursera</a>
+            <a href="http://danielfrg.github.io/tag/finance.html" class="tag">finance</a>
+            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag">pandas</a>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag">computational investing</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2012/12/17/python-finance-package-v0-02-basic-utils-and-market-simulator/">Python Finance Package v0.02 – Basic Utils and Market Simulator</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2012/12/17/python-finance-package-v0-02-basic-utils-and-market-simulator/">Python Finance Package v0.02 – Basic Utils and Market Simulator</a></h2>
+      <time datetime="" title="2012-12-17T15:00:00" pubdate>December 17, 2012</time>
+    </header>
 
-    Continuing with the (Basic) Python Finance Package. Now has some basic utils: total-return, daily-returns, and sharpe-ratio calculations. Also a Market Simulator, the purpose was to solve the Computational Investing Homework 3. Changes on DataAccess Now the index of the DataFrame is DatetimeIndex not string. With this is possible to index ...
+    <div class="article_content">
+      <p><p>Continuing with the <strong>(Basic)</strong> Python Finance Package. Now has some
+basic utils: total-return, daily-returns, and sharpe-ratio calculations.
+Also a Market Simulator, the purpose was to solve the <a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing">Computational
+Investing</a> Homework 3.</p>
+<h2>Changes on DataAccess</h2>
+<ol>
+<li>Now the index of the DataFrame is DatetimeIndex not string. With
+    this is possible to index it with datetimes.</li>
+<li>Moved the classes folder from './data/' to './utils/'</li>
+<li>Improved Documentation</li>
+</ol>
+<h2>Market Simulator</h2>
+<p>Reads a .csv file with the orders/trades. Downloads the necessary data
+(symbols and dates between the ). Makes a simulation of the orders:</p>
+<p>The .csv file looks like this:</p>
+<div class="highlight"><pre><span class="n">year</span><span class="p">,</span><span class="n">month</span><span class="p">,</span><span class="n">day</span><span class="p">,</span><span class="n">symbol</span><span class="p">,</span><span class="n">action</span><span class="p">,</span><span class="n">num_of_shares</span>
+<span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">AAPL</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">1500</span>
+<span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="n">AAPL</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">1500</span>
+<span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="n">IBM</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">4000</span>
+<span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="n">GOOG</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">1000</span>
+<span class="mi">2011</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">XOM</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">4000</span>
+<span class="mi">2011</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">XOM</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">4000</span>
+<span class="mi">2011</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">GOOG</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">1000</span>
+<span class="mi">2011</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">IBM</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">2200</span>
+<span class="mi">2011</span><span class="p">,</span><span class="mi">6 ...</span></pre></div></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2012-12-17T15:00:00" pubdate><i class="fa fa-calendar-o"></i> December 17, 2012</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/cousera.html" class="tag"><i class="fa fa-tag"></i> cousera</a>
-            <a href="http://danielfrg.github.io/tag/finance.html" class="tag"><i class="fa fa-tag"></i> finance</a>
-            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag"><i class="fa fa-tag"></i> pandas</a>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag"><i class="fa fa-tag"></i> computational investing</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2012/12/17/python-finance-package-v0-02-basic-utils-and-market-simulator/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2012/12/17/python-finance-package-v0-02-basic-utils-and-market-simulator/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/cousera.html" class="tag">cousera</a>
+            <a href="http://danielfrg.github.io/tag/finance.html" class="tag">finance</a>
+            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag">pandas</a>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag">computational investing</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2012/12/13/python-finance-package-v0-01-data-manager/">Python Finance Package v0.01 - Data Manager</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2012/12/13/python-finance-package-v0-01-data-manager/">Python Finance Package v0.01 - Data Manager</a></h2>
+      <time datetime="" title="2012-12-13T12:59:00" pubdate>December 13, 2012</time>
+    </header>
 
-    I have learned a lot from my most recent Coursera Course: Computational Investing Part 1. The language used on the class is Python so I couldn't be happier; we are using a package called QSTKdeveloped by some people at Georgia Tech, how also is responsible for the class ...
+    <div class="article_content">
+      <p><p>I have learned a lot from my most recent Coursera Course: <a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing - Part 1">Computational
+Investing Part 1</a>. The language used on the class is Python so I
+couldn't be happier; we are using a package called <a href="http://wiki.quantsoftware.org/index.php?title=QuantSoftware_ToolKit" title="QSTK">QSTK</a>developed by
+some people at Georgia Tech, how also is responsible for the class.</p>
+<p>The quality of the package is amazing, has a tons of features, but one
+area I notice the package to has to be improved is the data downloading
+and management.</p>
+<p>I decide to write some python scripts to help me with this problem, and
+later on I decide to write a very simple Python Package with a few utils
+to help me on this class and future finance projects. A little bit an
+alternative to QSTK and a little bit a complement for it.</p>
+<p>At the same time I decide to make the jump from Python 2.7 to Python ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2012-12-13T12:59:00" pubdate><i class="fa fa-calendar-o"></i> December 13, 2012</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag"><i class="fa fa-tag"></i> coursera</a>
-            <a href="http://danielfrg.github.io/tag/finance.html" class="tag"><i class="fa fa-tag"></i> finance</a>
-            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag"><i class="fa fa-tag"></i> pandas</a>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag"><i class="fa fa-tag"></i> computational investing</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2012/12/13/python-finance-package-v0-01-data-manager/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2012/12/13/python-finance-package-v0-01-data-manager/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag">coursera</a>
+            <a href="http://danielfrg.github.io/tag/finance.html" class="tag">finance</a>
+            <a href="http://danielfrg.github.io/tag/pandas.html" class="tag">pandas</a>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag">computational investing</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/">Using cloud9 to save computing power and to code from everywhere too</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/">Using cloud9 to save computing power and to code from everywhere too</a></h2>
+      <time datetime="" title="2012-11-03T14:46:00" pubdate>November 03, 2012</time>
+    </header>
 
-    I am taking my second course on Coursera Computational Investing - Part 1; pretty fun so far. The homework 1 was to find a portfolio of 4 equities with the best (highest) Sharpe ratio from 2011. With a little bit of coding in python I was able to download all SPY ...
+    <div class="article_content">
+      <p><p>I am taking my second course on <a href="https://www.coursera.org/" title="Coursera">Coursera</a> Computational Investing -
+Part 1; pretty fun so far. The homework 1 was to find a portfolio of 4
+equities with the best (highest) Sharpe ratio from 2011. With a little
+bit of coding in python I was able to download all SPY stocks and loop
+through out the different combinations of them with different weights to
+find the best portfolio. The problem I found was that my PC is to slow
+for this task :(</p>
+<p>First I have to said I am not an algorithm expert so the process is
+linear, but I was able to optimize a little bit the process by loading
+into memory first all the data and some other little stuff that makes
+the calculation faster; that is from 1 1/2 minutes initially to 30
+seconds combining 5 stocks. And I was able to combine up to 8 ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2012-11-03T14:46:00" pubdate><i class="fa fa-calendar-o"></i> November 03, 2012</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/cloud9.html" class="tag"><i class="fa fa-tag"></i> cloud9</a>
-            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag"><i class="fa fa-tag"></i> computational investing</a>
-            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag"><i class="fa fa-tag"></i> coursera</a>
-            <a href="http://danielfrg.github.io/tag/numpy.html" class="tag"><i class="fa fa-tag"></i> numpy</a>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/cloud9.html" class="tag">cloud9</a>
+            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag">computational investing</a>
+            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag">coursera</a>
+            <a href="http://danielfrg.github.io/tag/numpy.html" class="tag">numpy</a>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/">Making your own DDNS with Django and AppFog</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/">Making your own DDNS with Django and AppFog</a></h2>
+      <time datetime="" title="2012-10-20T21:45:00" pubdate>October 20, 2012</time>
+    </header>
 
-    I love web-apps as the data is always in sync magically via the cloud, but sometimes I just need to access my computer via remote access to use some app, get some file or just to start downloading some torrents(shh). Remember/Email/Evernote a changing WAN IP is tedious ...
+    <div class="article_content">
+      <p><p>I love web-apps as the data is always in sync magically via the cloud, but
+sometimes I just need to access my computer via remote access to use
+some app, get some file or just to start downloading some torrents(shh).
+Remember/Email/Evernote
+a changing
+<abbr style="text-align:justify;" title="Wide area network IP">WAN
+IP</abbr> is tedious that is were a
+<abbr style="text-align:justify;" title="Dynamic Domain Name System">DDNS</abbr>
+comes in. My previous and old Belkin router had a bunch of options for
+<abbr style="text-align:justify;" title="Dynamic Domain Name System">DDNS</abbr>s
+fortunately one was free; unfortunately
+and unbelievable my new <a href="http://www.belkin.com/us/p/P-F9K1103" title="Belkin N750">Belkin N750 DB router</a> has only one option:
+<a href="http://dyn.com/dns/" title="Dyn">Dyn</a> which is not free :(.</p>
+<p>So I decide to make my own
+<abbr title="Dynamic Domain Name System">DDNS</abbr> with <a href="https://www.djangoproject.com" title="Django">Django</a> and
+with a free <abbr title="Platform as a Service">PaaS</abbr>.
+<!--more-->
+The first decision was to select a
+<abbr title="Platform as a Service">PaaS</abbr> and there are a lot of
+option currently; the list got narrowed because I needed a
+free <abbr title="Platform as a Service">PaaS</abbr> for such a simple
+and small app that it is just for me. Some options were ...</!--more--></p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2012-10-20T21:45:00" pubdate><i class="fa fa-calendar-o"></i> October 20, 2012</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/appfog.html" class="tag"><i class="fa fa-tag"></i> appFog</a>
-            <a href="http://danielfrg.github.io/tag/ddns.html" class="tag"><i class="fa fa-tag"></i> DDNS</a>
-            <a href="http://danielfrg.github.io/tag/django.html" class="tag"><i class="fa fa-tag"></i> django</a>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/appfog.html" class="tag">appFog</a>
+            <a href="http://danielfrg.github.io/tag/ddns.html" class="tag">DDNS</a>
+            <a href="http://danielfrg.github.io/tag/django.html" class="tag">django</a>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2012/10/14/desktop-app-to-easily-create-new-tasks/">Desktop app to easily create new tasks on all task management web apps</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2012/10/14/desktop-app-to-easily-create-new-tasks/">Desktop app to easily create new tasks on all task management web apps</a></h2>
+      <time datetime="" title="2012-10-14T23:51:00" pubdate>October 14, 2012</time>
+    </header>
 
-    Recently I have been looking for new ways of manage my tasks, looking for being more productive and organized with my master, coursera courses, blog and programming tasks. I am a huge fan of web apps and the past week I tried almost every (decent = nice landing page) app on ...
+    <div class="article_content">
+      <p><p>Recently I have been looking for new ways of manage my tasks, looking
+for being more productive and organized with my
+master, <a href="http://coursera.org/">coursera</a> courses, blog and programming tasks. I am a huge
+fan of web apps and the past week I tried almost every (decent = nice
+landing page) app on the internet, just to name a
+few: <a href="http://do.com/">do</a>, <a href="http://doit.im/">doit</a>, <a href="http://producteev.com/">producteev</a>, <a href="http://orchestra.com/">orchestra</a>, <a href="http://wunderlist.com/">wunderlist</a>, <a href="http://asana.com/">asana</a>,
+<a href="http://42tasks.com/">42tasks</a> to finally choose <a href="http://nirvanahq.com/">nirvana</a>.</p>
+<p>I selected nirvana because it was the best GTD app I could find and the UI
+(very important to me) is pretty good. I haven't read a lot about GTD,
+mostly a few videos, but the methodology have been working really great
+for me and I have notice a big boost to my organization, before I was
+using only Google Calendar. The inbox, next, waiting, schedule, someday
+and projects lists are a very good way of organize tasks.</p>
+<p>Even though I ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2012-10-14T23:51:00" pubdate><i class="fa fa-calendar-o"></i> October 14, 2012</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> Python</a>
-            <a href="http://danielfrg.github.io/tag/ecryption.html" class="tag"><i class="fa fa-tag"></i> Ecryption</a>
-            <a href="http://danielfrg.github.io/tag/aes.html" class="tag"><i class="fa fa-tag"></i> AES</a>
-            <a href="http://danielfrg.github.io/tag/gtd.html" class="tag"><i class="fa fa-tag"></i> GTD</a>
-            <a href="http://danielfrg.github.io/tag/wxpython.html" class="tag"><i class="fa fa-tag"></i> wxPython</a>
-            <a href="http://danielfrg.github.io/tag/pyexe.html" class="tag"><i class="fa fa-tag"></i> pyexe</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2012/10/14/desktop-app-to-easily-create-new-tasks/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2012/10/14/desktop-app-to-easily-create-new-tasks/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">Python</a>
+            <a href="http://danielfrg.github.io/tag/ecryption.html" class="tag">Ecryption</a>
+            <a href="http://danielfrg.github.io/tag/aes.html" class="tag">AES</a>
+            <a href="http://danielfrg.github.io/tag/gtd.html" class="tag">GTD</a>
+            <a href="http://danielfrg.github.io/tag/wxpython.html" class="tag">wxPython</a>
+            <a href="http://danielfrg.github.io/tag/pyexe.html" class="tag">pyexe</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2012/10/05/creating-a-blog-in-2012/">Creating a blog in 2012</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2012/10/05/creating-a-blog-in-2012/">Creating a blog in 2012</a></h2>
+      <time datetime="" title="2012-10-05T03:22:00" pubdate>October 05, 2012</time>
+    </header>
 
-    Yes, I am creating a blog on October 5, 2012! Why? Having a flu is one of the reasons. Other reason is that I and want to improve my English and have a lot of time to waste (not having a car on the US is hard). Also having a ...
+    <div class="article_content">
+      <p><p>Yes, I am creating a blog on October 5, 2012!</p>
+<p><strong>Why?</strong> Having a flu is one of the reasons. Other reason is that I and
+want to improve my English and have a lot of time to waste (not having a
+car on the US is hard). Also having a blog in 2012 is old-stylish
+and that is <strong>always </strong>cool.</p>
+<p><strong>About me: </strong>Originally from Colombia and currently living in Frisco,
+TX (DFW Area) pursuing a Master in Information Technology and Management
+on the University of Texas at Dallas.</p>
+<p>Dog lover, book reader, TV Series Fanatic and amateur gamer. Passionate
+about new technologies, always wanting to learn something new (mainly
+about technology). Hopes to keep writing for a long time.</p>
+<p>-Dan</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2012-10-05T03:22:00" pubdate><i class="fa fa-calendar-o"></i> October 05, 2012</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/this-blog.html" class="tag"><i class="fa fa-tag"></i> This blog</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2012/10/05/creating-a-blog-in-2012/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2012/10/05/creating-a-blog-in-2012/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/this-blog.html" class="tag">This blog</a>
       </div>
+
     </div>
 
   </article>

@@ -9,10 +9,9 @@
         <title>Python Finance Package v0.01 - Data Manager | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
@@ -21,20 +20,27 @@
 
     <body>
 <div class="container post">
-<div class="container header">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
-        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
-        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
-        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
-    </ul>
-    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-</div>
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <p class="navbar-text navbar-right">
+          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
+          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
+          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
+          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
+          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
+        </p>
+        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+      </div>
+  </nav>
     <article>
-        <h1>Python Finance Package v0.01 - Data Manager</h1>
-        <p>I have learned a lot from my most recent Coursera Course: <a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing - Part 1">Computational
+        <header>
+            <h1>Python Finance Package v0.01 - Data Manager</h1>
+            <time datetime="article.date.isoformat()" pubdate>December 13, 2012</time>
+        </header>
+
+        <div class="article_content">
+            <p>I have learned a lot from my most recent Coursera Course: <a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing - Part 1">Computational
 Investing Part 1</a>. The language used on the class is Python so I
 couldn't be happier; we are using a package called <a href="http://wiki.quantsoftware.org/index.php?title=QuantSoftware_ToolKit" title="QSTK">QSTK</a>developed by
 some people at Georgia Tech, how also is responsible for the class.</p>
@@ -101,28 +107,22 @@ python packages.</p>
     <span class="s">&quot;selector&quot;</span><span class="o">:</span> <span class="s">&quot;source.python&quot;</span>
 <span class="p">}</span>
 </pre></div>
-  </article>
+        </div>
 
-    <div class="metadata">
-        <div class="left">
-            <strong>Published: </strong>
-            <i>
-                <time datetime="article.date.isoformat()" pubdate>December 13, 2012</time>
-            </i>
+        <div class="meta">
             <div>
-                <strong>Tags: </strong>
-                    <a href="http://danielfrg.github.io/tag/coursera.html" class="tag"><i class="fa fa-tag"></i> coursera</a>
-                    <a href="http://danielfrg.github.io/tag/finance.html" class="tag"><i class="fa fa-tag"></i> finance</a>
-                    <a href="http://danielfrg.github.io/tag/pandas.html" class="tag"><i class="fa fa-tag"></i> pandas</a>
-                    <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-                    <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag"><i class="fa fa-tag"></i> computational investing</a>
+                    <a href="http://danielfrg.github.io/tag/coursera.html" class="tag">coursera</a>
+                    <a href="http://danielfrg.github.io/tag/finance.html" class="tag">finance</a>
+                    <a href="http://danielfrg.github.io/tag/pandas.html" class="tag">pandas</a>
+                    <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+                    <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag">computational investing</a>
+            </div>
+            <div>
+                <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
             </div>
         </div>
-        <div class="right">
-            <a id="comments-button" class="read-more" href="#disqus_thread">Show/read comments</a>
-        </div>
-    </div>
-    </div>
+    </article>
+</div>
 
 <script type="text/javascript">
 (function () {

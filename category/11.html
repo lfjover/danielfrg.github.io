@@ -9,10 +9,9 @@
         <title>Home | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
@@ -21,88 +20,118 @@
 
     <body>
 <div class="container index">
-<div class="container header">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
-        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
-        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
-        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
-    </ul>
-    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-</div>
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <p class="navbar-text navbar-right">
+          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
+          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
+          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
+          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
+          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
+        </p>
+        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+      </div>
+  </nav>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/11/27/ipython-notebook-aws-salt/">One-liner: Deploy python scipy stack with IPython notebook on AWS</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/11/27/ipython-notebook-aws-salt/">One-liner: Deploy python scipy stack with IPython notebook on AWS</a></h2>
+      <time datetime="" title="2013-11-27T00:00:00" pubdate>November 27, 2013</time>
+    </header>
 
-    Problem: How many times have you needed to create a powerful EC2 instance with the the python scientific stack installed and the ipython notebook running? I have to do this at least 2 or 3 times every week. A simple solution is to have an AMI with all the libraries ...
+    <div class="article_content">
+      <p><p><strong>Problem:</strong> How many times have you needed to create a powerful EC2 instance with the the python scientific stack
+installed and the ipython notebook running? I have to do this at least 2 or 3 times every week.</p>
+<p>A simple solution is to have an AMI with all the libraries ready and create a new instance every time,
+you can even have the ipython notebook as an upstart service in ubuntu so it runs when the instance is ready.
+That was my previous solution, but that was before I learned <a href="http://saltstack.com/">salt</a>.</p>
+<p>The problem with the AMI solution is that it gets dated really quickly and while update it is not hard, it is
+annoying. Also having to login into AWS, look for the AMI and spin up and instance is annoying.</p>
+<p><strong>Solution:</strong> <a href="http://saltstack.com/">Salt</a> + <a href="http://continuum.io/downloads">Anaconda</a> + <a href="http://www.vagrantup.com/">Vagrant</a></p>
+<p>Salt will do the provisioning of the instance using states, that makes the updates of ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-11-27T00:00:00" pubdate><i class="fa fa-calendar-o"></i> November 27, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/aws.html" class="tag"><i class="fa fa-tag"></i> aws</a>
-            <a href="http://danielfrg.github.io/tag/salt.html" class="tag"><i class="fa fa-tag"></i> salt</a>
-            <a href="http://danielfrg.github.io/tag/ipython-notebook.html" class="tag"><i class="fa fa-tag"></i> ipython-notebook</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/11/27/ipython-notebook-aws-salt/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/11/27/ipython-notebook-aws-salt/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/aws.html" class="tag">aws</a>
+            <a href="http://danielfrg.github.io/tag/salt.html" class="tag">salt</a>
+            <a href="http://danielfrg.github.io/tag/ipython-notebook.html" class="tag">ipython-notebook</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/11/23/harvard-ds/">Review: Harvard Data Science - Fall 2013</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/11/23/harvard-ds/">Review: Harvard Data Science - Fall 2013</a></h2>
+      <time datetime="" title="2013-11-23T00:00:00" pubdate>November 23, 2013</time>
+    </header>
 
-    A few weeks/months ago I found on HackerNews that Harvard was publishing all their Data Science course content (lectures, videos, labs, homeworks) online. I couldn't miss the opportunity to find what are they teaching, it was a nice experience to see how much I have learned and what ...
+    <div class="article_content">
+      <p><p>A few weeks/months ago I found on HackerNews that Harvard was publishing all their <a href="http://cs109.org/">Data Science course content</a> (lectures, videos, labs, homeworks) online. I couldn't miss the opportunity to find what are they teaching, it was a nice experience to see how much I have learned and what else I am missing. Also, when I saw that everything was on python I knew they are doing it right!</p>
+<p>The homeworks are IPython notebooks, the books are what I consider every Data Scientist should read: <a href="http://shop.oreilly.com/product/0636920023784.do">Python for Data Analysis</a>, <a href="http://shop.oreilly.com/product/0636920018483.do">Machine Learning for Hackers</a>, <a href="http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/master/Prologue/Prologue.ipynb">Probabilistic Programming and Bayesian methods for Hackers</a>.</p>
+<p>The homeworks were amazing and useful, I haven't seen all the videos (yet) but the ones I did were amazing. Below I do a little review of each homework, the stuff I learned and stuff that I think should be different.</p>
+<p>Initially I wanted to use this opportunity ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-11-23T00:00:00" pubdate><i class="fa fa-calendar-o"></i> November 23, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/data-science.html" class="tag"><i class="fa fa-tag"></i> data science</a>
-            <a href="http://danielfrg.github.io/tag/nlp.html" class="tag"><i class="fa fa-tag"></i> NLP</a>
-            <a href="http://danielfrg.github.io/tag/statistics.html" class="tag"><i class="fa fa-tag"></i> statistics</a>
-            <a href="http://danielfrg.github.io/tag/bayesian.html" class="tag"><i class="fa fa-tag"></i> Bayesian</a>
-            <a href="http://danielfrg.github.io/tag/graphs.html" class="tag"><i class="fa fa-tag"></i> graphs</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/11/23/harvard-ds/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/11/23/harvard-ds/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/data-science.html" class="tag">data science</a>
+            <a href="http://danielfrg.github.io/tag/nlp.html" class="tag">NLP</a>
+            <a href="http://danielfrg.github.io/tag/statistics.html" class="tag">statistics</a>
+            <a href="http://danielfrg.github.io/tag/bayesian.html" class="tag">Bayesian</a>
+            <a href="http://danielfrg.github.io/tag/graphs.html" class="tag">graphs</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/">Using cloud9 to save computing power and to code from everywhere too</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/">Using cloud9 to save computing power and to code from everywhere too</a></h2>
+      <time datetime="" title="2012-11-03T14:46:00" pubdate>November 03, 2012</time>
+    </header>
 
-    I am taking my second course on Coursera Computational Investing - Part 1; pretty fun so far. The homework 1 was to find a portfolio of 4 equities with the best (highest) Sharpe ratio from 2011. With a little bit of coding in python I was able to download all SPY ...
+    <div class="article_content">
+      <p><p>I am taking my second course on <a href="https://www.coursera.org/" title="Coursera">Coursera</a> Computational Investing -
+Part 1; pretty fun so far. The homework 1 was to find a portfolio of 4
+equities with the best (highest) Sharpe ratio from 2011. With a little
+bit of coding in python I was able to download all SPY stocks and loop
+through out the different combinations of them with different weights to
+find the best portfolio. The problem I found was that my PC is to slow
+for this task :(</p>
+<p>First I have to said I am not an algorithm expert so the process is
+linear, but I was able to optimize a little bit the process by loading
+into memory first all the data and some other little stuff that makes
+the calculation faster; that is from 1 1/2 minutes initially to 30
+seconds combining 5 stocks. And I was able to combine up to 8 ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2012-11-03T14:46:00" pubdate><i class="fa fa-calendar-o"></i> November 03, 2012</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/cloud9.html" class="tag"><i class="fa fa-tag"></i> cloud9</a>
-            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag"><i class="fa fa-tag"></i> computational investing</a>
-            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag"><i class="fa fa-tag"></i> coursera</a>
-            <a href="http://danielfrg.github.io/tag/numpy.html" class="tag"><i class="fa fa-tag"></i> numpy</a>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/cloud9.html" class="tag">cloud9</a>
+            <a href="http://danielfrg.github.io/tag/computational-investing.html" class="tag">computational investing</a>
+            <a href="http://danielfrg.github.io/tag/coursera.html" class="tag">coursera</a>
+            <a href="http://danielfrg.github.io/tag/numpy.html" class="tag">numpy</a>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
       </div>
+
     </div>
 
   </article>

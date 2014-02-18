@@ -9,10 +9,9 @@
         <title>Home | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
@@ -21,62 +20,91 @@
 
     <body>
 <div class="container index">
-<div class="container header">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="http://github.com/danielfrg" title="on github"><i class="fa fa-github"></i></a></li>
-        <li><a href="http://twitter.com/danielfrg" title="on twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a></li>
-        <li><a href="/archives.html" title="archives"><i class="fa fa-archive"></i></a></li>
-        <li><a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a></li>
-    </ul>
-    <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
-</div>
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <p class="navbar-text navbar-right">
+          <a href="http://github.com/danielfrg" title="on github" class="navbar-link"><i class="fa fa-github"></i></a>
+          <a href="http://twitter.com/danielfrg" title="on twitter" class="navbar-link"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/profile/view?id=40926067" title="on linkedin" class="navbar-link"><i class="fa fa-linkedin"></i></a>
+          <a href="/tags.html" title="tags" class="navbar-link"><i class="fa fa-tags"></i></a>
+          <a href="/archives.html" title="archives" class="navbar-link"><i class="fa fa-archive"></i></a>
+          <a href="/feeds/all.atom.xml" title="feed" class="navbar-link"><i class="fa fa-rss"></i></a>
+        </p>
+        <h3 class="brand"><a href="/">Daniel Rodriguez</a></h3>
+      </div>
+  </nav>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/09/21/word2vec-yhat/">word2vec in yhat: Word vector similarity</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/09/21/word2vec-yhat/">word2vec in yhat: Word vector similarity</a></h2>
+      <time datetime="" title="2013-09-21T00:00:00" pubdate>September 21, 2013</time>
+    </header>
 
-    A few weeks ago Google released some code to convert words to vectors called word2vec. The company I am currently working on does something similar and I was quite amazed by the performance and accuracy of Google's algorithm so I created a simple python wrapper to call the C ...
+    <div class="article_content">
+      <p><p>A <a href="http://google-opensource.blogspot.com/2013/08/learning-meaning-behind-words.html">few weeks ago</a>
+Google released some code to convert words to vectors called
+<a href="https://code.google.com/p/word2vec/">word2vec</a>.
+The company I am currently working on does something similar and I was quite amazed by the performance
+and accuracy of Google's algorithm so I created a simple python wrapper to call the C code for training
+and read the training vectors into numpy arrays, you can check it out on
+<a href="https://pypi.python.org/pypi/word2vec">pypi (word2vec)</a>.</p>
+<p>At the same time I found out about <a href="http://yhathq.com/">yhat</a>, I found about them
+via twitter and after reading their blog I had to try their product. What they do is very simple
+but very useful: take some python (scikit-learn) or R classifier and create a REST
+endpoint to make predictions on new data. The product is still in very beta but the guys were
+very responsive and they helped me to solve some of my issues.</p>
+<p>The only restriction I had ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-09-21T00:00:00" pubdate><i class="fa fa-calendar-o"></i> September 21, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/word2vec.html" class="tag"><i class="fa fa-tag"></i> word2vec</a>
-            <a href="http://danielfrg.github.io/tag/yhat.html" class="tag"><i class="fa fa-tag"></i> yhat</a>
-            <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag"><i class="fa fa-tag"></i> machine learning</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/09/21/word2vec-yhat/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/09/21/word2vec-yhat/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/word2vec.html" class="tag">word2vec</a>
+            <a href="http://danielfrg.github.io/tag/yhat.html" class="tag">yhat</a>
+            <a href="http://danielfrg.github.io/tag/machine-learning.html" class="tag">machine learning</a>
       </div>
+
     </div>
 
   </article>
   <div class="separator">&equiv;</div>
   <article>
-    <h2><a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/">Django + Celery + Readability = Python relevant content crawler</a></h2>
+    <header>
+      <h2><a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/">Django + Celery + Readability = Python relevant content crawler</a></h2>
+      <time datetime="" title="2013-09-11T00:00:00" pubdate>September 11, 2013</time>
+    </header>
 
-    I have written a few posts about crawling content from the web. Mainly because I know the power of data and the biggest data source in the world is the web, Google knew it and we all now how they are doing. In my last post I wrote about crawling ...
+    <div class="article_content">
+      <p><p>I have written a <a href="http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/">few</a> <a href="http://danielfrg.github.io/blog/2013/04/01/nba-scraping-data/">posts</a>
+about crawling content from the web. Mainly because I know the power of data
+and the biggest data source in the world is the web, Google knew it and we all now how they are
+doing. In my <a href="http://danielfrg.github.io/blog/2013/08/20/relevant-content-blog-crawler/">last post</a> I wrote about crawling relevant content
+from blogs; It worked but what if I want an admin UI to control the crawling. What if I just put
+the crawler in an EC2 instance and just call it when I need to crawl.</p>
+<p>The solution was pretty simple thanks to some python projects.
+I just needed to move from <a href="http://www.sqlalchemy.org/">sqlalchemy</a> to
+<a href="https://docs.djangoproject.com/en/1.5/">django</a> ORM, create a few <a href="http://celeryproject.org/">celery</a> tasks
+and use <a href="https://github.com/celery/django-celery/">django-celery</a> to have a pretty UI of the tasks.</p>
+<p>I was amazed on how easy it was to integrate celery with django. I just created a few tasks to
+actually crawl blogs (I already had ...</p></p>
+    </div>
 
     <div class="meta">
-      <div class="left">
-        <time datetime="" title="2013-09-11T00:00:00" pubdate><i class="fa fa-calendar-o"></i> September 11, 2013</time>
-
-        <div>
-            <a href="http://danielfrg.github.io/tag/python.html" class="tag"><i class="fa fa-tag"></i> python</a>
-            <a href="http://danielfrg.github.io/tag/django.html" class="tag"><i class="fa fa-tag"></i> django</a>
-            <a href="http://danielfrg.github.io/tag/celery.html" class="tag"><i class="fa fa-tag"></i> celery</a>
-            <a href="http://danielfrg.github.io/tag/readability.html" class="tag"><i class="fa fa-tag"></i> readability</a>
-            <a href="http://danielfrg.github.io/tag/crawling.html" class="tag"><i class="fa fa-tag"></i> crawling</a>
-        </div>
+      <div>
+        <a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
 
-      <div class="right">
-        <a href="http://danielfrg.github.io/blog/2013/09/11/django-celery-readability-crawler/" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
+      <div>
+            <a href="http://danielfrg.github.io/tag/python.html" class="tag">python</a>
+            <a href="http://danielfrg.github.io/tag/django.html" class="tag">django</a>
+            <a href="http://danielfrg.github.io/tag/celery.html" class="tag">celery</a>
+            <a href="http://danielfrg.github.io/tag/readability.html" class="tag">readability</a>
+            <a href="http://danielfrg.github.io/tag/crawling.html" class="tag">crawling</a>
       </div>
+
     </div>
 
   </article>
