@@ -39,6 +39,38 @@
 
   <article>
     <header>
+      <h2><a href="/blog/2014/02/28/impala-to-python/">Impala to python: ODBC and thift</a></h2>
+      <time datetime="" title="2014-02-28T00:00:00" pubdate>February 28, 2014</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For good or bad HDFS is where the data is placed today and we all know this data is hard and slow to query and analyze. The good news is that the people at Cloudera created <a href="http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html">impala</a>, basic idea is: <strong>fast</strong> SQL on Hadoop (HDFS or HBase) using the Hive metastore.</p>
+<p>For good or for bad Hadoop is not were Data Science happens it usually happens in R or python, good news is that the folks at cloudera made sure that is very easy to extract data out of impala using standard technologies such as ODBC or <a href="http://thrift.apache.org/">thrift</a>.</p>
+<p>In this post I try some tools to extract data from impala to python (pandas) to do in memory analysis.</p>
+<p>The setup is quite simple since I am running the cloudera (CDH 4.6) in my own computer using their <a href="http://www.cloudera.com/content/support/en/downloads/download-components/download-products.html">virtual machine</a>, just be sure to port forward port 21050, if you are in the cloud (EC2) just be sure to open that port. The data is just a table of 100,000 rows and 3 columns in AVRO format based on the <a href="http://avro.apache.org/docs/1.7.6/gettingstartedpython.html">getting started with AVRO example</a>...
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2014/02/28/impala-to-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/impala.html" class="tag">impala</a>
+            <a href="/tag/odbc.html" class="tag">odbc</a>
+            <a href="/tag/thrift.html" class="tag">thrift</a>
+            <a href="/tag/iopro.html" class="tag">iopro</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
       <h2><a href="/blog/2013/11/27/ipython-notebook-aws-salt/">One-liner: Deploy python scipy stack with IPython notebook on AWS</a></h2>
       <time datetime="" title="2013-11-27T00:00:00" pubdate>November 27, 2013</time>
     </header>
@@ -343,40 +375,6 @@ project to use ...</p>
             <a href="/tag/pandas.html" class="tag">pandas</a>
             <a href="/tag/requests.html" class="tag">requests</a>
             <a href="/tag/beautifulsoup.html" class="tag">beautifulsoup</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator">&equiv;</div>
-  <article>
-    <header>
-      <h2><a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/">Plugin for blogging with iPython notebooks in Pelican</a></h2>
-      <time datetime="" title="2013-03-08T00:00:00" pubdate>March 08, 2013</time>
-    </header>
-
-    <div class="article_content">
-      <p>This is just a little update on my previous post about <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks with pelican</a>.</p>
-<p>One of the people behind pelican helped me to convert the <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">previous code</a> to a pelican plugin and I just made it available via github: <a href="https://github.com/danielfrg/pelican-ipythonnb">pelican-ipythonnb</a>.</p>
-<p>The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).</p>
-<p>An example is my last post about a <a href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">cleaning data for a Kaggle competition</a>.</p>
-<p>Happy blogging!</p>
-<h2>Installation</h2>
-<p>Download plugin files: <code>plugin/ipythonnb.py</code> and the <code>plugin/nbconverter</code> directory.</p>
-<p>The esiest way is to locate the pelican directory (for example: <code>~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/</code>) and paste plugins files in the <code>pelican/plugins</code> folder.
-Then in the <code>pelicanconf.py</code> put: <code>PLUGINS = ['pelican.plugins.ipythonnb']</code>.</p>
-<p>But is also is possible to add plugins on the same directory of the pelican project:
-Create ...</p>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/pelican.html" class="tag">pelican</a>
       </div>
 
     </div>
