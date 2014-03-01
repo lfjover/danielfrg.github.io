@@ -9199,19 +9199,15 @@ testing. The available data is:&lt;/p&gt;
 &lt;li&gt;LASG: Amount of last order&lt;/li&gt;
 &lt;li&gt;LASD: Date of last order (you may need to convert it to number of
     months elapsed to 01/01/2007)&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;RFA1: Frequency of order&lt;/p&gt;
-&lt;ol&gt;
+&lt;li&gt;RFA1: Frequency of order&lt;ol&gt;
 &lt;li&gt;1=One order in the last 24 months&lt;/li&gt;
 &lt;li&gt;2=Two orders in the last 24 months&lt;/li&gt;
 &lt;li&gt;3=Three orders in the last 24 months&lt;/li&gt;
 &lt;li&gt;4=Four or more orders in the last 24 months&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;RFA2: Order amount category (as defined by the firm) of the last
-    order&lt;/p&gt;
-&lt;ol&gt;
+&lt;li&gt;RFA2: Order amount category (as defined by the firm) of the last
+    order&lt;ol&gt;
 &lt;li&gt;1=$0.01 - $1.99&lt;/li&gt;
 &lt;li&gt;2=$2.00 - $2.99&lt;/li&gt;
 &lt;li&gt;3=$3.00 e - $4.99&lt;/li&gt;
@@ -9221,10 +9217,8 @@ testing. The available data is:&lt;/p&gt;
 &lt;li&gt;7=$25.00 and above&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Money: money amount eventually a customer will spend on next order
-    (if she places orders), only available for “testing”.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Money: money amount eventually a customer will spend on next order
+    (if she places orders), only available for “testing”.&lt;/li&gt;
 &lt;li&gt;Order: Actual response (1: response, 0: no response)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The file looks like this:&lt;/p&gt;

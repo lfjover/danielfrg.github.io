@@ -356,17 +356,13 @@ increase(amount), decrease(amount)]&lt;/p&gt;
 event&lt;/p&gt;
 &lt;p&gt;Output:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;For each event&lt;/p&gt;
-&lt;ol&gt;
+&lt;li&gt;For each event&lt;ol&gt;
 &lt;li&gt;Expected return&lt;/li&gt;
 &lt;li&gt;Abnormal return&lt;/li&gt;
 &lt;li&gt;Cumulative abnormal return&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Mean of:&lt;/p&gt;
-&lt;ol&gt;
+&lt;li&gt;Mean of:&lt;ol&gt;
 &lt;li&gt;Expected returns&lt;/li&gt;
 &lt;li&gt;Abnormal returns&lt;/li&gt;
 &lt;li&gt;Cumulative abnormal returns&lt;/li&gt;
@@ -508,8 +504,8 @@ total return and sharpe ratio.&lt;/p&gt;
 &lt;p&gt;Next step is to implement an Event Profiler to solve Homework 4.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Where to find the code?&lt;/strong&gt; On github: &lt;a href="https://github.com/danielfrg/PythonFinance"&gt;PythonFinance&lt;/a&gt;&lt;/p&gt;</summary><category term="cousera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry><entry><title>Python Finance Package v0.01 - Data Manager</title><link href="/blog/2012/12/13/python-finance-package-v0-01-data-manager/" rel="alternate"></link><updated>2012-12-13T12:59:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-12-13:blog/2012/12/13/python-finance-package-v0-01-data-manager/</id><summary type="html">&lt;p&gt;I have learned a lot from my most recent Coursera Course: &lt;a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing - Part 1"&gt;Computational
 Investing Part 1&lt;/a&gt;. The language used on the class is Python so I
-couldn't be happier; we are using a package called &lt;a href="http://wiki.quantsoftware.org/index.php?title=QuantSoftware_ToolKit" title="QSTK"&gt;QSTK&lt;/a&gt;developed by
-some people at Georgia Tech, how also is responsible for the class.&lt;/p&gt;
+couldn't be happier; we are using a package called &lt;a href="http://wiki.quantsoftware.org/index.php?title=QuantSoftware_ToolKit" title="QSTK"&gt;QSTK&lt;/a&gt; developed by
+some people at Georgia Tech, who are also responsible for the class.&lt;/p&gt;
 &lt;p&gt;The quality of the package is amazing, has a tons of features, but one
 area I notice the package to has to be improved is the data downloading
 and management.&lt;/p&gt;
@@ -561,15 +557,4 @@ faster the next time.&lt;/p&gt;
 &lt;h2&gt;Where to find the code&lt;/h2&gt;
 &lt;p&gt;On github: &lt;a href="https://github.com/danielfrg/PythonFinance" title="PythonFinance"&gt;PythonFinance&lt;/a&gt;. This is such a small package is necessary
 to manually download it and put it on a folder where you have other
-python packages.&lt;/p&gt;
-&lt;p&gt;I use sublime text so I have this on my &lt;code&gt;Python.sublime-build&lt;/code&gt; file:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;env&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;PYTHONPATH&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Users&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Daniel&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Documents&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;projects&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;packages&amp;quot;&lt;/span&gt;
-    &lt;span class="p"&gt;},&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;cmd&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;pythonw&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;-u&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$file&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;file_regex&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;^[ ]*File &lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;(...*?)&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;, line ([0-9]*)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;selector&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;source.python&amp;quot;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="coursera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry></feed>
+python packages.&lt;/p&gt;</summary><category term="coursera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry></feed>

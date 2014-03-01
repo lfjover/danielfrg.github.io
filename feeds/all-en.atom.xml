@@ -27196,19 +27196,15 @@ testing. The available data is:&lt;/p&gt;
 &lt;li&gt;LASG: Amount of last order&lt;/li&gt;
 &lt;li&gt;LASD: Date of last order (you may need to convert it to number of
     months elapsed to 01/01/2007)&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;RFA1: Frequency of order&lt;/p&gt;
-&lt;ol&gt;
+&lt;li&gt;RFA1: Frequency of order&lt;ol&gt;
 &lt;li&gt;1=One order in the last 24 months&lt;/li&gt;
 &lt;li&gt;2=Two orders in the last 24 months&lt;/li&gt;
 &lt;li&gt;3=Three orders in the last 24 months&lt;/li&gt;
 &lt;li&gt;4=Four or more orders in the last 24 months&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;RFA2: Order amount category (as defined by the firm) of the last
-    order&lt;/p&gt;
-&lt;ol&gt;
+&lt;li&gt;RFA2: Order amount category (as defined by the firm) of the last
+    order&lt;ol&gt;
 &lt;li&gt;1=$0.01 - $1.99&lt;/li&gt;
 &lt;li&gt;2=$2.00 - $2.99&lt;/li&gt;
 &lt;li&gt;3=$3.00 e - $4.99&lt;/li&gt;
@@ -27218,10 +27214,8 @@ testing. The available data is:&lt;/p&gt;
 &lt;li&gt;7=$25.00 and above&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Money: money amount eventually a customer will spend on next order
-    (if she places orders), only available for “testing”.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Money: money amount eventually a customer will spend on next order
+    (if she places orders), only available for “testing”.&lt;/li&gt;
 &lt;li&gt;Order: Actual response (1: response, 0: no response)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The file looks like this:&lt;/p&gt;
@@ -27699,17 +27693,13 @@ increase(amount), decrease(amount)]&lt;/p&gt;
 event&lt;/p&gt;
 &lt;p&gt;Output:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;For each event&lt;/p&gt;
-&lt;ol&gt;
+&lt;li&gt;For each event&lt;ol&gt;
 &lt;li&gt;Expected return&lt;/li&gt;
 &lt;li&gt;Abnormal return&lt;/li&gt;
 &lt;li&gt;Cumulative abnormal return&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Mean of:&lt;/p&gt;
-&lt;ol&gt;
+&lt;li&gt;Mean of:&lt;ol&gt;
 &lt;li&gt;Expected returns&lt;/li&gt;
 &lt;li&gt;Abnormal returns&lt;/li&gt;
 &lt;li&gt;Cumulative abnormal returns&lt;/li&gt;
@@ -27851,8 +27841,8 @@ total return and sharpe ratio.&lt;/p&gt;
 &lt;p&gt;Next step is to implement an Event Profiler to solve Homework 4.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Where to find the code?&lt;/strong&gt; On github: &lt;a href="https://github.com/danielfrg/PythonFinance"&gt;PythonFinance&lt;/a&gt;&lt;/p&gt;</summary><category term="cousera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry><entry><title>Python Finance Package v0.01 - Data Manager</title><link href="/blog/2012/12/13/python-finance-package-v0-01-data-manager/" rel="alternate"></link><updated>2012-12-13T12:59:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-12-13:blog/2012/12/13/python-finance-package-v0-01-data-manager/</id><summary type="html">&lt;p&gt;I have learned a lot from my most recent Coursera Course: &lt;a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing - Part 1"&gt;Computational
 Investing Part 1&lt;/a&gt;. The language used on the class is Python so I
-couldn't be happier; we are using a package called &lt;a href="http://wiki.quantsoftware.org/index.php?title=QuantSoftware_ToolKit" title="QSTK"&gt;QSTK&lt;/a&gt;developed by
-some people at Georgia Tech, how also is responsible for the class.&lt;/p&gt;
+couldn't be happier; we are using a package called &lt;a href="http://wiki.quantsoftware.org/index.php?title=QuantSoftware_ToolKit" title="QSTK"&gt;QSTK&lt;/a&gt; developed by
+some people at Georgia Tech, who are also responsible for the class.&lt;/p&gt;
 &lt;p&gt;The quality of the package is amazing, has a tons of features, but one
 area I notice the package to has to be improved is the data downloading
 and management.&lt;/p&gt;
@@ -27904,18 +27894,7 @@ faster the next time.&lt;/p&gt;
 &lt;h2&gt;Where to find the code&lt;/h2&gt;
 &lt;p&gt;On github: &lt;a href="https://github.com/danielfrg/PythonFinance" title="PythonFinance"&gt;PythonFinance&lt;/a&gt;. This is such a small package is necessary
 to manually download it and put it on a folder where you have other
-python packages.&lt;/p&gt;
-&lt;p&gt;I use sublime text so I have this on my &lt;code&gt;Python.sublime-build&lt;/code&gt; file:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;env&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;PYTHONPATH&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Users&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Daniel&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Documents&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;projects&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;packages&amp;quot;&lt;/span&gt;
-    &lt;span class="p"&gt;},&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;cmd&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;pythonw&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;-u&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$file&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;file_regex&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;^[ ]*File &lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;(...*?)&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;, line ([0-9]*)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;selector&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;source.python&amp;quot;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="coursera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry><entry><title>Using cloud9 to save computing power and to code from everywhere too</title><link href="/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/" rel="alternate"></link><updated>2012-11-03T14:46:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-11-03:blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/</id><summary type="html">&lt;p&gt;I am taking my second course on &lt;a href="https://www.coursera.org/" title="Coursera"&gt;Coursera&lt;/a&gt; Computational Investing -
+python packages.&lt;/p&gt;</summary><category term="coursera"></category><category term="finance"></category><category term="pandas"></category><category term="python"></category><category term="computational investing"></category></entry><entry><title>Using cloud9 to save computing power and to code from everywhere too</title><link href="/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/" rel="alternate"></link><updated>2012-11-03T14:46:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2012-11-03:blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/</id><summary type="html">&lt;p&gt;I am taking my second course on &lt;a href="https://www.coursera.org/" title="Coursera"&gt;Coursera&lt;/a&gt; Computational Investing -
 Part 1; pretty fun so far. The homework 1 was to find a portfolio of 4
 equities with the best (highest) Sharpe ratio from 2011. With a little
 bit of coding in python I was able to download all SPY stocks and loop
@@ -27971,7 +27950,7 @@ comes in. My previous and old Belkin router had a bunch of options for
 &lt;abbr style="text-align:justify;" title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt;s
 fortunately one was free; unfortunately
 and unbelievable my new &lt;a href="http://www.belkin.com/us/p/P-F9K1103" title="Belkin N750"&gt;Belkin N750 DB router&lt;/a&gt; has only one option:
-&lt;a href="http://dyn.com/dns/" title="Dyn"&gt;Dyn&lt;/a&gt; which is not free :(.&lt;/p&gt;
+&lt;a href="http://dyn.com/dns/" title="Dyn"&gt;Dyn&lt;/a&gt; which is not free :(&lt;/p&gt;
 &lt;p&gt;So I decide to make my own
 &lt;abbr title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt; with &lt;a href="https://www.djangoproject.com" title="Django"&gt;Django&lt;/a&gt; and
 with a free &lt;abbr title="Platform as a Service"&gt;PaaS&lt;/abbr&gt;.
@@ -27985,7 +27964,7 @@ from Red Hat, &lt;a href="https://www.dotcloud.com/" title="dotCloud"&gt;dotClou
 use and never understand if is really free or not, and other thousand
 options that are paid and free. I choose &lt;a href="http://appfog.com" title="appfog"&gt;AppFog&lt;/a&gt; because I recently
 read that they acquire Nodster (which I loved) and the service is &lt;strong&gt;so
-simple&lt;/strong&gt; to use; just what I needed for this project.&lt;/p&gt;
+simple&lt;/strong&gt; to use, just what I needed for this project.&lt;/p&gt;
 &lt;p&gt;The project consist on two parts; The first one is a Django server which
 stores previous IPs and acts as the DDNS domain and the second one is a
 python script that get the WAN IP and request the server to store it.&lt;/p&gt;
@@ -28138,7 +28117,7 @@ task press &lt;em&gt;esc &lt;/em&gt;and it hides waiting to be called.&lt;/p&g
 &lt;p&gt;Other stuff I learned from making this app was to &lt;a href="https://www.dlitz.net/software/pycrypto/"&gt;encrypt with
 AES&lt;/a&gt; for the password and to create a .exe via &lt;a href="http://py2exe.org/"&gt;py2exe&lt;/a&gt;. Cannot
 compile to other operating systems because I just don't have them.
-Programmers and download the source can run the app ;)&lt;/p&gt;
+Programmers can download the source can run the app ;)&lt;/p&gt;
 &lt;p&gt;This is a very simple app but it has been working for me and probably
 will work for other person. Suggestions are always welcome.&lt;/p&gt;
 &lt;p&gt;The code is on &lt;a href="https://github.com/dfrodriguez143/newtask"&gt;github&lt;/a&gt; and a &lt;a href="https://github.com/dfrodriguez143/newtask/blob/master/dist.zip?raw=true"&gt;zip&lt;/a&gt; file with the

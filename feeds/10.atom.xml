@@ -66,7 +66,7 @@ comes in. My previous and old Belkin router had a bunch of options for
 &lt;abbr style="text-align:justify;" title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt;s
 fortunately one was free; unfortunately
 and unbelievable my new &lt;a href="http://www.belkin.com/us/p/P-F9K1103" title="Belkin N750"&gt;Belkin N750 DB router&lt;/a&gt; has only one option:
-&lt;a href="http://dyn.com/dns/" title="Dyn"&gt;Dyn&lt;/a&gt; which is not free :(.&lt;/p&gt;
+&lt;a href="http://dyn.com/dns/" title="Dyn"&gt;Dyn&lt;/a&gt; which is not free :(&lt;/p&gt;
 &lt;p&gt;So I decide to make my own
 &lt;abbr title="Dynamic Domain Name System"&gt;DDNS&lt;/abbr&gt; with &lt;a href="https://www.djangoproject.com" title="Django"&gt;Django&lt;/a&gt; and
 with a free &lt;abbr title="Platform as a Service"&gt;PaaS&lt;/abbr&gt;.
@@ -80,7 +80,7 @@ from Red Hat, &lt;a href="https://www.dotcloud.com/" title="dotCloud"&gt;dotClou
 use and never understand if is really free or not, and other thousand
 options that are paid and free. I choose &lt;a href="http://appfog.com" title="appfog"&gt;AppFog&lt;/a&gt; because I recently
 read that they acquire Nodster (which I loved) and the service is &lt;strong&gt;so
-simple&lt;/strong&gt; to use; just what I needed for this project.&lt;/p&gt;
+simple&lt;/strong&gt; to use, just what I needed for this project.&lt;/p&gt;
 &lt;p&gt;The project consist on two parts; The first one is a Django server which
 stores previous IPs and acts as the DDNS domain and the second one is a
 python script that get the WAN IP and request the server to store it.&lt;/p&gt;
@@ -233,7 +233,7 @@ task press &lt;em&gt;esc &lt;/em&gt;and it hides waiting to be called.&lt;/p&g
 &lt;p&gt;Other stuff I learned from making this app was to &lt;a href="https://www.dlitz.net/software/pycrypto/"&gt;encrypt with
 AES&lt;/a&gt; for the password and to create a .exe via &lt;a href="http://py2exe.org/"&gt;py2exe&lt;/a&gt;. Cannot
 compile to other operating systems because I just don't have them.
-Programmers and download the source can run the app ;)&lt;/p&gt;
+Programmers can download the source can run the app ;)&lt;/p&gt;
 &lt;p&gt;This is a very simple app but it has been working for me and probably
 will work for other person. Suggestions are always welcome.&lt;/p&gt;
 &lt;p&gt;The code is on &lt;a href="https://github.com/dfrodriguez143/newtask"&gt;github&lt;/a&gt; and a &lt;a href="https://github.com/dfrodriguez143/newtask/blob/master/dist.zip?raw=true"&gt;zip&lt;/a&gt; file with the
