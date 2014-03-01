@@ -1613,7 +1613,7 @@ In&nbsp;[3]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="n">connection_string</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;Driver=/opt/cloudera/impalaodbc/lib/universal/libclouderaimpalaodbc.dylib;</span>
-<span class="s">HOST=ec2-54-235-16-202.compute-1.amazonaws.com;</span>
+<span class="s">HOST=localhost;</span>
 <span class="s">PORT=21050&#39;&#39;&#39;</span>
 </pre></div>
 
@@ -2076,7 +2076,7 @@ In&nbsp;[21]:
 In&nbsp;[22]:
 </div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">imp_connection</span> <span class="o">=</span> <span class="n">impala</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;ec2-54-235-16-202.compute-1.amazonaws.com&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">21050</span><span class="p">)</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">imp_connection</span> <span class="o">=</span> <span class="n">impala</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">21050</span><span class="p">)</span>
 <span class="n">imp_cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 <span class="n">imp_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&#39;SELECT * FROM avro_users LIMIT 100&#39;</span><span class="p">)</span>
 </pre></div>
@@ -2298,7 +2298,7 @@ In&nbsp;[28]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">timeit</span> <span class="o">-</span><span class="n">n5</span> <span class="o">-</span><span class="n">r5</span>
-<span class="n">imp_connection</span> <span class="o">=</span> <span class="n">impala</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;ec2-54-235-16-202.compute-1.amazonaws.com&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">21050</span><span class="p">)</span>
+<span class="n">imp_connection</span> <span class="o">=</span> <span class="n">impala</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">21050</span><span class="p">)</span>
 <span class="n">imp_cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 <span class="n">imp_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&#39;SELECT * FROM avro_users&#39;</span><span class="p">)</span>
 <span class="n">impala</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">as_pandas</span><span class="p">(</span><span class="n">imp_cursor</span><span class="p">)</span>
