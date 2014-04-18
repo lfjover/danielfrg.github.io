@@ -39,6 +39,42 @@
 
   <article>
     <header>
+      <h2><a href="/blog/2014/04/20/ipython-parallel-cluster-salt/">IPython.parallel cluster using salt</a></h2>
+      <time datetime="" title="2014-04-20T00:00:00" pubdate>April 20, 2014</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This post describes a simple yet flexible implementation on how to deploy an <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel</a> cluster in multiple EC2 instances using <a href="http://www.saltstack.com/">salt</a> and a little bit of <a href="http://vagrantup.com/">Vagrant</a>. The final output will be one instance running the IPython notebook, ipcontroller and acting as the salt-master, also 6 instances each one running ipengine and being salt-minions, see the <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel docs</a> for information on those commands.</p>
+<p>In a previous post I created a <a href="http://danielfrg.com/blog/2013/11/27/ipython-notebook-aws-salt/">one-liner for deploying an ipython notebook</a> to the cloud, after that I have been refactoring and advancing the concept and it became my own <a href="https://github.com/danielfrg/datasciencebox">datasciencebox</a>, it was natural to include the code for creating the ipcluster code in the same project.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="why">Why</h2>
+<p>Let me begin saying that I know about <a href="http://star.mit.edu/cluster/">starcluster</a> I have used it (for this same task) and I believe is the best way to create cluster for doing parallel computing but it lacks of a few features:</p>
+<ol style="list-style-type: decimal">
+<li>Only EC2 support: I use EC2 and a couple of AWS services everyday but what if I want to move to rackspace or any other cloud? So instead of reling on boto I use <a href="http://docs.saltstack.com/en/latest/topics/cloud/">salt-cloud</a>...
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2014/04/20/ipython-parallel-cluster-salt/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/ipython.html" class="tag">ipython</a>
+            <a href="/tag/parallel.html" class="tag">parallel</a>
+            <a href="/tag/salt.html" class="tag">salt</a>
+            <a href="/tag/vagrant.html" class="tag">vagrant</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
       <h2><a href="/blog/2013/04/01/nba-scraping-data/">Extracting NBA data from ESPN</a></h2>
       <time datetime="" title="2013-04-01T00:00:00" pubdate>April 01, 2013</time>
     </header>
