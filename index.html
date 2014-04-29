@@ -37,9 +37,387 @@
 
 <div class="container index">
 
+  <article>
+    <header>
+      <h2><a href="/blog/2014/04/18/ipython-parallel-cluster-salt/">IPython.parallel cluster using salt</a></h2>
+      <time datetime="" title="2014-04-18T00:00:00" pubdate>April 18, 2014</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This post describes a simple yet flexible implementation on how to deploy an <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel</a> cluster in multiple EC2 instances using <a href="http://www.saltstack.com/">salt</a> and a little bit of <a href="http://vagrantup.com/">Vagrant</a>. The final output will be one instance running the IPython notebook, ipcontroller and acting as the salt-master, also 6 instances each one running ipengine and being salt-minions, see the <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel docs</a> for information on those commands.</p>
+<p>In a previous post I created a <a href="http://danielfrg.com/blog/2013/11/27/ipython-notebook-aws-salt/">one-liner for deploying an ipython notebook</a> to the cloud, after that I have been refactoring and advancing the concept and it became my own <a href="https://github.com/danielfrg/datasciencebox">datasciencebox</a>, it was natural to include the code for creating the ipcluster code in the same project.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="why">Why</h2>
+<p>Let me begin saying that I know about <a href="http://star.mit.edu/cluster/">starcluster</a> I have used it (for this same task) and I believe is the best way to create cluster for doing parallel computing but it lacks of a few features:</p>
+<ol>
+<li>Only EC2 support: I use EC2 and a couple of AWS services everyday but what if I want to move to rackspace or any other cloud? So instead of reling on boto I use <a href="http://docs.saltstack.com/en/latest/topics/cloud/">salt-cloud</a>...
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2014/04/18/ipython-parallel-cluster-salt/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/ipython.html" class="tag">ipython</a>
+            <a href="/tag/parallel.html" class="tag">parallel</a>
+            <a href="/tag/salt.html" class="tag">salt</a>
+            <a href="/tag/vagrant.html" class="tag">vagrant</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
+      <h2><a href="/blog/2014/02/28/impala-to-python/">Impala to python: ODBC and thrift</a></h2>
+      <time datetime="" title="2014-02-28T00:00:00" pubdate>February 28, 2014</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For good or bad HDFS is where the data is placed today and we all know this data is hard and slow to query and analyze. The good news is that the people at Cloudera created <a href="http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html">impala</a>, basic idea is: <strong>fast</strong> SQL on Hadoop (HDFS or HBase) using the Hive metastore.</p>
+<p>For good or for bad Hadoop is not were Data Science happens it usually happens in R or python, good news is that the folks at cloudera made sure that is very easy to extract data out of impala using standard technologies such as ODBC or <a href="http://thrift.apache.org/">thrift</a>.</p>
+<p>In this post I try some tools to extract data from impala to python (pandas) to do in memory analysis.</p>
+<p>The setup is quite simple since I am running the cloudera (CDH 4.6) in my own computer using their <a href="http://www.cloudera.com/content/support/en/downloads/download-components/download-products.html">virtual machine</a>, just be sure to port forward port 21050, if you are in the cloud (EC2) just be sure to open that port. The data is just a table of 100,000 rows and 3 columns in AVRO format based on the <a href="http://avro.apache.org/docs/1.7.6/gettingstartedpython.html">getting started with AVRO example</a>...
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2014/02/28/impala-to-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/impala.html" class="tag">impala</a>
+            <a href="/tag/odbc.html" class="tag">odbc</a>
+            <a href="/tag/thrift.html" class="tag">thrift</a>
+            <a href="/tag/iopro.html" class="tag">iopro</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/11/27/ipython-notebook-aws-salt/">One-liner: Deploy python scipy stack with IPython notebook on AWS</a></h2>
+      <time datetime="" title="2013-11-27T00:00:00" pubdate>November 27, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p><strong>Problem:</strong> How many times have you needed to create a powerful EC2 instance with the the python scientific stack
+installed and the ipython notebook running? I have to do this at least 2 or 3 times every week.</p>
+<p>A simple solution is to have an AMI with all the libraries ready and create a new instance every time,
+you can even have the ipython notebook as an upstart service in ubuntu so it runs when the instance is ready.
+That was my previous solution, but that was before I learned <a href="http://saltstack.com/">salt</a>.</p>
+<p>The problem with the AMI solution is that it gets dated really quickly and while update it is not hard, it is
+annoying. Also having to login into AWS, look for the AMI and spin up and instance is annoying.</p>
+<p><strong>Solution:</strong> <a href="http://saltstack.com/">Salt</a> + <a href="http://continuum.io/downloads">Anaconda</a> + <a href="http://www.vagrantup.com/">Vagrant</a></p>
+<p>Salt will do the provisioning of the instance using states, that makes the updates of ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/11/27/ipython-notebook-aws-salt/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/aws.html" class="tag">aws</a>
+            <a href="/tag/salt.html" class="tag">salt</a>
+            <a href="/tag/ipython-notebook.html" class="tag">ipython-notebook</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/11/23/harvard-ds/">Review: Harvard Data Science - Fall 2013</a></h2>
+      <time datetime="" title="2013-11-23T00:00:00" pubdate>November 23, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>A few weeks/months ago I found on HackerNews that Harvard was publishing all their <a href="http://cs109.org/">Data Science course content</a> (lectures, videos, labs, homeworks) online. I couldn't miss the opportunity to find what are they teaching, it was a nice experience to see how much I have learned and what else I am missing. Also, when I saw that everything was on python I knew they are doing it right!</p>
+<p>The homeworks are IPython notebooks, the books are what I consider every Data Scientist should read: <a href="http://shop.oreilly.com/product/0636920023784.do">Python for Data Analysis</a>, <a href="http://shop.oreilly.com/product/0636920018483.do">Machine Learning for Hackers</a>, <a href="http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/master/Prologue/Prologue.ipynb">Probabilistic Programming and Bayesian methods for Hackers</a>.</p>
+<p>The homeworks were amazing and useful, I haven't seen all the videos (yet) but the ones I did were amazing. Below I do a little review of each homework, the stuff I learned and stuff that I think should be different.</p>
+<p>Initially I wanted to use this opportunity ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/11/23/harvard-ds/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/data-science.html" class="tag">data science</a>
+            <a href="/tag/nlp.html" class="tag">NLP</a>
+            <a href="/tag/statistics.html" class="tag">statistics</a>
+            <a href="/tag/bayesian.html" class="tag">Bayesian</a>
+            <a href="/tag/graphs.html" class="tag">graphs</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/10/31/month-log/">Month-Log.oct.2013</a></h2>
+      <time datetime="" title="2013-10-31T00:00:00" pubdate>October 31, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>I've been busy with real work to write any specific posts for the blog but I realize it was
+a productive month. I worked a lot and learned quite a few things and  new technologies and
+I have some thoughts about them, I usually use twitter to share simple thoughts but they usually get
+lost on the noise.</p>
+<p>So I am going to start a monthly series in which I discuss a little bit about what I have done that month.
+Hopefully mixing with regular posts I am hoping that this makes me learn more and more stuff every month so I have something to write about. On this case is October and a few weeks of September.</p>
+<h2>Books I read</h2>
+<p>I had to do some <a href="http://pig.apache.org/">pig</a> for my job so I used this opportunity to
+consolidate a little bit my knowledge.
+I had worked with pig a little ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/10/31/month-log/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/month-log.html" class="tag">month-log</a>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/pig.html" class="tag">pig</a>
+            <a href="/tag/nutch.html" class="tag">nutch</a>
+            <a href="/tag/crawling.html" class="tag">crawling</a>
+            <a href="/tag/vagrant.html" class="tag">vagrant</a>
+            <a href="/tag/salt.html" class="tag">salt</a>
+            <a href="/tag/luigi.html" class="tag">luigi</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/09/21/word2vec-yhat/">word2vec in yhat: Word vector similarity</a></h2>
+      <time datetime="" title="2013-09-21T00:00:00" pubdate>September 21, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>A <a href="http://google-opensource.blogspot.com/2013/08/learning-meaning-behind-words.html">few weeks ago</a>
+Google released some code to convert words to vectors called
+<a href="https://code.google.com/p/word2vec/">word2vec</a>.
+The company I am currently working on does something similar and I was quite amazed by the performance
+and accuracy of Google's algorithm so I created a simple python wrapper to call the C code for training
+and read the training vectors into numpy arrays, you can check it out on
+<a href="https://pypi.python.org/pypi/word2vec">pypi (word2vec)</a>.</p>
+<p>At the same time I found out about <a href="http://yhathq.com/">yhat</a>, I found about them
+via twitter and after reading their blog I had to try their product. What they do is very simple
+but very useful: take some python (scikit-learn) or R classifier and create a REST
+endpoint to make predictions on new data. The product is still in very beta but the guys were
+very responsive and they helped me to solve some of my issues.</p>
+<p>The only restriction I had ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/09/21/word2vec-yhat/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/word2vec.html" class="tag">word2vec</a>
+            <a href="/tag/yhat.html" class="tag">yhat</a>
+            <a href="/tag/machine-learning.html" class="tag">machine learning</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/09/11/django-celery-readability-crawler/">Django + Celery + Readability = Python relevant content crawler</a></h2>
+      <time datetime="" title="2013-09-11T00:00:00" pubdate>September 11, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>I have written a <a href="/blog/2013/08/20/relevant-content-blog-crawler/">few</a> <a href="/blog/2013/04/01/nba-scraping-data/">posts</a>
+about crawling content from the web. Mainly because I know the power of data
+and the biggest data source in the world is the web, Google knew it and we all now how they are
+doing. In my <a href="/blog/2013/08/20/relevant-content-blog-crawler/">last post</a> I wrote about crawling relevant content
+from blogs; It worked but what if I want an admin UI to control the crawling. What if I just put
+the crawler in an EC2 instance and just call it when I need to crawl.</p>
+<p>The solution was pretty simple thanks to some python projects.
+I just needed to move from <a href="http://www.sqlalchemy.org/">sqlalchemy</a> to
+<a href="https://docs.djangoproject.com/en/1.5/">django</a> ORM, create a few <a href="http://celeryproject.org/">celery</a> tasks
+and use <a href="https://github.com/celery/django-celery/">django-celery</a> to have a pretty UI of the tasks.</p>
+<p>I was amazed on how easy it was to integrate celery with django. I just created a few tasks to
+actually crawl blogs (I already had ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/09/11/django-celery-readability-crawler/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/django.html" class="tag">django</a>
+            <a href="/tag/celery.html" class="tag">celery</a>
+            <a href="/tag/readability.html" class="tag">readability</a>
+            <a href="/tag/crawling.html" class="tag">crawling</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/08/20/relevant-content-blog-crawler/">Relevant content blog crawler</a></h2>
+      <time datetime="" title="2013-08-20T00:00:00" pubdate>August 20, 2013</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We all know that the most important aspect of data science or machine learning is data; with enough quality data you can do everything. Is also not a mistery that the problem of big data is to get that amount of data into a queryable, reportable or undestandable format; now we have a lot of amazing new tools to store that amount of data (casandra, hbase and more) but I still believe that almost nothing beats the fact of collecting a good amount (not necessarily huge, but the more you have the better) but structured data, and there is nothing more structured than SQL.</p>
+<p>There is a lot of information power in the web and crawl it gives you that power (or is at least the first step), Google does it and I am pretty sure I don&#39;t have to say more. I cannot even begin to imagine the amount of work that they do to understand that data. So I created my own mini crawler to crawl what I call relevant content of websites, more specificly blogs, yes I believe blogs and not twitter have a lot of information power, that is why I am writing this in a blog.</p>...
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/08/20/relevant-content-blog-crawler/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/crawling.html" class="tag">crawling</a>
+            <a href="/tag/beautifulsoup.html" class="tag">beautifulsoup</a>
+            <a href="/tag/readability.html" class="tag">readability</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/07/27/not-so-basic-neural-network-python/">A not so basic neural network on python</a></h2>
+      <time datetime="" title="2013-07-27T00:00:00" pubdate>July 27, 2013</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>My <a href="http://danielfrg.github.io/blog/2013/07/03/basic-neural-network-python/">previous post</a> on implementing a basic Neural Network on python got a lot of attention staying one whole day on HN front page. I was very happy about that but more about the <a href="https://news.ycombinator.com/item?id=5994851">feedback</a> I got. The community gave me a lot of tips and tricks on how to improve. So now I am presenting an improved version which supports multiple hidden layers,  more optimization options using minibatches and a more maintainable/understandable code (or so I believe).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I kept reading a lot about Neural Networks mainly by watching some videos from <a href="https://class.coursera.org/neuralnets-2012-001/class/index">Geoffrey&#39;s Hinton Neural Network course</a> on coursera. Also reading more on <a href="http://deeplearning.net/tutorial/">deeplearning.net</a> and trying to read some papers. That last task was definitely the hardest one because of the complexity of the papers. If I cannot even read them I can just imagine how hard is to write them.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>About the Neural networks course I didn&#39;t like it as much as the Machine Learning course. The main reason is that I had to watch most videos 3 or 4 times before understanding (something). This is definitely my fault because the material is great but it focuses more on the theory (math) which I am not that good at and not on the implementation which I am more interested. But I take it as a learning experience and I will try to finish those videos.</p>...
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/07/27/not-so-basic-neural-network-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/machine-learning.html" class="tag">machine learning</a>
+            <a href="/tag/neural-networks.html" class="tag">neural networks</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/07/03/basic-neural-network-python/">Basic [1 hidden layer] neural network on Python</a></h2>
+      <time datetime="" title="2013-07-03T00:00:00" pubdate>July 03, 2013</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Is really difficult be part of the data science / machine learning community and have not heard about Deep Neural Networks, everybody is talking about them. Is even harder for a person like me without a PhD and without a deep computer science or mathematics education to learn about them, because 1. Machine learning uses a quite heavy math and 2. There are no Neural Networks on sklearn.</p>
+<p>Libraries like <a href="http://scikit-learn.org/dev/index.html">sklearn</a> hide all the stuff and let you use machine learning and get amazing results. But sometimes you need more, and also understanding how an algorithm is implemented can help you understand how to improve results. The learning curve is hard, you can easily spend hours on <a href="http://deeplearning.net/tutorial/">DeepLearning.net</a> and not understand anything. But there is hope. </p>
+<p>I took Andrew&#39;s Ng <a href="https://www.coursera.org/course/ml">Machine Learning course</a> on Coursera wanting to get a better undesrtanding of how the algorithms I use almost everyday work. I learned a lot of usefull tricks and learned a lot more about simple machine learning implementations. Is important to start with the easy stuff or you get overwhelmed easy and eventually give up. Hopefully in a few more weeks I would be able to understand two or three more words on <a href="http://deeplearning.net/tutorial/">DeepLearning.net</a>...
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/07/03/basic-neural-network-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/machine-learning.html" class="tag">machine learning</a>
+            <a href="/tag/neural-networks.html" class="tag">neural networks</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
 
   <nav class="pagination row">
     <div class="col-xs-6 left">
+        <a class="prev" href="/index2.html">&#8592; Past</a>
     </div>
     <div class="col-xs-6 right">
     </div>

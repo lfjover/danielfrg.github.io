@@ -78,11 +78,43 @@
 
     <div class="article_content">
       
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This week on my Advance Business Intelligence class we took a look at Boosting and Bagging, two concepts well known by everybody in the machine learning world. The example on the class was take a simple Decision Tree and compare it to some bagged Decision Tree; FYI the example on class failed: SAS told that a simple DT was &quot;better&quot; than the bagged one, some error on SAS Enterprise Miner that we could not found. Time to see if python is capable of doing it.</p>
 <p>This first part is just a recap of <a href="http://danielfrg.github.com/blog/2013/01/26/copper-easy-data-analysis-on-python/">Post #1</a> I am using the same <a href="https://raw.github.com/danielfrg/copper/master/examples/donors/data/data.csv">donors.csv</a> that I am using for my class. We import the data and set some roles for the variables</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">...
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">copper</span>
+<span class="n">copper</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s">&#39;../&#39;</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#39;data.csv&#39;</span><span class="p">)</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;TARGET_D&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">REJECTED</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;TARGET_B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">TARGET</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">CATEGORY</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since scikit-learn cant handle NANs we need to fill the values so I create simple method con the Dataset class to fill values of numerical columns with the mean.</p>...
     </div>
 
     <div class="meta">
@@ -108,10 +140,14 @@
 
     <div class="article_content">
       
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I wanted to see really how fast and good is the API for the package for that reason I decide to repeat the project #3 of my basic &quot;Business Intelligence&quot; class. That project took me at least 16 hours to complete, of course that includes the creation of the report but I remember to spend from 5 to 6 hours on SAS doing the data mining.</p>
 <p>The data is about the customers of a catalog, the objective is to predict which customers are more likely to respond to the catalog campaign and send a catalog to those customers. There is a dataset for <a href="https://raw.github.com/danielfrg/copper/master/examples/catalog/data/training.csv">training</a> (2000 rows) and another one for <a href="https://raw.github.com/danielfrg/copper/master/examples/catalog/data/testing.csv">testing</a> (2000 rows). Each file has this columns:</p>
-<ol style="list-style-type: decimal">
+<ol>
 <li>NGIF: number of orders in the 24 months</li>
 <li>RAMN: Total order amounts in dollars in the last 24 months</li>
 <li>LASG: Amount of last order</li>
@@ -141,6 +177,10 @@
 
     <div class="article_content">
       
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As part of my Master in IT &amp; Management this semester I am taking a class called &quot;Advanced Business Intelligence&quot; which is the same as machine learning or data analysis to the Business people; in general they teach how to use SAS (Enteprise Miner) to do data mining.</p>
 <p>SAS and Enterprise Miner is a good software - with some problems:</p>

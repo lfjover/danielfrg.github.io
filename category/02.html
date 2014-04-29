@@ -45,6 +45,10 @@
 
     <div class="article_content">
       
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>For good or bad HDFS is where the data is placed today and we all know this data is hard and slow to query and analyze. The good news is that the people at Cloudera created <a href="http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html">impala</a>, basic idea is: <strong>fast</strong> SQL on Hadoop (HDFS or HBase) using the Hive metastore.</p>
 <p>For good or for bad Hadoop is not were Data Science happens it usually happens in R or python, good news is that the folks at cloudera made sure that is very easy to extract data out of impala using standard technologies such as ODBC or <a href="http://thrift.apache.org/">thrift</a>.</p>
@@ -113,13 +117,85 @@ less than 10 posts also helped because I did that part manually.</p>
 
     <div class="article_content">
       
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Today I start working on the first assignment for the Coursera's Data Analysis course and I needed to make some basic transformation on the data so decide to include them on <a href="https://github.com/danielfrg/copper">copper</a>.</p>
+<p>Today I start working on the first assignment for the Coursera&#39;s Data Analysis course and I needed to make some basic transformation on the data so decide to include them on <a href="https://github.com/danielfrg/copper">copper</a>. </p>
 <p>I realize I was making some wrong decisions on the Type metadata on the Dataset. Since the money type is just a number (similar to a percent number on the case of this example) it is not necessary to have it as a different type, just make the transformations I was doing so I decide to remove the Money type, now the only types are Number and Category.</p>
 <p>Lets dive into the example: dataset: <a href="https://raw.github.com/danielfrg/copper/master/examples/loans/data/loansData.csv">loansData.csv</a></p>
 <p>Import copper and set the project path</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">...
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">copper</span>
+<span class="n">copper</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s">&#39;../&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Load the data into a pandas DataFrame and see the first rows</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">loans</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;loansData.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">loans</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[3]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>...
     </div>
 
     <div class="meta">
@@ -181,11 +257,163 @@ less than 10 posts also helped because I did that part manually.</p>
 
     <div class="article_content">
       
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I am taking the <a href="https://class.coursera.org/dataanalysis-001/">Data Analysis</a> class on <a href="http://coursera.org">coursera</a>, I wanted to keep learning R since I previously took <a href="https://class.coursera.org/compdata-2012-001/">Computing for Data Analysis</a> but since that I change it to python. I think I love python too much so I did this week quiz on python using pandas and numpy. Not sure if I will do this each week/quiz of the class, we will see.</p>
 <p>You can find the questions and solutions for the <a href="https://github.com/danielfrg/copper/raw/master/examples/coursera_data_analysis/week2/docs/quiz2.pdf">quiz2.pdf</a>, the data: <a href="https://raw.github.com/danielfrg/copper/master/examples/coursera_data_analysis/week2/data/ss06hid.csv">ss06hid.csv</a>, <a href="https://raw.github.com/danielfrg/copper/master/examples/coursera_data_analysis/week2/data/ss06pid.csv">ss06pid.csv</a> and the <a href="https://github.com/danielfrg/copper/raw/master/examples/coursera_data_analysis/week2/docs/PUMSDataDict06.pdf">metadata</a> on the github page.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">...
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[26]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Question-2">Question 2<a class="anchor-link" href="#Question-2">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[141]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;http://simplystatistics.tumblr.com/&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[142]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">150</span><span class="p">):</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[143]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">44</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">121</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[143]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+(920, 7, 26)
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>python adds a &#39;\n&#39; on on each line so -2</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">housing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;ss06hid.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[6]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">housing</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[6]:</div>...
     </div>
 
     <div class="meta">
