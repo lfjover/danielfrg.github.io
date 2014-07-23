@@ -19,20 +19,20 @@
     </head>
 
     <body>
-        <header class="main-header" style="background: url('/images/station1.jpg') no-repeat center center #DDD; background-size: 100%;">
-        <nav>
+        <header class="main-header">
             <div class="container">
-            <ul>
-                <li><a href="/" title="Home">Home</a></li>
+                <nav>
+                    <a href="/" title="Home" class="title">Daniel Rodriguez</a></li>
+                    <ul>
 
-                    <li><a href="/pages/about.html" title="About">About</a></li>
-                    <li><a href="http://github.com/danielfrg" title="danielfrg's Github" rel="me">Github</a></li>
-                    <li><a href="http://twitter.com/danielfrg" title="danielfrg Twitter" rel="me">Twitter</a></li>
-                    <li><a href="/archives.html" title="Archive">Archives</a></li>
-                    <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
-            </ul>
+                            <li><a href="/pages/about.html" title="About">About</a></li>
+                            <li><a href="http://github.com/danielfrg" title="danielfrg's Github" rel="me">Github</a></li>
+                            <li><a href="http://twitter.com/danielfrg" title="danielfrg Twitter" rel="me">Twitter</a></li>
+                            <li><a href="/archives.html" title="Archive">Archives</a></li>
+                            <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+                    </ul>
+                </nav>
             </div>
-        </nav>
         </header>
 
 <div class="container index">
@@ -90,31 +90,6 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[1]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">copper</span>
-<span class="n">copper</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s">&#39;../&#39;</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">copper</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#39;data.csv&#39;</span><span class="p">)</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;TARGET_D&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">REJECTED</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="s">&#39;TARGET_B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">TARGET</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="s">&#39;ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">CATEGORY</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Since scikit-learn cant handle NANs we need to fill the values so I create simple method con the Dataset class to fill values of numerical columns with the mean.</p>...
     </div>
 
     <div class="meta">
@@ -148,10 +123,6 @@ In&nbsp;[1]:
 <p>I wanted to see really how fast and good is the API for the package for that reason I decide to repeat the project #3 of my basic &quot;Business Intelligence&quot; class. That project took me at least 16 hours to complete, of course that includes the creation of the report but I remember to spend from 5 to 6 hours on SAS doing the data mining.</p>
 <p>The data is about the customers of a catalog, the objective is to predict which customers are more likely to respond to the catalog campaign and send a catalog to those customers. There is a dataset for <a href="https://raw.github.com/danielfrg/copper/master/examples/catalog/data/training.csv">training</a> (2000 rows) and another one for <a href="https://raw.github.com/danielfrg/copper/master/examples/catalog/data/testing.csv">testing</a> (2000 rows). Each file has this columns:</p>
 <ol>
-<li>NGIF: number of orders in the 24 months</li>
-<li>RAMN: Total order amounts in dollars in the last 24 months</li>
-<li>LASG: Amount of last order</li>
-<li>LASD: Date of last order (you may need to convert it to number of months elapsed to 01/01/2007)</li>...
     </div>
 
     <div class="meta">
@@ -185,13 +156,6 @@ In&nbsp;[1]:
 <p>As part of my Master in IT &amp; Management this semester I am taking a class called &quot;Advanced Business Intelligence&quot; which is the same as machine learning or data analysis to the Business people; in general they teach how to use SAS (Enteprise Miner) to do data mining.</p>
 <p>SAS and Enterprise Miner is a good software - with some problems:</p>
 <ul>
-<li>Costs a <strong>lot</strong> of money</li>
-<li>Is slow as hell, seriously</li>
-<li>Good for business people, not so much for engineers</li>
-<li>Costs a <strong>lot</strong> of money</li>
-</ul>
-<p>I was able to get it for $100 dollars because the university has an arrangement with SAS but without that is impossible to buy for personal use. For that reason I start learning R (from <a href="http://coursera.org/" title="Coursera">coursera</a>) and Python Data Analysis packages (pandas and scikit-learn), while I was taking my &quot;(basic) Business Intelligence&quot;.</p>
-<p>I learned that is possible to replace SAS with R or Python but some easy tasks can take a long time. I want to make a contribution by making some tasks easier and keep learning python. For that reason I am going to try to do <strong>everything</strong>...
     </div>
 
     <div class="meta">

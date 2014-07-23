@@ -21,72 +21,44 @@ a:hover {
     text-decoration: none;
 }
 
-.main-header {
-    height: 250px;
-    line-height: 1.3em;
-    overflow: hidden;
-    text-align: center;
-    background: no-repeat center center #DDD;
-    background-size: 100%;
-    position: relative;
+header.main-header {
+    background: none repeat scroll 0% 0% #3D464D;
 
-    nav {
-        position: absolute;
-        top: 10px;
-        left: 0;
-        width: 100%;
+    .container {
+        max-width: 700px;
 
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
+        .title {
+            color: #FFF;
+            font-size: 32px;
+            margin: 10px 0 5px 0;
         }
 
-        li {
-            list-style-type: none;
-            display: inline;
-            margin: 0 10px;
+        nav {
+            margin: 5px 0 5px 0;
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
 
-            a, a:hover {
-                font-size: 13px;
-                font-weight: bold;
-                text-transform: uppercase;
-                color: rgba(255, 255, 255, 0.9);
+            li {
+                list-style-type: none;
+                display: inline;
+                margin: 0 15px 0 0;
+
+                a, a:hover {
+                    font-size: 13px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: #FFF;
+                }
             }
         }
     }
 }
 
-nav.navbar {
-    border-radius: 0px; // Bootstrap reset
-    max-width: 700px;
-    border-bottom: 1px solid #e5e5e5;
-
-    h3.brand {
-        margin: 14px 0 8px 0;
-
-        a {
-            color: @text-color;
-        }
-
-        a:hover {
-            color: @link-color;
-        }
-    }
-
-    .navbar-link {
-        font-size: 20px;
-        color: @text-color;
-        margin-left: 10px;
-    }
-
-    .navbar-link:hover {
-        color: @link-color;
-    }
-}
-
 article {
-    margin: 40px 0 40px;
+    margin: 0 0 40px;
 
     header {
         margin-bottom: 20px;
@@ -107,7 +79,17 @@ article {
 
     p {
         font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 1.6em;
+    }
+
+    ul, ol {
+        margin-top: 0px;
         margin-bottom: 25px;
+    }
+
+    li {
+        font-size: 16px;
         line-height: 1.6em;
     }
 
@@ -144,6 +126,7 @@ article {
 
     .anchor-link {
         // IPython notebook
+        display: none;
         maring-left: 10px;
         color: #DDD;
     }
@@ -222,8 +205,9 @@ article {
     .separator {
         padding: 40px 0 40px 0;
         text-align: center;
-        font-size: 25px;
-        color: #DDD;
+        font-size: 30px;
+        color: #CDCDCD;
+        font-family: monospace;
     }
 
     .pagination {
@@ -256,6 +240,24 @@ article {
 
 .post {
     max-width: 700px;
+
+    h2:before {
+        content: "# ";
+        font-weight: bold;
+        color: #DDD;
+    }
+
+    h3:before {
+        content: "## ";
+        font-weight: bold;
+        color: #DDD;
+    }
+
+    h4:before {
+        content: "### ";
+        font-weight: bold;
+        color: #DDD;
+    }
 
     #disqus_thread {
         max-width: 100%;
