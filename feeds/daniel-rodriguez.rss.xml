@@ -1475,7 +1475,7 @@ table.dataframe th, td {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;This post describes a simple yet flexible implementation on how to deploy an &lt;a href="http://ipython.org/ipython-doc/dev/parallel/"&gt;IPython.parallel&lt;/a&gt; cluster in multiple EC2 instances using &lt;a href="http://www.saltstack.com/"&gt;salt&lt;/a&gt; and a little bit of &lt;a href="http://vagrantup.com/"&gt;Vagrant&lt;/a&gt;. The final output will be one instance running the IPython notebook, ipcontroller and acting as the salt-master, also 6 instances each one running ipengine and being salt-minions, see the &lt;a href="http://ipython.org/ipython-doc/dev/parallel/"&gt;IPython.parallel docs&lt;/a&gt; for information on those commands.&lt;/p&gt;
+&lt;p&gt;This post describes a simple yet flexible implementation on how to deploy an &lt;a href="http://ipython.org/ipython-doc/dev/parallel/"&gt;IPython.parallel&lt;/a&gt; cluster in multiple EC2 instances using &lt;a href="http://www.saltstack.com/"&gt;salt&lt;/a&gt; and a little bit of &lt;a href="http://vagrantup.com/"&gt;Vagrant&lt;/a&gt;. The final output will be one instance running the IPython notebook, &lt;code&gt;ipcontroller&lt;/code&gt; and acting as the salt-master, also 6 instances each one running &lt;code&gt;ipengine&lt;/code&gt; and being salt-minions, see the &lt;a href="http://ipython.org/ipython-doc/dev/parallel/"&gt;IPython.parallel docs&lt;/a&gt; for information on those commands.&lt;/p&gt;
 &lt;p&gt;In a previous post I created a &lt;a href="http://danielfrg.com/blog/2013/11/27/ipython-notebook-aws-salt/"&gt;one-liner for deploying an ipython notebook&lt;/a&gt; to the cloud, after that I have been refactoring and advancing the concept and it became my own &lt;a href="https://github.com/danielfrg/datasciencebox"&gt;datasciencebox&lt;/a&gt;, it was natural to include the code for creating the ipcluster code in the same project.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1488,11 +1488,11 @@ table.dataframe th, td {
 &lt;h2 id="why"&gt;Why&lt;/h2&gt;
 &lt;p&gt;Let me begin saying that I know about &lt;a href="http://star.mit.edu/cluster/"&gt;starcluster&lt;/a&gt; I have used it (for this same task) and I believe is the best way to create cluster for doing parallel computing but it lacks of a few features:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Only EC2 support: I use EC2 and a couple of AWS services everyday but what if I want to move to rackspace or any other cloud? So instead of reling on boto I use &lt;a href="http://docs.saltstack.com/en/latest/topics/cloud/"&gt;salt-cloud&lt;/a&gt; that relies on &lt;a href="https://libcloud.apache.org/"&gt;apache libcloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Only EC2 support: I use EC2 and a couple of AWS services everyday but what if I want to move to rackspace or any other cloud? So instead of relying on boto I use &lt;a href="http://docs.saltstack.com/en/latest/topics/cloud/"&gt;salt-cloud&lt;/a&gt; that relies on &lt;a href="https://libcloud.apache.org/"&gt;apache libcloud&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Dependency of installing the scientific libraries from pypi: I use anaconda on my mac and I wanted to use the same versions on the cloud, using the &lt;a href="http://danielfrg.com/blog/2013/11/27/ipython-notebook-aws-salt/"&gt;salt state I wrote previously&lt;/a&gt; this was an easy task. With this having the latest version is as simple as changing the &lt;code&gt;requirements.txt&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Plugins are python classes (see the &lt;a href="https://github.com/jtriley/StarCluster/blob/develop/starcluster/plugins/ipcluster.py"&gt;starcluster ipython plugin for example&lt;/a&gt;): While this is completly fine once you learn configuration management you dont want to come back, a salt state is much more easier to create and mantain&lt;/li&gt;
+&lt;li&gt;Plugins are python classes (see the &lt;a href="https://github.com/jtriley/StarCluster/blob/develop/starcluster/plugins/ipcluster.py"&gt;starcluster ipython plugin for example&lt;/a&gt;): While this is completely fine once you learn configuration management you don&amp;#39;t want to come back, a salt state is much more easier to create and mantain&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Why not hadoop?&lt;/strong&gt; Again, I use hadoop every week, but for me it seams more natural to do the analysis on your tool of choice (python or R) and then scale it using the same (or similar) tool, it doesn&amp;#39;t make a lot of sense to do the analysis on a tool just becuase it scales if it lacks the capabilityes you need, for example the excelente interactivity of IPython.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why not hadoop?&lt;/strong&gt; Again, I use hadoop every week, but for me it seams more natural to do the analysis on your tool of choice (python or R) and then scale it using the same (or similar) tool, it doesn&amp;#39;t make a lot of sense to do the analysis on a tool just becuase it scales if it lacks the capabilities you need, for example the excelente interactivity of IPython.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1536,7 +1536,7 @@ ipython-minion-1:
     True
 ipython-minion-2:
     True
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now start the &lt;code&gt;ipengine&lt;/code&gt; on each minion by running the &lt;code&gt;ipcluster-minion&lt;/code&gt; salt state, this will also provison the same python environment using anaconda. Run &lt;code&gt;sudo salt &amp;#39;*&amp;#39; saltutil.sync_all&lt;/code&gt; and after &lt;code&gt;sudo salt &amp;#39;*&amp;#39; state.sls ipcluster-minion&lt;/code&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now start the &lt;code&gt;ipengine&lt;/code&gt; on each minion by running the &lt;code&gt;ipcluster-minion&lt;/code&gt; salt state, this will also provision the same python environment using anaconda. Run &lt;code&gt;sudo salt &amp;#39;*&amp;#39; saltutil.sync_all&lt;/code&gt; and after &lt;code&gt;sudo salt &amp;#39;*&amp;#39; state.sls ipcluster-minion&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Everything should be in place now, go to the notebook and connect to the clients:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1829,7 +1829,7 @@ In&amp;nbsp;[10]:
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;There was no need to restart the notebook or anything, IPython.parallel took care of everything.&lt;/p&gt;
-&lt;p&gt;Since we bootstraped the same python environment using anaconda we can use the scientific libraries, for example numpy:&lt;/p&gt;
+&lt;p&gt;Since we bootstrapped the same python environment using anaconda we can use the scientific libraries, for example numpy:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1941,7 +1941,7 @@ In&amp;nbsp;[15]:
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;It was relatively simple to get 6 workers running on the cloud and while it is not as simple as creating a config file and run one command as startcluster most of the stuff can be easily wrapped in a command line utility.&lt;/p&gt;
 &lt;p&gt;It was also simple to write this code since it was no code just salt states, I also learned about salt-cloud and like salt even more now.&lt;/p&gt;
-&lt;p&gt;Finally is worth saying that there are docens of examples of what you can do with IPython.parallel on the web, one of my favorites is by Olivier Grisel where he does &lt;a href="http://nbviewer.ipython.org/gist/anonymous/5115540/Model%20Selection%20for%20the%20Nystroem%20Method.ipynb"&gt;machine learning with sklearn&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Finally is worth saying that there are dozens of examples of what you can do with IPython.parallel on the web, one of my favorites is by Olivier Grisel where he does &lt;a href="http://nbviewer.ipython.org/gist/anonymous/5115540/Model%20Selection%20for%20the%20Nystroem%20Method.ipynb"&gt;machine learning with sklearn&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate><guid>tag:,2014-04-18:blog/2014/04/18/ipython-parallel-cluster-salt/</guid><category>python</category><category>ipython</category><category>parallel</category><category>salt</category><category>vagrant</category></item><item><title>Impala to python: ODBC and thrift</title><link>/blog/2014/02/28/impala-to-python/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
@@ -3742,7 +3742,7 @@ In&amp;nbsp;[11]:
 &lt;blockquote&gt;
 &lt;p&gt;&amp;quot;Fast, memory-efficient Python interface for SQL databases, NoSQL stores, Amazon S3, and large data files.&amp;quot;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="https://store.continuum.io/cshop/iopro/"&gt;IOPro&lt;/a&gt; is a library form the amazing people at continuum analytics, it is not free but you can try it for 30 days for free, I have a student licence and I use it from time to time, is very good. The main idea is to load data into numpy arrays directly, it skips python objects so is very memory efficient. For ODBC they forked pyodbc and added a few extra methods to fetch data.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://store.continuum.io/cshop/iopro/"&gt;IOPro&lt;/a&gt; is a library form the amazing people at continuum analytics, it is not free but you can try it for 30 days for free, I have a student license and I use it from time to time, is very good. The main idea is to load data into numpy arrays directly, it skips python objects so is very memory efficient. For ODBC they forked pyodbc and added a few extra methods to fetch data.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

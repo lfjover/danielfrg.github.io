@@ -1797,7 +1797,7 @@ In&amp;nbsp;[11]:
 &lt;blockquote&gt;
 &lt;p&gt;&amp;quot;Fast, memory-efficient Python interface for SQL databases, NoSQL stores, Amazon S3, and large data files.&amp;quot;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="https://store.continuum.io/cshop/iopro/"&gt;IOPro&lt;/a&gt; is a library form the amazing people at continuum analytics, it is not free but you can try it for 30 days for free, I have a student licence and I use it from time to time, is very good. The main idea is to load data into numpy arrays directly, it skips python objects so is very memory efficient. For ODBC they forked pyodbc and added a few extra methods to fetch data.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://store.continuum.io/cshop/iopro/"&gt;IOPro&lt;/a&gt; is a library form the amazing people at continuum analytics, it is not free but you can try it for 30 days for free, I have a student license and I use it from time to time, is very good. The main idea is to load data into numpy arrays directly, it skips python objects so is very memory efficient. For ODBC they forked pyodbc and added a few extra methods to fetch data.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
