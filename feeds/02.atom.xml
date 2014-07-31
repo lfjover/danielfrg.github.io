@@ -5223,8 +5223,8 @@ In&amp;nbsp;[22]:
 
 
 &lt;h2&gt;Javascript: UI + Graphics&lt;/h2&gt;
-&lt;p&gt;For backbone I mainly &lt;a href="http://blog.shinetech.com/2011/07/25/cascading-select-boxes-with-backbone-js/"&gt;this article on cascading selects&lt;/a&gt;. But I use only one select (for now) and use the &lt;a href="http://underscorejs.org/"&gt;underscore&lt;/a&gt; templates.&lt;/p&gt;
-&lt;p&gt;To make the &lt;code&gt;&amp;lt;select&amp;gt;'s&lt;/code&gt;it good looking I am using a js library called &lt;a href="http://harvesthq.github.com/chosen/"&gt;chosen&lt;/a&gt; which is really good and simple to use.&lt;/p&gt;
+&lt;p&gt;For backbone I mainly read &lt;a href="http://blog.shinetech.com/2011/07/25/cascading-select-boxes-with-backbone-js/"&gt;this article on cascading selects&lt;/a&gt;. But I use only one select (for now) and use the &lt;a href="http://underscorejs.org/"&gt;underscore&lt;/a&gt; templates.&lt;/p&gt;
+&lt;p&gt;To make the &lt;code&gt;&amp;lt;select&amp;gt;'s&lt;/code&gt; good better I am using a js library called &lt;a href="http://harvesthq.github.com/chosen/"&gt;chosen&lt;/a&gt; which is really good and simple to use.&lt;/p&gt;
 &lt;p&gt;For D3 I follow the &lt;a href="http://bl.ocks.org/3048450"&gt;main histogram example&lt;/a&gt; and added a red column to show missing values and hard-code it a little bit more to make changes easier.&lt;/p&gt;
 &lt;p&gt;Finally I create another Model and View to control the number of bins dynamically.&lt;/p&gt;
 &lt;p&gt;The complete Javascript including backbone and D3 code is this:&lt;/p&gt;
