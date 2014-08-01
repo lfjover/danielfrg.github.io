@@ -39,6 +39,47 @@
 
   <article>
     <header>
+      <h2><a href="/blog/2014/08/01/storm-sklearn/">From zero to storm cluster for scikit-learn classification</a></h2>
+      <time datetime="" title="2014-08-01T00:00:00" pubdate>August 01, 2014</time>
+    </header>
+
+    <div class="article_content">
+      <p><a href="http://https://storm.incubator.apache.org/">Apache storm</a> is a new technology
+that allows to do real-time computation that its been in the big data news
+lately and I was curious to try it to see if its really good or is a just
+the new map-reduce.</p>
+<p>One of the first (and no brainer) ideas I had was to do real-time
+classification of a scikit-learn model, the main issue was that storm is Java and
+I didn't want to all the integration between Java and Python
+but after I saw in the pydata videos that the people at
+<a href="https://parsely.com/">Parsely</a> already took some of that pain out with
+their new <a href="https://github.com/Parsely/streamparse">streamparse</a> library
+I had no more excuses to try it.</p>
+<h2>Storm cluster</h2>
+<p>I decided to deploy a storm cluster and after failing to use their EC2 scripts
+I decided to do it myself using <a href="http://saltstack.com">salt</a>.
+I found an amazing <a href="http://www.michael-noll.com/tutorials/running-multi-node-storm-cluster">step by step tutorial</a>
+from  Michael Noll ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2014/08/01/storm-sklearn/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/storm.html" class="tag">storm</a>
+            <a href="/tag/salt.html" class="tag">salt</a>
+            <a href="/tag/sklearn.html" class="tag">sklearn</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator">&equiv;</div>
+  <article>
+    <header>
       <h2><a href="/blog/2013/08/20/relevant-content-blog-crawler/">Relevant content blog crawler</a></h2>
       <time datetime="" title="2013-08-20T00:00:00" pubdate>August 20, 2013</time>
     </header>

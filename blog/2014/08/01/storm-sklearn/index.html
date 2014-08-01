@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>From zero to storm cluster for scikit-learn classification | Daniel Rodriguez</title>
+
+        <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+    </head>
+
+    <body>
+        <header class="main-header">
+            <div class="container">
+                <a href="/" title="Home" class="title">Daniel Rodriguez</a></li>
+                <nav>
+                    <ul>
+
+                            <li><a href="/pages/about.html" title="About">About</a></li>
+                            <li><a href="http://github.com/danielfrg" title="danielfrg's Github" rel="me">Github</a></li>
+                            <li><a href="http://twitter.com/danielfrg" title="danielfrg Twitter" rel="me">Twitter</a></li>
+                            <li><a href="/archives.html" title="Archive">Archives</a></li>
+                            <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+<div class="container post">
+
+    <article>
+        <header>
+            <h1>From zero to storm cluster for scikit-learn classification</h1>
+            <time datetime="article.date.isoformat()" pubdate>August 01, 2014</time>
+        </header>
+
+        <div class="article_content">
+            <p><a href="http://https://storm.incubator.apache.org/">Apache storm</a> is a new technology
+that allows to do real-time computation that its been in the big data news
+lately and I was curious to try it to see if its really good or is a just
+the new map-reduce.</p>
+<p>One of the first (and no brainer) ideas I had was to do real-time
+classification of a scikit-learn model, the main issue was that storm is Java and
+I didn't want to all the integration between Java and Python
+but after I saw in the pydata videos that the people at
+<a href="https://parsely.com/">Parsely</a> already took some of that pain out with
+their new <a href="https://github.com/Parsely/streamparse">streamparse</a> library
+I had no more excuses to try it.</p>
+<h2>Storm cluster</h2>
+<p>I decided to deploy a storm cluster and after failing to use their EC2 scripts
+I decided to do it myself using <a href="http://saltstack.com">salt</a>.
+I found an amazing <a href="http://www.michael-noll.com/tutorials/running-multi-node-storm-cluster">step by step tutorial</a>
+from  Michael Noll that explains how to deploy everything, including the
+a the zookeeper quorum (a first time from me too).</p>
+<p>Is important to note that Michael Noll has some nice scripts to deploy everything
+using puppet and vagrant, but since I don't like puppet I decided to recreate some
+of his work on salt which it was very straight forward since there are already some
+<a href="https://github.com/saltstack-formulas/zookeeper-formula">zookeeper states</a> for salt
+so I only had to leverage that to create some storm states.</p>
+<p>The states I created are very extensible and can extended to many instances
+using salt-cloud as described in the documentation.</p>
+<h2>scikit-learn</h2>
+<p>After having the storm cluster up and running I needed to solve a different
+issue: most storm topologies examples do a very simple calculation,
+e.g. word count, they don't need to load anything (big) to do their calculation.</p>
+<p>The scikit-learn classification is a little bit more complex since it needs to
+load the model before doing the calculation and you don't want to load the model
+in every storm process in the same machine.
+Thats where <a href="http://scikit-learn.org/stable/tutorial/basic/tutorial.html#model-persistence">memory mapping and joblib</a>
+comes handy, you can load the model once into memory once
+and other processes can use the same model into memory to do the calculation.</p>
+<p>To deploy the pickled model into the storm cluster I used salt again to
+just download the model from github.
+The example I did uses a tiny SVM on the iris dataset
+but the idea can be easily extended to download bigger models from S3 for example.</p>
+<h2>streamparse</h2>
+<p><a href="https://github.com/Parsely/streamparse">streamparse</a> is a nice library
+from the people at <a href="https://parsely.com/">Parsely</a> that makes easy to create
+storm topologies using python and a little bit of clojure.
+The library is young but it looks promising, my main complain is that it
+tries to take care of more that it should: python environments.</p>
+<p>They try to solve the virutalenvs problem using fabric and the classic virtualenv,
+a valid approach for a small storm cluster and basic python libraries.
+I believe that this problem should be solve by a tool like salt in case you
+have a big cluster and also using <a href="http://continuum.io/downloads">conda</a>
+for the python environmenst since it gives you an easier use of the
+to use the scientific libraries.</p>
+<p>So I used salt to solve the virutalenv problems using one of my
+<a href="http://danielfrg.com/blog/2014/04/18/ipython-parallel-cluster-salt/">conda states</a>
+and then I had to recreate some of the streamparse submit so it does not create
+any virutalenvs, just submit the topology to the storm-nimbus.</p>
+<p><img alt="Storm topology logs" src="/images/blog/2014/08/storm-log.png" title="Storm topology logs" /></p>
+<h2>Conclusion</h2>
+<p>I am very happy with the results since I was able to do this by
+leveraging a lot of useful tools making it very easy to develop and deploy,
+making it very scalable and reproducible.</p>
+<p>I still need to test more storm to take my final decision and see
+were it is really useful. Is the complexity of maintaining a zookeeper quorum
+and storm cluster really worth it? Or do I just keep using 0MQ?</p>
+<p>One bonus idea is to make the storm spouts and bolts more useful
+by integrating with the outside world, for now it just keeps predicting the
+same data forever, maybe a good idea would be to do some websockets as spout
+and bolts to make a nice real-time UI.</p>
+<p>All the code and documentation on how to make everything is on github:
+<a href="https://github.com/danielfrg/storm-sklearn">storm-sklearn</a></p>
+        </div>
+
+        <div class="meta">
+            <div>
+                    <a href="/tag/python.html" class="tag">python</a>
+                    <a href="/tag/storm.html" class="tag">storm</a>
+                    <a href="/tag/salt.html" class="tag">salt</a>
+                    <a href="/tag/sklearn.html" class="tag">sklearn</a>
+            </div>
+            <div>
+                <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<script type="text/javascript">
+(function () {
+    'use strict';
+
+    // Global object
+    var App = {};
+
+    // Create button
+    App.commentsButton = document.getElementById('comments-button');
+
+    App.commentsButton.onclick = function () {
+        // Remove button action on click
+        App.commentsButton.onclick = function () {
+        }
+
+        // Create comments container
+        App.disqusContainer = document.createElement('div');
+        App.disqusContainer.setAttribute('id', 'disqus_thread');
+        // App.disqusContainer.setAttribute('class', 'container');
+
+        // Append container to body or div
+        // document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+
+        // Your Disqus shortname
+        App.disqus_shortname = 'danielfrg';
+
+        // Embed Disqus
+        var dsq = document.createElement('script');
+
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
+
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        window.scrollTo(0, dsq.offsetTop - 200);
+    };
+})();
+</script>
+
+
+    </body>
+</html>

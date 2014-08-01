@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Daniel Rodriguez</title><link>/</link><description></description><atom:link href="/feeds/daniel-rodriguez.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 18 Apr 2014 00:00:00 +0000</lastBuildDate><item><title>IPython.parallel cluster using salt</title><link>/blog/2014/04/18/ipython-parallel-cluster-salt/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Daniel Rodriguez</title><link>/</link><description></description><atom:link href="/feeds/daniel-rodriguez.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 01 Aug 2014 00:00:00 +0000</lastBuildDate><item><title>From zero to storm cluster for scikit-learn classification</title><link>/blog/2014/08/01/storm-sklearn/</link><description>&lt;p&gt;&lt;a href="http://https://storm.incubator.apache.org/"&gt;Apache storm&lt;/a&gt; is a new technology
+that allows to do real-time computation that its been in the big data news
+lately and I was curious to try it to see if its really good or is a just
+the new map-reduce.&lt;/p&gt;
+&lt;p&gt;One of the first (and no brainer) ideas I had was to do real-time
+classification of a scikit-learn model, the main issue was that storm is Java and
+I didn't want to all the integration between Java and Python
+but after I saw in the pydata videos that the people at
+&lt;a href="https://parsely.com/"&gt;Parsely&lt;/a&gt; already took some of that pain out with
+their new &lt;a href="https://github.com/Parsely/streamparse"&gt;streamparse&lt;/a&gt; library
+I had no more excuses to try it.&lt;/p&gt;
+&lt;h2&gt;Storm cluster&lt;/h2&gt;
+&lt;p&gt;I decided to deploy a storm cluster and after failing to use their EC2 scripts
+I decided to do it myself using &lt;a href="http://saltstack.com"&gt;salt&lt;/a&gt;.
+I found an amazing &lt;a href="http://www.michael-noll.com/tutorials/running-multi-node-storm-cluster"&gt;step by step tutorial&lt;/a&gt;
+from  Michael Noll that explains how to deploy everything, including the
+a the zookeeper quorum (a first time from me too).&lt;/p&gt;
+&lt;p&gt;Is important to note that Michael Noll has some nice scripts to deploy everything
+using puppet and vagrant, but since I don't like puppet I decided to recreate some
+of his work on salt which it was very straight forward since there are already some
+&lt;a href="https://github.com/saltstack-formulas/zookeeper-formula"&gt;zookeeper states&lt;/a&gt; for salt
+so I only had to leverage that to create some storm states.&lt;/p&gt;
+&lt;p&gt;The states I created are very extensible and can extended to many instances
+using salt-cloud as described in the documentation.&lt;/p&gt;
+&lt;h2&gt;scikit-learn&lt;/h2&gt;
+&lt;p&gt;After having the storm cluster up and running I needed to solve a different
+issue: most storm topologies examples do a very simple calculation,
+e.g. word count, they don't need to load anything (big) to do their calculation.&lt;/p&gt;
+&lt;p&gt;The scikit-learn classification is a little bit more complex since it needs to
+load the model before doing the calculation and you don't want to load the model
+in every storm process in the same machine.
+Thats where &lt;a href="http://scikit-learn.org/stable/tutorial/basic/tutorial.html#model-persistence"&gt;memory mapping and joblib&lt;/a&gt;
+comes handy, you can load the model once into memory once
+and other processes can use the same model into memory to do the calculation.&lt;/p&gt;
+&lt;p&gt;To deploy the pickled model into the storm cluster I used salt again to
+just download the model from github.
+The example I did uses a tiny SVM on the iris dataset
+but the idea can be easily extended to download bigger models from S3 for example.&lt;/p&gt;
+&lt;h2&gt;streamparse&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/Parsely/streamparse"&gt;streamparse&lt;/a&gt; is a nice library
+from the people at &lt;a href="https://parsely.com/"&gt;Parsely&lt;/a&gt; that makes easy to create
+storm topologies using python and a little bit of clojure.
+The library is young but it looks promising, my main complain is that it
+tries to take care of more that it should: python environments.&lt;/p&gt;
+&lt;p&gt;They try to solve the virutalenvs problem using fabric and the classic virtualenv,
+a valid approach for a small storm cluster and basic python libraries.
+I believe that this problem should be solve by a tool like salt in case you
+have a big cluster and also using &lt;a href="http://continuum.io/downloads"&gt;conda&lt;/a&gt;
+for the python environmenst since it gives you an easier use of the
+to use the scientific libraries.&lt;/p&gt;
+&lt;p&gt;So I used salt to solve the virutalenv problems using one of my
+&lt;a href="http://danielfrg.com/blog/2014/04/18/ipython-parallel-cluster-salt/"&gt;conda states&lt;/a&gt;
+and then I had to recreate some of the streamparse submit so it does not create
+any virutalenvs, just submit the topology to the storm-nimbus.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Storm topology logs" src="/images/blog/2014/08/storm-log.png" title="Storm topology logs" /&gt;&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I am very happy with the results since I was able to do this by
+leveraging a lot of useful tools making it very easy to develop and deploy,
+making it very scalable and reproducible.&lt;/p&gt;
+&lt;p&gt;I still need to test more storm to take my final decision and see
+were it is really useful. Is the complexity of maintaining a zookeeper quorum
+and storm cluster really worth it? Or do I just keep using 0MQ?&lt;/p&gt;
+&lt;p&gt;One bonus idea is to make the storm spouts and bolts more useful
+by integrating with the outside world, for now it just keeps predicting the
+same data forever, maybe a good idea would be to do some websockets as spout
+and bolts to make a nice real-time UI.&lt;/p&gt;
+&lt;p&gt;All the code and documentation on how to make everything is on github:
+&lt;a href="https://github.com/danielfrg/storm-sklearn"&gt;storm-sklearn&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 01 Aug 2014 00:00:00 +0000</pubDate><guid>tag:,2014-08-01:blog/2014/08/01/storm-sklearn/</guid><category>python</category><category>storm</category><category>salt</category><category>sklearn</category></item><item><title>IPython.parallel cluster using salt</title><link>/blog/2014/04/18/ipython-parallel-cluster-salt/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
