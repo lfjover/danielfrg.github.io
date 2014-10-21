@@ -22,54 +22,32 @@ a:hover {
 }
 
 header.main-header {
-    height: 150px;
-    background: none repeat scroll 0% 0% #3D464D;
+    background: none repeat scroll 0% 0% #2A66C0;
+
+    a {
+        color: #fff;
+    }
 
     .container {
-        max-width: 700px;
-        height: 100%;
-        padding: 50px 15px 0;
-
-        .title {
-            color: #FFF;
-            font-size: 32px;
-            // margin: 0px 0 5px 0;
-        }
+        max-width: 1000px;
 
         nav {
-            margin: 15px 0 5px 0;
-            ul {
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
-
-            li {
-                list-style-type: none;
-                display: inline;
-                margin: 0 15px 0 0;
-
-                a, a:hover {
-                    font-size: 13px;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    color: #FFF;
-                }
+            a:hover {
+                background-color: #2A66C0;
             }
         }
     }
 }
 
 article {
-    margin: 0 0 40px;
+    margin: 0;
 
     header {
         margin-bottom: 20px;
         padding-bottom: 20px;
-        border-bottom: 1px solid #eee;
 
         h1 {
-            margin-bottom: 15px;
+            margin-bottom: 2px;
             font-weight: 700;
             color: #000;
         }
@@ -77,6 +55,7 @@ article {
         time {
             color: #9E9E9E;
             font-size: 0.85em;
+            float: right;
         }
     }
 
@@ -187,11 +166,10 @@ article {
     max-width: 700px;
 
     article {
-
         header {
             h2 {
                 font-size: 36px;
-                margin-bottom: 15px;
+                margin-bottom: 2px;
                 font-weight: 700;
 
                 a {
@@ -206,11 +184,10 @@ article {
     }
 
     .separator {
-        padding: 40px 0 40px 0;
-        text-align: center;
-        font-size: 30px;
-        color: #CDCDCD;
-        font-family: monospace;
+        padding: 40px 0 0 0;
+        margin: 0 0 40px 0;
+        height: 10px;
+        border-bottom: solid 1px #CCC;
     }
 
     .pagination {
