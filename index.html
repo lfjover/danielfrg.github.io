@@ -41,7 +41,7 @@
   <article>
     <header>
       <h2><a href="/blog/2014/08/01/storm-sklearn/">From zero to storm cluster for scikit-learn classification</a></h2>
-      <time datetime="" title="2014-08-01T00:00:00" pubdate>August 01, 2014</time>
+      <time datetime="" title="2014-08-01T00:00:00+00:00" pubdate>August 01, 2014</time>
     </header>
 
     <div class="article_content">
@@ -81,87 +81,8 @@ from  Michael Noll ...</p>
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="/blog/2014/04/18/ipython-parallel-cluster-salt/">IPython.parallel cluster using salt</a></h2>
-      <time datetime="" title="2014-04-18T00:00:00" pubdate>April 18, 2014</time>
-    </header>
-
-    <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This post describes a simple yet flexible implementation on how to deploy an <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel</a> cluster in multiple EC2 instances using <a href="http://www.saltstack.com/">salt</a> and a little bit of <a href="http://vagrantup.com/">Vagrant</a>. The final output will be one instance running the IPython notebook, <code>ipcontroller</code> and acting as the salt-master, also 6 instances each one running <code>ipengine</code> and being salt-minions, see the <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel docs</a> for information on those commands.</p>
-<p>In a previous post I created a <a href="http://danielfrg.com/blog/2013/11/27/ipython-notebook-aws-salt/">one-liner for deploying an ipython notebook</a> to the cloud, after that I have been refactoring and advancing the concept and it became my own <a href="https://github.com/danielfrg/datasciencebox">datasciencebox</a>, it was natural to include the code for creating the ipcluster code in the same project.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="why">
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2014/04/18/ipython-parallel-cluster-salt/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/ipython.html" class="tag">ipython</a>
-            <a href="/tag/parallel.html" class="tag">parallel</a>
-            <a href="/tag/salt.html" class="tag">salt</a>
-            <a href="/tag/vagrant.html" class="tag">vagrant</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="/blog/2014/02/28/impala-to-python/">Impala to python: ODBC and thrift</a></h2>
-      <time datetime="" title="2014-02-28T00:00:00" pubdate>February 28, 2014</time>
-    </header>
-
-    <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For good or bad HDFS is where the data is placed today and we all know this data is hard and slow to query and analyze. The good news is that the people at Cloudera created <a href="http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html">impala</a>, basic idea is: <strong>fast</strong> SQL on Hadoop (HDFS or HBase) using the Hive metastore.</p>
-<p>For good or for bad Hadoop is not were Data Science happens it usually happens in R or python, good news is that the folks at cloudera made sure that is very easy to extract data out of impala using standard technologies such as ODBC or <a href="http://thrift.apache.org/">thrift</a>.</p>
-<p>In this post I try some tools to extract data from impala to python (pandas) to do in memory analysis.</p>
-<p>The setup is quite simple since I am running the cloudera (CDH 4.6) in my own computer using their <a href="http://www.cloudera.com/content/support/en/downloads/download-components/download-products.html">virtual machine</a>, just be sure to port forward port 21050, if you are in the cloud (EC2) just be sure to open that port. The data is just a table of 100,000 rows and 3 columns in AVRO format based on the <a href="http://avro.apache.org/docs/1.7.6/gettingstartedpython.html">getting started with AVRO example</a>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2014/02/28/impala-to-python/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/impala.html" class="tag">impala</a>
-            <a href="/tag/odbc.html" class="tag">odbc</a>
-            <a href="/tag/thrift.html" class="tag">thrift</a>
-            <a href="/tag/iopro.html" class="tag">iopro</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
       <h2><a href="/blog/2013/11/27/ipython-notebook-aws-salt/">One-liner: Deploy python scipy stack with IPython notebook on AWS</a></h2>
-      <time datetime="" title="2013-11-27T00:00:00" pubdate>November 27, 2013</time>
+      <time datetime="" title="2013-11-27T00:00:00+00:00" pubdate>November 27, 2013</time>
     </header>
 
     <div class="article_content">
@@ -195,7 +116,7 @@ annoying. Also having to login into AWS, look for the AMI and spin up and instan
   <article>
     <header>
       <h2><a href="/blog/2013/11/23/harvard-ds/">Review: Harvard Data Science - Fall 2013</a></h2>
-      <time datetime="" title="2013-11-23T00:00:00" pubdate>November 23, 2013</time>
+      <time datetime="" title="2013-11-23T00:00:00+00:00" pubdate>November 23, 2013</time>
     </header>
 
     <div class="article_content">
@@ -226,7 +147,7 @@ annoying. Also having to login into AWS, look for the AMI and spin up and instan
   <article>
     <header>
       <h2><a href="/blog/2013/10/31/month-log/">Month-Log.oct.2013</a></h2>
-      <time datetime="" title="2013-10-31T00:00:00" pubdate>October 31, 2013</time>
+      <time datetime="" title="2013-10-31T00:00:00+00:00" pubdate>October 31, 2013</time>
     </header>
 
     <div class="article_content">
@@ -265,7 +186,7 @@ I had worked with pig a little ...</p>
   <article>
     <header>
       <h2><a href="/blog/2013/09/21/word2vec-yhat/">word2vec in yhat: Word vector similarity</a></h2>
-      <time datetime="" title="2013-09-21T00:00:00" pubdate>September 21, 2013</time>
+      <time datetime="" title="2013-09-21T00:00:00+00:00" pubdate>September 21, 2013</time>
     </header>
 
     <div class="article_content">
@@ -303,14 +224,14 @@ very responsive and they helped me to solve some of my issues.</p>
   <article>
     <header>
       <h2><a href="/blog/2013/09/11/django-celery-readability-crawler/">Django + Celery + Readability = Python relevant content crawler</a></h2>
-      <time datetime="" title="2013-09-11T00:00:00" pubdate>September 11, 2013</time>
+      <time datetime="" title="2013-09-11T00:00:00+00:00" pubdate>September 11, 2013</time>
     </header>
 
     <div class="article_content">
-      <p>I have written a <a href="/blog/2013/08/20/relevant-content-blog-crawler/">few</a> <a href="/blog/2013/04/01/nba-scraping-data/">posts</a>
+      <p>I have written a <a href="{filename}../08/blog-crawler.ipynb">few</a> <a href="{filename}../04/nba-data.md">posts</a>
 about crawling content from the web. Mainly because I know the power of data
 and the biggest data source in the world is the web, Google knew it and we all now how they are
-doing. In my <a href="/blog/2013/08/20/relevant-content-blog-crawler/">last post</a> I wrote about crawling relevant content
+doing. In my <a href="{filename}../08/blog-crawler.ipynb">last post</a> I wrote about crawling relevant content
 from blogs; It worked but what if I want an admin UI to control the crawling. What if I just put
 the crawler in an EC2 instance and just call it when I need to crawl.</p>
 <p>The solution was pretty simple thanks to some python projects.
@@ -340,31 +261,34 @@ actually crawl blogs (I already had ...</p>
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="/blog/2013/08/20/relevant-content-blog-crawler/">Relevant content blog crawler</a></h2>
-      <time datetime="" title="2013-08-20T00:00:00" pubdate>August 20, 2013</time>
+      <h2><a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks in pelican</a></h2>
+      <time datetime="" title="2013-02-16T00:00:00+00:00" pubdate>February 16, 2013</time>
     </header>
 
     <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We all know that the most important aspect of data science or machine learning is data; with enough quality data you can do everything. Is also not a mistery that the problem of big data is to get that amount of data into a queryable, reportable or undestandable format; now we have a lot of amazing new tools to store that amount of data (casandra, hbase and more) but I still believe that almost nothing beats the fact of collecting a good amount (not necessarily huge, but the more you have the better) but structured data, and there is nothing more structured than SQL.</p>
-<p>There is a lot of information power in the web and crawl it gives you that power (or is at least the first step), Google does it and I am pretty sure I don&#39;t have to say more. I cannot even begin to imagine the amount of work that they do to understand that data. So I created my own mini crawler to crawl what I call relevant content of websites, more specificly blogs, yes I believe blogs and not twitter have a lot of information power, that is why I am writing this in a blog.</p>
+      <p class='update'><strong>Update: </strong> Check out the updated post on <a href="{filename}../03/pelican-ipython-notebook-plugin.md">blogging with iPython notebook and pelican with a plugin</a>.</p>
+
+<p>It seems that I spend most time redesigning/developing this blog than actually
+blogging xD, just a few weeks ago I wrote about how I was <a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/">blogging using jekyll
+with iPython notebooks</a>
+and now I am talking about doing the same different static blog engine.</p>
+<p>The fact is that a few days ago I found <a href="http://www.getpelican.com">pelican</a>, the first serious
+python alternative to Jekyll I have found, and after reading 15 minutes about it I was
+downloading pelican and creating a theme based on my old Jekyll site.</p>
+<p>The switch was easy just needed move some files, change some of the tags from liquid to
+<a href="http://jinja.pocoo.org/docs/">jinja2</a> and add some metadata. The fact of having
+less than 10 posts also helped because I did that part manually.</p>
+<p>The fact that <a href="http://www.getpelican.com">pelican</a> is on python gave me ...</p>
     </div>
 
     <div class="meta">
       <div>
-        <a href="/blog/2013/08/20/relevant-content-blog-crawler/" class="read_more">Read more &#8594;</a>
+        <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
             <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/crawling.html" class="tag">crawling</a>
-            <a href="/tag/beautifulsoup.html" class="tag">beautifulsoup</a>
-            <a href="/tag/readability.html" class="tag">readability</a>
+            <a href="/tag/pelican.html" class="tag">pelican</a>
       </div>
 
     </div>
@@ -373,47 +297,106 @@ actually crawl blogs (I already had ...</p>
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="/blog/2013/07/27/not-so-basic-neural-network-python/">A not so basic neural network on python</a></h2>
-      <time datetime="" title="2013-07-27T00:00:00" pubdate>July 27, 2013</time>
+      <h2><a href="/blog/2013/02/05/d3-backbone-tornado-histogram-csv/">Using D3, backbone and tornado to visualize histograms of a csv file</a></h2>
+      <time datetime="" title="2013-02-05T00:00:00+00:00" pubdate>February 05, 2013</time>
     </header>
 
     <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>My <a href="http://danielfrg.github.io/blog/2013/07/03/basic-neural-network-python/">previous post</a> on implementing a basic Neural Network on python got a lot of attention staying one whole day on HN front page. I was very happy about that but more about the <a href="https://news.ycombinator.com/item?id=5994851">feedback</a> I got. The community gave me a lot of tips and tricks on how to improve. So now I am presenting an improved version which supports multiple hidden layers,  more optimization options using minibatches and a more maintainable/understandable code (or so I believe).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>I kept reading a lot about Neural Networks mainly by watching some videos from <a href="https://class.coursera.org/neuralnets-2012-001/class/index">Geoffrey&#39;s Hinton Neural Network course</a> on coursera. Also reading more on <a href="http://deeplearning.net/tutorial/">deeplearning.net</a> and trying to read some papers. That last task was definitely the hardest one because of the complexity of the papers. If I cannot even read them I can just imagine how hard is to write them.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>About the Neural networks course I didn&#39;t like it as much as the Machine Learning course. The main reason is that I had to watch most videos 3 or 4 times before understanding (something). This is definitely my fault because the material is great but it focuses more on the theory (math) which I am not that good at and not on the implementation which I am more interested. But I take it as a learning experience and I will try to finish those videos.</p>
+      <p>After being procrastinating for weeks the learning of <a href="http://d3js.org">D3.js</a> and <a href="http://backbonejs.org">backbone.js</a> I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):</p>
+<ul>
+<li>Great web frameworks as <a href="https://www.djangoproject.com">Django</a> and <a href="http://www.tornadoweb.org">Tornado</a> - "fighting" with ruby (<a href="http://rubyonrails.org">rails</a>)</li>
+<li>Great Data Analysis packages such as <a href="http://pandas.pydata.org/">pandas</a> - "fighting" with <a href="http://www.r-project.org">R</a></li>
+<li>Great machine-learning libraries such as <a href="http://scikit-learn.org/">scikit-learn</a></li>
+<li>Probably not the most successful but has a good gaming library <a href="http://www.pygame.org/">pyGame</a></li>
+<li>Is a great general purpose language - I use it to program a robot for a NASA competition using a PS3 controller, serial-ports, web-server, cameras, and all in one language</li>
+<li>And the list could go for hours</li>
+</ul>
+<p>For me that is the python killer feature: do <strong>anything</strong> on one language, sometimes ...</p>
     </div>
 
     <div class="meta">
       <div>
-        <a href="/blog/2013/07/27/not-so-basic-neural-network-python/" class="read_more">Read more &#8594;</a>
+        <a href="/blog/2013/02/05/d3-backbone-tornado-histogram-csv/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
             <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/machine-learning.html" class="tag">machine learning</a>
-            <a href="/tag/neural-networks.html" class="tag">neural networks</a>
+            <a href="/tag/javascript.html" class="tag">javascript</a>
+            <a href="/tag/d3js.html" class="tag">D3.js</a>
+            <a href="/tag/backbone.html" class="tag">backbone</a>
+            <a href="/tag/tornado.html" class="tag">tornado</a>
+            <a href="/tag/pandas.html" class="tag">pandas</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/">New blog using Jekyll & iPython</a></h2>
+      <time datetime="" title="2013-01-31T00:00:00+00:00" pubdate>January 31, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using <a href="http://octopress.org/">octopress</a> (<a href="https://github.com/mojombo/jekyll">jekyll</a>) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.</p>
+<ul>
+<li>Is not fast enough</li>
+<li>Can't have custom analytics and the wordpress analytics sucks.</li>
+<li>Can't modify HTML or even CSS</li>
+<li>Don't have markdown support</li>
+</ul>
+<p>Jekyll has all of that and nd github pages for hosting is just magnificent. Publish a new post with git is how <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">a hacker</a> should do it.</p>
+<p>I tried to find a python alternative, there are some specially <a href="http://ringce.com/hyde">Hyde</a> but the github page shows that the last commit was 2 years ago, while jekyll is actively developed and a much better alternative ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/jekyll.html" class="tag">jekyll</a>
+            <a href="/tag/ipython.html" class="tag">ipython</a>
+            <a href="/tag/python.html" class="tag">python</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/">Using cloud9 to save computing power and to code from everywhere too</a></h2>
+      <time datetime="" title="2012-11-03T14:46:00+00:00" pubdate>November 03, 2012</time>
+    </header>
+
+    <div class="article_content">
+      <p>I am taking my second course on <a href="https://www.coursera.org/" title="Coursera">Coursera</a> Computational Investing -
+Part 1; pretty fun so far. The homework 1 was to find a portfolio of 4
+equities with the best (highest) Sharpe ratio from 2011. With a little
+bit of coding in python I was able to download all SPY stocks and loop
+through out the different combinations of them with different weights to
+find the best portfolio. The problem I found was that my PC is to slow
+for this task :(</p>
+<p>First I have to said I am not an algorithm expert so the process is
+linear, but I was able to optimize a little bit the process by loading
+into memory first all the data and some other little stuff that makes
+the calculation faster; that is from 1 1/2 minutes initially to 30
+seconds combining 5 stocks. And I was able to combine up to 8 ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/cloud9.html" class="tag">cloud9</a>
+            <a href="/tag/computational-investing.html" class="tag">computational investing</a>
+            <a href="/tag/coursera.html" class="tag">coursera</a>
+            <a href="/tag/numpy.html" class="tag">numpy</a>
+            <a href="/tag/python.html" class="tag">python</a>
       </div>
 
     </div>
