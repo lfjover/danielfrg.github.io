@@ -19,7 +19,55 @@
 &lt;p&gt;Github pages support Jekyll but not some of its plugins such as the &lt;a href="http://lesscss.org/"&gt;LESS&lt;/a&gt; plugins. There is a very simple workaround for that. Just have to run Jekyll locally with all the plugins you want, and then just upload the compiled HTML,CSS,JS,... to the repository and github will display the static/compiled content.&lt;/p&gt;
 &lt;p&gt;So in my repository I have all the templates, posts, images, markdown, and everything else on folder named &lt;code&gt;source&lt;/code&gt;; that way jekyll creates the static content into &lt;code&gt;source/_site&lt;/code&gt;. Then when I am happy with new post or new design I use a very simple python &lt;a href="http://fabfile.org/"&gt;fabfile&lt;/a&gt; to clean the root (ignoring the &lt;code&gt;source&lt;/code&gt; and &lt;code&gt;.git&lt;/code&gt; folders) then it moves the contents of &lt;code&gt;source/_site&lt;/code&gt; to the root of the repository, then commits the changes and finally clean the root again.&lt;/p&gt;
 &lt;p&gt;I try to make the site plugin agnostic because I don't now ruby but I try to complement that with a few YAML tags and if's on the layous, for example only have to put a YAML tag on each post file and the picture is added automaticly to the index and post pages. That also happens with youtube and vimeo videos.&lt;/p&gt;
-&lt;p&gt;Finally the source of the site is on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt; if anyone want to take a look.&lt;/p&gt;</summary><category term="jekyll"></category><category term="ipython"></category><category term="python"></category></entry><entry><title>Copper - Bootstrap and Bagging</title><link href="/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" rel="alternate"></link><updated>2013-01-30T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;p&gt;Finally the source of the site is on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt; if anyone want to take a look.&lt;/p&gt;</summary><category term="jekyll"></category><category term="ipython"></category><category term="python"></category></entry><entry><title>Copper - Bootstrap and Bagging</title><link href="/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" rel="alternate"></link><updated>2013-01-30T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</id><summary type="html">
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -1422,6 +1470,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -1442,54 +1491,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -3288,7 +3289,83 @@ IezS/wLBosSDUGolewAAAABJRU5ErkJggg==
 &lt;p&gt;As usual the code is on github: &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Machine Learning</title><link href="/blog/2013/01/27/copper-machine-learning-python/" rel="alternate"></link><updated>2013-01-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-27:blog/2013/01/27/copper-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Machine Learning</title><link href="/blog/2013/01/27/copper-machine-learning-python/" rel="alternate"></link><updated>2013-01-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-27:blog/2013/01/27/copper-machine-learning-python/</id><summary type="html">
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -4691,6 +4768,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -4711,54 +4789,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -6998,7 +7028,83 @@ I can say with confidence (and by being a user of both) that using this package 
 &lt;p&gt;The code is on github: &lt;a href="https://github.com/danielfrg/copper" title="Copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Easy data analysis and machine learning on python</title><link href="/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/" rel="alternate"></link><updated>2013-01-26T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-26:blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Easy data analysis and machine learning on python</title><link href="/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/" rel="alternate"></link><updated>2013-01-26T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-26:blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</id><summary type="html">
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -8401,6 +8507,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -8421,54 +8528,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -9442,7 +9501,35 @@ dtypes: float64(7), int64(26)
 &lt;p&gt;The code is on github: &lt;a href="https://github.com/danielfrg/copper" title="Copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Python to replace SAS Enterprise Miner (basic)</title><link href="/blog/2013/01/02/python-replace-sas/" rel="alternate"></link><updated>2013-01-02T17:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-02:blog/2013/01/02/python-replace-sas/</id><summary type="html">&lt;h2&gt;Why?&lt;/h2&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Python to replace SAS Enterprise Miner (basic)</title><link href="/blog/2013/01/02/python-replace-sas/" rel="alternate"></link><updated>2013-01-02T17:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-02:blog/2013/01/02/python-replace-sas/</id><summary type="html">&lt;h2&gt;Why?&lt;/h2&gt;
 &lt;p&gt;The last fall (2012) I took a class called Business Intelligence (at
 UT Dallas) which is the same as Data Mining or Machine Learning
 to business people. On that class they taught us to use SAS Enterprise
@@ -9513,13 +9600,13 @@ testing. The available data is:&lt;/p&gt;
 &lt;li&gt;Order: Actual response (1: response, 0: no response)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The file looks like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;CustomerID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;NGIF&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;RAMN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;LASG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;LASD&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;RFA1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;RFA2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Order&lt;/span&gt;
-&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;207&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;105&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-       &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;CustomerID,NGIF,RAMN,LASG,LASD,RFA1,RFA2,Order
+1,2,30,20,200503,1,6,1
+2,25,207,20,200503,1,6,0
+3,5,52,15,200503,1,6,0
+4,11,105,15,200503,1,6,0
+5,2,32,17,200503,1,6,0
+       ...
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -9585,12 +9672,12 @@ always good Decision Tree also Support Vector Machine and Naive Bayes.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# tree&lt;/span&gt;
-&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1365&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;67&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;506&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;62&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
-&lt;span class="cp"&gt;# svm&lt;/span&gt;
-&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1362&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;531&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;37&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
-&lt;span class="cp"&gt;#gnb&lt;/span&gt;
-&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1196&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;236&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;406&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;162&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# tree
+array([[1365, 67], [ 506, 62]])
+# svm
+array([[1362, 70], [ 531, 37]])
+#gnb
+array([[1196, 236], [ 406, 162]])
 &lt;/pre&gt;&lt;/div&gt;
 
 

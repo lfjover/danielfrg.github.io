@@ -14,35 +14,35 @@ Then in the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;PLUGINS = [
 &lt;p&gt;In both cases also need to modify the MARKUP setting: On the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;MARKUP = ('md', 'ipynb')&lt;/code&gt;&lt;/p&gt;
 &lt;h2&gt;Add the CSS to the theme&lt;/h2&gt;
 &lt;p&gt;Download the &lt;code&gt;ipython.css&lt;/code&gt; file from the &lt;code&gt;assets&lt;/code&gt; directory and place it in your theme static folder. Then include the CSS on the theme template:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;article&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/theme/css/ipython.min.css&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;endif&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;article.ipython&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/theme/css/ipython.min.css&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;How to blog&lt;/h2&gt;
 &lt;p&gt;Write the post using the iPython notebook interface, using markdown or anything.&lt;/p&gt;
 &lt;p&gt;Then open the &lt;code&gt;.ipynb&lt;/code&gt; file in a text editor and should see.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;metadata&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Super iPython NB&amp;quot;&lt;/span&gt;
-    &lt;span class="p"&gt;},&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;A_LOT_OF_OTHER_STUFF&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{
+    &amp;quot;metadata&amp;quot;: {
+        &amp;quot;name&amp;quot;: &amp;quot;Super iPython NB&amp;quot;
+    },
+{ A_LOT_OF_OTHER_STUFF }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Add the metadata for example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
- &lt;span class="s"&gt;&amp;quot;metadata&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Super iPython NB&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Blogging with iPython notebooks in pelican&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Date&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2013-2-16&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Category&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Category&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Tags&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;tag2, tag2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;slug&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;slug-slug-slug&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Author&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Me&amp;quot;&lt;/span&gt;
-    &lt;span class="p"&gt;},&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;A_LOT_OF_OTHER_STUFF&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{
+ &amp;quot;metadata&amp;quot;: {
+        &amp;quot;name&amp;quot;: &amp;quot;Super iPython NB&amp;quot;,
+        &amp;quot;Title&amp;quot;: &amp;quot;Blogging with iPython notebooks in pelican&amp;quot;,
+        &amp;quot;Date&amp;quot;: &amp;quot;2013-2-16&amp;quot;,
+        &amp;quot;Category&amp;quot;: &amp;quot;Category&amp;quot;,
+        &amp;quot;Tags&amp;quot;: &amp;quot;tag2, tag2&amp;quot;,
+        &amp;quot;slug&amp;quot;: &amp;quot;slug-slug-slug&amp;quot;,
+        &amp;quot;Author&amp;quot;: &amp;quot;Me&amp;quot;
+    },
+    { A_LOT_OF_OTHER_STUFF }
 &lt;/pre&gt;&lt;/div&gt;
 
 

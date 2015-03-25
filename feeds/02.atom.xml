@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/02.atom.xml" rel="self"></link><id>/</id><updated>2014-02-28T00:00:00+00:00</updated><entry><title>Impala to python: ODBC and thrift</title><link href="/blog/2014/02/28/impala-to-python/" rel="alternate"></link><updated>2014-02-28T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2014-02-28:blog/2014/02/28/impala-to-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/02.atom.xml" rel="self"></link><id>/</id><updated>2014-02-28T00:00:00+00:00</updated><entry><title>Impala to python: ODBC and thrift</title><link href="/blog/2014/02/28/impala-to-python/" rel="alternate"></link><updated>2014-02-28T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2014-02-28:blog/2014/02/28/impala-to-python/</id><summary type="html">
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -1402,6 +1450,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -1422,54 +1471,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -2388,7 +2389,35 @@ In&amp;nbsp;[28]:
 I will keep trying this technologies, specially with some real &lt;em&gt;&amp;quot;big&amp;quot;&lt;/em&gt; data and post more results if I find something interesting.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="impala"></category><category term="odbc"></category><category term="thrift"></category><category term="iopro"></category></entry><entry><title>Blogging with iPython notebooks in pelican</title><link href="/blog/2013/02/16/blogging-pelican-ipython-notebook/" rel="alternate"></link><updated>2013-02-16T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</id><summary type="html">&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="impala"></category><category term="odbc"></category><category term="thrift"></category><category term="iopro"></category></entry><entry><title>Blogging with iPython notebooks in pelican</title><link href="/blog/2013/02/16/blogging-pelican-ipython-notebook/" rel="alternate"></link><updated>2013-02-16T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</id><summary type="html">&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;It seems that I spend most time redesigning/developing this blog than actually
 blogging xD, just a few weeks ago I wrote about how I was &lt;a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/"&gt;blogging using jekyll
@@ -2528,7 +2557,55 @@ so you in your pelican &lt;code&gt;article.html&lt;/code&gt; template should do:
 from ipython notebooks for example: &lt;a href="/blog/2013/02/13/copper-quick-data-transformation-python/"&gt;copper-quick-data-transformation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If are curious about my pelican config or theme check it out on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Happy blogging!&lt;/p&gt;
-&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Copper - Quick and automatic data transformation</title><link href="/blog/2013/02/13/copper-quick-data-transformation-python/" rel="alternate"></link><updated>2013-02-13T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-13:blog/2013/02/13/copper-quick-data-transformation-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Copper - Quick and automatic data transformation</title><link href="/blog/2013/02/13/copper-quick-data-transformation-python/" rel="alternate"></link><updated>2013-02-13T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-13:blog/2013/02/13/copper-quick-data-transformation-python/</id><summary type="html">
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -3931,6 +4008,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -3951,54 +4029,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -5167,7 +5197,35 @@ In&amp;nbsp;[22]:
 &lt;p&gt;As usual the code is on github: &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="copper"></category></entry><entry><title>Using D3, backbone and tornado to visualize histograms of a csv file</title><link href="/blog/2013/02/05/d3-backbone-tornado-histogram-csv/" rel="alternate"></link><updated>2013-02-05T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-05:blog/2013/02/05/d3-backbone-tornado-histogram-csv/</id><summary type="html">&lt;p&gt;After being procrastinating for weeks the learning of &lt;a href="http://d3js.org"&gt;D3.js&lt;/a&gt; and &lt;a href="http://backbonejs.org"&gt;backbone.js&lt;/a&gt; I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):&lt;/p&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="copper"></category></entry><entry><title>Using D3, backbone and tornado to visualize histograms of a csv file</title><link href="/blog/2013/02/05/d3-backbone-tornado-histogram-csv/" rel="alternate"></link><updated>2013-02-05T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-05:blog/2013/02/05/d3-backbone-tornado-histogram-csv/</id><summary type="html">&lt;p&gt;After being procrastinating for weeks the learning of &lt;a href="http://d3js.org"&gt;D3.js&lt;/a&gt; and &lt;a href="http://backbonejs.org"&gt;backbone.js&lt;/a&gt; I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Great web frameworks as &lt;a href="https://www.djangoproject.com"&gt;Django&lt;/a&gt; and &lt;a href="http://www.tornadoweb.org"&gt;Tornado&lt;/a&gt; - "fighting" with ruby (&lt;a href="http://rubyonrails.org"&gt;rails&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Great Data Analysis packages such as &lt;a href="http://pandas.pydata.org/"&gt;pandas&lt;/a&gt; - "fighting" with &lt;a href="http://www.r-project.org"&gt;R&lt;/a&gt;&lt;/li&gt;
@@ -5394,7 +5452,55 @@ In&amp;nbsp;[22]:
 &lt;p&gt;&lt;img alt="D3.js Histogram" src="/images/blog/2013/02/d3-hist/d3-hist.png" title="D3.js Histogram" /&gt;&lt;/p&gt;
 &lt;p&gt;Changing the number of bins or the column automaticlly re-draws the histogram.&lt;/p&gt;
 &lt;p&gt;It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.&lt;/p&gt;
-&lt;p&gt;I include the whole code on &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt; (my data analysis package) which is not yet available via pip, so to use this need to download the &lt;code&gt;explore&lt;/code&gt; folder of the package and run &lt;code&gt;python explore.py&lt;/code&gt; (requires tornado and pandas). Remember to change the &lt;code&gt;explore.csv&lt;/code&gt; to explore other data.&lt;/p&gt;</summary><category term="python"></category><category term="javascript"></category><category term="D3.js"></category><category term="backbone"></category><category term="tornado"></category><category term="pandas"></category></entry><entry><title>Coursera Data Analysis - Quiz 2 on python</title><link href="/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" rel="alternate"></link><updated>2013-02-04T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-04:blog/2013/02/04/coursera-data-analysis-quiz-2-python/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;p&gt;I include the whole code on &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt; (my data analysis package) which is not yet available via pip, so to use this need to download the &lt;code&gt;explore&lt;/code&gt; folder of the package and run &lt;code&gt;python explore.py&lt;/code&gt; (requires tornado and pandas). Remember to change the &lt;code&gt;explore.csv&lt;/code&gt; to explore other data.&lt;/p&gt;</summary><category term="python"></category><category term="javascript"></category><category term="D3.js"></category><category term="backbone"></category><category term="tornado"></category><category term="pandas"></category></entry><entry><title>Coursera Data Analysis - Quiz 2 on python</title><link href="/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" rel="alternate"></link><updated>2013-02-04T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-04:blog/2013/02/04/coursera-data-analysis-quiz-2-python/</id><summary type="html">
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -6797,6 +6903,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -6817,54 +6924,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -7695,4 +7754,32 @@ dtypes: float64(333), int64(89), object(4)
 &lt;p&gt;FYI, I almost don&amp;#39;t get question 8 xD.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="coursera"></category><category term="data analysis"></category></entry></feed>
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="coursera"></category><category term="data analysis"></category></entry></feed>

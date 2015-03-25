@@ -66,7 +66,55 @@ by integrating with the outside world, for now it just keeps predicting the
 same data forever, maybe a good idea would be to do some websockets as spout
 and bolts to make a nice real-time UI.&lt;/p&gt;
 &lt;p&gt;All the code and documentation on how to make everything is on github:
-&lt;a href="https://github.com/danielfrg/storm-sklearn"&gt;storm-sklearn&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="storm"></category><category term="salt"></category><category term="sklearn"></category></entry><entry><title>Relevant content blog crawler</title><link href="/blog/2013/08/20/relevant-content-blog-crawler/" rel="alternate"></link><updated>2013-08-20T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-08-20:blog/2013/08/20/relevant-content-blog-crawler/</id><summary type="html">&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;a href="https://github.com/danielfrg/storm-sklearn"&gt;storm-sklearn&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="storm"></category><category term="salt"></category><category term="sklearn"></category></entry><entry><title>Relevant content blog crawler</title><link href="/blog/2013/08/20/relevant-content-blog-crawler/" rel="alternate"></link><updated>2013-08-20T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-08-20:blog/2013/08/20/relevant-content-blog-crawler/</id><summary type="html">
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -1469,6 +1517,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -1489,54 +1538,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -1899,4 +1900,32 @@ In&amp;nbsp;[13]:
 &lt;p&gt;A: &lt;a href="https://code.google.com/p/word2vec/"&gt;https://code.google.com/p/word2vec/&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</summary><category term="python"></category><category term="crawling"></category><category term="beautifulsoup"></category><category term="readability"></category></entry></feed>
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="crawling"></category><category term="beautifulsoup"></category><category term="readability"></category></entry></feed>

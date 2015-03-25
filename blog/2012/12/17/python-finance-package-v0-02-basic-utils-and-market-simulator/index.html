@@ -60,21 +60,21 @@ Investing</a> Homework 3.</p>
 <p>Reads a .csv file with the orders/trades. Downloads the necessary data
 (symbols and dates between the ). Makes a simulation of the orders:</p>
 <p>The .csv file looks like this:</p>
-<div class="highlight"><pre><span class="n">year</span><span class="p">,</span><span class="n">month</span><span class="p">,</span><span class="n">day</span><span class="p">,</span><span class="n">symbol</span><span class="p">,</span><span class="n">action</span><span class="p">,</span><span class="n">num_of_shares</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">AAPL</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">1500</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="n">AAPL</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">1500</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="n">IBM</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">4000</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="n">GOOG</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">1000</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">XOM</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">4000</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">XOM</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">4000</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">GOOG</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">1000</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">IBM</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">2200</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">IBM</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">3300</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">IBM</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">1500</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">AAPL</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">1200</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">GOOG</span><span class="p">,</span><span class="n">Buy</span><span class="p">,</span><span class="mi">55</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">GOOG</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">55</span>
-<span class="mi">2011</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="n">AAPL</span><span class="p">,</span><span class="n">Sell</span><span class="p">,</span><span class="mi">1200</span>
+<div class="highlight"><pre>year,month,day,symbol,action,num_of_shares
+2011,1,10,AAPL,Buy,1500
+2011,1,13,AAPL,Sell,1500
+2011,1,13,IBM,Buy,4000
+2011,1,26,GOOG,Buy,1000
+2011,2,2,XOM,Sell,4000
+2011,2,10,XOM,Buy,4000
+2011,3,3,GOOG,Sell,1000
+2011,3,3,IBM,Sell,2200
+2011,6,3,IBM,Sell,3300
+2011,5,3,IBM,Buy,1500
+2011,6,10,AAPL,Buy,1200
+2011,8,1,GOOG,Buy,55
+2011,8,1,GOOG,Sell,55
+2011,12,20,AAPL,Sell,1200
 </pre></div>
 
 
@@ -100,18 +100,18 @@ Investing</a> Homework 3.</p>
 
 
 <p>Output:</p>
-<div class="highlight"><pre>           <span class="n">Portfolio</span>
-<span class="n">Date</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">10</span>  <span class="mi">1000000</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">11</span>   <span class="mi">998785</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">12</span>  <span class="mi">1002940</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">13</span>  <span class="mi">1004815</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">14</span>  <span class="mi">1009415</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">18</span>  <span class="mi">1011935</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">19</span>  <span class="mi">1031495</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">20</span>  <span class="mi">1031935</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">21</span>  <span class="mi">1030775</span>
-<span class="mi">2011</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">24</span>  <span class="mi">1046815</span>
+<div class="highlight"><pre>           Portfolio
+Date
+2011-01-10  1000000
+2011-01-11   998785
+2011-01-12  1002940
+2011-01-13  1004815
+2011-01-14  1009415
+2011-01-18  1011935
+2011-01-19  1031495
+2011-01-20  1031935
+2011-01-21  1030775
+2011-01-24  1046815
 </pre></div>
 
 

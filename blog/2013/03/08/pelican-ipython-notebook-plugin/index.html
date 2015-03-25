@@ -60,35 +60,35 @@ Then in the <code>pelicanconf.py</code> put: <code>PLUGINS = ['custom_plugins_di
 <p>In both cases also need to modify the MARKUP setting: On the <code>pelicanconf.py</code> put: <code>MARKUP = ('md', 'ipynb')</code></p>
 <h2>Add the CSS to the theme</h2>
 <p>Download the <code>ipython.css</code> file from the <code>assets</code> directory and place it in your theme static folder. Then include the CSS on the theme template:</p>
-<div class="highlight"><pre><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">article</span><span class="p">.</span><span class="n">ipython</span> <span class="o">%</span><span class="p">}</span>
-    <span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;/theme/css/ipython.min.css&quot;</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+<div class="highlight"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">article.ipython</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;link rel=&quot;stylesheet&quot; href=&quot;/theme/css/ipython.min.css&quot;&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 
 
 <h2>How to blog</h2>
 <p>Write the post using the iPython notebook interface, using markdown or anything.</p>
 <p>Then open the <code>.ipynb</code> file in a text editor and should see.</p>
-<div class="highlight"><pre><span class="p">{</span>
-    <span class="s">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;Super iPython NB&quot;</span>
-    <span class="p">},</span>
-<span class="p">{</span> <span class="n">A_LOT_OF_OTHER_STUFF</span> <span class="p">}</span>
+<div class="highlight"><pre>{
+    &quot;metadata&quot;: {
+        &quot;name&quot;: &quot;Super iPython NB&quot;
+    },
+{ A_LOT_OF_OTHER_STUFF }
 </pre></div>
 
 
 <p>Add the metadata for example:</p>
-<div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;Super iPython NB&quot;</span><span class="p">,</span>
-        <span class="s">&quot;Title&quot;</span><span class="o">:</span> <span class="s">&quot;Blogging with iPython notebooks in pelican&quot;</span><span class="p">,</span>
-        <span class="s">&quot;Date&quot;</span><span class="o">:</span> <span class="s">&quot;2013-2-16&quot;</span><span class="p">,</span>
-        <span class="s">&quot;Category&quot;</span><span class="o">:</span> <span class="s">&quot;Category&quot;</span><span class="p">,</span>
-        <span class="s">&quot;Tags&quot;</span><span class="o">:</span> <span class="s">&quot;tag2, tag2&quot;</span><span class="p">,</span>
-        <span class="s">&quot;slug&quot;</span><span class="o">:</span> <span class="s">&quot;slug-slug-slug&quot;</span><span class="p">,</span>
-        <span class="s">&quot;Author&quot;</span><span class="o">:</span> <span class="s">&quot;Me&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span> <span class="n">A_LOT_OF_OTHER_STUFF</span> <span class="p">}</span>
+<div class="highlight"><pre>{
+ &quot;metadata&quot;: {
+        &quot;name&quot;: &quot;Super iPython NB&quot;,
+        &quot;Title&quot;: &quot;Blogging with iPython notebooks in pelican&quot;,
+        &quot;Date&quot;: &quot;2013-2-16&quot;,
+        &quot;Category&quot;: &quot;Category&quot;,
+        &quot;Tags&quot;: &quot;tag2, tag2&quot;,
+        &quot;slug&quot;: &quot;slug-slug-slug&quot;,
+        &quot;Author&quot;: &quot;Me&quot;
+    },
+    { A_LOT_OF_OTHER_STUFF }
 </pre></div>
 
 

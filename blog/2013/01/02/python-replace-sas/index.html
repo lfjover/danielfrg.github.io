@@ -116,13 +116,13 @@ testing. The available data is:</p>
 <li>Order: Actual response (1: response, 0: no response)</li>
 </ol>
 <p>The file looks like this:</p>
-<div class="highlight"><pre><span class="n">CustomerID</span><span class="p">,</span><span class="n">NGIF</span><span class="p">,</span><span class="n">RAMN</span><span class="p">,</span><span class="n">LASG</span><span class="p">,</span><span class="n">LASD</span><span class="p">,</span><span class="n">RFA1</span><span class="p">,</span><span class="n">RFA2</span><span class="p">,</span><span class="n">Order</span>
-<span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">200503</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span>
-<span class="mi">2</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">207</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">200503</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span>
-<span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">200503</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span>
-<span class="mi">4</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">105</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">200503</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span>
-<span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">200503</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span>
-       <span class="p">...</span>
+<div class="highlight"><pre>CustomerID,NGIF,RAMN,LASG,LASD,RFA1,RFA2,Order
+1,2,30,20,200503,1,6,1
+2,25,207,20,200503,1,6,0
+3,5,52,15,200503,1,6,0
+4,11,105,15,200503,1,6,0
+5,2,32,17,200503,1,6,0
+       ...
 </pre></div>
 
 
@@ -188,12 +188,12 @@ always good Decision Tree also Support Vector Machine and Naive Bayes.</p>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="cp"># tree</span>
-<span class="n">array</span><span class="p">([[</span><span class="mi">1365</span><span class="p">,</span> <span class="mi">67</span><span class="p">],</span> <span class="p">[</span> <span class="mi">506</span><span class="p">,</span> <span class="mi">62</span><span class="p">]])</span>
-<span class="cp"># svm</span>
-<span class="n">array</span><span class="p">([[</span><span class="mi">1362</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="p">[</span> <span class="mi">531</span><span class="p">,</span> <span class="mi">37</span><span class="p">]])</span>
-<span class="cp">#gnb</span>
-<span class="n">array</span><span class="p">([[</span><span class="mi">1196</span><span class="p">,</span> <span class="mi">236</span><span class="p">],</span> <span class="p">[</span> <span class="mi">406</span><span class="p">,</span> <span class="mi">162</span><span class="p">]])</span>
+<div class="highlight"><pre># tree
+array([[1365, 67], [ 506, 62]])
+# svm
+array([[1362, 70], [ 531, 37]])
+#gnb
+array([[1196, 236], [ 406, 162]])
 </pre></div>
 
 

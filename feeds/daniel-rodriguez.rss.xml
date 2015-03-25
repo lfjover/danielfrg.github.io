@@ -66,7 +66,55 @@ by integrating with the outside world, for now it just keeps predicting the
 same data forever, maybe a good idea would be to do some websockets as spout
 and bolts to make a nice real-time UI.&lt;/p&gt;
 &lt;p&gt;All the code and documentation on how to make everything is on github:
-&lt;a href="https://github.com/danielfrg/storm-sklearn"&gt;storm-sklearn&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 01 Aug 2014 00:00:00 +0000</pubDate><guid>tag:,2014-08-01:blog/2014/08/01/storm-sklearn/</guid><category>python</category><category>storm</category><category>salt</category><category>sklearn</category></item><item><title>IPython.parallel cluster using salt</title><link>/blog/2014/04/18/ipython-parallel-cluster-salt/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;a href="https://github.com/danielfrg/storm-sklearn"&gt;storm-sklearn&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 01 Aug 2014 00:00:00 +0000</pubDate><guid>tag:,2014-08-01:blog/2014/08/01/storm-sklearn/</guid><category>python</category><category>storm</category><category>salt</category><category>sklearn</category></item><item><title>IPython.parallel cluster using salt</title><link>/blog/2014/04/18/ipython-parallel-cluster-salt/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -1469,6 +1517,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -1489,54 +1538,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -2011,7 +2012,83 @@ In&amp;nbsp;[15]:
 &lt;p&gt;Finally is worth saying that there are dozens of examples of what you can do with IPython.parallel on the web, one of my favorites is by Olivier Grisel where he does &lt;a href="http://nbviewer.ipython.org/gist/anonymous/5115540/Model%20Selection%20for%20the%20Nystroem%20Method.ipynb"&gt;machine learning with sklearn&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate><guid>tag:,2014-04-18:blog/2014/04/18/ipython-parallel-cluster-salt/</guid><category>python</category><category>ipython</category><category>parallel</category><category>salt</category><category>vagrant</category></item><item><title>Impala to python: ODBC and thrift</title><link>/blog/2014/02/28/impala-to-python/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate><guid>tag:,2014-04-18:blog/2014/04/18/ipython-parallel-cluster-salt/</guid><category>python</category><category>ipython</category><category>parallel</category><category>salt</category><category>vagrant</category></item><item><title>Impala to python: ODBC and thrift</title><link>/blog/2014/02/28/impala-to-python/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -3414,6 +3491,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -3434,54 +3512,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -4400,7 +4430,35 @@ In&amp;nbsp;[28]:
 I will keep trying this technologies, specially with some real &lt;em&gt;&amp;quot;big&amp;quot;&lt;/em&gt; data and post more results if I find something interesting.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 28 Feb 2014 00:00:00 +0000</pubDate><guid>tag:,2014-02-28:blog/2014/02/28/impala-to-python/</guid><category>python</category><category>impala</category><category>odbc</category><category>thrift</category><category>iopro</category></item><item><title>One-liner: Deploy python scipy stack with IPython notebook on AWS</title><link>/blog/2013/11/27/ipython-notebook-aws-salt/</link><description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; How many times have you needed to create a powerful EC2 instance with the the python scientific stack
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 28 Feb 2014 00:00:00 +0000</pubDate><guid>tag:,2014-02-28:blog/2014/02/28/impala-to-python/</guid><category>python</category><category>impala</category><category>odbc</category><category>thrift</category><category>iopro</category></item><item><title>One-liner: Deploy python scipy stack with IPython notebook on AWS</title><link>/blog/2013/11/27/ipython-notebook-aws-salt/</link><description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; How many times have you needed to create a powerful EC2 instance with the the python scientific stack
 installed and the ipython notebook running? I have to do this at least 2 or 3 times every week.&lt;/p&gt;
 &lt;p&gt;A simple solution is to have an AMI with all the libraries ready and create a new instance every time,
 you can even have the ipython notebook as an upstart service in ubuntu so it runs when the instance is ready.
@@ -4413,30 +4471,30 @@ Anaconda is the best python scientific distribution I have found and the conda p
 Vagrant is used to create the instance and provision it with salt using one command.&lt;/p&gt;
 &lt;p&gt;Install conda using a salt states is pretty easy because salt has support for pip, and conda is pip
 installable (you have to run &lt;code&gt;conda init&lt;/code&gt; after &lt;code&gt;pip install conda&lt;/code&gt;) so is as simple as:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="n"&gt;pip&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;installed&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-      &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;conda&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-      &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pkg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
-      &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pkg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pip&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="l-Scalar-Plain"&gt;pip-packages&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;pip.installed&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;user&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;root&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;names&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;conda&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;require&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;pkg&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;python-dev&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;pkg&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;python-pip&lt;/span&gt;
 
-&lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;check&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;[ -d /usr/conda-meta ] &amp;amp;&amp;amp; echo &amp;#39;changed=no&amp;#39; || echo &amp;#39;changed=yes&amp;#39;&amp;quot;&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;stateful&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;True&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-      &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;conda&lt;/span&gt;
+&lt;span class="l-Scalar-Plain"&gt;conda-check&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;cmd.run&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;user&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;ubuntu&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;[&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;-d&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;/usr/conda-meta&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;]&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;echo&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;changed=no&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;||&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;echo&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;changed=yes&amp;#39;&amp;quot;&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;stateful&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;True&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;require&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;pip&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;conda&lt;/span&gt;
 
-&lt;span class="cp"&gt;# This will create some files into /usr, needs root&lt;/span&gt;
-&lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;wait&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;conda init&amp;quot;&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;watch&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-        &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;check&lt;/span&gt;
+&lt;span class="c1"&gt;# This will create some files into /usr, needs root&lt;/span&gt;
+&lt;span class="l-Scalar-Plain"&gt;conda-init&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;cmd.wait&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;user&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;root&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;conda&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;init&amp;quot;&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;watch&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+        &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;cmd&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;conda-check&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4445,32 +4503,32 @@ The code below will create a conda virtual env and
 install the ipython-notebook, numpy, scipy and pandas libraries using the conda repository
 also will install luigi (or any other python library you want) using regular pip.
 All of this will be inside the conda virtual env, because you &lt;strong&gt;should&lt;/strong&gt; use virtual envs.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;venv&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;managed&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pkgs&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;notebook&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;scipy&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;pandas&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;scikit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;learn&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-      &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="l-Scalar-Plain"&gt;venv&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;conda.managed&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;user&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;ubuntu&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;pkgs&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;ipython-notebook,numpy,scipy,pandas,scikit-learn&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;require&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;cmd&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;conda-init&lt;/span&gt;
 
-&lt;span class="n"&gt;venv&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pip&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="n"&gt;pip&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;installed&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-      &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;luigi&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;bin_env&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="sr"&gt;/home/ubuntu/envs/venv/bin/&lt;/span&gt;&lt;span class="n"&gt;pip&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-      &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt;
+&lt;span class="l-Scalar-Plain"&gt;venv-pip&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;pip.installed&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;user&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;ubuntu&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;names&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;luigi&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;bin_env&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;/home/ubuntu/envs/venv/bin/pip&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;require&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;conda&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;venv&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;I created another module to start the ipython notebook in the background since salt does not support this natively, the state looks like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vagrant&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nbserver&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pid&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="n"&gt;nbserver&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start_server&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.0.0.0&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;nb_dir&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;notebooks&lt;/span&gt;
-    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-      &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="l-Scalar-Plain"&gt;/home/vagrant/nbserver.pid&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;nbserver.start_server&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;ip&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;0.0.0.0&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;port&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;80&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;nb_dir&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;/home/ubuntu/notebooks&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;require&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;conda&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;venv&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4963,7 +5021,55 @@ people can build amazing stuff faster and easier than ever.&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://haystacksearch.org/"&gt;Haystack&lt;/a&gt; + Solr for search&lt;/li&gt;
 &lt;li&gt;MongoDB instead of Postgres. Apparently is &lt;em&gt;really&lt;/em&gt; easy using &lt;a href="https://github.com/django-nonrel/mongodb-engine"&gt;django-nonrel&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;As usual everything is on github: &lt;a href="https://github.com/danielfrg/django_crawler"&gt;django-crawler&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Wed, 11 Sep 2013 00:00:00 +0000</pubDate><guid>tag:,2013-09-11:blog/2013/09/11/django-celery-readability-crawler/</guid><category>python</category><category>django</category><category>celery</category><category>readability</category><category>crawling</category></item><item><title>Relevant content blog crawler</title><link>/blog/2013/08/20/relevant-content-blog-crawler/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;p&gt;As usual everything is on github: &lt;a href="https://github.com/danielfrg/django_crawler"&gt;django-crawler&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Wed, 11 Sep 2013 00:00:00 +0000</pubDate><guid>tag:,2013-09-11:blog/2013/09/11/django-celery-readability-crawler/</guid><category>python</category><category>django</category><category>celery</category><category>readability</category><category>crawling</category></item><item><title>Relevant content blog crawler</title><link>/blog/2013/08/20/relevant-content-blog-crawler/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -6366,6 +6472,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -6386,54 +6493,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -6796,7 +6855,83 @@ In&amp;nbsp;[13]:
 &lt;p&gt;A: &lt;a href="https://code.google.com/p/word2vec/"&gt;https://code.google.com/p/word2vec/&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Tue, 20 Aug 2013 00:00:00 +0000</pubDate><guid>tag:,2013-08-20:blog/2013/08/20/relevant-content-blog-crawler/</guid><category>python</category><category>crawling</category><category>beautifulsoup</category><category>readability</category></item><item><title>A not so basic neural network on python</title><link>/blog/2013/07/27/not-so-basic-neural-network-python/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Tue, 20 Aug 2013 00:00:00 +0000</pubDate><guid>tag:,2013-08-20:blog/2013/08/20/relevant-content-blog-crawler/</guid><category>python</category><category>crawling</category><category>beautifulsoup</category><category>readability</category></item><item><title>A not so basic neural network on python</title><link>/blog/2013/07/27/not-so-basic-neural-network-python/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -8199,6 +8334,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -8219,54 +8355,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -9351,7 +9439,83 @@ In&amp;nbsp;[27]:
 &lt;p&gt;If you are looking for a more complete implementation of a deep belif network there is free &lt;a href="http://www.cs.toronto.edu/~gdahl/"&gt;python (gpu) implementation&lt;/a&gt; by one person on Geoffrey Hinton group which I haven&amp;#39;t look but seams promising and hopefully he will release more code. &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sat, 27 Jul 2013 00:00:00 +0000</pubDate><guid>tag:,2013-07-27:blog/2013/07/27/not-so-basic-neural-network-python/</guid><category>python</category><category>machine learning</category><category>neural networks</category></item><item><title>Basic [1 hidden layer] neural network on Python</title><link>/blog/2013/07/03/basic-neural-network-python/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sat, 27 Jul 2013 00:00:00 +0000</pubDate><guid>tag:,2013-07-27:blog/2013/07/27/not-so-basic-neural-network-python/</guid><category>python</category><category>machine learning</category><category>neural networks</category></item><item><title>Basic [1 hidden layer] neural network on Python</title><link>/blog/2013/07/03/basic-neural-network-python/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -10754,6 +10918,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -10774,54 +10939,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -11554,7 +11671,35 @@ In&amp;nbsp;[20]:
 &lt;p&gt;I was also amazed by the state of the scipy library, the &lt;a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html"&gt;optimization routines&lt;/a&gt; are state of the are from my point of view, amazing work.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate><guid>tag:,2013-07-03:blog/2013/07/03/basic-neural-network-python/</guid><category>python</category><category>machine learning</category><category>neural networks</category></item><item><title>Extracting NBA data from ESPN</title><link>/blog/2013/04/01/nba-scraping-data/</link><description>&lt;p&gt;I've been wanting to play with some sports data for a while. Today I decide to
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate><guid>tag:,2013-07-03:blog/2013/07/03/basic-neural-network-python/</guid><category>python</category><category>machine learning</category><category>neural networks</category></item><item><title>Extracting NBA data from ESPN</title><link>/blog/2013/04/01/nba-scraping-data/</link><description>&lt;p&gt;I've been wanting to play with some sports data for a while. Today I decide to
 stop procastinating and do it. The problems was that after searching a
 while (15 minutes) for some data I was unable to find the data I wanted.
 Even in the &lt;a href="http://www.databasebasketball.com/"&gt;Basktetball Database&lt;/a&gt;
@@ -11608,10 +11753,10 @@ project to use the data analysis project structure.&lt;/p&gt;
 
 
 &lt;p&gt;This saves &lt;code&gt;teams.csv&lt;/code&gt; file with the 30 teams in this format.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;prefix_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;prefix_2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;
-&lt;span class="n"&gt;Boston&lt;/span&gt; &lt;span class="n"&gt;Celtics&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;bos&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;boston&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;celtics&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//espn.go.com/nba/team/_/name/bos/boston-celtics&lt;/span&gt;
-&lt;span class="n"&gt;Brooklyn&lt;/span&gt; &lt;span class="n"&gt;Nets&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;bkn&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;brooklyn&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nets&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//espn.go.com/nba/team/_/name/bkn/brooklyn-nets&lt;/span&gt;
-&lt;span class="p"&gt;......&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;team,prefix_1,prefix_2,url
+Boston Celtics,bos,boston-celtics,http://espn.go.com/nba/team/_/name/bos/boston-celtics
+Brooklyn Nets,bkn,brooklyn-nets,http://espn.go.com/nba/team/_/name/bkn/brooklyn-nets
+......
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -11750,14 +11895,14 @@ Then for each game I download all players stats for that game. The result was
 
 
 &lt;p&gt;The file looks like this&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;player&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;MIN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;FGM&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;FTM&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;OREB&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;DREB&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;REB&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;AST&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;STL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;BLK&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;TO&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;PF&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;+/-&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;PTS&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;400277722&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Boston&lt;/span&gt; &lt;span class="n"&gt;Celtics&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Brandon&lt;/span&gt; &lt;span class="n"&gt;Bass&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;400277722&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Boston&lt;/span&gt; &lt;span class="n"&gt;Celtics&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Paul&lt;/span&gt; &lt;span class="n"&gt;Pierce&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;
-&lt;span class="p"&gt;...&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;400277722&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Miami&lt;/span&gt; &lt;span class="n"&gt;Heat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Shane&lt;/span&gt; &lt;span class="n"&gt;Battier&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;29&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;400277722&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Miami&lt;/span&gt; &lt;span class="n"&gt;Heat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;LeBron&lt;/span&gt; &lt;span class="n"&gt;James&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;29&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;400277722&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Miami&lt;/span&gt; &lt;span class="n"&gt;Heat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Chris&lt;/span&gt; &lt;span class="n"&gt;Bosh&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;37&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;
-&lt;span class="p"&gt;.....&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;LOT&lt;/span&gt; &lt;span class="n"&gt;OF&lt;/span&gt; &lt;span class="n"&gt;DATA&lt;/span&gt; &lt;span class="p"&gt;.....&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;,id,team,player,MIN,FGM-A,3PM-A,FTM-A,OREB,DREB,REB,AST,STL,BLK,TO,PF,+/-,PTS
+0,400277722,Boston Celtics,Brandon Bass,28,6-11,0-0,3-4,6,5,11,1,0,0,1,2,-8,15
+0,400277722,Boston Celtics,Paul Pierce,41,6-15,2-4,9-9,0,5,5,5,2,0,0,3,-17,23
+...
+0,400277722,Miami Heat,Shane Battier,29,2-4,2-3,0-0,0,2,2,1,1,0,0,3,+12,6
+0,400277722,Miami Heat,LeBron James,29,10-16,2-4,4-5,1,9,10,3,2,0,0,2,+12,26
+0,400277722,Miami Heat,Chris Bosh,37,8-15,0-1,3-4,2,8,10,1,0,3,1,3,+15,19
+..... A LOT OF DATA .....
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -11782,39 +11927,87 @@ Then in the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;PLUGINS = [
 &lt;p&gt;In both cases also need to modify the MARKUP setting: On the &lt;code&gt;pelicanconf.py&lt;/code&gt; put: &lt;code&gt;MARKUP = ('md', 'ipynb')&lt;/code&gt;&lt;/p&gt;
 &lt;h2&gt;Add the CSS to the theme&lt;/h2&gt;
 &lt;p&gt;Download the &lt;code&gt;ipython.css&lt;/code&gt; file from the &lt;code&gt;assets&lt;/code&gt; directory and place it in your theme static folder. Then include the CSS on the theme template:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;article&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/theme/css/ipython.min.css&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;endif&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;article.ipython&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/theme/css/ipython.min.css&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;How to blog&lt;/h2&gt;
 &lt;p&gt;Write the post using the iPython notebook interface, using markdown or anything.&lt;/p&gt;
 &lt;p&gt;Then open the &lt;code&gt;.ipynb&lt;/code&gt; file in a text editor and should see.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;quot;metadata&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Super iPython NB&amp;quot;&lt;/span&gt;
-    &lt;span class="p"&gt;},&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;A_LOT_OF_OTHER_STUFF&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{
+    &amp;quot;metadata&amp;quot;: {
+        &amp;quot;name&amp;quot;: &amp;quot;Super iPython NB&amp;quot;
+    },
+{ A_LOT_OF_OTHER_STUFF }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Add the metadata for example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
- &lt;span class="s"&gt;&amp;quot;metadata&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Super iPython NB&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Blogging with iPython notebooks in pelican&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Date&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2013-2-16&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Category&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Category&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Tags&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;tag2, tag2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;slug&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;slug-slug-slug&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;Author&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Me&amp;quot;&lt;/span&gt;
-    &lt;span class="p"&gt;},&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;A_LOT_OF_OTHER_STUFF&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{
+ &amp;quot;metadata&amp;quot;: {
+        &amp;quot;name&amp;quot;: &amp;quot;Super iPython NB&amp;quot;,
+        &amp;quot;Title&amp;quot;: &amp;quot;Blogging with iPython notebooks in pelican&amp;quot;,
+        &amp;quot;Date&amp;quot;: &amp;quot;2013-2-16&amp;quot;,
+        &amp;quot;Category&amp;quot;: &amp;quot;Category&amp;quot;,
+        &amp;quot;Tags&amp;quot;: &amp;quot;tag2, tag2&amp;quot;,
+        &amp;quot;slug&amp;quot;: &amp;quot;slug-slug-slug&amp;quot;,
+        &amp;quot;Author&amp;quot;: &amp;quot;Me&amp;quot;
+    },
+    { A_LOT_OF_OTHER_STUFF }
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;And thats it! Add the &lt;code&gt;.ipynb&lt;/code&gt; file to the &lt;code&gt;content&lt;/code&gt; folder in the pelican project and should generate a new post.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 08 Mar 2013 00:00:00 +0000</pubDate><guid>tag:,2013-03-08:blog/2013/03/08/pelican-ipython-notebook-plugin/</guid><category>python</category><category>pelican</category></item><item><title>Kaggle bulldozers: Basic cleaning</title><link>/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;p&gt;And thats it! Add the &lt;code&gt;.ipynb&lt;/code&gt; file to the &lt;code&gt;content&lt;/code&gt; folder in the pelican project and should generate a new post.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Fri, 08 Mar 2013 00:00:00 +0000</pubDate><guid>tag:,2013-03-08:blog/2013/03/08/pelican-ipython-notebook-plugin/</guid><category>python</category><category>pelican</category></item><item><title>Kaggle bulldozers: Basic cleaning</title><link>/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -13217,6 +13410,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -13237,54 +13431,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -15406,7 +15552,35 @@ In&amp;nbsp;[42]:
 &lt;p&gt;I created a repo for this &lt;a href="https://github.com/danielfrg/kaggle-bulldozers"&gt;kaggle competition&lt;/a&gt;, there are only 30 days left so I want to make a few submisions, stay tunned for imputation and some machine learning. The code for &lt;a href="https://github.com/danielfrg/copper"&gt;copper is on github&lt;/a&gt; too.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Thu, 07 Mar 2013 00:00:00 +0000</pubDate><guid>tag:,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</guid><category>python</category><category>kaggle</category><category>copper</category></item><item><title>Blogging with iPython notebooks in pelican</title><link>/blog/2013/02/16/blogging-pelican-ipython-notebook/</link><description>&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Thu, 07 Mar 2013 00:00:00 +0000</pubDate><guid>tag:,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</guid><category>python</category><category>kaggle</category><category>copper</category></item><item><title>Blogging with iPython notebooks in pelican</title><link>/blog/2013/02/16/blogging-pelican-ipython-notebook/</link><description>&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;It seems that I spend most time redesigning/developing this blog than actually
 blogging xD, just a few weeks ago I wrote about how I was &lt;a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/"&gt;blogging using jekyll
@@ -15546,7 +15720,55 @@ so you in your pelican &lt;code&gt;article.html&lt;/code&gt; template should do:
 from ipython notebooks for example: &lt;a href="/blog/2013/02/13/copper-quick-data-transformation-python/"&gt;copper-quick-data-transformation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If are curious about my pelican config or theme check it out on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Happy blogging!&lt;/p&gt;
-&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sat, 16 Feb 2013 00:00:00 +0000</pubDate><guid>tag:,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</guid><category>python</category><category>pelican</category></item><item><title>Copper - Quick and automatic data transformation</title><link>/blog/2013/02/13/copper-quick-data-transformation-python/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sat, 16 Feb 2013 00:00:00 +0000</pubDate><guid>tag:,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</guid><category>python</category><category>pelican</category></item><item><title>Copper - Quick and automatic data transformation</title><link>/blog/2013/02/13/copper-quick-data-transformation-python/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -16949,6 +17171,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -16969,54 +17192,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -18185,7 +18360,35 @@ In&amp;nbsp;[22]:
 &lt;p&gt;As usual the code is on github: &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Wed, 13 Feb 2013 00:00:00 +0000</pubDate><guid>tag:,2013-02-13:blog/2013/02/13/copper-quick-data-transformation-python/</guid><category>python</category><category>copper</category></item><item><title>Using D3, backbone and tornado to visualize histograms of a csv file</title><link>/blog/2013/02/05/d3-backbone-tornado-histogram-csv/</link><description>&lt;p&gt;After being procrastinating for weeks the learning of &lt;a href="http://d3js.org"&gt;D3.js&lt;/a&gt; and &lt;a href="http://backbonejs.org"&gt;backbone.js&lt;/a&gt; I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):&lt;/p&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Wed, 13 Feb 2013 00:00:00 +0000</pubDate><guid>tag:,2013-02-13:blog/2013/02/13/copper-quick-data-transformation-python/</guid><category>python</category><category>copper</category></item><item><title>Using D3, backbone and tornado to visualize histograms of a csv file</title><link>/blog/2013/02/05/d3-backbone-tornado-histogram-csv/</link><description>&lt;p&gt;After being procrastinating for weeks the learning of &lt;a href="http://d3js.org"&gt;D3.js&lt;/a&gt; and &lt;a href="http://backbonejs.org"&gt;backbone.js&lt;/a&gt; I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Great web frameworks as &lt;a href="https://www.djangoproject.com"&gt;Django&lt;/a&gt; and &lt;a href="http://www.tornadoweb.org"&gt;Tornado&lt;/a&gt; - "fighting" with ruby (&lt;a href="http://rubyonrails.org"&gt;rails&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Great Data Analysis packages such as &lt;a href="http://pandas.pydata.org/"&gt;pandas&lt;/a&gt; - "fighting" with &lt;a href="http://www.r-project.org"&gt;R&lt;/a&gt;&lt;/li&gt;
@@ -18412,7 +18615,55 @@ In&amp;nbsp;[22]:
 &lt;p&gt;&lt;img alt="D3.js Histogram" src="/images/blog/2013/02/d3-hist/d3-hist.png" title="D3.js Histogram" /&gt;&lt;/p&gt;
 &lt;p&gt;Changing the number of bins or the column automaticlly re-draws the histogram.&lt;/p&gt;
 &lt;p&gt;It was hard for me to use javascript again. Learning backbone was even harder but I think I am finally understanding it, definitely the best way is to learn it is to take baby steps and read a lot. D3 wasn't that hard, is a very good library.&lt;/p&gt;
-&lt;p&gt;I include the whole code on &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt; (my data analysis package) which is not yet available via pip, so to use this need to download the &lt;code&gt;explore&lt;/code&gt; folder of the package and run &lt;code&gt;python explore.py&lt;/code&gt; (requires tornado and pandas). Remember to change the &lt;code&gt;explore.csv&lt;/code&gt; to explore other data.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Tue, 05 Feb 2013 00:00:00 +0000</pubDate><guid>tag:,2013-02-05:blog/2013/02/05/d3-backbone-tornado-histogram-csv/</guid><category>python</category><category>javascript</category><category>D3.js</category><category>backbone</category><category>tornado</category><category>pandas</category></item><item><title>Coursera Data Analysis - Quiz 2 on python</title><link>/blog/2013/02/04/coursera-data-analysis-quiz-2-python/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;p&gt;I include the whole code on &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt; (my data analysis package) which is not yet available via pip, so to use this need to download the &lt;code&gt;explore&lt;/code&gt; folder of the package and run &lt;code&gt;python explore.py&lt;/code&gt; (requires tornado and pandas). Remember to change the &lt;code&gt;explore.csv&lt;/code&gt; to explore other data.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Tue, 05 Feb 2013 00:00:00 +0000</pubDate><guid>tag:,2013-02-05:blog/2013/02/05/d3-backbone-tornado-histogram-csv/</guid><category>python</category><category>javascript</category><category>D3.js</category><category>backbone</category><category>tornado</category><category>pandas</category></item><item><title>Coursera Data Analysis - Quiz 2 on python</title><link>/blog/2013/02/04/coursera-data-analysis-quiz-2-python/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -19815,6 +20066,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -19835,54 +20087,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -20713,7 +20917,35 @@ dtypes: float64(333), int64(89), object(4)
 &lt;p&gt;FYI, I almost don&amp;#39;t get question 8 xD.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Mon, 04 Feb 2013 00:00:00 +0000</pubDate><guid>tag:,2013-02-04:blog/2013/02/04/coursera-data-analysis-quiz-2-python/</guid><category>python</category><category>coursera</category><category>data analysis</category></item><item><title>New blog using Jekyll &amp; iPython</title><link>/blog/2013/01/31/new-blog-using-jekyll-and-ipython/</link><description>&lt;p&gt;Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using &lt;a href="http://octopress.org/"&gt;octopress&lt;/a&gt; (&lt;a href="https://github.com/mojombo/jekyll"&gt;jekyll&lt;/a&gt;) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Mon, 04 Feb 2013 00:00:00 +0000</pubDate><guid>tag:,2013-02-04:blog/2013/02/04/coursera-data-analysis-quiz-2-python/</guid><category>python</category><category>coursera</category><category>data analysis</category></item><item><title>New blog using Jekyll &amp; iPython</title><link>/blog/2013/01/31/new-blog-using-jekyll-and-ipython/</link><description>&lt;p&gt;Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using &lt;a href="http://octopress.org/"&gt;octopress&lt;/a&gt; (&lt;a href="https://github.com/mojombo/jekyll"&gt;jekyll&lt;/a&gt;) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Is not fast enough&lt;/li&gt;
 &lt;li&gt;Can't have custom analytics and the wordpress analytics sucks.&lt;/li&gt;
@@ -20733,7 +20965,55 @@ dtypes: float64(333), int64(89), object(4)
 &lt;p&gt;Github pages support Jekyll but not some of its plugins such as the &lt;a href="http://lesscss.org/"&gt;LESS&lt;/a&gt; plugins. There is a very simple workaround for that. Just have to run Jekyll locally with all the plugins you want, and then just upload the compiled HTML,CSS,JS,... to the repository and github will display the static/compiled content.&lt;/p&gt;
 &lt;p&gt;So in my repository I have all the templates, posts, images, markdown, and everything else on folder named &lt;code&gt;source&lt;/code&gt;; that way jekyll creates the static content into &lt;code&gt;source/_site&lt;/code&gt;. Then when I am happy with new post or new design I use a very simple python &lt;a href="http://fabfile.org/"&gt;fabfile&lt;/a&gt; to clean the root (ignoring the &lt;code&gt;source&lt;/code&gt; and &lt;code&gt;.git&lt;/code&gt; folders) then it moves the contents of &lt;code&gt;source/_site&lt;/code&gt; to the root of the repository, then commits the changes and finally clean the root again.&lt;/p&gt;
 &lt;p&gt;I try to make the site plugin agnostic because I don't now ruby but I try to complement that with a few YAML tags and if's on the layous, for example only have to put a YAML tag on each post file and the picture is added automaticly to the index and post pages. That also happens with youtube and vimeo videos.&lt;/p&gt;
-&lt;p&gt;Finally the source of the site is on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt; if anyone want to take a look.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Thu, 31 Jan 2013 00:00:00 +0000</pubDate><guid>tag:,2013-01-31:blog/2013/01/31/new-blog-using-jekyll-and-ipython/</guid><category>jekyll</category><category>ipython</category><category>python</category></item><item><title>Copper - Bootstrap and Bagging</title><link>/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;p&gt;Finally the source of the site is on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt; if anyone want to take a look.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Thu, 31 Jan 2013 00:00:00 +0000</pubDate><guid>tag:,2013-01-31:blog/2013/01/31/new-blog-using-jekyll-and-ipython/</guid><category>jekyll</category><category>ipython</category><category>python</category></item><item><title>Copper - Bootstrap and Bagging</title><link>/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -22136,6 +22416,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -22156,54 +22437,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -24002,7 +24235,83 @@ IezS/wLBosSDUGolewAAAABJRU5ErkJggg==
 &lt;p&gt;As usual the code is on github: &lt;a href="https://github.com/danielfrg/copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Wed, 30 Jan 2013 00:00:00 +0000</pubDate><guid>tag:,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</guid><category>python</category><category>copper</category><category>machine learning</category></item><item><title>Copper - Machine Learning</title><link>/blog/2013/01/27/copper-machine-learning-python/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Wed, 30 Jan 2013 00:00:00 +0000</pubDate><guid>tag:,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</guid><category>python</category><category>copper</category><category>machine learning</category></item><item><title>Copper - Machine Learning</title><link>/blog/2013/01/27/copper-machine-learning-python/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -25405,6 +25714,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -25425,54 +25735,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -27712,7 +27974,83 @@ I can say with confidence (and by being a user of both) that using this package 
 &lt;p&gt;The code is on github: &lt;a href="https://github.com/danielfrg/copper" title="Copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sun, 27 Jan 2013 00:00:00 +0000</pubDate><guid>tag:,2013-01-27:blog/2013/01/27/copper-machine-learning-python/</guid><category>python</category><category>copper</category><category>machine learning</category></item><item><title>Copper - Easy data analysis and machine learning on python</title><link>/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</link><description>&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sun, 27 Jan 2013 00:00:00 +0000</pubDate><guid>tag:,2013-01-27:blog/2013/01/27/copper-machine-learning-python/</guid><category>python</category><category>copper</category><category>machine learning</category></item><item><title>Copper - Easy data analysis and machine learning on python</title><link>/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</link><description>
+&lt;style type="text/css"&gt;
+
+/* General text, input and output cells */
+div.cell {
+    border: none;
+}
+
+.inner_cell {
+    width: 100%
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    margin: 0;
+    padding: 0;
+}
+
+div.input_area {
+    border: none;
+    background: none;
+    margin-left: 6px;
+}
+
+div.output_subarea {
+    padding: 0;
+}
+
+pre.ipynb {
+    padding: 5px 5px 5px 10px;
+}
+
+/* DataFrame */
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 .clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
 .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -29115,6 +29453,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -29135,54 +29474,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-
-/* General text, input and output cells */
-div.cell {
-    border: none;
-}
-
-.inner_cell {
-    width: 100%
-}
-
-.text_cell .prompt {
-    display: none;
-}
-
-div.cell {
-    margin: 0;
-    padding: 0;
-}
-
-div.input_area {
-    border: none;
-    background: none;
-    margin-left: 6px;
-}
-
-div.output_subarea {
-    padding: 0;
-}
-
-pre.ipynb {
-    padding: 5px 5px 5px 10px;
-}
-
-/* DataFrame */
-table.dataframe {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-table.dataframe th, td {
-    padding: 4px;
-    text-align: left;
-}
-
-&lt;/style&gt;
-
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -30156,7 +30447,35 @@ dtypes: float64(7), int64(26)
 &lt;p&gt;The code is on github: &lt;a href="https://github.com/danielfrg/copper" title="Copper"&gt;copper&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sat, 26 Jan 2013 00:00:00 +0000</pubDate><guid>tag:,2013-01-26:blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</guid><category>python</category><category>copper</category><category>machine learning</category></item><item><title>Python to replace SAS Enterprise Miner (basic)</title><link>/blog/2013/01/02/python-replace-sas/</link><description>&lt;h2&gt;Why?&lt;/h2&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sat, 26 Jan 2013 00:00:00 +0000</pubDate><guid>tag:,2013-01-26:blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</guid><category>python</category><category>copper</category><category>machine learning</category></item><item><title>Python to replace SAS Enterprise Miner (basic)</title><link>/blog/2013/01/02/python-replace-sas/</link><description>&lt;h2&gt;Why?&lt;/h2&gt;
 &lt;p&gt;The last fall (2012) I took a class called Business Intelligence (at
 UT Dallas) which is the same as Data Mining or Machine Learning
 to business people. On that class they taught us to use SAS Enterprise
@@ -30227,13 +30546,13 @@ testing. The available data is:&lt;/p&gt;
 &lt;li&gt;Order: Actual response (1: response, 0: no response)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The file looks like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;CustomerID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;NGIF&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;RAMN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;LASG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;LASD&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;RFA1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;RFA2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Order&lt;/span&gt;
-&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;207&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;105&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-       &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;CustomerID,NGIF,RAMN,LASG,LASD,RFA1,RFA2,Order
+1,2,30,20,200503,1,6,1
+2,25,207,20,200503,1,6,0
+3,5,52,15,200503,1,6,0
+4,11,105,15,200503,1,6,0
+5,2,32,17,200503,1,6,0
+       ...
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -30299,12 +30618,12 @@ always good Decision Tree also Support Vector Machine and Naive Bayes.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# tree&lt;/span&gt;
-&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1365&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;67&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;506&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;62&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
-&lt;span class="cp"&gt;# svm&lt;/span&gt;
-&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1362&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;531&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;37&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
-&lt;span class="cp"&gt;#gnb&lt;/span&gt;
-&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1196&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;236&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;406&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;162&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# tree
+array([[1365, 67], [ 506, 62]])
+# svm
+array([[1362, 70], [ 531, 37]])
+#gnb
+array([[1196, 236], [ 406, 162]])
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -30390,7 +30709,7 @@ Also if anyone find discrepancies on the results &lt;strong&gt;please&lt;/strong
 
 
 &lt;p&gt;Out [2]:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mi"&gt;498&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;498
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -30411,7 +30730,7 @@ Also if anyone find discrepancies on the results &lt;strong&gt;please&lt;/strong
 
 
 &lt;p&gt;Out [6]: 5 Events where found&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;5
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -30464,17 +30783,17 @@ The instructions are:&lt;/p&gt;
 
 
 &lt;p&gt;Out [10]: This are the trades generated by the Simulator&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;symbol&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;  &lt;span class="n"&gt;num_of_shares&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;08&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;08&lt;/span&gt;   &lt;span class="n"&gt;HBAN&lt;/span&gt;    &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;09&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;06&lt;/span&gt;   &lt;span class="n"&gt;HBAN&lt;/span&gt;    &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;09&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;   &lt;span class="n"&gt;GNW&lt;/span&gt;     &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;   &lt;span class="n"&gt;AMD&lt;/span&gt;     &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;   &lt;span class="n"&gt;GNW&lt;/span&gt;     &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;31&lt;/span&gt;   &lt;span class="n"&gt;AMD&lt;/span&gt;     &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;   &lt;span class="n"&gt;HCBK&lt;/span&gt;    &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;   &lt;span class="n"&gt;BAC&lt;/span&gt;     &lt;span class="n"&gt;Buy&lt;/span&gt;     &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;   &lt;span class="n"&gt;HCBK&lt;/span&gt;    &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;   &lt;span class="n"&gt;BAC&lt;/span&gt;     &lt;span class="n"&gt;Sell&lt;/span&gt;    &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;symbol action  num_of_shares
+2011-08-08   HBAN    Buy     100
+2011-09-06   HBAN    Sell    100
+2011-09-22   GNW     Buy     100
+2011-10-03   AMD     Buy     100
+2011-10-20   GNW     Sell    100
+2011-10-31   AMD     Sell    100
+2011-11-23   HCBK    Buy     100
+2011-12-19   BAC     Buy     100
+2011-12-22   HCBK    Sell    100
+2012-01-19   BAC     Sell    100
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -30485,7 +30804,7 @@ The instructions are:&lt;/p&gt;
 
 
 &lt;p&gt;Out [11]:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mf"&gt;0.501&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;0.501
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -30535,21 +30854,21 @@ Investing&lt;/a&gt; Homework 3.&lt;/p&gt;
 &lt;p&gt;Reads a .csv file with the orders/trades. Downloads the necessary data
 (symbols and dates between the ). Makes a simulation of the orders:&lt;/p&gt;
 &lt;p&gt;The .csv file looks like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;month&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;day&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;symbol&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;num_of_shares&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;AAPL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;AAPL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IBM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4000&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;GOOG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;XOM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4000&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;XOM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4000&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;GOOG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IBM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2200&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IBM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3300&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IBM&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;AAPL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1200&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;GOOG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Buy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;55&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;GOOG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;55&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;AAPL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Sell&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1200&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;year,month,day,symbol,action,num_of_shares
+2011,1,10,AAPL,Buy,1500
+2011,1,13,AAPL,Sell,1500
+2011,1,13,IBM,Buy,4000
+2011,1,26,GOOG,Buy,1000
+2011,2,2,XOM,Sell,4000
+2011,2,10,XOM,Buy,4000
+2011,3,3,GOOG,Sell,1000
+2011,3,3,IBM,Sell,2200
+2011,6,3,IBM,Sell,3300
+2011,5,3,IBM,Buy,1500
+2011,6,10,AAPL,Buy,1200
+2011,8,1,GOOG,Buy,55
+2011,8,1,GOOG,Sell,55
+2011,12,20,AAPL,Sell,1200
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -30575,18 +30894,18 @@ Investing&lt;/a&gt; Homework 3.&lt;/p&gt;
 
 
 &lt;p&gt;Output:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;           &lt;span class="n"&gt;Portfolio&lt;/span&gt;
-&lt;span class="n"&gt;Date&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;  &lt;span class="mi"&gt;1000000&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;   &lt;span class="mi"&gt;998785&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;  &lt;span class="mi"&gt;1002940&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;  &lt;span class="mi"&gt;1004815&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;  &lt;span class="mi"&gt;1009415&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;  &lt;span class="mi"&gt;1011935&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;  &lt;span class="mi"&gt;1031495&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;  &lt;span class="mi"&gt;1031935&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt;  &lt;span class="mi"&gt;1030775&lt;/span&gt;
-&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;  &lt;span class="mi"&gt;1046815&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;           Portfolio
+Date
+2011-01-10  1000000
+2011-01-11   998785
+2011-01-12  1002940
+2011-01-13  1004815
+2011-01-14  1009415
+2011-01-18  1011935
+2011-01-19  1031495
+2011-01-20  1031935
+2011-01-21  1030775
+2011-01-24  1046815
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -30651,12 +30970,12 @@ faster the next time.&lt;/p&gt;
 
 &lt;h3&gt;Little Benchmark&lt;/h3&gt;
 &lt;p&gt;Just using &lt;code&gt;clock()&lt;/code&gt; and &lt;code&gt;time()&lt;/code&gt; to see if it was worth it. It is.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Directory&lt;/span&gt; &lt;span class="n"&gt;empty&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Download&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;save&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;stocks&lt;/span&gt;
-    &lt;span class="mf"&gt;1.4336301090943933&lt;/span&gt; &lt;span class="mf"&gt;1.434000015258789&lt;/span&gt;
-&lt;span class="n"&gt;Load&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;stocks&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;
-    &lt;span class="mf"&gt;0.023402424167761726&lt;/span&gt; &lt;span class="mf"&gt;0.023000001907348633&lt;/span&gt;
-&lt;span class="n"&gt;Load&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;stocks&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;serialized&lt;/span&gt;
-    &lt;span class="mf"&gt;0.0007370202310554852&lt;/span&gt; &lt;span class="mf"&gt;0.0009999275207519531&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Directory empty: Download and save 5 stocks
+    1.4336301090943933 1.434000015258789
+Load 5 stocks from .csv
+    0.023402424167761726 0.023000001907348633
+Load 5 stocks from serialized
+    0.0007370202310554852 0.0009999275207519531
 &lt;/pre&gt;&lt;/div&gt;
 
 

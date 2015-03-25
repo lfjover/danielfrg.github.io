@@ -58,30 +58,30 @@ Anaconda is the best python scientific distribution I have found and the conda p
 Vagrant is used to create the instance and provision it with salt using one command.</p>
 <p>Install conda using a salt states is pretty easy because salt has support for pip, and conda is pip
 installable (you have to run <code>conda init</code> after <code>pip install conda</code>) so is as simple as:</p>
-<div class="highlight"><pre><span class="n">pip</span><span class="o">-</span><span class="n">packages</span><span class="o">:</span>
-  <span class="n">pip</span><span class="p">.</span><span class="n">installed</span><span class="o">:</span>
-    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">root</span>
-    <span class="o">-</span> <span class="n">names</span><span class="o">:</span>
-      <span class="o">-</span> <span class="n">conda</span>
-    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
-      <span class="o">-</span> <span class="n">pkg</span><span class="o">:</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span>
-      <span class="o">-</span> <span class="n">pkg</span><span class="o">:</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
+<div class="highlight"><pre><span class="l-Scalar-Plain">pip-packages</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">pip.installed</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">root</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">names</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">conda</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">require</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pkg</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">python-dev</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pkg</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">python-pip</span>
 
-<span class="n">conda</span><span class="o">-</span><span class="n">check</span><span class="o">:</span>
-  <span class="n">cmd</span><span class="p">.</span><span class="n">run</span><span class="o">:</span>
-    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">ubuntu</span>
-    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="s">&quot;[ -d /usr/conda-meta ] &amp;&amp; echo &#39;changed=no&#39; || echo &#39;changed=yes&#39;&quot;</span>
-    <span class="o">-</span> <span class="n">stateful</span><span class="o">:</span> <span class="n">True</span>
-    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
-      <span class="o">-</span> <span class="n">pip</span><span class="o">:</span> <span class="n">conda</span>
+<span class="l-Scalar-Plain">conda-check</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">cmd.run</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ubuntu</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;[</span><span class="nv"> </span><span class="s">-d</span><span class="nv"> </span><span class="s">/usr/conda-meta</span><span class="nv"> </span><span class="s">]</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">echo</span><span class="nv"> </span><span class="s">&#39;changed=no&#39;</span><span class="nv"> </span><span class="s">||</span><span class="nv"> </span><span class="s">echo</span><span class="nv"> </span><span class="s">&#39;changed=yes&#39;&quot;</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">stateful</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">True</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">require</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pip</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">conda</span>
 
-<span class="cp"># This will create some files into /usr, needs root</span>
-<span class="n">conda</span><span class="o">-</span><span class="n">init</span><span class="o">:</span>
-  <span class="n">cmd</span><span class="p">.</span><span class="n">wait</span><span class="o">:</span>
-    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">root</span>
-    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="s">&quot;conda init&quot;</span>
-    <span class="o">-</span> <span class="n">watch</span><span class="o">:</span>
-        <span class="o">-</span> <span class="n">cmd</span><span class="o">:</span> <span class="n">conda</span><span class="o">-</span><span class="n">check</span>
+<span class="c1"># This will create some files into /usr, needs root</span>
+<span class="l-Scalar-Plain">conda-init</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">cmd.wait</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">root</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;conda</span><span class="nv"> </span><span class="s">init&quot;</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">watch</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">cmd</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">conda-check</span>
 </pre></div>
 
 
@@ -90,32 +90,32 @@ The code below will create a conda virtual env and
 install the ipython-notebook, numpy, scipy and pandas libraries using the conda repository
 also will install luigi (or any other python library you want) using regular pip.
 All of this will be inside the conda virtual env, because you <strong>should</strong> use virtual envs.</p>
-<div class="highlight"><pre><span class="n">venv</span><span class="o">:</span>
-  <span class="n">conda</span><span class="o">.</span><span class="na">managed</span><span class="o">:</span>
-    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">ubuntu</span>
-    <span class="o">-</span> <span class="n">pkgs</span><span class="o">:</span> <span class="n">ipython</span><span class="o">-</span><span class="n">notebook</span><span class="o">,</span><span class="n">numpy</span><span class="o">,</span><span class="n">scipy</span><span class="o">,</span><span class="n">pandas</span><span class="o">,</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
-    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
-      <span class="o">-</span> <span class="n">cmd</span><span class="o">:</span> <span class="n">conda</span><span class="o">-</span><span class="n">init</span>
+<div class="highlight"><pre><span class="l-Scalar-Plain">venv</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">conda.managed</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ubuntu</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pkgs</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ipython-notebook,numpy,scipy,pandas,scikit-learn</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">require</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">cmd</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">conda-init</span>
 
-<span class="n">venv</span><span class="o">-</span><span class="n">pip</span><span class="o">:</span>
-  <span class="n">pip</span><span class="o">.</span><span class="na">installed</span><span class="o">:</span>
-    <span class="o">-</span> <span class="n">user</span><span class="o">:</span> <span class="n">ubuntu</span>
-    <span class="o">-</span> <span class="n">names</span><span class="o">:</span>
-      <span class="o">-</span> <span class="n">luigi</span>
-    <span class="o">-</span> <span class="n">bin_env</span><span class="o">:</span> <span class="sr">/home/ubuntu/envs/venv/bin/</span><span class="n">pip</span>
-    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
-      <span class="o">-</span> <span class="n">conda</span><span class="o">:</span> <span class="n">venv</span>
+<span class="l-Scalar-Plain">venv-pip</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">pip.installed</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ubuntu</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">names</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">luigi</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">bin_env</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/home/ubuntu/envs/venv/bin/pip</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">require</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">conda</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">venv</span>
 </pre></div>
 
 
 <p>I created another module to start the ipython notebook in the background since salt does not support this natively, the state looks like this:</p>
-<div class="highlight"><pre><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">vagrant</span><span class="o">/</span><span class="n">nbserver</span><span class="p">.</span><span class="n">pid</span><span class="o">:</span>
-  <span class="n">nbserver</span><span class="p">.</span><span class="n">start_server</span><span class="o">:</span>
-    <span class="o">-</span> <span class="n">ip</span><span class="o">:</span> <span class="mf">0.0.0.0</span>
-    <span class="o">-</span> <span class="n">port</span><span class="o">:</span> <span class="mi">80</span>
-    <span class="o">-</span> <span class="n">nb_dir</span><span class="o">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">notebooks</span>
-    <span class="o">-</span> <span class="n">require</span><span class="o">:</span>
-      <span class="o">-</span> <span class="n">conda</span><span class="o">:</span> <span class="n">venv</span>
+<div class="highlight"><pre><span class="l-Scalar-Plain">/home/vagrant/nbserver.pid</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">nbserver.start_server</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ip</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.0.0.0</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">80</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">nb_dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/home/ubuntu/notebooks</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">require</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">conda</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">venv</span>
 </pre></div>
 
 
