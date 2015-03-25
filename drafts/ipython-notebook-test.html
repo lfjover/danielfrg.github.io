@@ -6,7 +6,7 @@
         <meta name="author" content="Daniel Rodriguez">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>IPython.parallel cluster using salt | Daniel Rodriguez</title>
+        <title>IPython notebook test | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
@@ -40,8 +40,8 @@
 
     <article>
         <header>
-            <h1>IPython.parallel cluster using salt</h1>
-            <time datetime="article.date.isoformat()" pubdate>April 18, 2014</time>
+            <h1>IPython notebook test</h1>
+            <time datetime="article.date.isoformat()" pubdate>April 18, 2100</time>
         </header>
 
         <div class="article_content">
@@ -197,70 +197,7 @@ table.dataframe th, td {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This post describes a simple yet flexible implementation on how to deploy an <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel</a> cluster in multiple EC2 instances using <a href="http://www.saltstack.com/">salt</a> and a little bit of <a href="http://vagrantup.com/">Vagrant</a>. The final output will be one instance running the IPython notebook, <code>ipcontroller</code> and acting as the salt-master, also 6 instances each one running <code>ipengine</code> and being salt-minions, see the <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel docs</a> for information on those commands.</p>
-<p>In a previous post I created a <a href="http://danielfrg.com/blog/2013/11/27/ipython-notebook-aws-salt/">one-liner for deploying an ipython notebook</a> to the cloud, after that I have been refactoring and advancing the concept and it became my own <a href="https://github.com/danielfrg/datasciencebox">datasciencebox</a>, it was natural to include the code for creating the ipcluster code in the same project.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why">Why<a class="anchor-link" href="#Why">&#182;</a></h2><p>Let me begin saying that I know about <a href="http://star.mit.edu/cluster/">starcluster</a> I have used it (for this same task) and I believe is the best way to create cluster for doing parallel computing but it lacks of a few features:</p>
-<ol>
-<li>Only EC2 support: I use EC2 and a couple of AWS services everyday but what if I want to move to rackspace or any other cloud? So instead of relying on boto I use <a href="http://docs.saltstack.com/en/latest/topics/cloud/">salt-cloud</a> that relies on <a href="https://libcloud.apache.org/">apache libcloud</a></li>
-<li>Dependency of installing the scientific libraries from pypi: I use anaconda on my mac and I wanted to use the same versions on the cloud, using the <a href="http://danielfrg.com/blog/2013/11/27/ipython-notebook-aws-salt/">salt state I wrote previously</a> this was an easy task. With this having the latest version is as simple as changing the <code>requirements.txt</code></li>
-<li>Plugins are python classes (see the <a href="https://github.com/jtriley/StarCluster/blob/develop/starcluster/plugins/ipcluster.py">starcluster ipython plugin for example</a>): While this is completely fine once you learn configuration management you don't want to come back, a salt state is much more easier to create and mantain</li>
-</ol>
-<p><strong>Why not hadoop?</strong> Again, I use hadoop every week, but for me it seams more natural to do the analysis on your tool of choice (python or R) and then scale it using the same (or similar) tool, it doesn't make a lot of sense to do the analysis on a tool just becuase it scales if it lacks the capabilities you need, for example the excelente interactivity of IPython.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How">How<a class="anchor-link" href="#How">&#182;</a></h2><h3 id="Requirements">Requirements<a class="anchor-link" href="#Requirements">&#182;</a></h3><ol>
-<li><a href="http://www.vagrantup.com/">Vagrant</a> (+<a href="https://github.com/mitchellh/vagrant-aws">aws-plugin</a>) to create the an EC2 instance that runs the ipython notebook. Note you could on run this on Rackspace by using <a href="https://github.com/mitchellh/vagrant-rackspace">vagrant-rackspace</a></li>
-<li><code>git clone</code> the <a href="https://github.com/danielfrg/datasciencebox">datasciencebox</a> repo</li>
-<li>AWS account credentials</li>
-<li>Copy your EC2 keypair in the root of the repo of step 2 and name it <code>ipcluster.pem</code>, this is so Vagrant can copy the keypair to the cloud</li>
-</ol>
-<h3 id="Let's-get-started">Let's get started<a class="anchor-link" href="#Let's-get-started">&#182;</a></h3><ol>
-<li><code>cd</code> to that directory open the <code>Vagrantfile</code> and fill the values inside <code>config.vm.provider</code>, mainly the AWS credentials.</li>
-<li><code>vagrant up --provider=aws</code></li>
-</ol>
-<p>Now you have an IPython notebook running in the new instance on port 8888</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="ipcluster">ipcluster<a class="anchor-link" href="#ipcluster">&#182;</a></h3><p>First, <code>shh</code> into the instance by running <code>vagrant ssh</code>.</p>
-<p>You need to know the private address of the instance. Use this one-liner to get it: <code>python -c 'import socket; print socket.gethostbyname(socket.gethostname())'</code> it should print something like: <code>10.2.182.86</code></p>
-<p>Start the <code>ipcontroller</code> by running the <code>ipcluster</code> salt state, you need to add a couple of values, mainly the aws and ec2 instances settings:</p>
-
-<pre><code>sudo salt-call state.sls ipcluster pillar='{ipcluster: {master: {MASTER_ADDRESS}, keyname: {AWS_KEYPAIR_NAME}, securitygroup: {EC2_SECURITY_GROUP_NAME}}, aws: {access_key: {AWS_ACCESS_KEY}, secret_key: {AWS_SECRET_KEY}}}'</code></pre>
-<p>The previous command will install the dependencies of <code>salt-cloud</code> and start the <code>ipcontroller</code> process.</p>
-<p>Now you need to create the instances that are going to run the <code>ipengine</code>: <code>sudo salt-cloud -p base_ec2 ipython-minion-X</code> where <code>X</code> can be a number or string, i ran it with 1 and 2 for this example. This command will create the new instances, install the <code>salt-minion</code> and connect it to the <code>salt-master</code>.</p>
-<p>To test that the minions are running run:</p>
-
-<pre><code>↪ sudo salt '*' test.ping
-ipython-minion-1:
-    True
-ipython-minion-2:
-    True</code></pre>
-<p>Now start the <code>ipengine</code> on each minion by running the <code>ipcluster-minion</code> salt state, this will also provision the same python environment using anaconda. Run <code>sudo salt '*' saltutil.sync_all</code> and after <code>sudo salt '*' state.sls ipcluster-minion</code></p>
-<p>Everything should be in place now, go to the notebook and connect to the clients:</p>
-
+<h2 id="Markdown-H2">Markdown H2<a class="anchor-link" href="#Markdown-H2">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -269,7 +206,7 @@ ipython-minion-2:
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.parallel</span> <span class="k">import</span> <span class="n">Client</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 
 </div>
@@ -282,10 +219,26 @@ ipython-minion-2:
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">a</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -295,63 +248,20 @@ ipython-minion-2:
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">b</span> <span class="o">=</span> <span class="s">&#39;pew&#39;</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that there are four clients since by default it will be 2 <code>ipengine</code>s per instance. We can check the address and pid of each engine:</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">where_am_i</span><span class="p">():</span>
-    <span class="kn">import</span> <span class="nn">os</span>
-    <span class="kn">import</span> <span class="nn">socket</span>
-    
-    <span class="k">return</span> <span class="s">&quot;In process with pid {0} on host: &#39;{1}&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">())</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">where_am_i</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">b</span>
 </pre></div>
 
 </div>
@@ -362,41 +272,15 @@ ipython-minion-2:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&quot;In process with pid 15314 on host: &apos;ip-10-151-123-100&apos;&quot;</pre>
+<pre>&apos;pew&apos;</pre>
 </div>
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">direct_view</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">direct_view</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">where_am_i_direct_results</span> <span class="o">=</span> <span class="n">direct_view</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">where_am_i</span><span class="p">)</span>
-</pre></div>
-
-</div>
 </div>
 </div>
 
@@ -406,74 +290,10 @@ ipython-minion-2:
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">where_am_i_direct_results</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&quot;In process with pid 14018 on host: &apos;domU-12-31-39-16-52-7E&apos;&quot;,
- &quot;In process with pid 14019 on host: &apos;domU-12-31-39-16-52-7E&apos;&quot;,
- &quot;In process with pid 13956 on host: &apos;ip-10-110-86-251&apos;&quot;,
- &quot;In process with pid 13955 on host: &apos;ip-10-110-86-251&apos;&quot;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that there are two process on each instance.</p>
-<p>Now lets add one more machine by running:</p>
-<ol>
-<li><code>sudo salt-cloud -p base_ec2 ipython-minion-3</code></li>
-<li><code>sudo salt '*' saltutil.sync_all</code></li>
-<li><code>sudo salt '*' state.sls ipcluster-minion</code></li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>6</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -483,8 +303,52 @@ ipython-minion-2:
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">where_am_i_direct_results</span> <span class="o">=</span> <span class="n">direct_view</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">where_am_i</span><span class="p">)</span>
-<span class="n">where_am_i_direct_results</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">figure</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;title&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -495,16 +359,121 @@ ipython-minion-2:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area"><div class="prompt"></div>
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>[&quot;In process with pid 14617 on host: &apos;domU-12-31-39-16-52-7E&apos;&quot;,
- &quot;In process with pid 14618 on host: &apos;domU-12-31-39-16-52-7E&apos;&quot;,
- &quot;In process with pid 14554 on host: &apos;ip-10-110-86-251&apos;&quot;,
- &quot;In process with pid 14553 on host: &apos;ip-10-110-86-251&apos;&quot;,
- &quot;In process with pid 14006 on host: &apos;ip-10-191-45-204&apos;&quot;,
- &quot;In process with pid 14007 on host: &apos;ip-10-191-45-204&apos;&quot;]</pre>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+zZNcmuTKJNckeWPrmlpLsnGSK5Jc0LqWlpJ8N8lVg8/isjU+r0+d/jCDW7MiyWOB24CzqmrP1vW0
+lGR7YPuqujLdlcIuBw6fxd8XAEm2qKpfDI6PfQF4RVV9oXVdrSR5GfAIYKuqenLrelpJ8h3gEVV1
+y9qe17dO//8PblXVb4FVg1szp6ouBn7Suo4+qKqbqurKwe3b6Ab5fqdtVe3U6lORN6U7LrbWP+TT
+LMkDgf8MnA70d+uW8VnnZ9C30F9ocGvHRrWoh5LsSre53aVtK2knyUZJrgRWAp+tqmta19TQ3wOv
+BO5sXUgPFPCpJF9N8tw1Palvod+ftSb1zmBp5wPA8TXDO5ZW1Z1VtRfwQOCAJMsal9REksOAm6vq
+CuzyAfavqr2BJwIvHCwR303fQv/7wE5z7u9E1+1rxiXZBPgg8N6q+lDrevqgqm6l2w/qka1raeTR
+wJMHa9nnAI9LclbjmpqpqhsHv/4QOJ9uufxu+hb6XwV2T7Jrkk2BI4CPNK5JjaXbPO8M4JqqOqV1
+PS0luX+SrQe37wkcRLeH1MypqldX1U5VtRtwJPCZqjq6dV0tJNkiyVaD21sCBwMLnvnXq9CvqtuB
+VYNb1wD/PMNnaJwDXALskeSGJM9pXVND+wPPBv5ocDraFYNrMsyiHYDPDNb0LwUuqKpPN66pL2Z5
+eXg74OI5vy8+WlUXLvTEXp2yKUkarV51+pKk0TL0JWmGGPqSNEMMfUmaIYa+JM0QQ1+SZoihL0kz
+xNCXpBli6EtDSLJPkq8l2SzJloOLufx+67qkxXIiVxpSktcDmwP3BG6oqjc1LklaNENfGtJgp8+v
+Ar8E9iv/8GgCubwjDe/+wJbAvei6fWni2OlLQ0ryEeCfgN8FdqiqFzcuSVq0e7QuQJoESY4Gfl1V
+5ybZCLgkybKqWtG4NGlR7PQlaYa4pi9JM8TQl6QZYuhL0gwx9CVphhj6kjRDDH1JmiGGviTNEENf
+kmbI/wO++s1oab2u0AAAAABJRU5ErkJggg==
+">
 </div>
 
 </div>
@@ -518,22 +487,23 @@ ipython-minion-2:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There was no need to restart the notebook or anything, IPython.parallel took care of everything.</p>
-<p>Since we bootstrapped the same python environment using anaconda we can use the scientific libraries, for example numpy:</p>
+<p>This is some text, here comes some latex</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-import numpy as np
-A = np.random.random((2,2))
-ev = numpy.linalg.eigvals(A)
-ev.max()
+<div class=" highlight hl-ipython2"><pre><span class="c">%%latex</span>
+<span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+<span class="k">\nabla</span> <span class="k">\times</span> <span class="k">\vec</span><span class="nb">{</span><span class="k">\mathbf</span><span class="nb">{</span>B<span class="nb">}}</span> -<span class="k">\,</span> <span class="k">\frac</span>1c<span class="k">\,</span> <span class="k">\frac</span><span class="nb">{</span><span class="k">\partial\vec</span><span class="nb">{</span><span class="k">\mathbf</span><span class="nb">{</span>E<span class="nb">}}}{</span><span class="k">\partial</span> t<span class="nb">}</span> <span class="nb">&amp;</span> = <span class="k">\frac</span><span class="nb">{</span>4<span class="k">\pi</span><span class="nb">}{</span>c<span class="nb">}</span><span class="k">\vec</span><span class="nb">{</span><span class="k">\mathbf</span><span class="nb">{</span>j<span class="nb">}}</span> <span class="k">\\</span>
+<span class="k">\nabla</span> <span class="k">\cdot</span> <span class="k">\vec</span><span class="nb">{</span><span class="k">\mathbf</span><span class="nb">{</span>E<span class="nb">}}</span> <span class="nb">&amp;</span> = 4 <span class="k">\pi</span> <span class="k">\rho</span> <span class="k">\\</span>
+<span class="k">\nabla</span> <span class="k">\times</span> <span class="k">\vec</span><span class="nb">{</span><span class="k">\mathbf</span><span class="nb">{</span>E<span class="nb">}}</span><span class="k">\,</span> +<span class="k">\,</span> <span class="k">\frac</span>1c<span class="k">\,</span> <span class="k">\frac</span><span class="nb">{</span><span class="k">\partial\vec</span><span class="nb">{</span><span class="k">\mathbf</span><span class="nb">{</span>B<span class="nb">}}}{</span><span class="k">\partial</span> t<span class="nb">}</span> <span class="nb">&amp;</span> = <span class="k">\vec</span><span class="nb">{</span><span class="k">\mathbf</span><span class="nb">{</span>0<span class="nb">}}</span> <span class="k">\\</span>
+<span class="k">\nabla</span> <span class="k">\cdot</span> <span class="k">\vec</span><span class="nb">{</span><span class="k">\mathbf</span><span class="nb">{</span>B<span class="nb">}}</span> <span class="nb">&amp;</span> = 0
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
 </pre></div>
 
 </div>
@@ -547,53 +517,13 @@ ev.max()
 <div class="output_area"><div class="prompt"></div>
 
 
-<div class="output_text output_subarea ">
-<pre><span class="ansired">Out[4:3]: </span>1.0222318748650969</pre>
-</div>
-
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_text output_subarea ">
-<pre><span class="ansired">Out[5:3]: </span>1.138421700991769</pre>
-</div>
-
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_text output_subarea ">
-<pre><span class="ansired">Out[6:3]: </span>1.0188265649715529</pre>
-</div>
-
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_text output_subarea ">
-<pre><span class="ansired">Out[7:3]: </span>0.74439354047097206</pre>
-</div>
-
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_text output_subarea ">
-<pre><span class="ansired">Out[8:3]: </span>1.468974252745251</pre>
-</div>
-
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_text output_subarea ">
-<pre><span class="ansired">Out[9:3]: </span>0.92031189875595965</pre>
+<div class="output_latex output_subarea ">
+\begin{align}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \\
+\nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} & = 0
+\end{align}
 </div>
 
 </div>
@@ -602,26 +532,18 @@ ev.max()
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>It was relatively simple to get 6 workers running on the cloud and while it is not as simple as creating a config file and run one command as startcluster most of the stuff can be easily wrapped in a command line utility.</p>
-<p>It was also simple to write this code since it was no code just salt states, I also learned about salt-cloud and like salt even more now.</p>
-<p>Finally is worth saying that there are dozens of examples of what you can do with IPython.parallel on the web, one of my favorites is by Olivier Grisel where he does <a href="http://nbviewer.ipython.org/gist/anonymous/5115540/Model%20Selection%20for%20the%20Nystroem%20Method.ipynb">machine learning with sklearn</a>.</p>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
 
 </div>
 </div>
+</div>
+
 </div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -655,11 +577,7 @@ ev.max()
 
         <div class="meta">
             <div>
-                    <a href="/tag/python.html" class="tag">python</a>
-                    <a href="/tag/ipython.html" class="tag">ipython</a>
-                    <a href="/tag/parallel.html" class="tag">parallel</a>
-                    <a href="/tag/salt.html" class="tag">salt</a>
-                    <a href="/tag/vagrant.html" class="tag">vagrant</a>
+                    <a href="/tag/test.html" class="tag">Test</a>
             </div>
             <div>
                 <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>

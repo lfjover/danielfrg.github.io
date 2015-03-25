@@ -40,44 +40,337 @@
 
   <article>
     <header>
-      <h2><a href="/blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/">Making your own DDNS with Django and AppFog</a></h2>
-      <time datetime="" title="2012-10-20T21:45:00+00:00" pubdate>October 20, 2012</time>
+      <h2><a href="/blog/2013/07/03/basic-neural-network-python/">Basic [1 hidden layer] neural network on Python</a></h2>
+      <time datetime="" title="2013-07-03T00:00:00+00:00" pubdate>July 03, 2013</time>
     </header>
 
     <div class="article_content">
-      <p>I love web-apps as the data is always in sync magically via the cloud, but
-sometimes I just need to access my computer via remote access to use
-some app, get some file or just to start downloading some torrents(shh).
-Remember/Email/Evernote
-a changing
-<abbr style="text-align:justify;" title="Wide area network IP">WAN
-IP</abbr> is tedious that is were a
-<abbr style="text-align:justify;" title="Dynamic Domain Name System">DDNS</abbr>
-comes in. My previous and old Belkin router had a bunch of options for
-<abbr style="text-align:justify;" title="Dynamic Domain Name System">DDNS</abbr>s
-fortunately one was free; unfortunately
-and unbelievable my new <a href="http://www.belkin.com/us/p/P-F9K1103" title="Belkin N750">Belkin N750 DB router</a> has only one option:
-<a href="http://dyn.com/dns/" title="Dyn">Dyn</a> which is not free :(</p>
-<p>So I decide to make my own
-<abbr title="Dynamic Domain Name System">DDNS</abbr> with <a href="https://www.djangoproject.com" title="Django">Django</a> and
-with a free <abbr title="Platform as a Service">PaaS</abbr>.
-<!--more-->
-The first decision was to select a
-<abbr title="Platform as a Service">PaaS</abbr> and there are a lot of
-option currently; the list got narrowed because I needed a
-free <abbr title="Platform as a Service">PaaS</abbr> for such a simple
-and small app that it is just for me. Some options were ...</!--more--></p>
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Is really difficult be part of the data science / machine learning community and have not heard about Deep Neural Networks, everybody is talking about them. Is even harder for a person like me without a PhD and without a deep computer science or mathematics education to learn about them, because 1. Machine learning uses a quite heavy math and 2. There are no Neural Networks on sklearn.</p>
+<p>Libraries like <a href="http://scikit-learn.org/dev/index.html">sklearn</a> hide all the stuff and let you use machine learning and get amazing results. But sometimes you need more, and also understanding how an algorithm is implemented can help you understand how to improve results. The learning curve is hard, you can easily spend hours on <a href="http://deeplearning.net/tutorial/">DeepLearning.net</a> and not understand anything. But there is hope.</p>
+<p>I took Andrew's Ng <a href="https://www.coursera.org/course/ml">Machine Learning course</a> on Coursera wanting to get a better undesrtanding of how the algorithms I use almost everyday work. I learned a lot of usefull tricks and learned a lot more about simple machine learning implementations. Is important to start with the easy stuff or you get overwhelmed easy and eventually give up. Hopefully in a few more weeks I would be able to understand two or three more words on <a href="http://deeplearning.net/tutorial/">DeepLearning.net</a>
     </div>
 
     <div class="meta">
       <div>
-        <a href="/blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/" class="read_more">Read more &#8594;</a>
+        <a href="/blog/2013/07/03/basic-neural-network-python/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
-            <a href="/tag/appfog.html" class="tag">appFog</a>
-            <a href="/tag/ddns.html" class="tag">DDNS</a>
-            <a href="/tag/django.html" class="tag">django</a>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/machine-learning.html" class="tag">machine learning</a>
+            <a href="/tag/neural-networks.html" class="tag">neural networks</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/04/01/nba-scraping-data/">Extracting NBA data from ESPN</a></h2>
+      <time datetime="" title="2013-04-01T00:00:00+00:00" pubdate>April 01, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>I've been wanting to play with some sports data for a while. Today I decide to
+stop procastinating and do it. The problems was that after searching a
+while (15 minutes) for some data I was unable to find the data I wanted.
+Even in the <a href="http://www.databasebasketball.com/">Basktetball Database</a>
+(not really sure I undestand the site).</p>
+<p>A friend showed me the <a href="http://espn.go.com/nba/">ESPN</a> stats and ask me if I
+knew how to scrap the data from a website. I lied and told him Yes.
+But I know python and its magic powers so after reading 15 minutes I knew how to do it.</p>
+<p>I used <a href="http://docs.python-requests.org/en/latest/">requests</a> and
+<a href="http://www.crummy.com/software/BeautifulSoup/">beautifulsoup</a> to download and
+scrap the data from the ESPN site. Then used <a href="http://pandas.pydata.org/">pandas</a>
+to order, slice, and save the data into simple csv files. Also used
+<a href="http://ipython.org/">iPython notebooks</a> to develop the code faster.
+And a little bit of my <a href="https://github.com/danielfrg/copper">copper</a>
+project to use ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/04/01/nba-scraping-data/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/crawling.html" class="tag">crawling</a>
+            <a href="/tag/pandas.html" class="tag">pandas</a>
+            <a href="/tag/requests.html" class="tag">requests</a>
+            <a href="/tag/beautifulsoup.html" class="tag">beautifulsoup</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/">Plugin for blogging with iPython notebooks in Pelican</a></h2>
+      <time datetime="" title="2013-03-08T00:00:00+00:00" pubdate>March 08, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>This is just a little update on my previous post about <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks with pelican</a>.</p>
+<p>One of the people behind pelican helped me to convert the <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">previous code</a> to a pelican plugin and I just made it available via github: <a href="https://github.com/danielfrg/pelican-ipythonnb">pelican-ipythonnb</a>.</p>
+<p>The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).</p>
+<p>An example is my last post about a <a href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">cleaning data for a Kaggle competition</a>.</p>
+<p>Happy blogging!</p>
+<h2>Installation</h2>
+<p>Download plugin files: <code>plugin/ipythonnb.py</code> and the <code>plugin/nbconverter</code> directory.</p>
+<p>The esiest way is to locate the pelican directory (for example: <code>~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/</code>) and paste plugins files in the <code>pelican/plugins</code> folder.
+Then in the <code>pelicanconf.py</code> put: <code>PLUGINS = ['pelican.plugins.ipythonnb']</code>.</p>
+<p>But is also is possible to add plugins on the same directory of the pelican project:
+Create ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/pelican.html" class="tag">pelican</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/">Kaggle bulldozers: Basic cleaning</a></h2>
+      <time datetime="" title="2013-03-07T00:00:00+00:00" pubdate>March 07, 2013</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the last (2) weeks I have been doing a project for my Business Intelligence class and I learned why people always say they spend 80% of their time clearning the data, couldn't be more true.</p>
+<p>To practice a little bit more I decide to try the <a href="http://www.kaggle.com/c/bluebook-for-bulldozers">Kaggle bulldozers</a> competition. The first thing I notice was that the data is huge (+450 Mgs), is by far the bigguest data I have dealed with, for most Big Data experts is probably tiny but for me was huge xD.</p>
+<p>I was curious to see if python was capable of dealing with that and make some basic cleaning, also I ended creating some functionality for <a href="https://github.com/danielfrg/copper">copper</a>, the date cleaning and join datasets.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I start by looking (and getting scared) the data on Excel then imported it into python (pandas); +401k and 53 columns.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/kaggle.html" class="tag">kaggle</a>
+            <a href="/tag/copper.html" class="tag">copper</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks in pelican</a></h2>
+      <time datetime="" title="2013-02-16T00:00:00+00:00" pubdate>February 16, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p class='update'><strong>Update: </strong> Check out the updated post on <a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/">blogging with iPython notebook and pelican with a plugin</a>.</p>
+
+<p>It seems that I spend most time redesigning/developing this blog than actually
+blogging xD, just a few weeks ago I wrote about how I was <a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/">blogging using jekyll
+with iPython notebooks</a>
+and now I am talking about doing the same different static blog engine.</p>
+<p>The fact is that a few days ago I found <a href="http://www.getpelican.com">pelican</a>, the first serious
+python alternative to Jekyll I have found, and after reading 15 minutes about it I was
+downloading pelican and creating a theme based on my old Jekyll site.</p>
+<p>The switch was easy just needed move some files, change some of the tags from liquid to
+<a href="http://jinja.pocoo.org/docs/">jinja2</a> and add some metadata. The fact of having
+less than 10 posts also helped because I did that part manually.</p>
+<p>The fact that <a href="http://www.getpelican.com">pelican</a> is on python gave me ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/pelican.html" class="tag">pelican</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/02/13/copper-quick-data-transformation-python/">Copper - Quick and automatic data transformation</a></h2>
+      <time datetime="" title="2013-02-13T00:00:00+00:00" pubdate>February 13, 2013</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Today I start working on the first assignment for the Coursera's Data Analysis course and I needed to make some basic transformation on the data so decide to include them on <a href="https://github.com/danielfrg/copper">copper</a>.</p>
+<p>I realize I was making some wrong decisions on the Type metadata on the Dataset. Since the money type is just a number (similar to a percent number on the case of this example) it is not necessary to have it as a different type, just make the transformations I was doing so I decide to remove the Money type, now the only types are Number and Category.</p>
+<p>Lets dive into the example: dataset: <a href="https://raw.github.com/danielfrg/copper/master/examples/loans/data/loansData.csv">loansData.csv</a></p>
+<p>Import copper and set the project path</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/02/13/copper-quick-data-transformation-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/copper.html" class="tag">copper</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/02/05/d3-backbone-tornado-histogram-csv/">Using D3, backbone and tornado to visualize histograms of a csv file</a></h2>
+      <time datetime="" title="2013-02-05T00:00:00+00:00" pubdate>February 05, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>After being procrastinating for weeks the learning of <a href="http://d3js.org">D3.js</a> and <a href="http://backbonejs.org">backbone.js</a> I have finally made my first example using both libraries to explore (via histograms) a pandas DataFrame. The reason of the procrastination is very simple: I love python to much, because is probably the only language who is great in all areas (that I am interested at least):</p>
+<ul>
+<li>Great web frameworks as <a href="https://www.djangoproject.com">Django</a> and <a href="http://www.tornadoweb.org">Tornado</a> - "fighting" with ruby (<a href="http://rubyonrails.org">rails</a>)</li>
+<li>Great Data Analysis packages such as <a href="http://pandas.pydata.org/">pandas</a> - "fighting" with <a href="http://www.r-project.org">R</a></li>
+<li>Great machine-learning libraries such as <a href="http://scikit-learn.org/">scikit-learn</a></li>
+<li>Probably not the most successful but has a good gaming library <a href="http://www.pygame.org/">pyGame</a></li>
+<li>Is a great general purpose language - I use it to program a robot for a NASA competition using a PS3 controller, serial-ports, web-server, cameras, and all in one language</li>
+<li>And the list could go for hours</li>
+</ul>
+<p>For me that is the python killer feature: do <strong>anything</strong> on one language, sometimes ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/02/05/d3-backbone-tornado-histogram-csv/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/javascript.html" class="tag">javascript</a>
+            <a href="/tag/d3js.html" class="tag">D3.js</a>
+            <a href="/tag/backbone.html" class="tag">backbone</a>
+            <a href="/tag/tornado.html" class="tag">tornado</a>
+            <a href="/tag/pandas.html" class="tag">pandas</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/02/04/coursera-data-analysis-quiz-2-python/">Coursera Data Analysis - Quiz 2 on python</a></h2>
+      <time datetime="" title="2013-02-04T00:00:00+00:00" pubdate>February 04, 2013</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I am taking the <a href="https://class.coursera.org/dataanalysis-001/">Data Analysis</a> class on <a href="http://coursera.org">coursera</a>, I wanted to keep learning R since I previously took <a href="https://class.coursera.org/compdata-2012-001/">Computing for Data Analysis</a> but since that I change it to python. I think I love python too much so I did this week quiz on python using pandas and numpy. Not sure if I will do this each week/quiz of the class, we will see.</p>
+<p>You can find the questions and solutions for the <a href="https://github.com/danielfrg/copper/raw/master/examples/coursera_data_analysis/week2/docs/quiz2.pdf">quiz2.pdf</a>, the data: <a href="https://raw.github.com/danielfrg/copper/master/examples/coursera_data_analysis/week2/data/ss06hid.csv">ss06hid.csv</a>, <a href="https://raw.github.com/danielfrg/copper/master/examples/coursera_data_analysis/week2/data/ss06pid.csv">ss06pid.csv</a> and the <a href="https://github.com/danielfrg/copper/raw/master/examples/coursera_data_analysis/week2/docs/PUMSDataDict06.pdf">metadata</a> on the github page.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/coursera.html" class="tag">coursera</a>
+            <a href="/tag/data-analysis.html" class="tag">data analysis</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/">New blog using Jekyll & iPython</a></h2>
+      <time datetime="" title="2013-01-31T00:00:00+00:00" pubdate>January 31, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>Recently I restart my blog by moving from wordpress.com to github pages the reason is than about two weeks ago I found a blog on a github page using <a href="http://octopress.org/">octopress</a> (<a href="https://github.com/mojombo/jekyll">jekyll</a>) and after reading 20 minutes I immediately wanted to use it and decide to switch. Wordpress is a good piece of software but wordpress.com is not, my complaints are.</p>
+<ul>
+<li>Is not fast enough</li>
+<li>Can't have custom analytics and the wordpress analytics sucks.</li>
+<li>Can't modify HTML or even CSS</li>
+<li>Don't have markdown support</li>
+</ul>
+<p>Jekyll has all of that and nd github pages for hosting is just magnificent. Publish a new post with git is how <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">a hacker</a> should do it.</p>
+<p>I tried to find a python alternative, there are some specially <a href="http://ringce.com/hyde">Hyde</a> but the github page shows that the last commit was 2 years ago, while jekyll is actively developed and a much better alternative ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/jekyll.html" class="tag">jekyll</a>
+            <a href="/tag/ipython.html" class="tag">ipython</a>
             <a href="/tag/python.html" class="tag">python</a>
       </div>
 
@@ -87,73 +380,36 @@ and small app that it is just for me. Some options were ...</!--more--></p>
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="/blog/2012/10/14/desktop-app-to-easily-create-new-tasks/">Desktop app to easily create new tasks on all task management web apps</a></h2>
-      <time datetime="" title="2012-10-14T23:51:00+00:00" pubdate>October 14, 2012</time>
+      <h2><a href="/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/">Copper - Bootstrap and Bagging</a></h2>
+      <time datetime="" title="2013-01-30T00:00:00+00:00" pubdate>January 30, 2013</time>
     </header>
 
     <div class="article_content">
-      <p>Recently I have been looking for new ways of manage my tasks, looking
-for being more productive and organized with my
-master, <a href="http://coursera.org/">coursera</a> courses, blog and programming tasks. I am a huge
-fan of web apps and the past week I tried almost every (decent = nice
-landing page) app on the internet, just to name a
-few: <a href="http://do.com/">do</a>, <a href="http://doit.im/">doit</a>, <a href="http://producteev.com/">producteev</a>, <a href="http://orchestra.com/">orchestra</a>, <a href="http://wunderlist.com/">wunderlist</a>, <a href="http://asana.com/">asana</a>,
-<a href="http://42tasks.com/">42tasks</a> to finally choose <a href="http://nirvanahq.com/">nirvana</a>.</p>
-<p>I selected nirvana because it was the best GTD app I could find and the UI
-(very important to me) is pretty good. I haven't read a lot about GTD,
-mostly a few videos, but the methodology have been working really great
-for me and I have notice a big boost to my organization, before I was
-using only Google Calendar. The inbox, next, waiting, schedule, someday
-and projects lists are a very good way of organize tasks.</p>
-<p>Even though I ...</p>
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This week on my Advance Business Intelligence class we took a look at Boosting and Bagging, two concepts well known by everybody in the machine learning world. The example on the class was take a simple Decision Tree and compare it to some bagged Decision Tree; FYI the example on class failed: SAS told that a simple DT was "better" than the bagged one, some error on SAS Enterprise Miner that we could not found. Time to see if python is capable of doing it.</p>
+<p>This first part is just a recap of <a href="http://danielfrg.github.com/blog/2013/01/26/copper-easy-data-analysis-on-python/">Post #1</a> I am using the same <a href="https://raw.github.com/danielfrg/copper/master/examples/donors/data/data.csv">donors.csv</a> that I am using for my class. We import the data and set some roles for the variables</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
     </div>
 
     <div class="meta">
       <div>
-        <a href="/blog/2012/10/14/desktop-app-to-easily-create-new-tasks/" class="read_more">Read more &#8594;</a>
+        <a href="/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
-            <a href="/tag/python.html" class="tag">Python</a>
-            <a href="/tag/ecryption.html" class="tag">Ecryption</a>
-            <a href="/tag/aes.html" class="tag">AES</a>
-            <a href="/tag/gtd.html" class="tag">GTD</a>
-            <a href="/tag/wxpython.html" class="tag">wxPython</a>
-            <a href="/tag/pyexe.html" class="tag">pyexe</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="/blog/2012/10/05/creating-a-blog-in-2012/">Creating a blog in 2012</a></h2>
-      <time datetime="" title="2012-10-05T03:22:00+00:00" pubdate>October 05, 2012</time>
-    </header>
-
-    <div class="article_content">
-      <p>Yes, I am creating a blog on October 5, 2012!</p>
-<p><strong>Why?</strong> Having a flu is one of the reasons. Other reason is that I and
-want to improve my English and have a lot of time to waste (not having a
-car on the US is hard). Also having a blog in 2012 is old-stylish
-and that is <strong>always </strong>cool.</p>
-<p><strong>About me: </strong>Originally from Colombia and currently living in Frisco,
-TX (DFW Area) pursuing a Master in Information Technology and Management
-on the University of Texas at Dallas.</p>
-<p>Dog lover, book reader, TV Series Fanatic and amateur gamer. Passionate
-about new technologies, always wanting to learn something new (mainly
-about technology). Hopes to keep writing for a long time.</p>
-<p>-Dan</p>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2012/10/05/creating-a-blog-in-2012/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/this-blog.html" class="tag">This blog</a>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/copper.html" class="tag">copper</a>
+            <a href="/tag/machine-learning.html" class="tag">machine learning</a>
       </div>
 
     </div>
@@ -163,6 +419,7 @@ about technology). Hopes to keep writing for a long time.</p>
 
   <nav class="pagination row">
     <div class="col-xs-6 left">
+        <a class="prev" href="/author/daniel-rodriguez3.html">&#8592; Past</a>
     </div>
     <div class="col-xs-6 right">
         <a class="next" href="/author/daniel-rodriguez.html">Future &#8594;</a>
