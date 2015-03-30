@@ -105,6 +105,42 @@ annoying. Also having to login into AWS, look for the AMI and spin up and instan
   <div class="separator"></div>
   <article>
     <header>
+      <h2><a href="/blog/2013/11/17/nlp-scale-semafor-salt-celery-more/">NLP at scale: Semafor + salt + celery and more</a></h2>
+      <time datetime="" title="2013-11-17T00:00:00+00:00" pubdate>November 17, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>This posts describes the implementation of a simple system to parse web pages using <a href="http://www.ark.cs.cmu.edu/SEMAFOR/">SEMAFOR</a> (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.</p>
+<p>The whole source can be found on github: <a href="https://github.com/danielfrg/semafor-parsing">danielfrg/semafor-parsing</a></p>
+<p>The main idea is the following:</p>
+<ol>
+<li>We are going to have one master box that has: salt master + celery worker that is going to be waiting for tasks</li>
+<li>When the master receives a query (list of urls to parse) is going to spin up N number of minions/workers using boto and is going to provision all of them using salt</li>
+<li>Each minion/worker is going to have SEMAFOR and a celery worker waiting for parsing tasks</li>
+<li>The master creates a ...</li></ol>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/11/17/nlp-scale-semafor-salt-celery-more/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/nlp.html" class="tag">NLP</a>
+            <a href="/tag/semafor.html" class="tag">semafor</a>
+            <a href="/tag/salt.html" class="tag">salt</a>
+            <a href="/tag/celery.html" class="tag">celery</a>
+            <a href="/tag/luigi.html" class="tag">luigi</a>
+            <a href="/tag/vagrant.html" class="tag">vagrant</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="/blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/">Using cloud9 to save computing power and to code from everywhere too</a></h2>
       <time datetime="" title="2012-11-03T14:46:00+00:00" pubdate>November 03, 2012</time>
     </header>
