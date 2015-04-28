@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Cross-compiling zmq for the raspberry pi in a docker container | Daniel Rodriguez</title>
+
+        <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"> -->
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+    </head>
+
+    <body>
+        <header class="navbar navbar-static-top bs-docs-nav main-header">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/" title="Home" class="title">Daniel Rodriguez</a></li>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                    <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/pages/about.html" title="About">About</a></li>
+                            <li><a href="http://github.com/danielfrg" title="danielfrg's Github" rel="me">Github</a></li>
+                            <li><a href="http://twitter.com/danielfrg" title="danielfrg Twitter" rel="me">Twitter</a></li>
+                            <li><a href="/archives.html" title="Archive">Archives</a></li>
+                            <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+<div class="container post">
+
+    <article>
+        <header>
+            <h1>Cross-compiling zmq for the raspberry pi in a docker container</h1>
+            <time datetime="article.date.isoformat()" pubdate>April 25, 2015</time>
+        </header>
+
+        <div class="article_content">
+            <p>This post describes how to cross-compile zmq (4.1.0-rc1) inside a docker container for the raspberrypi. Explaining what i have found the best development process for it.</p>
+<p>I got a new <a href="https://www.raspberrypi.org/raspberry-pi-2-on-sale/">Raspberry pi 2</a> a couple of weeks ago hoping to start developing some electronics again, I have also been wanting to to do some C again, the no python challenge.</p>
+<p>Suddenly I found out that developing was going to be a pain compared to simple python or C development code, compiling in the pi can take a while and you don't want to have an IDE/text editor in the pi since it's slow, finally moving the files from your favorite IDE can be a (simple to solve) challenge.</p>
+<p>I always want all the responsiveness in my development process as possible.</p>
+<p>Looking for a solution I found that you can cross-compile your C libraries, meaning you compile in a different computer (OS, architecture, or whatever) than the one you are actually going to run the code.</p>
+<p>The instruction for cross-compiling for the pi are all over the internet, doing it in OS X nativelly can be a little bit more challenging and i didn't want to go that route. Thankfully there is <a href="https://www.docker.com/">docker</a>. </p>
+<p>I created a docker container (<code>FROM ubuntu</code>) with most of the elements necesary to cross-compile any C or C++ library. The <code>Dockerfile</code> can be found in <a href="https://github.com/danielfrg/rpi2xc">the git repo</a> with a very simple C "Hello World" example.</p>
+<p>You can of course pull the docker image with one command: <code>docker pull danielfrg/rpi2xc</code>. It should have all that you need to get you started, cross-compile toolchain, environment variables and so on. &lt;3 docker.</p>
+<h2>ZeroMQ</h2>
+<p>I love zmq it even when i hate it. It's a powerful tool that I have used a bit in the past and want to start using again. Its possible to find zmq packages ready for the pi but this was also anexercise, a more real example on cross-compiling a real C++ project. I was easier than expected.</p>
+<p>In addition to the container you need you need to copy the <code>/usr</code> and <code>/lib</code> directories from the raspberry pi to your laptop and share them with the container using the <code>-v /Users/drodriguez/code/raspberrypi/rpi2xc/rootfs:/rootfs</code> flag. Since the zmq library will be linked to those libraries.</p>
+<p>Download zmq (4.1.0-rc1): <a href="http://download.zeromq.org/">http://download.zeromq.org</a> into the workspace directory. Share it with the <code>-v /Users/drodriguez/code/raspberrypi/rpi2xc/workspace:/workspace</code> flag.</p>
+<p>Structure should be like this:</p>
+<ul>
+<li><code>./rootfs/usr/...</code></li>
+<li><code>./rootfs/lib/...</code></li>
+<li><code>./workspace/zeromq-4.1.0/...</code></li>
+</ul>
+<p>Pull the docker image and start a bash session sharing a specified volumes: </p>
+<div class="highlight"><pre><span class="nv">$ </span>docker run -it -v /Users/drodriguez/code/raspberrypi/rpi2xc/rootfs:/rootfs -v /Users/drodriguez/code/raspberrypi/rpi2xc/workspace:/workspace rpi2xc
+</pre></div>
+
+
+<p>Note that of course you need to change those paths to a valid location on you laptop.</p>
+<p>Inside the container:</p>
+<ol>
+<li><code>cd /workspace/zeromq-4.1.0</code></li>
+<li><code>./configure --host=arm-none-linux-gnueabi --with-sysroot=/root CFLAGS='--sysroot=/rootfs'</code></li>
+<li><code>make</code></li>
+</ol>
+<p>Done! ZeroMQ was compiled for the RaspberryPi. It should take around two minutes, docker container download time included.</p>
+<p>Now you just have to move the compiled code to the pi. You can do that using rsync: <code>rsync -rl --delete-after --safe-links ./workspace/zeromq-4.1.0 pi@raspberry:.</code></p>
+<p>If you want to go a little bit crazy can use <a href="https://pypi.python.org/pypi/watchdog"><code>watchdog</code></a> to listen to file events and do it automatically.</p>
+<p>Now we can cross-compile something using the zeromq library.</p>
+<p>Paste <code>hellozmq.c</code> in the workspace directory so it will be shared with the docker container.</p>
+<div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;unistd.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &lt;assert.h&gt;</span>
+<span class="cp">#include &lt;zmq.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//  Socket to talk to clients</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">context</span> <span class="o">=</span> <span class="n">zmq_ctx_new</span> <span class="p">();</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">responder</span> <span class="o">=</span> <span class="n">zmq_socket</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">ZMQ_REP</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">zmq_bind</span> <span class="p">(</span><span class="n">responder</span><span class="p">,</span> <span class="s">&quot;tcp://*:5555&quot;</span><span class="p">);</span>
+    <span class="n">assert</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">buffer</span> <span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+        <span class="n">zmq_recv</span> <span class="p">(</span><span class="n">responder</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;Received Hello</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">sleep</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>          <span class="c1">//  Do some &#39;work&#39;</span>
+        <span class="n">zmq_send</span> <span class="p">(</span><span class="n">responder</span><span class="p">,</span> <span class="s">&quot;World&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Now inside of docker you can compile it:</p>
+<div class="highlight"><pre><span class="p">$</span><span class="nv">CC</span><span class="x"> hellozmq.c -Wall -L/workspace/zeromq-4.1.0/src/.libs -lzmq -I/workspace/zeromq-4.1.0/include</span>
+</pre></div>
+        </div>
+
+        <div class="meta">
+            <div>
+                    <a href="/tag/rpi.html" class="tag">rpi</a>
+                    <a href="/tag/docker.html" class="tag">docker</a>
+                    <a href="/tag/cross-compile.html" class="tag">cross-compile</a>
+                    <a href="/tag/zmq.html" class="tag">zmq</a>
+            </div>
+            <div>
+                <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<script type="text/javascript">
+(function () {
+    'use strict';
+
+    // Global object
+    var App = {};
+
+    // Create button
+    App.commentsButton = document.getElementById('comments-button');
+
+    App.commentsButton.onclick = function () {
+        // Remove button action on click
+        App.commentsButton.onclick = function () {
+        }
+
+        // Create comments container
+        App.disqusContainer = document.createElement('div');
+        App.disqusContainer.setAttribute('id', 'disqus_thread');
+        // App.disqusContainer.setAttribute('class', 'container');
+
+        // Append container to body or div
+        // document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+
+        // Your Disqus shortname
+        App.disqus_shortname = 'danielfrg';
+
+        // Embed Disqus
+        var dsq = document.createElement('script');
+
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
+
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        window.scrollTo(0, dsq.offsetTop - 200);
+    };
+})();
+</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35523657-2', 'danielfrg.com');
+  ga('send', 'pageview');
+
+</script>
+
+    </body>
+</html>
