@@ -251,7 +251,7 @@ table.dataframe th, td {
 &lt;li&gt;AWS account credentials&lt;/li&gt;
 &lt;li&gt;Copy your EC2 keypair in the root of the repo of step 2 and name it &lt;code&gt;ipcluster.pem&lt;/code&gt;, this is so Vagrant can copy the keypair to the cloud&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id="Let's-get-started"&gt;Let's get started&lt;a class="anchor-link" href="#Let's-get-started"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h3 id="Let&amp;#x27;s-get-started"&gt;Let's get started&lt;a class="anchor-link" href="#Let&amp;#x27;s-get-started"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;code&gt;cd&lt;/code&gt; to that directory open the &lt;code&gt;Vagrantfile&lt;/code&gt; and fill the values inside &lt;code&gt;config.vm.provider&lt;/code&gt;, mainly the AWS credentials.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;vagrant up --provider=aws&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -13953,7 +13953,7 @@ oiRBCDGJkgQhxCRKEoQQkyhJEEJM+h+/D0dky8FrhAAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Let's-talk-about-money"&gt;Let's talk about money&lt;a class="anchor-link" href="#Let's-talk-about-money"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Let&amp;#x27;s-talk-about-money"&gt;Let's talk about money&lt;a class="anchor-link" href="#Let&amp;#x27;s-talk-about-money"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
