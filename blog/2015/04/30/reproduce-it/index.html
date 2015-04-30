@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>ReproduceIt | Daniel Rodriguez</title>
+
+        <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+    </head>
+
+    <body>
+        <header class="navbar navbar-static-top bs-docs-nav main-header">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/" title="Home" class="title">Daniel Rodriguez</a></li>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                    <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/pages/about.html" title="About">About</a></li>
+                            <li><a href="http://github.com/danielfrg" title="danielfrg's Github" rel="me">Github</a></li>
+                            <li><a href="http://twitter.com/danielfrg" title="danielfrg Twitter" rel="me">Twitter</a></li>
+                            <li><a href="/archives.html" title="Archive">Archives</a></li>
+                            <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+<div class="container post">
+
+    <article>
+        <header>
+            <h1>ReproduceIt</h1>
+            <time datetime="article.date.isoformat()" pubdate>April 30, 2015</time>
+        </header>
+
+        <div class="article_content">
+            <p>I have been wanting to restart my blog for a while now. In 2013 I wrote around 20 posts but in 2014 I only wrote 3 times and this is my first post in 2015 and its not even a real one. Last one was more than 6 months ago. 
+Time is one of the reasons but sometimes I have a couple of hours to kill that I would like to use to blog but ideas don't come to me easily sometimes.</p>
+<p>Last weekend I attended <a href="http://pydata.org/dal2015">PyData Dallas 2015</a> and in some of the talks about data journalism and open data I got a simple but I believe effective idea for getting me writing new posts.</p>
+<p>The idea is to take articles from the internet that do some kind of data analysis and reproduce the results. In most of the cases the data and analysis are not published but even if the code is available, like for some articles in <a href="http://fivethirtyeight.com">fivethirtyeight.com</a>, thats not a reason not to trying to reproduce the code and learn something in the process.</p>
+<p>All the code and data will be publicly available trying to make the results the more reproducible as possible.</p>
+<p>I am not that interested in stealing the conclusions the article might have but in having a reproducible analysis that is available.</p>
+<p>While reproducing the results will be objective #1 I believe these simple projects are the perfect opportunity to try a new library, a new statistical technique or even a new language that you have been wanting to try but cannot really use at your real job or didn't have a particular idea to try it.</p>
+<p>The idea is not be restricted to internet articles it could also be applied to some academic paper or any kind of data project. Personally I'll start with simple articles that I might have read over the week and that can be reproduced in a couple of afternoons so I can have one every week. Even though I'll probably fail after the first one.</p>
+        </div>
+
+        <div class="meta">
+            <div>
+                    <a href="/tag/reproduceit.html" class="tag">ReproduceIt</a>
+            </div>
+            <div>
+                <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<script type="text/javascript">
+(function () {
+    'use strict';
+
+    // Global object
+    var App = {};
+
+    // Create button
+    App.commentsButton = document.getElementById('comments-button');
+
+    App.commentsButton.onclick = function () {
+        // Remove button action on click
+        App.commentsButton.onclick = function () {
+        }
+
+        // Create comments container
+        App.disqusContainer = document.createElement('div');
+        App.disqusContainer.setAttribute('id', 'disqus_thread');
+        // App.disqusContainer.setAttribute('class', 'container');
+
+        // Append container to body or div
+        // document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+
+        // Your Disqus shortname
+        App.disqus_shortname = 'danielfrg';
+
+        // Embed Disqus
+        var dsq = document.createElement('script');
+
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
+
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        window.scrollTo(0, dsq.offsetTop - 200);
+    };
+})();
+</script>
+
+        <style type="text/css">.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+}
+
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}</style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35523657-2', 'danielfrg.com');
+  ga('send', 'pageview');
+
+</script>
+
+    </body>
+</html>
