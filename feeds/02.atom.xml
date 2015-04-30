@@ -1079,7 +1079,7 @@ so you in your pelican &lt;code&gt;article.html&lt;/code&gt; template should do:
 
 
 &lt;p&gt;This particular post uses markdown but most of my previous posts are now converted
-from ipython notebooks for example: &lt;a href="/blog/2013/02/13/copper-quick-data-transformation-python/"&gt;copper-quick-data-transformation&lt;/a&gt;&lt;/p&gt;
+from ipython notebooks for example: &lt;a href="{filename}../02/copper-quick-data-transformation.ipynb"&gt;copper-quick-data-transformation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If are curious about my pelican config or theme check it out on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Happy blogging!&lt;/p&gt;
 &lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="pelican"></category></entry><entry><title>Copper - Quick and automatic data transformation</title><link href="/blog/2013/02/13/copper-quick-data-transformation-python/" rel="alternate"></link><updated>2013-02-13T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-13:blog/2013/02/13/copper-quick-data-transformation-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
