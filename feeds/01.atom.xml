@@ -5342,12 +5342,12 @@ always good Decision Tree also Support Vector Machine and Naive Bayes.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;# tree
-array([[1365, 67], [ 506, 62]])
-# svm
-array([[1362, 70], [ 531, 37]])
-#gnb
-array([[1196, 236], [ 406, 162]])
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# tree&lt;/span&gt;
+&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1365&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;67&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;506&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;62&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;span class="c"&gt;# svm&lt;/span&gt;
+&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1362&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;531&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;37&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;span class="c"&gt;#gnb&lt;/span&gt;
+&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1196&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;236&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;406&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;162&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -5380,7 +5380,7 @@ the objective of this post. Enterprise Miner produces a lot of results
 but they are useless unless you understand them, is better to get few
 results and use understand them correctly. Other chart I learned was the
 Lift chart but scikit-learn does not have this option.&lt;/p&gt;
-&lt;p&gt;I was able to get the results a &lt;strong&gt;lot&lt;/strong&gt; quicker with iPython than with
+&lt;p&gt;I was able to get the results a &lt;strong&gt;lot&lt;/strong&gt; quicker with Python than with
 SAS EM, for this project it took me like 4 or 5 hours with SAS EM and
 less than 1 hour on Python.&lt;/p&gt;
 &lt;p&gt;The complete iPython notebook (also visible &lt;a href="http://nbviewer.ipython.org/urls/raw.github.com/dfrodriguez143/PythonDataAnalysisExamples/master/catalog-marketing/catalog-marketing.ipynb"&gt;here&lt;/a&gt;) and data is

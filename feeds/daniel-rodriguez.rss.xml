@@ -4697,7 +4697,7 @@ Then for each game I download all players stats for that game. The result was
 at least now I have some data.&lt;/p&gt;
 &lt;p&gt;Next step is probably to insert the data into a &lt;a href="http://www.postgresql.org/"&gt;postgres&lt;/a&gt;
 database. Or just be crazy and do some machine learning as it is.&lt;/p&gt;
-&lt;p&gt;The data and code is on github &lt;a href="https://github.com/danielfrg/nba"&gt;nba&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Mon, 01 Apr 2013 00:00:00 +0000</pubDate><guid>tag:,2013-04-01:blog/2013/04/01/nba-scraping-data/</guid><category>python</category><category>crawling</category><category>pandas</category><category>requests</category><category>beautifulsoup</category></item><item><title>Plugin for blogging with iPython notebooks in Pelican</title><link>/blog/2013/03/08/pelican-ipython-notebook-plugin/</link><description>&lt;p&gt;This is just a little update on my previous post about &lt;a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;Blogging with iPython notebooks with pelican&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The data and code is on github &lt;a href="https://github.com/danielfrg/nba"&gt;nba&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Mon, 01 Apr 2013 00:00:00 +0000</pubDate><guid>tag:,2013-04-01:blog/2013/04/01/nba-scraping-data/</guid><category>python</category><category>crawling</category><category>pandas</category><category>requests</category><category>beautifulsoup</category></item><item><title>Plugin for blogging with IPython notebooks in Pelican</title><link>/blog/2013/03/08/pelican-ipython-notebook-plugin/</link><description>&lt;p&gt;This is just a little update on my previous post about &lt;a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;Blogging with iPython notebooks with pelican&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;One of the people behind pelican helped me to convert the &lt;a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/"&gt;previous code&lt;/a&gt; to a pelican plugin and I just made it available via github: &lt;a href="https://github.com/danielfrg/pelican-ipythonnb"&gt;pelican-ipythonnb&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).&lt;/p&gt;
 &lt;p&gt;An example is my last post about a &lt;a href="/blog/2013/03/07/kaggle-bulldozers-basic-cleaning/"&gt;cleaning data for a Kaggle competition&lt;/a&gt;.&lt;/p&gt;
@@ -6839,7 +6839,7 @@ SalePrice          0.000000&lt;/pre&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Thu, 07 Mar 2013 00:00:00 +0000</pubDate><guid>tag:,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</guid><category>python</category><category>kaggle</category><category>copper</category></item><item><title>Blogging with iPython notebooks in pelican</title><link>/blog/2013/02/16/blogging-pelican-ipython-notebook/</link><description>&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Thu, 07 Mar 2013 00:00:00 +0000</pubDate><guid>tag:,2013-03-07:blog/2013/03/07/kaggle-bulldozers-basic-cleaning/</guid><category>python</category><category>kaggle</category><category>copper</category></item><item><title>Blogging with IPython notebooks in pelican</title><link>/blog/2013/02/16/blogging-pelican-ipython-notebook/</link><description>&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;It seems that I spend most time redesigning/developing this blog than actually
 blogging xD, just a few weeks ago I wrote about how I was &lt;a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/"&gt;blogging using jekyll
@@ -8595,7 +8595,7 @@ Name: FICO.Range&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;python adds a '\n' on on each line so -2&lt;/p&gt;
+&lt;p&gt;python adds a &lt;code&gt;'\n'&lt;/code&gt; on on each line so &lt;code&gt;-2&lt;/code&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -14600,12 +14600,12 @@ always good Decision Tree also Support Vector Machine and Naive Bayes.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;# tree
-array([[1365, 67], [ 506, 62]])
-# svm
-array([[1362, 70], [ 531, 37]])
-#gnb
-array([[1196, 236], [ 406, 162]])
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# tree&lt;/span&gt;
+&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1365&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;67&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;506&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;62&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;span class="c"&gt;# svm&lt;/span&gt;
+&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1362&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;531&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;37&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;span class="c"&gt;#gnb&lt;/span&gt;
+&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1196&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;236&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;406&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;162&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -14638,7 +14638,7 @@ the objective of this post. Enterprise Miner produces a lot of results
 but they are useless unless you understand them, is better to get few
 results and use understand them correctly. Other chart I learned was the
 Lift chart but scikit-learn does not have this option.&lt;/p&gt;
-&lt;p&gt;I was able to get the results a &lt;strong&gt;lot&lt;/strong&gt; quicker with iPython than with
+&lt;p&gt;I was able to get the results a &lt;strong&gt;lot&lt;/strong&gt; quicker with Python than with
 SAS EM, for this project it took me like 4 or 5 hours with SAS EM and
 less than 1 hour on Python.&lt;/p&gt;
 &lt;p&gt;The complete iPython notebook (also visible &lt;a href="http://nbviewer.ipython.org/urls/raw.github.com/dfrodriguez143/PythonDataAnalysisExamples/master/catalog-marketing/catalog-marketing.ipynb"&gt;here&lt;/a&gt;) and data is
@@ -14986,12 +14986,11 @@ I found &lt;a href="https://c9.io/" title="Cloud9"&gt;cloud9&lt;/a&gt; was a sol
 Initially I had my doubts about the online editor mainly because I love
 &lt;a href="http://www.sublimetext.com/" title="Sublime Text"&gt;Sublime text&lt;/a&gt;, and yes it is not so powerful as sublime but is
 &lt;strong&gt;very&lt;/strong&gt; good. But the features such the Github integration and the
-online terminal sold me the service ;I test it and didn't disappoint me.&lt;/p&gt;
+online terminal sold me the service, I test it and didn't disappoint me.&lt;/p&gt;
 &lt;p&gt;I was able with one-click to clone the repository on my Github and run
 the code on their infrastructure (powered by &lt;a href="https://openshift.redhat.com/app/" title="OpenShift"&gt;OpenShift&lt;/a&gt;) with no
 problems at all. Just need to install the required libraries (&lt;a href="http://numpy.scipy.org/" title="numpy"&gt;numpy&lt;/a&gt;
-- running&lt;em&gt;easy_install numpy&lt;/em&gt;) and then it was as simple as run &lt;em&gt;python
-portfolio.py&lt;/em&gt; and see the code running much faster than on my PC.&lt;/p&gt;
+- running &lt;code&gt;easy_install numpy&lt;/code&gt;) and then it was as simple as run &lt;code&gt;python portfolio.py&lt;/code&gt; and see the code running much faster than on my PC.&lt;/p&gt;
 &lt;p&gt;Also the ability to run the code and edit it from everywhere is amazing.
 I was able to connect from my University and keep testing better
 portfolios. On the image below I ran 83 iteration of the code in less
@@ -15000,14 +14999,14 @@ iterations I ran was up to 250k taking up to 8 minutes. And after
 modifying the code I was able to push from Cloud9 directly to my Github
 and back to my PC. Git makes the flow is very smooth and the terminal
 from Cloud9 good enough for that and more.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Django UI" src="/images/blog/2012/11/cloud9/comp-investing-cloud9-google-chrome_001.png" title="Running code in the Cloud9 Terminal" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Cloud9" src="/images/blog/2012/11/cloud9/comp-investing-cloud9-google-chrome_001.png" title="Running code in the Cloud9 Terminal" /&gt;&lt;/p&gt;
 &lt;p&gt;The service has some problems, sometimes the terminal goes crazy for no
 reason (that I could find) and I had to refresh the page, but in general
 works great.&lt;/p&gt;
 &lt;p&gt;I found this a very easy way to execute code on the cloud saving
 computing power and getting faster responses. Next I want to try
 &lt;a href="http://www.picloud.com/" title="PiCloud"&gt;PiCloud&lt;/a&gt; and &lt;a href="https://openshift.redhat.com/app/" title="OpenShift"&gt;OpenShift&lt;/a&gt; directly.&lt;/p&gt;
-&lt;p&gt;The code for the computational investing is on &lt;a href="https://github.com/dfrodriguez143/comp-investing" title="Computational Investing on Github "&gt;my Github&lt;/a&gt; if anyone
+&lt;p&gt;The code for the computational investing is on &lt;a href="https://github.com/danielfrg/comp-investing" title="Computational Investing on Github "&gt;my Github&lt;/a&gt; if anyone
 is interested, is going to be updated as the course goes through.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sat, 03 Nov 2012 14:46:00 +0000</pubDate><guid>tag:,2012-11-03:blog/2012/11/03/using-cloud9-to-save-computing-power-and-to-code-from-everywhere-too/</guid><category>cloud9</category><category>computational investing</category><category>coursera</category><category>numpy</category><category>python</category></item><item><title>Making your own DDNS with Django and AppFog</title><link>/blog/2012/10/20/making-your-own-ddns-with-django-and-appfog/</link><description>&lt;p&gt;I love web-apps as the data is always in sync magically via the cloud, but
 sometimes I just need to access my computer via remote access to use
 some app, get some file or just to start downloading some torrents(shh).
@@ -15190,7 +15189,7 @@ compile to other operating systems because I just don't have them.
 Programmers can download the source can run the app ;)&lt;/p&gt;
 &lt;p&gt;This is a very simple app but it has been working for me and probably
 will work for other person. Suggestions are always welcome.&lt;/p&gt;
-&lt;p&gt;The code is on &lt;a href="https://github.com/dfrodriguez143/newtask"&gt;github&lt;/a&gt; and a &lt;a href="https://github.com/dfrodriguez143/newtask/blob/master/dist.zip?raw=true"&gt;zip&lt;/a&gt; file with the
+&lt;p&gt;The code is on &lt;a href="https://github.com/danielfrg/newtask"&gt;github&lt;/a&gt; and a &lt;a href="https://github.com/danielfrg/newtask/blob/master/dist.zip?raw=true"&gt;zip&lt;/a&gt; file with the
 compiled &lt;code&gt;.exe&lt;/code&gt; is available.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Daniel Rodriguez</dc:creator><pubDate>Sun, 14 Oct 2012 23:51:00 +0000</pubDate><guid>tag:,2012-10-14:blog/2012/10/14/desktop-app-to-easily-create-new-tasks/</guid><category>Python</category><category>Ecryption</category><category>AES</category><category>GTD</category><category>wxPython</category><category>pyexe</category></item><item><title>Creating a blog in 2012</title><link>/blog/2012/10/05/creating-a-blog-in-2012/</link><description>&lt;p&gt;Yes, I am creating a blog on October 5, 2012!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Why?&lt;/strong&gt; Having a flu is one of the reasons. Other reason is that I and
 want to improve my English and have a lot of time to waste (not having a

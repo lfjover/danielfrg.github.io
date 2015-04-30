@@ -240,12 +240,11 @@ I found &lt;a href="https://c9.io/" title="Cloud9"&gt;cloud9&lt;/a&gt; was a sol
 Initially I had my doubts about the online editor mainly because I love
 &lt;a href="http://www.sublimetext.com/" title="Sublime Text"&gt;Sublime text&lt;/a&gt;, and yes it is not so powerful as sublime but is
 &lt;strong&gt;very&lt;/strong&gt; good. But the features such the Github integration and the
-online terminal sold me the service ;I test it and didn't disappoint me.&lt;/p&gt;
+online terminal sold me the service, I test it and didn't disappoint me.&lt;/p&gt;
 &lt;p&gt;I was able with one-click to clone the repository on my Github and run
 the code on their infrastructure (powered by &lt;a href="https://openshift.redhat.com/app/" title="OpenShift"&gt;OpenShift&lt;/a&gt;) with no
 problems at all. Just need to install the required libraries (&lt;a href="http://numpy.scipy.org/" title="numpy"&gt;numpy&lt;/a&gt;
-- running&lt;em&gt;easy_install numpy&lt;/em&gt;) and then it was as simple as run &lt;em&gt;python
-portfolio.py&lt;/em&gt; and see the code running much faster than on my PC.&lt;/p&gt;
+- running &lt;code&gt;easy_install numpy&lt;/code&gt;) and then it was as simple as run &lt;code&gt;python portfolio.py&lt;/code&gt; and see the code running much faster than on my PC.&lt;/p&gt;
 &lt;p&gt;Also the ability to run the code and edit it from everywhere is amazing.
 I was able to connect from my University and keep testing better
 portfolios. On the image below I ran 83 iteration of the code in less
@@ -254,12 +253,12 @@ iterations I ran was up to 250k taking up to 8 minutes. And after
 modifying the code I was able to push from Cloud9 directly to my Github
 and back to my PC. Git makes the flow is very smooth and the terminal
 from Cloud9 good enough for that and more.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Django UI" src="/images/blog/2012/11/cloud9/comp-investing-cloud9-google-chrome_001.png" title="Running code in the Cloud9 Terminal" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Cloud9" src="/images/blog/2012/11/cloud9/comp-investing-cloud9-google-chrome_001.png" title="Running code in the Cloud9 Terminal" /&gt;&lt;/p&gt;
 &lt;p&gt;The service has some problems, sometimes the terminal goes crazy for no
 reason (that I could find) and I had to refresh the page, but in general
 works great.&lt;/p&gt;
 &lt;p&gt;I found this a very easy way to execute code on the cloud saving
 computing power and getting faster responses. Next I want to try
 &lt;a href="http://www.picloud.com/" title="PiCloud"&gt;PiCloud&lt;/a&gt; and &lt;a href="https://openshift.redhat.com/app/" title="OpenShift"&gt;OpenShift&lt;/a&gt; directly.&lt;/p&gt;
-&lt;p&gt;The code for the computational investing is on &lt;a href="https://github.com/dfrodriguez143/comp-investing" title="Computational Investing on Github "&gt;my Github&lt;/a&gt; if anyone
+&lt;p&gt;The code for the computational investing is on &lt;a href="https://github.com/danielfrg/comp-investing" title="Computational Investing on Github "&gt;my Github&lt;/a&gt; if anyone
 is interested, is going to be updated as the course goes through.&lt;/p&gt;</summary><category term="cloud9"></category><category term="computational investing"></category><category term="coursera"></category><category term="numpy"></category><category term="python"></category></entry></feed>

@@ -187,12 +187,12 @@ always good Decision Tree also Support Vector Machine and Naive Bayes.</p>
 </pre></div>
 
 
-<div class="highlight"><pre># tree
-array([[1365, 67], [ 506, 62]])
-# svm
-array([[1362, 70], [ 531, 37]])
-#gnb
-array([[1196, 236], [ 406, 162]])
+<div class="highlight"><pre><span class="c"># tree</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1365</span><span class="p">,</span> <span class="mi">67</span><span class="p">],</span> <span class="p">[</span> <span class="mi">506</span><span class="p">,</span> <span class="mi">62</span><span class="p">]])</span>
+<span class="c"># svm</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1362</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="p">[</span> <span class="mi">531</span><span class="p">,</span> <span class="mi">37</span><span class="p">]])</span>
+<span class="c">#gnb</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1196</span><span class="p">,</span> <span class="mi">236</span><span class="p">],</span> <span class="p">[</span> <span class="mi">406</span><span class="p">,</span> <span class="mi">162</span><span class="p">]])</span>
 </pre></div>
 
 
@@ -225,7 +225,7 @@ the objective of this post. Enterprise Miner produces a lot of results
 but they are useless unless you understand them, is better to get few
 results and use understand them correctly. Other chart I learned was the
 Lift chart but scikit-learn does not have this option.</p>
-<p>I was able to get the results a <strong>lot</strong> quicker with iPython than with
+<p>I was able to get the results a <strong>lot</strong> quicker with Python than with
 SAS EM, for this project it took me like 4 or 5 hours with SAS EM and
 less than 1 hour on Python.</p>
 <p>The complete iPython notebook (also visible <a href="http://nbviewer.ipython.org/urls/raw.github.com/dfrodriguez143/PythonDataAnalysisExamples/master/catalog-marketing/catalog-marketing.ipynb">here</a>) and data is
@@ -317,6 +317,16 @@ div.output_prompt {
 
 div.input_area {
     margin: .2em 0.4em;
+}
+
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
 }</style>
 
 <script>

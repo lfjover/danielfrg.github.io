@@ -942,7 +942,7 @@ I will keep trying this technologies, specially with some real &lt;em&gt;"big"&l
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="impala"></category><category term="odbc"></category><category term="thrift"></category><category term="iopro"></category></entry><entry><title>Blogging with iPython notebooks in pelican</title><link href="/blog/2013/02/16/blogging-pelican-ipython-notebook/" rel="alternate"></link><updated>2013-02-16T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</id><summary type="html">&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
+</summary><category term="python"></category><category term="impala"></category><category term="odbc"></category><category term="thrift"></category><category term="iopro"></category></entry><entry><title>Blogging with IPython notebooks in pelican</title><link href="/blog/2013/02/16/blogging-pelican-ipython-notebook/" rel="alternate"></link><updated>2013-02-16T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-02-16:blog/2013/02/16/blogging-pelican-ipython-notebook/</id><summary type="html">&lt;p class='update'&gt;&lt;strong&gt;Update: &lt;/strong&gt; Check out the updated post on &lt;a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/"&gt;blogging with iPython notebook and pelican with a plugin&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;It seems that I spend most time redesigning/developing this blog than actually
 blogging xD, just a few weeks ago I wrote about how I was &lt;a href="/blog/2013/01/31/new-blog-using-jekyll-and-ipython/"&gt;blogging using jekyll
@@ -2698,7 +2698,7 @@ Name: FICO.Range&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;python adds a '\n' on on each line so -2&lt;/p&gt;
+&lt;p&gt;python adds a &lt;code&gt;'\n'&lt;/code&gt; on on each line so &lt;code&gt;-2&lt;/code&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
