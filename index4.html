@@ -39,6 +39,57 @@
 
   <article>
     <header>
+      <h2><a href="/blog/2012/12/17/python-finance-package-v0-02-basic-utils-and-market-simulator/">Python Finance Package v0.02 – Basic Utils and Market Simulator</a></h2>
+      <time datetime="" title="2012-12-17T15:00:00+00:00" pubdate>December 17, 2012</time>
+    </header>
+
+    <div class="article_content">
+      <p>Continuing with the <strong>(Basic)</strong> Python Finance Package. Now has some
+basic utils: total-return, daily-returns, and sharpe-ratio calculations.
+Also a Market Simulator, the purpose was to solve the <a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing">Computational
+Investing</a> Homework 3.</p>
+<h2>Changes on DataAccess</h2>
+<ol>
+<li>Now the index of the DataFrame is DatetimeIndex not string. With
+    this is possible to index it with datetimes.</li>
+<li>Moved the classes folder from './data/' to './utils/'</li>
+<li>Improved Documentation</li>
+</ol>
+<h2>Market Simulator</h2>
+<p>Reads a .csv file with the orders/trades. Downloads the necessary data
+(symbols and dates between the ). Makes a simulation of the orders:</p>
+<p>The .csv file looks like this:</p>
+<div class="highlight"><pre>year,month,day,symbol,action,num_of_shares
+2011,1,10,AAPL,Buy,1500
+2011,1,13,AAPL,Sell,1500
+2011,1,13,IBM,Buy,4000
+2011,1,26,GOOG,Buy,1000
+2011,2,2,XOM,Sell,4000
+2011,2,10,XOM,Buy,4000
+2011,3,3,GOOG,Sell,1000
+2011,3,3,IBM,Sell,2200
+2011,6 ...</pre></div>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2012/12/17/python-finance-package-v0-02-basic-utils-and-market-simulator/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/cousera.html" class="tag">cousera</a>
+            <a href="/tag/finance.html" class="tag">finance</a>
+            <a href="/tag/pandas.html" class="tag">pandas</a>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/computational-investing.html" class="tag">computational investing</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="/blog/2012/12/13/python-finance-package-v0-01-data-manager/">Python Finance Package v0.01 - Data Manager</a></h2>
       <time datetime="" title="2012-12-13T12:59:00+00:00" pubdate>December 13, 2012</time>
     </header>
@@ -281,6 +332,7 @@ table.dataframe {
     font-size: 13px;
     line-height: 20px;
 }
+
 table.dataframe th, td {
     padding: 4px;
     text-align: left;

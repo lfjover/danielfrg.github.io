@@ -39,6 +39,45 @@
 
   <article>
     <header>
+      <h2><a href="/blog/2013/02/13/copper-quick-data-transformation-python/">Copper - Quick and automatic data transformation</a></h2>
+      <time datetime="" title="2013-02-13T00:00:00+00:00" pubdate>February 13, 2013</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Today I start working on the first assignment for the Coursera's Data Analysis course and I needed to make some basic transformation on the data so decide to include them on <a href="https://github.com/danielfrg/copper">copper</a>.</p>
+<p>I realize I was making some wrong decisions on the Type metadata on the Dataset. Since the money type is just a number (similar to a percent number on the case of this example) it is not necessary to have it as a different type, just make the transformations I was doing so I decide to remove the Money type, now the only types are Number and Category.</p>
+<p>Lets dive into the example: dataset: <a href="https://raw.github.com/danielfrg/copper/master/examples/loans/data/loansData.csv">loansData.csv</a></p>
+<p>Import copper and set the project path</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/02/13/copper-quick-data-transformation-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/copper.html" class="tag">copper</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="/blog/2013/02/05/d3-backbone-tornado-histogram-csv/">Using D3, backbone and tornado to visualize histograms of a csv file</a></h2>
       <time datetime="" title="2013-02-05T00:00:00+00:00" pubdate>February 05, 2013</time>
     </header>
@@ -384,44 +423,6 @@ Investing</a> Homework 3.</p>
 
   </article>
   <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="/blog/2012/12/13/python-finance-package-v0-01-data-manager/">Python Finance Package v0.01 - Data Manager</a></h2>
-      <time datetime="" title="2012-12-13T12:59:00+00:00" pubdate>December 13, 2012</time>
-    </header>
-
-    <div class="article_content">
-      <p>I have learned a lot from my most recent Coursera Course: <a href="https://class.coursera.org/compinvesting1-2012-001/class/index" title="Computational Investing - Part 1">Computational
-Investing Part 1</a>. The language used on the class is Python so I
-couldn't be happier; we are using a package called <a href="http://wiki.quantsoftware.org/index.php?title=QuantSoftware_ToolKit" title="QSTK">QSTK</a> developed by
-some people at Georgia Tech, who are also responsible for the class.</p>
-<p>The quality of the package is amazing, has a tons of features, but one
-area I notice the package to has to be improved is the data downloading
-and management.</p>
-<p>I decide to write some python scripts to help me with this problem, and
-later on I decide to write a very simple Python Package with a few utils
-to help me on this class and future finance projects. A little bit an
-alternative to QSTK and a little bit a complement for it.</p>
-<p>At the same time I decide to make the jump from Python 2.7 to Python ...</p>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2012/12/13/python-finance-package-v0-01-data-manager/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/coursera.html" class="tag">coursera</a>
-            <a href="/tag/finance.html" class="tag">finance</a>
-            <a href="/tag/pandas.html" class="tag">pandas</a>
-            <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/computational-investing.html" class="tag">computational investing</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
 
   <nav class="pagination row">
     <div class="col-xs-6 left">
@@ -469,6 +470,7 @@ table.dataframe {
     font-size: 13px;
     line-height: 20px;
 }
+
 table.dataframe th, td {
     padding: 4px;
     text-align: left;

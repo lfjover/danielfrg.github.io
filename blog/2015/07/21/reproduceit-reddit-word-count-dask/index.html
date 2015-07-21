@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>ReproduceIt: Reddit word count | Daniel Rodriguez</title>
+
+        <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+    </head>
+
+    <body>
+        <header class="navbar navbar-static-top bs-docs-nav main-header">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/" title="Home" class="title">Daniel Rodriguez</a></li>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                    <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/pages/about.html" title="About">About</a></li>
+                            <li><a href="http://github.com/danielfrg" title="danielfrg's Github" rel="me">Github</a></li>
+                            <li><a href="http://twitter.com/danielfrg" title="danielfrg Twitter" rel="me">Twitter</a></li>
+                            <li><a href="/archives.html" title="Archive">Archives</a></li>
+                            <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+<div class="container post">
+
+    <article>
+        <header>
+            <h1>ReproduceIt: Reddit word count</h1>
+            <time datetime="article.date.isoformat()" pubdate>July 21, 2015</time>
+        </header>
+
+        <div class="article_content">
+            <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/.ansibold{font-weight:bold}.ansiblack{color:black}.ansired{color:darkred}.ansigreen{color:darkgreen}.ansiyellow{color:#c4a000}.ansiblue{color:darkblue}.ansipurple{color:darkviolet}.ansicyan{color:steelblue}.ansigray{color:gray}.ansibgblack{background-color:black}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:yellow}.ansibgblue{background-color:blue}.ansibgpurple{background-color:magenta}.ansibgcyan{background-color:cyan}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:none}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}@media print{.edit_mode div.cell.selected{border-color:transparent}}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}@media (max-width:540px){.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:bold;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a{color:inherit;text-decoration:none}div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){div.unrecognized_cell>div.prompt{display:none}}@media print{div.code_cell{page-break-inside:avoid}}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:none}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base{}.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#ba2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88f}.highlight-keyword{8000;font-weight:bold}.highlight-builtin{8000}.highlight-error{color:#f00}.highlight-operator{color:#a2f;font-weight:bold}.highlight-meta{color:#a2f}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{color:blue}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{8000;font-weight:bold}.cm-s-ipython span.cm-atom{color:#88f}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#a2f;font-weight:bold}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#ba2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#a2f}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{8000}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{color:blue}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:#f00}.cm-s-ipython span.cm-tab{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);background-position:right;background-repeat:no-repeat}div.output_wrapper{position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,0.8);box-shadow:inset 0 2px 8px rgba(0,0,0,0.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,0.5)}div.output_prompt{color:darkred}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left !important}div.output_area div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;color:black;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:darkred}div.raw_input_container{font-family:monospace;padding-top:5px}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:bold;color:red}div.output_unrecognized a{color:inherit;text-decoration:none}div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link{text-decoration:underline}.rendered_html :visited{text-decoration:underline}.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child{margin-top:1em}.rendered_html h5:first-child{margin-top:1em}.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ul{margin-top:1em}.rendered_html *+ol{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:none;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:bold;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5{font-size:100%;font-style:italic}.cm-header-6{font-size:100%;font-style:italic}.widget-interact>div,.widget-interact>input{padding:2.5px}.widget-area{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}.widget-area .widget-subarea{padding:.44em .4em .4em 1px;margin-left:6px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:2;-moz-box-flex:2;box-flex:2;flex:2;-webkit-box-align:start;-moz-box-align:start;box-align:start;align-items:flex-start}.widget-area.connection-problems .prompt:after{content:"\f127";font-family:'FontAwesome';color:#d9534f;font-size:14px;top:3px;padding:3px}.slide-track{border:1px solid #ccc;background:#fff;border-radius:2px}.widget-hslider{padding-left:8px;padding-right:2px;overflow:visible;width:350px;height:5px;max-height:5px;margin-top:13px;margin-bottom:10px;border:1px solid #ccc;background:#fff;border-radius:2px;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}.widget-hslider .ui-slider{border:0;background:none;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}.widget-hslider .ui-slider .ui-slider-handle{width:12px;height:28px;margin-top:-8px;border-radius:2px}.widget-hslider .ui-slider .ui-slider-range{height:12px;margin-top:-4px;background:#eee}.widget-vslider{padding-bottom:5px;overflow:visible;width:5px;max-width:5px;height:250px;margin-left:12px;border:1px solid #ccc;background:#fff;border-radius:2px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}.widget-vslider .ui-slider{border:0;background:none;margin-left:-4px;margin-top:5px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}.widget-vslider .ui-slider .ui-slider-handle{width:28px;height:12px;margin-left:-9px;border-radius:2px}.widget-vslider .ui-slider .ui-slider-range{width:12px;margin-left:-1px;background:#eee}.widget-text{width:350px;margin:0}.widget-listbox{width:350px;margin-bottom:0}.widget-numeric-text{width:150px;margin:0}.widget-progress{margin-top:6px;min-width:350px}.widget-progress .progress-bar{-webkit-transition:none;-moz-transition:none;-ms-transition:none;-o-transition:none;transition:none}.widget-combo-btn{min-width:125px}.widget_item .dropdown-menu li a{color:inherit}.widget-hbox{display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}.widget-hbox input[type="checkbox"]{margin-top:9px;margin-bottom:10px}.widget-hbox .widget-label{min-width:10ex;padding-right:8px;padding-top:5px;text-align:right;vertical-align:text-top}.widget-hbox .widget-readout{padding-left:8px;padding-top:5px;text-align:left;vertical-align:text-top}.widget-vbox{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}.widget-vbox .widget-label{padding-bottom:5px;text-align:center;vertical-align:text-bottom}.widget-vbox .widget-readout{padding-top:5px;text-align:center;vertical-align:text-top}.widget-box{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-box-align:start;-moz-box-align:start;box-align:start;align-items:flex-start}.widget-radio-box{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;padding-top:4px}.widget-radio-box label{margin-top:0;margin-left:20px}</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ReproduceIt is a series of articles that reproduce the results from data articles focusing on having open data and open code. On this small article I reproduce the results (not visualization this time) from the reddit user <a href="https://www.reddit.com/user/fhoffa">/u/fhoffa</a>, he posted a nice word cloud visualization of the most common words on some famous subreddits.</p>
+<p>The reddit post can be found in the data is beautiful subreddit: <a href="https://www.reddit.com/r/dataisbeautiful/comments/3d9qvj/reddit_most_common_words_for_rpolitics_rmovies/">Reddit most common words for /r/politics, /r/movies, /r/trees, /r/science</a>
+and the original word cloud was this:
+<img src="http://i.imgur.com/5Ysd1jE.png" alt="Original Wordcloud"></p>
+<p>For some context <a href="https://www.reddit.com/r/dataisbeautiful/comments/3d9qvj/reddit_most_common_words_for_rpolitics_rmovies/ct32syr">he mentioned</a> that he used Google BigQuery and Tableu. The data used was the most recent month available (May 2015) in a recent reddit dump that user <a href="https://www.reddit.com/user/Stuck_In_the_Matrix">/u/Stuck_In_the_Matrix</a> <a href="https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/">made available</a> in a nice torrent.</p>
+<p>To reproduce the results I am using <a href="https://github.com/ContinuumIO/dask">dask</a> which is a nice new project from Continuum Analytics which got a lot of attention in the most recent SciPy. A little disclaimer here: I currently work for Continuum but this post is not sponsored in any way.</p>
+
+<pre><code>Dask enables parallel computing through task scheduling and blocked algorithms. This allows developers to write complex parallel algorithms and execute them in parallel either on a modern multi-core machine or on a distributed cluster.
+
+</code></pre>
+<p>So basically dask is similar to <a href="http://spark.apache.org/">Spark</a> in the way of applying transformation to data but it also works amazingly well in a single multi-core machine and reuses battle tested libraries like numpy and pandas.</p>
+<p>The data I am using is the same data as in the original post wich is 33.46 GB of a JSON new line delimited, each line having one comment with some metadata. All this code ran a my MacBook Pro (Retina, Mid 2014) - 2.8 GHz Intel core i7 - 16 GB 1600 MHz DDR3.</p>
+<p>Lets jump to the code, as usual some libraries and their versions for reproducibility:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">import</span> <span class="nn">dask.bag</span> <span class="kn">as</span> <span class="nn">db</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dask</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;0.6.0&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Note</strong>: At the moment I am writing this you need the master version of dask since it includes <a href="https://github.com/ContinuumIO/dask/pull/427">a recent feature</a> <a href="https://github.com/mrocklin">Matt Rocklin</a> recently did but it should be available in the next version of dask.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">nltk</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;3.0.4&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Create a <code>data</code> variable that points to the big 33 GB file and set the <code>chunkbytes</code> to 100 MB, map each item to <code>json.loads</code> since I know that each row is a JSON doc.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">from_filenames</span><span class="p">(</span><span class="s">&quot;RC_2015-05&quot;</span><span class="p">,</span> <span class="n">chunkbytes</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similar to spark you can <code>take</code> one or more items to see items of the dataset.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">data</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>({u&apos;archived&apos;: False,
+  u&apos;author&apos;: u&apos;rx109&apos;,
+  u&apos;author_flair_css_class&apos;: None,
+  u&apos;author_flair_text&apos;: None,
+  u&apos;body&apos;: u&apos;\u304f\u305d\n\u8aad\u307f\u305f\u3044\u304c\u8cb7\u3063\u305f\u3089\u8ca0\u3051\u306a\u6c17\u304c\u3059\u308b\n\u56f3\u66f8\u9928\u306b\u51fa\u306d\u30fc\u304b\u306a&apos;,
+  u&apos;controversiality&apos;: 0,
+  u&apos;created_utc&apos;: u&apos;1430438400&apos;,
+  u&apos;distinguished&apos;: None,
+  u&apos;downs&apos;: 0,
+  u&apos;edited&apos;: False,
+  u&apos;gilded&apos;: 0,
+  u&apos;id&apos;: u&apos;cqug90g&apos;,
+  u&apos;link_id&apos;: u&apos;t3_34di91&apos;,
+  u&apos;name&apos;: u&apos;t1_cqug90g&apos;,
+  u&apos;parent_id&apos;: u&apos;t3_34di91&apos;,
+  u&apos;removal_reason&apos;: None,
+  u&apos;retrieved_on&apos;: 1432703079,
+  u&apos;score&apos;: 4,
+  u&apos;score_hidden&apos;: False,
+  u&apos;subreddit&apos;: u&apos;soccer_jp&apos;,
+  u&apos;subreddit_id&apos;: u&apos;t5_378oi&apos;,
+  u&apos;ups&apos;: 4},)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now some simple helper functions that we are going to use as filters.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">no_stopwords</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">&#39;english&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">is_word</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">&quot;^[0-9a-zA-Z]+$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now it comes the <code>dask</code> part which it will look really similar to anyone who has used Spark.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">subreddit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s">&#39;subreddit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;movies&#39;</span><span class="p">)</span>
+<span class="n">bodies</span> <span class="o">=</span> <span class="n">subreddit</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="s">&#39;body&#39;</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">)</span><span class="o">.</span><span class="n">concat</span><span class="p">()</span>
+<span class="n">words2</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="n">words3</span> <span class="o">=</span> <span class="n">words2</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">no_stopwords</span><span class="p">)</span>
+<span class="n">words4</span> <span class="o">=</span> <span class="n">words3</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_word</span><span class="p">)</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">words4</span><span class="o">.</span><span class="n">frequencies</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Call <code>compute</code> and let dask work. At this moment if you take a look at your process manager you should see something like this: <img src="/images/blog/2015/07/activity-monitor.png" alt="Activity Monitor"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see how long the computation took, in this case: around 23 minutes which is about 1.4 GB per minute.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">elapsed_time</span>  <span class="c"># seconds</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1416.4745790958405</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With the word count done we can just sort the python list and see the most common words.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>84672</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">sort</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">sort</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(u&apos;movie&apos;, 75848),
+ (u&apos;like&apos;, 60028),
+ (u&apos;one&apos;, 41682),
+ (u&apos;would&apos;, 37354),
+ (u&apos;think&apos;, 33539),
+ (u&apos;really&apos;, 32494),
+ (u&apos;film&apos;, 30931),
+ (u&apos;movies&apos;, 30196),
+ (u&apos;people&apos;, 30046),
+ (u&apos;good&apos;, 27207),
+ (u&apos;see&apos;, 25992),
+ (u&apos;time&apos;, 22783),
+ (u&apos;get&apos;, 21364),
+ (u&apos;much&apos;, 20097),
+ (u&apos;even&apos;, 19977),
+ (u&apos;deleted&apos;, 19464),
+ (u&apos;could&apos;, 19338),
+ (u&apos;know&apos;, 19275),
+ (u&apos;first&apos;, 18435),
+ (u&apos;well&apos;, 18155),
+ (u&apos;also&apos;, 17935),
+ (u&apos;great&apos;, 16729),
+ (u&apos;make&apos;, 16668),
+ (u&apos;way&apos;, 16494),
+ (u&apos;gt&apos;, 16097),
+ (u&apos;still&apos;, 15747),
+ (u&apos;pretty&apos;, 14808),
+ (u&apos;going&apos;, 14649),
+ (u&apos;made&apos;, 14630),
+ (u&apos;watch&apos;, 13648),
+ (u&apos;http&apos;, 13338),
+ (u&apos;actually&apos;, 13307),
+ (u&apos;love&apos;, 12916),
+ (u&apos;something&apos;, 12838),
+ (u&apos;never&apos;, 12762),
+ (u&apos;films&apos;, 12688),
+ (u&apos;seen&apos;, 12642),
+ (u&apos;though&apos;, 12576),
+ (u&apos;character&apos;, 12395),
+ (u&apos;thought&apos;, 12332),
+ (u&apos;say&apos;, 12320),
+ (u&apos;man&apos;, 12247),
+ (u&apos;scene&apos;, 12126),
+ (u&apos;bad&apos;, 12065),
+ (u&apos;got&apos;, 12004),
+ (u&apos;thing&apos;, 11895),
+ (u&apos;lot&apos;, 11864),
+ (u&apos;go&apos;, 11792),
+ (u&apos;story&apos;, 11616),
+ (u&apos;better&apos;, 11599),
+ (u&apos;want&apos;, 11224),
+ (u&apos;right&apos;, 10846),
+ (u&apos;2&apos;, 10698),
+ (u&apos;back&apos;, 10600),
+ (u&apos;ca&apos;, 10434),
+ (u&apos;action&apos;, 10286),
+ (u&apos;best&apos;, 10261),
+ (u&apos;max&apos;, 10066),
+ (u&apos;point&apos;, 10031),
+ (u&apos;shit&apos;, 9546),
+ (u&apos;sure&apos;, 9543),
+ (u&apos;yeah&apos;, 9334),
+ (u&apos;look&apos;, 9181),
+ (u&apos;new&apos;, 9160),
+ (u&apos;said&apos;, 9131),
+ (u&apos;probably&apos;, 8858),
+ (u&apos;saw&apos;, 8832),
+ (u&apos;every&apos;, 8811),
+ (u&apos;end&apos;, 8776),
+ (u&apos;ever&apos;, 8752),
+ (u&apos;guy&apos;, 8717),
+ (u&apos;world&apos;, 8687),
+ (u&apos;characters&apos;, 8605),
+ (u&apos;two&apos;, 8567),
+ (u&apos;https&apos;, 8521),
+ (u&apos;years&apos;, 8478),
+ (u&apos;feel&apos;, 8453),
+ (u&apos;things&apos;, 8200),
+ (u&apos;many&apos;, 8094),
+ (u&apos;part&apos;, 8011),
+ (u&apos;maybe&apos;, 7917),
+ (u&apos;looks&apos;, 7852),
+ (u&apos;always&apos;, 7792),
+ (u&apos;mean&apos;, 7784),
+ (u&apos;original&apos;, 7692),
+ (u&apos;last&apos;, 7643),
+ (u&apos;big&apos;, 7580),
+ (u&apos;work&apos;, 7490),
+ (u&apos;anything&apos;, 7480),
+ (u&apos;take&apos;, 7478),
+ (u&apos;makes&apos;, 7420),
+ (u&apos;fucking&apos;, 7415),
+ (u&apos;need&apos;, 7286),
+ (u&apos;someone&apos;, 7282),
+ (u&apos;different&apos;, 7254),
+ (u&apos;little&apos;, 7241),
+ (u&apos;mad&apos;, 7156),
+ (u&apos;whole&apos;, 6882),
+ (u&apos;old&apos;, 6782),
+ (u&apos;kind&apos;, 6776)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Save a file with the results</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;r_movies.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sort</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s"> </span><span class="si">%i</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">item</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This was a simple post making some computation on 33 GB of data in a single node using around 20 lines of python. The main objective was to reproduce some of the results other people have made with bigger tools like Google Big Query with simpler but also powerful tools in a single node. Also I used dask for the first time and I was kinda impressed by it.</p>
+<p>If you have some medium size data a big workstation and dont want to mess up with clusters you should checkout <a href="https://github.com/ContinuumIO/dask">dask</a>. You can also use dask in a cluster but lets save that for a diffent post.</p>
+
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+        </div>
+
+        <div class="meta">
+            <div>
+                    <a href="/tag/reproduceit.html" class="tag">ReproduceIt</a>
+                    <a href="/tag/reddit.html" class="tag">reddit</a>
+                    <a href="/tag/dask.html" class="tag">dask</a>
+            </div>
+            <div>
+                <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<script type="text/javascript">
+(function () {
+    'use strict';
+
+    // Global object
+    var App = {};
+
+    // Create button
+    App.commentsButton = document.getElementById('comments-button');
+
+    App.commentsButton.onclick = function () {
+        // Remove button action on click
+        App.commentsButton.onclick = function () {
+        }
+
+        // Create comments container
+        App.disqusContainer = document.createElement('div');
+        App.disqusContainer.setAttribute('id', 'disqus_thread');
+        // App.disqusContainer.setAttribute('class', 'container');
+
+        // Append container to body or div
+        // document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+
+        // Your Disqus shortname
+        App.disqus_shortname = 'danielfrg';
+
+        // Embed Disqus
+        var dsq = document.createElement('script');
+
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
+
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        window.scrollTo(0, dsq.offsetTop - 200);
+    };
+})();
+</script>
+
+        <style type="text/css">.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+}
+
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}</style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35523657-2', 'danielfrg.com');
+  ga('send', 'pageview');
+
+</script>
+
+    </body>
+</html>

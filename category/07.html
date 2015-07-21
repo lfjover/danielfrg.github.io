@@ -39,6 +39,42 @@
 
   <article>
     <header>
+      <h2><a href="/blog/2015/07/21/reproduceit-reddit-word-count-dask/">ReproduceIt: Reddit word count</a></h2>
+      <time datetime="" title="2015-07-21T00:00:00+00:00" pubdate>July 21, 2015</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ReproduceIt is a series of articles that reproduce the results from data articles focusing on having open data and open code. On this small article I reproduce the results (not visualization this time) from the reddit user <a href="https://www.reddit.com/user/fhoffa">/u/fhoffa</a>, he posted a nice word cloud visualization of the most common words on some famous subreddits.</p>
+<p>The reddit post can be found in the data is beautiful subreddit: <a href="https://www.reddit.com/r/dataisbeautiful/comments/3d9qvj/reddit_most_common_words_for_rpolitics_rmovies/">Reddit most common words for /r/politics, /r/movies, /r/trees, /r/science</a>
+and the original word cloud was this:
+<img src="http://i.imgur.com/5Ysd1jE.png" alt="Original Wordcloud"></p>
+<p>For some context <a href="https://www.reddit.com/r/dataisbeautiful/comments/3d9qvj/reddit_most_common_words_for_rpolitics_rmovies/ct32syr">he mentioned</a> that he used Google BigQuery and Tableu. The data used was the most recent month available (May 2015) in a recent reddit dump that user <a href="https://www.reddit.com/user/Stuck_In_the_Matrix">/u/Stuck_In_the_Matrix</a> <a href="https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/">made available</a> in a nice torrent.</p>
+<p>To reproduce the results I am using <a href="https://github.com/ContinuumIO/dask">dask</a> which is a nice new project from Continuum Analytics which got a lot of attention in the most recent SciPy. A little disclaimer here: I currently work for Continuum but this post is not sponsored in any way.</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2015/07/21/reproduceit-reddit-word-count-dask/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/reproduceit.html" class="tag">ReproduceIt</a>
+            <a href="/tag/reddit.html" class="tag">reddit</a>
+            <a href="/tag/dask.html" class="tag">dask</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="/blog/2013/07/27/not-so-basic-neural-network-python/">A not so basic neural network on python</a></h2>
       <time datetime="" title="2013-07-27T00:00:00+00:00" pubdate>July 27, 2013</time>
     </header>
@@ -166,6 +202,7 @@ table.dataframe {
     font-size: 13px;
     line-height: 20px;
 }
+
 table.dataframe th, td {
     padding: 4px;
     text-align: left;

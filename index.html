@@ -39,6 +39,42 @@
 
   <article>
     <header>
+      <h2><a href="/blog/2015/07/21/reproduceit-reddit-word-count-dask/">ReproduceIt: Reddit word count</a></h2>
+      <time datetime="" title="2015-07-21T00:00:00+00:00" pubdate>July 21, 2015</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ReproduceIt is a series of articles that reproduce the results from data articles focusing on having open data and open code. On this small article I reproduce the results (not visualization this time) from the reddit user <a href="https://www.reddit.com/user/fhoffa">/u/fhoffa</a>, he posted a nice word cloud visualization of the most common words on some famous subreddits.</p>
+<p>The reddit post can be found in the data is beautiful subreddit: <a href="https://www.reddit.com/r/dataisbeautiful/comments/3d9qvj/reddit_most_common_words_for_rpolitics_rmovies/">Reddit most common words for /r/politics, /r/movies, /r/trees, /r/science</a>
+and the original word cloud was this:
+<img src="http://i.imgur.com/5Ysd1jE.png" alt="Original Wordcloud"></p>
+<p>For some context <a href="https://www.reddit.com/r/dataisbeautiful/comments/3d9qvj/reddit_most_common_words_for_rpolitics_rmovies/ct32syr">he mentioned</a> that he used Google BigQuery and Tableu. The data used was the most recent month available (May 2015) in a recent reddit dump that user <a href="https://www.reddit.com/user/Stuck_In_the_Matrix">/u/Stuck_In_the_Matrix</a> <a href="https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/">made available</a> in a nice torrent.</p>
+<p>To reproduce the results I am using <a href="https://github.com/ContinuumIO/dask">dask</a> which is a nice new project from Continuum Analytics which got a lot of attention in the most recent SciPy. A little disclaimer here: I currently work for Continuum but this post is not sponsored in any way.</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2015/07/21/reproduceit-reddit-word-count-dask/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/reproduceit.html" class="tag">ReproduceIt</a>
+            <a href="/tag/reddit.html" class="tag">reddit</a>
+            <a href="/tag/dask.html" class="tag">dask</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="/blog/2015/05/15/reproduceit-538-baltimore-black-income/">ReproduceIt: FiveThirtyEight - How Baltimore’s Young Black Men Are Boxed In</a></h2>
       <time datetime="" title="2015-05-15T00:00:00+00:00" pubdate>May 15, 2015</time>
     </header>
@@ -370,45 +406,6 @@ annoying. Also having to login into AWS, look for the AMI and spin up and instan
 
   </article>
   <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="/blog/2013/10/31/month-log/">Month-Log.oct.2013</a></h2>
-      <time datetime="" title="2013-10-31T00:00:00+00:00" pubdate>October 31, 2013</time>
-    </header>
-
-    <div class="article_content">
-      <p>I've been busy with real work to write any specific posts for the blog but I realize it was
-a productive month. I worked a lot and learned quite a few things and  new technologies and
-I have some thoughts about them, I usually use twitter to share simple thoughts but they usually get
-lost on the noise.</p>
-<p>So I am going to start a monthly series in which I discuss a little bit about what I have done that month.
-Hopefully mixing with regular posts I am hoping that this makes me learn more and more stuff every month so I have something to write about. On this case is October and a few weeks of September.</p>
-<h2>Books I read</h2>
-<p>I had to do some <a href="http://pig.apache.org/">pig</a> for my job so I used this opportunity to
-consolidate a little bit my knowledge.
-I had worked with pig a little ...</p>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2013/10/31/month-log/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/month-log.html" class="tag">month-log</a>
-            <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/pig.html" class="tag">pig</a>
-            <a href="/tag/nutch.html" class="tag">nutch</a>
-            <a href="/tag/crawling.html" class="tag">crawling</a>
-            <a href="/tag/vagrant.html" class="tag">vagrant</a>
-            <a href="/tag/salt.html" class="tag">salt</a>
-            <a href="/tag/luigi.html" class="tag">luigi</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
 
   <nav class="pagination row">
     <div class="col-xs-6 left">
@@ -455,6 +452,7 @@ table.dataframe {
     font-size: 13px;
     line-height: 20px;
 }
+
 table.dataframe th, td {
     padding: 4px;
     text-align: left;
