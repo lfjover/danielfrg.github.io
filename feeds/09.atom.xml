@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/09.atom.xml" rel="self"></link><id>/</id><updated>2015-09-28T00:00:00+00:00</updated><entry><title>Crawling with Python Selenium and Docker</title><link href="/blog/2015/09/28/crawling-python-selenium-docker/" rel="alternate"></link><updated>2015-09-28T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2015-09-28:blog/2015/09/28/crawling-python-selenium-docker/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/09.atom.xml" rel="self"></link><id>/</id><updated>2015-09-28T00:00:00+00:00</updated><entry><title>Crawling with Python, Selenium and Docker</title><link href="/blog/2015/09/28/crawling-python-selenium-docker/" rel="alternate"></link><updated>2015-09-28T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2015-09-28:blog/2015/09/28/crawling-python-selenium-docker/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
