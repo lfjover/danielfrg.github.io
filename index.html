@@ -39,6 +39,41 @@
 
   <article>
     <header>
+      <h2><a href="/blog/2015/09/28/crawling-python-selenium-docker/">Crawling with Python Selenium and Docker</a></h2>
+      <time datetime="" title="2015-09-28T00:00:00+00:00" pubdate>September 28, 2015</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>TD;DR</strong>: Using selenium inside a docker container to crawl webistes that need javascript or user interaction + a cluster of those using docker swarm.</p>
+<p>While simple HTTP requests are good enough 90% to get the data you want from a website I am always looking for better ways to optimize my crawlers specially in websites that require javascript and user interaction, a login or a click in the right place sometimes give you the access you need. I am looking at to you government websites!</p>
+<p>Recently I have seen more solutions to some of these problems in python such as <a href="https://github.com/scrapinghub/splash">Splash</a> from <a href="http://scrapinghub.com/">ScrapingHub</a> that is basically a QT browser with an scriptable API. I havent tried it and it definetly looks like a viable option but if I am going to render a webpage I want to do it in a "real" (Chrome) browser.</p>
+<p>An easy way to use Chrome (or Firefox or any other popular browser) with an scriptable and multi-language API is using <a href="http://www.seleniumhq.org/">Selenium</a>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2015/09/28/crawling-python-selenium-docker/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/crawling.html" class="tag">Crawling</a>
+            <a href="/tag/python.html" class="tag">Python</a>
+            <a href="/tag/selenium.html" class="tag">Selenium</a>
+            <a href="/tag/docker.html" class="tag">Docker</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="/blog/2015/07/21/reproduceit-reddit-word-count-dask/">ReproduceIt: Reddit word count</a></h2>
       <time datetime="" title="2015-07-21T00:00:00+00:00" pubdate>July 21, 2015</time>
     </header>
@@ -364,42 +399,6 @@ annoying. Also having to login into AWS, look for the AMI and spin up and instan
             <a href="/tag/statistics.html" class="tag">statistics</a>
             <a href="/tag/bayesian.html" class="tag">Bayesian</a>
             <a href="/tag/graphs.html" class="tag">graphs</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="/blog/2013/11/17/nlp-scale-semafor-salt-celery-more/">NLP at scale: Semafor + salt + celery and more</a></h2>
-      <time datetime="" title="2013-11-17T00:00:00+00:00" pubdate>November 17, 2013</time>
-    </header>
-
-    <div class="article_content">
-      <p>This posts describes the implementation of a simple system to parse web pages using <a href="http://www.ark.cs.cmu.edu/SEMAFOR/">SEMAFOR</a> (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.</p>
-<p>The whole source can be found on github: <a href="https://github.com/danielfrg/semafor-parsing">danielfrg/semafor-parsing</a></p>
-<p>The main idea is the following:</p>
-<ol>
-<li>We are going to have one master box that has: salt master + celery worker that is going to be waiting for tasks</li>
-<li>When the master receives a query (list of urls to parse) is going to spin up N number of minions/workers using boto and is going to provision all of them using salt</li>
-<li>Each minion/worker is going to have SEMAFOR and a celery worker waiting for parsing tasks</li>
-<li>The master creates a ...</li></ol>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2013/11/17/nlp-scale-semafor-salt-celery-more/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/nlp.html" class="tag">NLP</a>
-            <a href="/tag/semafor.html" class="tag">semafor</a>
-            <a href="/tag/salt.html" class="tag">salt</a>
-            <a href="/tag/celery.html" class="tag">celery</a>
-            <a href="/tag/luigi.html" class="tag">luigi</a>
-            <a href="/tag/vagrant.html" class="tag">vagrant</a>
       </div>
 
     </div>
