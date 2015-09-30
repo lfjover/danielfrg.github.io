@@ -39,6 +39,42 @@
 
   <article>
     <header>
+      <h2><a href="/blog/2014/02/28/impala-to-python/">Impala to python: ODBC and thrift</a></h2>
+      <time datetime="" title="2014-02-28T00:00:00+00:00" pubdate>February 28, 2014</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For good or bad HDFS is where the data is placed today and we all know this data is hard and slow to query and analyze. The good news is that the people at Cloudera created <a href="http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html">impala</a>, basic idea is: <strong>fast</strong> SQL on Hadoop (HDFS or HBase) using the Hive metastore.</p>
+<p>For good or for bad Hadoop is not were Data Science happens it usually happens in R or python, good news is that the folks at cloudera made sure that is very easy to extract data out of impala using standard technologies such as ODBC or <a href="http://thrift.apache.org/">thrift</a>.</p>
+<p>In this post I try some tools to extract data from impala to python (pandas) to do in memory analysis.</p>
+<p>The setup is quite simple since I am running the cloudera (CDH 4.6) in my own computer using their <a href="http://www.cloudera.com/content/support/en/downloads/download-components/download-products.html">virtual machine</a>, just be sure to port forward port 21050, if you are in the cloud (EC2) just be sure to open that port. The data is just a table of 100,000 rows and 3 columns in AVRO format based on the <a href="http://avro.apache.org/docs/1.7.6/gettingstartedpython.html">getting started with AVRO example</a>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2014/02/28/impala-to-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/impala.html" class="tag">impala</a>
+            <a href="/tag/odbc.html" class="tag">odbc</a>
+            <a href="/tag/thrift.html" class="tag">thrift</a>
+            <a href="/tag/iopro.html" class="tag">iopro</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
       <h2><a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with IPython notebooks in pelican</a></h2>
       <time datetime="" title="2013-02-16T00:00:00+00:00" pubdate>February 16, 2013</time>
     </header>
@@ -67,6 +103,45 @@ less than 10 posts also helped because I did that part manually.</p>
       <div>
             <a href="/tag/python.html" class="tag">python</a>
             <a href="/tag/pelican.html" class="tag">pelican</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/02/13/copper-quick-data-transformation-python/">Copper - Quick and automatic data transformation</a></h2>
+      <time datetime="" title="2013-02-13T00:00:00+00:00" pubdate>February 13, 2013</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Today I start working on the first assignment for the Coursera's Data Analysis course and I needed to make some basic transformation on the data so decide to include them on <a href="https://github.com/danielfrg/copper">copper</a>.</p>
+<p>I realize I was making some wrong decisions on the Type metadata on the Dataset. Since the money type is just a number (similar to a percent number on the case of this example) it is not necessary to have it as a different type, just make the transformations I was doing so I decide to remove the Money type, now the only types are Number and Category.</p>
+<p>Lets dive into the example: dataset: <a href="https://raw.github.com/danielfrg/copper/master/examples/loans/data/loansData.csv">loansData.csv</a></p>
+<p>Import copper and set the project path</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/02/13/copper-quick-data-transformation-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/copper.html" class="tag">copper</a>
       </div>
 
     </div>
@@ -104,6 +179,44 @@ less than 10 posts also helped because I did that part manually.</p>
             <a href="/tag/backbone.html" class="tag">backbone</a>
             <a href="/tag/tornado.html" class="tag">tornado</a>
             <a href="/tag/pandas.html" class="tag">pandas</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/02/04/coursera-data-analysis-quiz-2-python/">Coursera Data Analysis - Quiz 2 on python</a></h2>
+      <time datetime="" title="2013-02-04T00:00:00+00:00" pubdate>February 04, 2013</time>
+    </header>
+
+    <div class="article_content">
+      
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I am taking the <a href="https://class.coursera.org/dataanalysis-001/">Data Analysis</a> class on <a href="http://coursera.org">coursera</a>, I wanted to keep learning R since I previously took <a href="https://class.coursera.org/compdata-2012-001/">Computing for Data Analysis</a> but since that I change it to python. I think I love python too much so I did this week quiz on python using pandas and numpy. Not sure if I will do this each week/quiz of the class, we will see.</p>
+<p>You can find the questions and solutions for the <a href="https://github.com/danielfrg/copper/raw/master/examples/coursera_data_analysis/week2/docs/quiz2.pdf">quiz2.pdf</a>, the data: <a href="https://raw.github.com/danielfrg/copper/master/examples/coursera_data_analysis/week2/data/ss06hid.csv">ss06hid.csv</a>, <a href="https://raw.github.com/danielfrg/copper/master/examples/coursera_data_analysis/week2/data/ss06pid.csv">ss06pid.csv</a> and the <a href="https://github.com/danielfrg/copper/raw/master/examples/coursera_data_analysis/week2/docs/PUMSDataDict06.pdf">metadata</a> on the github page.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/02/04/coursera-data-analysis-quiz-2-python/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/coursera.html" class="tag">coursera</a>
+            <a href="/tag/data-analysis.html" class="tag">data analysis</a>
       </div>
 
     </div>
