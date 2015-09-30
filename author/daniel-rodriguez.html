@@ -39,162 +39,6 @@
 
   <article>
     <header>
-      <h2><a href="/blog/2015/09/28/crawling-python-selenium-docker/">Crawling with Python, Selenium and Docker</a></h2>
-      <time datetime="" title="2015-09-28T00:00:00+00:00" pubdate>September 28, 2015</time>
-    </header>
-
-    <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>TD;DR</strong>: Using selenium inside a docker container to crawl webistes that need javascript or user interaction + a cluster of those using docker swarm.</p>
-<p>While simple HTTP requests are good enough 90% to get the data you want from a website I am always looking for better ways to optimize my crawlers specially in websites that require javascript and user interaction, a login or a click in the right place sometimes give you the access you need. I am looking at to you government websites!</p>
-<p>Recently I have seen more solutions to some of these problems in python such as <a href="https://github.com/scrapinghub/splash">Splash</a> from <a href="http://scrapinghub.com/">ScrapingHub</a> that is basically a QT browser with an scriptable API. I havent tried it and it definetly looks like a viable option but if I am going to render a webpage I want to do it in a "real" (Chrome) browser.</p>
-<p>An easy way to use Chrome (or Firefox or any other popular browser) with an scriptable and multi-language API is using <a href="http://www.seleniumhq.org/">Selenium</a>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2015/09/28/crawling-python-selenium-docker/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/crawling.html" class="tag">Crawling</a>
-            <a href="/tag/python.html" class="tag">Python</a>
-            <a href="/tag/selenium.html" class="tag">Selenium</a>
-            <a href="/tag/docker.html" class="tag">Docker</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="/blog/2015/07/21/reproduceit-reddit-word-count-dask/">ReproduceIt: Reddit word count</a></h2>
-      <time datetime="" title="2015-07-21T00:00:00+00:00" pubdate>July 21, 2015</time>
-    </header>
-
-    <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>ReproduceIt is a series of articles that reproduce the results from data articles focusing on having open data and open code. On this small article I reproduce the results (not visualization this time) from the reddit user <a href="https://www.reddit.com/user/fhoffa">/u/fhoffa</a>, he posted a nice word cloud visualization of the most common words on some famous subreddits.</p>
-<p>The reddit post can be found in the data is beautiful subreddit: <a href="https://www.reddit.com/r/dataisbeautiful/comments/3d9qvj/reddit_most_common_words_for_rpolitics_rmovies/">Reddit most common words for /r/politics, /r/movies, /r/trees, /r/science</a>
-and the original word cloud was this:
-<img src="http://i.imgur.com/5Ysd1jE.png" alt="Original Wordcloud"></p>
-<p>For some context <a href="https://www.reddit.com/r/dataisbeautiful/comments/3d9qvj/reddit_most_common_words_for_rpolitics_rmovies/ct32syr">he mentioned</a> that he used Google BigQuery and Tableau. The data used was the most recent month available (May 2015) in a recent reddit dump that user <a href="https://www.reddit.com/user/Stuck_In_the_Matrix">/u/Stuck_In_the_Matrix</a> <a href="https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/">made available</a> in a nice torrent.</p>
-<p>To reproduce the results I am using <a href="https://github.com/ContinuumIO/dask">dask</a> which is a nice new project from Continuum Analytics which got a lot of attention in the most recent SciPy. A little disclaimer here: I currently work for Continuum but this post is not sponsored in any way.</p>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2015/07/21/reproduceit-reddit-word-count-dask/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/reproduceit.html" class="tag">ReproduceIt</a>
-            <a href="/tag/reddit.html" class="tag">reddit</a>
-            <a href="/tag/dask.html" class="tag">dask</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="/blog/2015/05/15/reproduceit-538-baltimore-black-income/">ReproduceIt: FiveThirtyEight - How Baltimore’s Young Black Men Are Boxed In</a></h2>
-      <time datetime="" title="2015-05-15T00:00:00+00:00" pubdate>May 15, 2015</time>
-    </header>
-
-    <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p class="note">ReproduceIt is a series of articles that reproduce the results from data analysis articles focusing on having open data and open code. All the code and data is available on github: <a href="">reproduceit-538-baltimore-black-income</a>. This post contains a more verbose version of the content that will probably get outdated while the github version could be updated including fixes.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For this second article I (again) took an article from one of my favorite websites <a href="http://fivethirtyeight.com/">FiveThirtyEight</a>. On this case I took an article by Ben Casselman <a href="http://fivethirtyeight.com/datalab/how-baltimores-young-black-men-are-boxed-in/">"How Baltimore’s Young Black Men Are Boxed In"</a> which I found interesting given the recent events in the US, specially on this case Baltimore, Maryland.</p>
-<p>The article analyses the income gap between white and black people in different cities all around the US. The data source is the "American Community Survey" and is available in the <a href="http://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t">"American Fact Finder"</a></p>
-<p>With this app is not possible to crawl it like on the <a href="http://danielfrg.com/blog/2015/05/01/reproduceit-538-adam-sandler-movies/">previous ReproduciIt article</a>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2015/05/15/reproduceit-538-baltimore-black-income/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/reproduceit.html" class="tag">ReproduceIt</a>
-            <a href="/tag/bokeh.html" class="tag">bokeh</a>
-            <a href="/tag/income.html" class="tag">income</a>
-            <a href="/tag/us.html" class="tag">us</a>
-            <a href="/tag/inequality.html" class="tag">inequality</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="/blog/2015/05/01/reproduceit-538-adam-sandler-movies/">ReproduceIt: FiveThirtyEight - The Three Types Of Adam Sandler Movies</a></h2>
-      <time datetime="" title="2015-05-01T00:00:00+00:00" pubdate>May 01, 2015</time>
-    </header>
-
-    <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p class="note">ReproduceIt is a series of articles that reproduce the results from data analysis articles focusing on having open data and open code. All the code and data is available on github: <a href="https://github.com/danielfrg/reproduceit-538-adam-sandler-movies">reproduceit-538-adam-sandler-movies</a>. This post contains a more verbose version of the content that will probably get outdated while the github version could be updated including fixes.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>I am a fan of <a href="http://fivethirtyeight.com">FiveThirtyEight</a> and how they do most of their articles based on data analysis I am also a fan of how they open source a lot of their <a href="https://github.com/fivethirtyeight/data">code and data</a> on github. The ReproduceIt series of articles is highly based on them.</p>
-<p>In this first article of ReproduceIt I am going to try to reproduce the analysis Walt Hickey did for the article <a href="http://fivethirtyeight.com/datalab/the-three-types-of-adam-sandler-movies/">"The Three Types Of Adam Sandler Movies"</a>. This particular article is a simple data analysis on Adam Sandler movies and they didn't provide any code or data for it so it think is a nice opportunity to start this series of posts.</p>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2015/05/01/reproduceit-538-adam-sandler-movies/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/reproduceit.html" class="tag">ReproduceIt</a>
-            <a href="/tag/bokeh.html" class="tag">bokeh</a>
-            <a href="/tag/movies.html" class="tag">movies</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
       <h2><a href="/blog/2015/04/30/reproduce-it/">ReproduceIt</a></h2>
       <time datetime="" title="2015-04-30T00:00:00+00:00" pubdate>April 30, 2015</time>
     </header>
@@ -262,86 +106,6 @@ from  Michael Noll ...</p>
   <div class="separator"></div>
   <article>
     <header>
-      <h2><a href="/blog/2014/04/18/ipython-parallel-cluster-salt/">IPython.parallel cluster using salt</a></h2>
-      <time datetime="" title="2014-04-18T00:00:00+00:00" pubdate>April 18, 2014</time>
-    </header>
-
-    <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This post describes a simple yet flexible implementation on how to deploy an <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel</a> cluster in multiple EC2 instances using <a href="http://www.saltstack.com/">salt</a> and a little bit of <a href="http://vagrantup.com/">Vagrant</a>. The final output will be one instance running the IPython notebook, <code>ipcontroller</code> and acting as the salt-master, also 6 instances each one running <code>ipengine</code> and being salt-minions, see the <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython.parallel docs</a> for information on those commands.</p>
-<p>In a previous post I created a <a href="http://danielfrg.com/blog/2013/11/27/ipython-notebook-aws-salt/">one-liner for deploying an ipython notebook</a> to the cloud, after that I have been refactoring and advancing the concept and it became my own <a href="https://github.com/danielfrg/datasciencebox">datasciencebox</a>, it was natural to include the code for creating the ipcluster code in the same project.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why">
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2014/04/18/ipython-parallel-cluster-salt/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/ipython.html" class="tag">ipython</a>
-            <a href="/tag/parallel.html" class="tag">parallel</a>
-            <a href="/tag/salt.html" class="tag">salt</a>
-            <a href="/tag/vagrant.html" class="tag">vagrant</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
-      <h2><a href="/blog/2014/02/28/impala-to-python/">Impala to python: ODBC and thrift</a></h2>
-      <time datetime="" title="2014-02-28T00:00:00+00:00" pubdate>February 28, 2014</time>
-    </header>
-
-    <div class="article_content">
-      
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For good or bad HDFS is where the data is placed today and we all know this data is hard and slow to query and analyze. The good news is that the people at Cloudera created <a href="http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html">impala</a>, basic idea is: <strong>fast</strong> SQL on Hadoop (HDFS or HBase) using the Hive metastore.</p>
-<p>For good or for bad Hadoop is not were Data Science happens it usually happens in R or python, good news is that the folks at cloudera made sure that is very easy to extract data out of impala using standard technologies such as ODBC or <a href="http://thrift.apache.org/">thrift</a>.</p>
-<p>In this post I try some tools to extract data from impala to python (pandas) to do in memory analysis.</p>
-<p>The setup is quite simple since I am running the cloudera (CDH 4.6) in my own computer using their <a href="http://www.cloudera.com/content/support/en/downloads/download-components/download-products.html">virtual machine</a>, just be sure to port forward port 21050, if you are in the cloud (EC2) just be sure to open that port. The data is just a table of 100,000 rows and 3 columns in AVRO format based on the <a href="http://avro.apache.org/docs/1.7.6/gettingstartedpython.html">getting started with AVRO example</a>
-    </div>
-
-    <div class="meta">
-      <div>
-        <a href="/blog/2014/02/28/impala-to-python/" class="read_more">Read more &#8594;</a>
-      </div>
-
-      <div>
-            <a href="/tag/python.html" class="tag">python</a>
-            <a href="/tag/impala.html" class="tag">impala</a>
-            <a href="/tag/odbc.html" class="tag">odbc</a>
-            <a href="/tag/thrift.html" class="tag">thrift</a>
-            <a href="/tag/iopro.html" class="tag">iopro</a>
-      </div>
-
-    </div>
-
-  </article>
-  <div class="separator"></div>
-  <article>
-    <header>
       <h2><a href="/blog/2013/11/27/ipython-notebook-aws-salt/">One-liner: Deploy python scipy stack with IPython notebook on AWS</a></h2>
       <time datetime="" title="2013-11-27T00:00:00+00:00" pubdate>November 27, 2013</time>
     </header>
@@ -399,6 +163,232 @@ annoying. Also having to login into AWS, look for the AMI and spin up and instan
             <a href="/tag/statistics.html" class="tag">statistics</a>
             <a href="/tag/bayesian.html" class="tag">Bayesian</a>
             <a href="/tag/graphs.html" class="tag">graphs</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/11/17/nlp-scale-semafor-salt-celery-more/">NLP at scale: Semafor + salt + celery and more</a></h2>
+      <time datetime="" title="2013-11-17T00:00:00+00:00" pubdate>November 17, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>This posts describes the implementation of a simple system to parse web pages using <a href="http://www.ark.cs.cmu.edu/SEMAFOR/">SEMAFOR</a> (a SEMantic Analyzer Of Frame Representations) at scale. The system is mainly powered by salt and celery but also uses boto to create worker EC2 instances that parse the documents in parallel and luigi is used to describe the data pipeline in each worker.</p>
+<p>The whole source can be found on github: <a href="https://github.com/danielfrg/semafor-parsing">danielfrg/semafor-parsing</a></p>
+<p>The main idea is the following:</p>
+<ol>
+<li>We are going to have one master box that has: salt master + celery worker that is going to be waiting for tasks</li>
+<li>When the master receives a query (list of urls to parse) is going to spin up N number of minions/workers using boto and is going to provision all of them using salt</li>
+<li>Each minion/worker is going to have SEMAFOR and a celery worker waiting for parsing tasks</li>
+<li>The master creates a ...</li></ol>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/11/17/nlp-scale-semafor-salt-celery-more/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/nlp.html" class="tag">NLP</a>
+            <a href="/tag/semafor.html" class="tag">semafor</a>
+            <a href="/tag/salt.html" class="tag">salt</a>
+            <a href="/tag/celery.html" class="tag">celery</a>
+            <a href="/tag/luigi.html" class="tag">luigi</a>
+            <a href="/tag/vagrant.html" class="tag">vagrant</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/10/31/month-log/">Month-Log.oct.2013</a></h2>
+      <time datetime="" title="2013-10-31T00:00:00+00:00" pubdate>October 31, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>I've been busy with real work to write any specific posts for the blog but I realize it was
+a productive month. I worked a lot and learned quite a few things and  new technologies and
+I have some thoughts about them, I usually use twitter to share simple thoughts but they usually get
+lost on the noise.</p>
+<p>So I am going to start a monthly series in which I discuss a little bit about what I have done that month.
+Hopefully mixing with regular posts I am hoping that this makes me learn more and more stuff every month so I have something to write about. On this case is October and a few weeks of September.</p>
+<h2>Books I read</h2>
+<p>I had to do some <a href="http://pig.apache.org/">pig</a> for my job so I used this opportunity to
+consolidate a little bit my knowledge.
+I had worked with pig a little ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/10/31/month-log/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/month-log.html" class="tag">month-log</a>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/pig.html" class="tag">pig</a>
+            <a href="/tag/nutch.html" class="tag">nutch</a>
+            <a href="/tag/crawling.html" class="tag">crawling</a>
+            <a href="/tag/vagrant.html" class="tag">vagrant</a>
+            <a href="/tag/salt.html" class="tag">salt</a>
+            <a href="/tag/luigi.html" class="tag">luigi</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/09/21/word2vec-yhat/">word2vec in yhat: Word vector similarity</a></h2>
+      <time datetime="" title="2013-09-21T00:00:00+00:00" pubdate>September 21, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>A <a href="http://google-opensource.blogspot.com/2013/08/learning-meaning-behind-words.html">few weeks ago</a>
+Google released some code to convert words to vectors called
+<a href="https://code.google.com/p/word2vec/">word2vec</a>.
+The company I am currently working on does something similar and I was quite amazed by the performance
+and accuracy of Google's algorithm so I created a simple python wrapper to call the C code for training
+and read the training vectors into numpy arrays, you can check it out on
+<a href="https://pypi.python.org/pypi/word2vec">pypi (word2vec)</a>.</p>
+<p>At the same time I found out about <a href="http://yhathq.com/">yhat</a>, I found about them
+via twitter and after reading their blog I had to try their product. What they do is very simple
+but very useful: take some python (scikit-learn) or R classifier and create a REST
+endpoint to make predictions on new data. The product is still in very beta but the guys were
+very responsive and they helped me to solve some of my issues.</p>
+<p>The only restriction I had ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/09/21/word2vec-yhat/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/word2vec.html" class="tag">word2vec</a>
+            <a href="/tag/yhat.html" class="tag">yhat</a>
+            <a href="/tag/machine-learning.html" class="tag">machine learning</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/09/11/django-celery-readability-crawler/">Django + Celery + Readability = Python relevant content crawler</a></h2>
+      <time datetime="" title="2013-09-11T00:00:00+00:00" pubdate>September 11, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>I have written a <a href="{filename}../08/blog-crawler.ipynb">few</a> <a href="{filename}../04/nba-data.md">posts</a>
+about crawling content from the web. Mainly because I know the power of data
+and the biggest data source in the world is the web, Google knew it and we all now how they are
+doing. In my <a href="{filename}../08/blog-crawler.ipynb">last post</a> I wrote about crawling relevant content
+from blogs; It worked but what if I want an admin UI to control the crawling. What if I just put
+the crawler in an EC2 instance and just call it when I need to crawl.</p>
+<p>The solution was pretty simple thanks to some python projects.
+I just needed to move from <a href="http://www.sqlalchemy.org/">sqlalchemy</a> to
+<a href="https://docs.djangoproject.com/en/1.5/">django</a> ORM, create a few <a href="http://celeryproject.org/">celery</a> tasks
+and use <a href="https://github.com/celery/django-celery/">django-celery</a> to have a pretty UI of the tasks.</p>
+<p>I was amazed on how easy it was to integrate celery with django. I just created a few tasks to
+actually crawl blogs (I already had ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/09/11/django-celery-readability-crawler/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/django.html" class="tag">django</a>
+            <a href="/tag/celery.html" class="tag">celery</a>
+            <a href="/tag/readability.html" class="tag">readability</a>
+            <a href="/tag/crawling.html" class="tag">crawling</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/04/01/nba-scraping-data/">Extracting NBA data from ESPN</a></h2>
+      <time datetime="" title="2013-04-01T00:00:00+00:00" pubdate>April 01, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>I've been wanting to play with some sports data for a while. Today I decide to
+stop procastinating and do it. The problems was that after searching a
+while (15 minutes) for some data I was unable to find the data I wanted.
+Even in the <a href="http://www.databasebasketball.com/">Basktetball Database</a>
+(not really sure I undestand the site).</p>
+<p>A friend showed me the <a href="http://espn.go.com/nba/">ESPN</a> stats and ask me if I
+knew how to scrap the data from a website. I lied and told him Yes.
+But I know python and its magic powers so after reading 15 minutes I knew how to do it.</p>
+<p>I used <a href="http://docs.python-requests.org/en/latest/">requests</a> and
+<a href="http://www.crummy.com/software/BeautifulSoup/">beautifulsoup</a> to download and
+scrap the data from the ESPN site. Then used <a href="http://pandas.pydata.org/">pandas</a>
+to order, slice, and save the data into simple csv files. Also used
+<a href="http://ipython.org/">iPython notebooks</a> to develop the code faster.
+And a little bit of my <a href="https://github.com/danielfrg/copper">copper</a>
+project to use ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/04/01/nba-scraping-data/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/crawling.html" class="tag">crawling</a>
+            <a href="/tag/pandas.html" class="tag">pandas</a>
+            <a href="/tag/requests.html" class="tag">requests</a>
+            <a href="/tag/beautifulsoup.html" class="tag">beautifulsoup</a>
+      </div>
+
+    </div>
+
+  </article>
+  <div class="separator"></div>
+  <article>
+    <header>
+      <h2><a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/">Plugin for blogging with IPython notebooks in Pelican</a></h2>
+      <time datetime="" title="2013-03-08T00:00:00+00:00" pubdate>March 08, 2013</time>
+    </header>
+
+    <div class="article_content">
+      <p>This is just a little update on my previous post about <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">Blogging with iPython notebooks with pelican</a>.</p>
+<p>One of the people behind pelican helped me to convert the <a href="/blog/2013/02/16/blogging-pelican-ipython-notebook/">previous code</a> to a pelican plugin and I just made it available via github: <a href="https://github.com/danielfrg/pelican-ipythonnb">pelican-ipythonnb</a>.</p>
+<p>The only thing that changed is the installation but the docs on how to use it is below (or in the readme of the repo).</p>
+<p>An example is my last post about a <a href="{filename}kaggle-bulldozers-clean.ipynb">cleaning data for a Kaggle competition</a>.</p>
+<p>Happy blogging!</p>
+<h2>Installation</h2>
+<p>Download plugin files: <code>plugin/ipythonnb.py</code> and the <code>plugin/nbconverter</code> directory.</p>
+<p>The esiest way is to locate the pelican directory (for example: <code>~/.virtualenvs/blog/lib/python2.7/site-packages/pelican/</code>) and paste plugins files in the <code>pelican/plugins</code> folder.
+Then in the <code>pelicanconf.py</code> put: <code>PLUGINS = ['pelican.plugins.ipythonnb']</code>.</p>
+<p>But is also is possible to add plugins on the same directory of the pelican project:
+Create ...</p>
+    </div>
+
+    <div class="meta">
+      <div>
+        <a href="/blog/2013/03/08/pelican-ipython-notebook-plugin/" class="read_more">Read more &#8594;</a>
+      </div>
+
+      <div>
+            <a href="/tag/python.html" class="tag">python</a>
+            <a href="/tag/pelican.html" class="tag">pelican</a>
       </div>
 
     </div>
