@@ -1,5 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/10.atom.xml" rel="self"></link><id>/</id><updated>2013-10-31T00:00:00+00:00</updated><entry><title>Month-Log.oct.2013</title><link href="/blog/2013/10/31/month-log/" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-10-31:blog/2013/10/31/month-log/</id><summary type="html">&lt;p&gt;I've been busy with real work to write any specific posts for the blog but I realize it was
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daniel Rodriguez</title><link href="/" rel="alternate"></link><link href="/feeds/10.atom.xml" rel="self"></link><id>/</id><updated>2015-10-06T00:00:00+00:00</updated><entry><title>Multicorn in Docker + conda for Postgres Foreign Data Wrappers in Python</title><link href="/blog/2015/10/06/multicorn-docker-conda/" rel="alternate"></link><updated>2015-10-06T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2015-10-06:blog/2015/10/06/multicorn-docker-conda/</id><summary type="html">&lt;p&gt;&lt;a href="http://multicorn.org/"&gt;Multicorn&lt;/a&gt; is (in my opinion) one of those hidden gems in the python community.
+It is basically a wrapper for &lt;a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers"&gt;Postgres Foreign data wrappers&lt;/a&gt;
+and it makes it really easy to develop one in python.
+What that means is that it allows to use what is probably the most common and used database right now,
+Postgres, as a frontend for sql queries while allowing to use different data storage and even computation.&lt;/p&gt;
+&lt;p&gt;Unfortunately its not really known and therefore used, the only real example I have been impress
+with is a talk by Ville Tuulos: &lt;a href="https://www.youtube.com/watch?v=xnfnv6WT1Ng"&gt;How to Build a SQL-based Data Warehouse for 100+ Billion Rows in Python&lt;/a&gt;
+where he talks about how AdRoll &lt;em&gt;"built a custom, high-performance data warehouse in Python which
+can handle hundreds of billions of data points with sub-minute latency on a small cluster of servers"&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;That talk is a only a year old but to be honest the first time I saw it and tried to use Multicorn it was a complete failure.
+Fortunately things have improved and now also we have Docker and conda.
+I was really curious if it was still difficult to combine these two to make a simple Pandas FDW.
+Basically use pandas to read a CSV and filter using Pandas instead of Postgres.&lt;/p&gt;
+&lt;p&gt;There are a couple of Multicorn docker container in Docker Hub but I decided to do my own specially
+because the ones I found were not based on the Postgres docker container.
+Dockerfile can be found in &lt;a href="https://github.com/danielfrg/docker-multicorn"&gt;Github: docker-multicorn&lt;/a&gt;
+or the image can be just pulled by doing &lt;code&gt;docker pull danielfrg/multicorn&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When started the container will install any python library on &lt;code&gt;/src&lt;/code&gt; since this is required for Multicorn to use the custom FDW.&lt;/p&gt;
+&lt;p&gt;It also includes a couple of examples on how to use the image.&lt;/p&gt;
+&lt;h2&gt;Simple CSV&lt;/h2&gt;
+&lt;p&gt;This example is basically a copy of one of Multicorn examples
+where they just load a &lt;code&gt;csv&lt;/code&gt; file using just the python std-library I just use the iris dataset here.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;docker run -p 5432:5432 -v &lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;:/src multicorn
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Connect to the Database (using pgadmin for example) create the FDW and Foreign table.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;CREATE EXTENSION multicorn;
+
+CREATE SERVER csv_srv foreign data wrapper multicorn options (
+    wrapper &amp;#39;multicorn.csvfdw.CsvFdw&amp;#39;
+);
+
+create foreign table csvtest (
+      sepal_length numeric,
+      sepal_width numeric,
+      petal_length numeric,
+      petal_width numeric,
+      species character varying
+) server csv_srv options (
+      filename &amp;#39;/src/iris.csv&amp;#39;,
+      skip_header &amp;#39;1&amp;#39;,
+      delimiter &amp;#39;,&amp;#39;
+);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now is possible to make SQL queries to the table.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;select * from csvtest;
+select sepal_width from csvtest;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Pandas&lt;/h2&gt;
+&lt;p&gt;That simple example shows what is possible but is very useless. In Ville Tuulos talk he uses Numba
+to make some computation, the easiest way to use Numba is to using conda so the docker container
+also includes conda so you can create a custom container with the extra packages needed.
+In this case I am just using pandas.&lt;/p&gt;
+&lt;p&gt;The code for the pandas FDW could not be simpler:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;multicorn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ForeignDataWrapper&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;multicorn.utils&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;log_to_postgres&lt;/span&gt;
+
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;PandasForeignDataWrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ForeignDataWrapper&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PandasForeignDataWrapper&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;filename&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;quals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;log_to_postgres&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;qual&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;quals&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;qual&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;operator&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;lt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;qual&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;field_name&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;qual&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+        &lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iterrows&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+            &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Basically:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Importing &lt;code&gt;multicorn.ForeignDataWrapper&lt;/code&gt; and &lt;code&gt;pandas&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Extend a &lt;code&gt;ForeignDataWrapper&lt;/code&gt; class&lt;/li&gt;
+&lt;li&gt;Define an &lt;code&gt;execute&lt;/code&gt; method that does the load/computation&lt;/li&gt;
+&lt;li&gt;Implement (or not, see below) the filtering of columns and rows. The &lt;code&gt;quals&lt;/code&gt; has &lt;code&gt;.field&lt;/code&gt; &lt;code&gt;.operator&lt;/code&gt; ('&amp;lt;', '&amp;gt;=', and so on) and a &lt;code&gt;.value&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Yield a dictionary with the columns as keys and values as values&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;With the code ready just need to build a custom container with my requirements.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; multicorn&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; conda install -y pandas
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now build that image run the container in the same way as the previous one.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;docker build -t pandasfdw .
+&lt;span class="nv"&gt;$ &lt;/span&gt;docker run -p 5432:5432 -v &lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;:/src pandasfdw
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Create the FDW and table in a similar way as before:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;CREATE EXTENSION multicorn;
+
+CREATE SERVER pandas_srv foreign data wrapper multicorn options (
+    wrapper &amp;#39;pandasfdw.PandasForeignDataWrapper&amp;#39;
+);
+
+CREATE FOREIGN TABLE pandastable (
+    sepal_length numeric,
+    sepal_width numeric,
+    petal_length numeric,
+    petal_width numeric,
+    species character varying
+) server pandas_srv options(
+    filename &amp;#39;/src/iris.csv&amp;#39;
+);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now you can query the table and since we implemented the less than operation we can do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;SELECT * from pandastable where sepal_width &amp;lt; 2.5;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;sepal_length,sepal_width,petal_length,petal_width,species
+4.5;2.3;1.3;0.3;&amp;quot;setosa&amp;quot;
+5.5;2.3;4.0;1.3;&amp;quot;versicolor&amp;quot;
+4.9;2.4;3.3;1.0;&amp;quot;versicolor&amp;quot;
+5.0;2.0;3.5;1.0;&amp;quot;versicolor&amp;quot;
+6.0;2.2;4.0;1.0;&amp;quot;versicolor&amp;quot;
+6.2;2.2;4.5;1.5;&amp;quot;versicolor&amp;quot;
+5.5;2.4;3.8;1.1;&amp;quot;versicolor&amp;quot;
+5.5;2.4;3.7;1.0;&amp;quot;versicolor&amp;quot;
+6.3;2.3;4.4;1.3;&amp;quot;versicolor&amp;quot;
+5.0;2.3;3.3;1.0;&amp;quot;versicolor&amp;quot;
+6.0;2.2;5.0;1.5;&amp;quot;virginica&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;What if we do a greater than now?, we don't have that implemented.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;SELECT * from pandastable where sepal_width &amp;gt; 2.5;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;sepal_length,sepal_width,petal_length,petal_width,species
+5.1;3.5;1.4;0.2;&amp;quot;setosa&amp;quot;
+4.9;3.0;1.4;0.2;&amp;quot;setosa&amp;quot;
+4.7;3.2;1.3;0.2;&amp;quot;setosa&amp;quot;
+4.6;3.1;1.5;0.2;&amp;quot;setosa&amp;quot;
+5.0;3.6;1.4;0.2;&amp;quot;setosa&amp;quot;
+5.4;3.9;1.7;0.4;&amp;quot;setosa&amp;quot;
+4.6;3.4;1.4;0.3;&amp;quot;setosa&amp;quot;
+5.0;3.4;1.5;0.2;&amp;quot;setosa&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Answer is still correct! That is because Postgres will check the conditions anyways but
+if we want we can do that in the custom FDW and pass only the values we want to postgres.&lt;/p&gt;
+&lt;h2&gt;Thoughts&lt;/h2&gt;
+&lt;p&gt;This time it was really straight forward to create the Multicorn container and make simple example using pandas.&lt;/p&gt;
+&lt;p&gt;That code is far (way far) from being useful. For example is reading the CSV file every query (&lt;code&gt;execute&lt;/code&gt;).
+It should be possible to load in the &lt;code&gt;__init__&lt;/code&gt; and use that &lt;code&gt;df&lt;/code&gt; in the query as shown in one of Multicorn's examples: &lt;a href="https://github.com/Kozea/Multicorn/blob/master/python/multicorn/statefdw.py"&gt;statefdw.py&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am not sure why Multicorn and this method is not more wildly used.
+One simple idea in my mind is for example: for one of the million SQL-on-Hadoop engines that are
+now why not make a simple FDW that sends the information to a that engine.
+It would make it much easier for multiple application in multiple languages to just query Postgres
+(&lt;code&gt;Psycopg2&lt;/code&gt; in python) rather than have custom libraries in multiple languages with different features on each one.
+It would also probably make custom DSLs like blaze and ibis target more backends easier.&lt;/p&gt;
+&lt;p&gt;For that particular example I can thing a couple of reason why not to use Multicorn.
+For example you cannot do some operations in the Custom FDW:
+a &lt;code&gt;group by&lt;/code&gt; gets executed by Postgres using the data passed back from the FDW.
+Also each SQL engine has its own characteristics, features and DLL and being constrain to Postgres
+is probably not an option on those cases.&lt;/p&gt;
+&lt;p&gt;Another simple idea would be to have multiple services (maybe with a ZMQ API) and having postgres making
+the requests to those services, that way the clients can just query Postgres as an universal SQL entrypoint.&lt;/p&gt;</summary><category term="Postgres"></category><category term="Multicorn"></category><category term="Python"></category><category term="conda"></category><category term="Docker"></category></entry><entry><title>Month-Log.oct.2013</title><link href="/blog/2013/10/31/month-log/" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-10-31:blog/2013/10/31/month-log/</id><summary type="html">&lt;p&gt;I've been busy with real work to write any specific posts for the blog but I realize it was
 a productive month. I worked a lot and learned quite a few things and  new technologies and
 I have some thoughts about them, I usually use twitter to share simple thoughts but they usually get
 lost on the noise.&lt;/p&gt;
