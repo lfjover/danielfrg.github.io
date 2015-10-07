@@ -6,7 +6,7 @@
         <meta name="author" content="Daniel Rodriguez">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>Multicorn + conda for Postgres Foreign Data Wrappers in Python | Daniel Rodriguez</title>
+        <title>Multicorn in Docker + conda for Postgres Foreign Data Wrappers in Python | Daniel Rodriguez</title>
 
         <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
@@ -39,7 +39,7 @@
 
     <article>
         <header>
-            <h1>Multicorn + conda for Postgres Foreign Data Wrappers in Python</h1>
+            <h1>Multicorn in Docker + conda for Postgres Foreign Data Wrappers in Python</h1>
             <time datetime="article.date.isoformat()" pubdate>October 06, 2015</time>
         </header>
 
@@ -224,6 +224,8 @@ For example you cannot do some operations in the Custom FDW:
 a <code>group by</code> gets executed by Postgres using the data passed back from the FDW.
 Also each SQL engine has its own characteristics, features and DLL and being constrain to Postgres
 is probably not an option on those cases.</p>
+<p>Another simple idea would be to have multiple services (maybe with a ZMQ API) and having postgres making
+the requests to those services, that way the clients can just query Postgres as an universal SQL entrypoint.</p>
         </div>
 
         <div class="meta">
