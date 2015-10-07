@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Daniel Rodriguez">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Multicorn + conda for Postgres Foreign Data Wrappers in Python | Daniel Rodriguez</title>
+
+        <link rel="alternate" type="application/atom+xml" title="Daniel Rodriguez blog atom feed" href="/feeds/all.atom.xml" />
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+    </head>
+
+    <body>
+        <header class="navbar navbar-static-top bs-docs-nav main-header">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/" title="Home" class="title">Daniel Rodriguez</a></li>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                    <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/pages/about.html" title="About">About</a></li>
+                            <li><a href="http://github.com/danielfrg" title="danielfrg's Github" rel="me">Github</a></li>
+                            <li><a href="http://twitter.com/danielfrg" title="danielfrg Twitter" rel="me">Twitter</a></li>
+                            <li><a href="/archives.html" title="Archive">Archive</a></li>
+                            <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+<div class="container post">
+
+    <article>
+        <header>
+            <h1>Multicorn + conda for Postgres Foreign Data Wrappers in Python</h1>
+            <time datetime="article.date.isoformat()" pubdate>October 06, 2015</time>
+        </header>
+
+        <div class="article_content">
+            <p><a href="http://multicorn.org/">Multicorn</a> is (in my opinion) one of those hidden gems in the python community.
+It is basically a wrapper for <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers">Postgres Foreign data wrappers</a>
+and it makes it really easy to develop one FDW in python. What that means is that it allows to use what is probably the most common and used database right now, Postgres, as a frontend for sql queries while allowing to use different (custom) backends for data storage and even computation.</p>
+<p>Unfortunately its not really known and therefore used, the only real example I have been impress with is a talk by Ville Tuulos: <a href="https://www.youtube.com/watch?v=xnfnv6WT1Ng">How to Build a SQL-based Data Warehouse for 100+ Billion Rows in Python</a> where he talks about how AdRoll <em>"built a custom, high-performance data warehouse in Python which can handle hundreds of billions of data points with sub-minute latency on a small cluster of servers"</em>.</p>
+<p>That talk is a only a year old but to be honest the first time I saw it and tried to use Multicorn it was a complete failure. Fortunately things have improved and now also we have Docker and conda. I was really curious to see how to difficult would it be to combine these two to make a simple Pandas FDW. Basically use pandas to read a CSV and filter using Pandas instead of Postgres.</p>
+<p>There are a couple of Multicorn docker container in Docker Hub but I decided to do my own specially because the ones I found were not based on the Postgres docker container. Source can be found in <a href="https://github.com/danielfrg/docker-multicorn">Github: docker-multicorn</a> or it can be pulled just by doing <code>docker pull danielfrg/multicorn</code>.</p>
+<p>When started the container will install any python library on <code>/src</code> since this is required for Multicorn to use the custom FDW.</p>
+<p>It also includes a couple of examples on how to use the image.</p>
+<h2>Simple CSV</h2>
+<p>This example is bascially a copy of one of Multicorn examples
+where they just load a <code>csv</code> file using just the python std-library I just use the iris dataset here.</p>
+<div class="highlight"><pre><span class="nv">$ </span>docker run -p 5432:5432 -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/src multicorn
+</pre></div>
+
+
+<p>Connect to the Database (using pgadmin for example) create the FDW and Foreign table.</p>
+<div class="highlight"><pre>CREATE SERVER csv_srv foreign data wrapper multicorn options (
+    wrapper &#39;multicorn.csvfdw.CsvFdw&#39;
+);
+
+create foreign table csvtest (
+      sepal_length numeric,
+      sepal_width numeric,
+      petal_length numeric,
+      petal_width numeric,
+      species character varying
+) server csv_srv options (
+      filename &#39;/src/iris.csv&#39;,
+      skip_header &#39;1&#39;,
+      delimiter &#39;,&#39;
+);
+</pre></div>
+
+
+<p>Now is possible to make SQL queries to the table.</p>
+<div class="highlight"><pre>select * from csvtest;
+select sepal_width from csvtest;
+</pre></div>
+
+
+<h2>Pandas</h2>
+<p>That simple example shows what is possible but is very useless. In Ville Tuulos talk he uses Numba to make some computation, the easiest way to use Numba is to using conda so the docker container also includes conda so you can create a custom container with the extra packages needed. In this case I am just using pandas.</p>
+<p>The code for a custom FDW could not be simpler honestly:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">multicorn</span> <span class="kn">import</span> <span class="n">ForeignDataWrapper</span>
+<span class="kn">from</span> <span class="nn">multicorn.utils</span> <span class="kn">import</span> <span class="n">log_to_postgres</span>
+
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+
+<span class="k">class</span> <span class="nc">PandasForeignDataWrapper</span><span class="p">(</span><span class="n">ForeignDataWrapper</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PandasForeignDataWrapper</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s">&quot;filename&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">quals</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+        <span class="n">log_to_postgres</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s">&#39;python&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">quals</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">qual</span><span class="o">.</span><span class="n">operator</span> <span class="o">==</span> <span class="s">&#39;&lt;&#39;</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">qual</span><span class="o">.</span><span class="n">field_name</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">qual</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">columns</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="k">yield</span> <span class="n">row</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Basically:</p>
+<ol>
+<li>Importing <code>multicorn.ForeignDataWrapper</code> and <code>pandas</code></li>
+<li>Extend a <code>ForeignDataWrapper</code> class</li>
+<li>Define an <code>execute</code> method that does the load/computation</li>
+<li>Implement (or not, see below) the filtering of columns and rows. The <code>quals</code> has <code>.field</code> <code>.operator</code> ('&lt;', '&gt;=', and so on) and a <code>.value</code></li>
+<li>Yield a dictionary with the columns as keys and values as values</li>
+</ol>
+<p>With the code ready just need to build a custom container with my requirements.</p>
+<div class="highlight"><pre><span class="k">FROM</span><span class="s"> multicorn</span>
+<span class="k">RUN</span> conda install -y pandas
+</pre></div>
+
+
+<p>Now build that image run the container in the same way as the previous one.</p>
+<div class="highlight"><pre><span class="nv">$ </span>docker build -t pandasfdw .
+<span class="nv">$ </span>docker run -p 5432:5432 -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/src pandasfdw
+</pre></div>
+
+
+<p>Create the FDW and table in a similar way as before:</p>
+<div class="highlight"><pre>CREATE EXTENSION multicorn;
+
+CREATE SERVER pandas_srv foreign data wrapper multicorn options (
+    wrapper &#39;pandasfdw.PandasForeignDataWrapper&#39;
+);
+
+CREATE FOREIGN TABLE pandastable (
+    sepal_length numeric,
+    sepal_width numeric,
+    petal_length numeric,
+    petal_width numeric,
+    species character varying
+) server pandas_srv options(
+    filename &#39;/src/iris.csv&#39;
+);
+</pre></div>
+
+
+<p>Now you can query the table:</p>
+<div class="highlight"><pre>SELECT * from pandastable;
+</pre></div>
+
+
+<p>Since we implemented the less than operation we can do:</p>
+<div class="highlight"><pre>SELECT * from pandastable where sepal_width &lt; 2.5;
+</pre></div>
+
+
+<p>What if we do a greater than now?, we don't have that implemented.</p>
+<div class="highlight"><pre>SELECT * from pandastable where sepal_width &gt; 2.5;
+</pre></div>
+
+
+<p>Answer is still correct! That is because Postgres will check the conditions anyways but we can do that in the custom FDW when necessary and pass only the values we want to postgres.</p>
+<h2>Thoughts</h2>
+<p>This time it was really straight forward to create the multicorn container and make simple example using pandas.</p>
+<p>That code if far (way far) from being useful. For example is reading the CSV file every query (<code>execute</code>). It should be possible to load in the <code>__init__</code> and use that <code>df</code> in the query as shown in one of Multicorn's examples: <a href="https://github.com/Kozea/Multicorn/blob/master/python/multicorn/statefdw.py">statefdw.py</a>.</p>
+<p>I am not sure why this method is not more wildly used. One simple idea in my mind is for example: for one of the million SQL-on-Hadoop engines there are now why not make a simple FDW that sends the information to a that engine. It would make it much easier for multiple application in multiple languages to just query postgres (<code>Psycopg2</code> in python) rather than have custom libraries in multiple languages with different features on each one. It would also probably make custom DSLs like blaze and ibis target more backends easier.</p>
+<p>One of the reasons in my mind is that FDW do not pass some operations to the Custom FDW.
+The easy example is <code>group by</code> that gets executed by postgres using the data passed back from the FDW.
+Also each SQL engine has its own characteristics, features and DLL and being constrain to Postgres
+is probably not an option on those cases.</p>
+        </div>
+
+        <div class="meta">
+            <div>
+                    <a href="/tag/postgres.html" class="tag">Postgres</a>
+                    <a href="/tag/multicorn.html" class="tag">Multicorn</a>
+                    <a href="/tag/python.html" class="tag">Python</a>
+                    <a href="/tag/conda.html" class="tag">conda</a>
+                    <a href="/tag/docker.html" class="tag">Docker</a>
+            </div>
+            <div>
+                <a id="comments-button" class="comments_btn" href="#disqus_thread">Show comments</a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<script type="text/javascript">
+(function () {
+    'use strict';
+
+    // Global object
+    var App = {};
+
+    // Create button
+    App.commentsButton = document.getElementById('comments-button');
+
+    App.commentsButton.onclick = function () {
+        // Remove button action on click
+        App.commentsButton.onclick = function () {
+        }
+
+        // Create comments container
+        App.disqusContainer = document.createElement('div');
+        App.disqusContainer.setAttribute('id', 'disqus_thread');
+        // App.disqusContainer.setAttribute('class', 'container');
+
+        // Append container to body or div
+        // document.body.appendChild( App.disqusContainer );
+        var container = document.getElementsByClassName('container post')[0];
+        container.appendChild(App.disqusContainer);
+
+        // Your Disqus shortname
+        App.disqus_shortname = 'danielfrg';
+
+        // Embed Disqus
+        var dsq = document.createElement('script');
+
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
+
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        window.scrollTo(0, dsq.offsetTop - 200);
+    };
+})();
+</script>
+
+        <style type="text/css">.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+}
+
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}</style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35523657-2', 'danielfrg.com');
+  ga('send', 'pageview');
+
+</script>
+
+    </body>
+</html>
