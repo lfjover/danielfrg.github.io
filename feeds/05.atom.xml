@@ -4206,7 +4206,7 @@ RERERCxBoUREREQs4X/FEVSmsAYHdQAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="ReproduceIt"></category><category term="bokeh"></category><category term="income"></category><category term="us"></category><category term="inequality"></category></entry><entry><title>ReproduceIt: FiveThirtyEight - The Three Types Of Adam Sandler Movies</title><link href="/blog/2015/05/01/reproduceit-538-adam-sandler-movies/" rel="alternate"></link><updated>2015-05-01T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2015-05-01:blog/2015/05/01/reproduceit-538-adam-sandler-movies/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="ReproduceIt"></category><category term="Data"></category><category term="Bokeh"></category><category term="Income"></category><category term="US"></category><category term="Inequality"></category></entry><entry><title>ReproduceIt: FiveThirtyEight - The Three Types Of Adam Sandler Movies</title><link href="/blog/2015/05/01/reproduceit-538-adam-sandler-movies/" rel="alternate"></link><updated>2015-05-01T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2015-05-01:blog/2015/05/01/reproduceit-538-adam-sandler-movies/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -6843,4 +6843,4 @@ I used the handy tool &lt;a href="http://selectorgadget.com/"&gt;selector gadget
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="ReproduceIt"></category><category term="bokeh"></category><category term="movies"></category></entry></feed>
+</summary><category term="ReproduceIt"></category><category term="Data"></category><category term="Bokeh"></category><category term="Movies"></category></entry></feed>

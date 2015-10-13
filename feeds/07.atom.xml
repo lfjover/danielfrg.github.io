@@ -644,7 +644,7 @@ and the original word cloud was this:
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="ReproduceIt"></category><category term="reddit"></category><category term="dask"></category></entry><entry><title>A not so basic neural network on python</title><link href="/blog/2013/07/27/not-so-basic-neural-network-python/" rel="alternate"></link><updated>2013-07-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-07-27:blog/2013/07/27/not-so-basic-neural-network-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="ReproduceIt"></category><category term="Data"></category><category term="Reddit"></category><category term="Dask"></category></entry><entry><title>A not so basic neural network on python</title><link href="/blog/2013/07/27/not-so-basic-neural-network-python/" rel="alternate"></link><updated>2013-07-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-07-27:blog/2013/07/27/not-so-basic-neural-network-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1759,7 +1759,7 @@ and the original word cloud was this:
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="machine learning"></category><category term="neural networks"></category></entry><entry><title>Basic [1 hidden layer] neural network on Python</title><link href="/blog/2013/07/03/basic-neural-network-python/" rel="alternate"></link><updated>2013-07-03T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-07-03:blog/2013/07/03/basic-neural-network-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="Python"></category><category term="Machine learning"></category><category term="Neural networks"></category></entry><entry><title>Basic [1 hidden layer] neural network on Python</title><link href="/blog/2013/07/03/basic-neural-network-python/" rel="alternate"></link><updated>2013-07-03T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-07-03:blog/2013/07/03/basic-neural-network-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2527,4 +2527,4 @@ and the original word cloud was this:
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="machine learning"></category><category term="neural networks"></category></entry></feed>
+</summary><category term="Python"></category><category term="Machine learning"></category><category term="Neural networks"></category></entry></feed>

@@ -19,7 +19,7 @@
 &lt;p&gt;Github pages support Jekyll but not some of its plugins such as the &lt;a href="http://lesscss.org/"&gt;LESS&lt;/a&gt; plugins. There is a very simple workaround for that. Just have to run Jekyll locally with all the plugins you want, and then just upload the compiled HTML,CSS,JS,... to the repository and github will display the static/compiled content.&lt;/p&gt;
 &lt;p&gt;So in my repository I have all the templates, posts, images, markdown, and everything else on folder named &lt;code&gt;source&lt;/code&gt;; that way jekyll creates the static content into &lt;code&gt;source/_site&lt;/code&gt;. Then when I am happy with new post or new design I use a very simple python &lt;a href="http://fabfile.org/"&gt;fabfile&lt;/a&gt; to clean the root (ignoring the &lt;code&gt;source&lt;/code&gt; and &lt;code&gt;.git&lt;/code&gt; folders) then it moves the contents of &lt;code&gt;source/_site&lt;/code&gt; to the root of the repository, then commits the changes and finally clean the root again.&lt;/p&gt;
 &lt;p&gt;I try to make the site plugin agnostic because I don't now ruby but I try to complement that with a few YAML tags and if's on the layous, for example only have to put a YAML tag on each post file and the picture is added automaticly to the index and post pages. That also happens with youtube and vimeo videos.&lt;/p&gt;
-&lt;p&gt;Finally the source of the site is on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt; if anyone want to take a look.&lt;/p&gt;</summary><category term="jekyll"></category><category term="ipython"></category><category term="python"></category></entry><entry><title>Copper - Bootstrap and Bagging</title><link href="/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" rel="alternate"></link><updated>2013-01-30T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;Finally the source of the site is on &lt;a href="https://github.com/danielfrg/danielfrg.github.com"&gt;github&lt;/a&gt; if anyone want to take a look.&lt;/p&gt;</summary><category term="Jekyll"></category><category term="IPython"></category><category term="Python"></category></entry><entry><title>Copper - Bootstrap and Bagging</title><link href="/blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/" rel="alternate"></link><updated>2013-01-30T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-30:blog/2013/01/30/copper-machine-learning-bootstrap-bagging-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1881,7 +1881,7 @@ IezS/wLBosSDUGolewAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Machine Learning</title><link href="/blog/2013/01/27/copper-machine-learning-python/" rel="alternate"></link><updated>2013-01-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-27:blog/2013/01/27/copper-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="Python"></category><category term="Copper"></category><category term="Machine learning"></category></entry><entry><title>Copper - Machine Learning</title><link href="/blog/2013/01/27/copper-machine-learning-python/" rel="alternate"></link><updated>2013-01-27T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-27:blog/2013/01/27/copper-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -4150,7 +4150,7 @@ I can say with confidence (and by being a user of both) that using this package 
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Copper - Easy data analysis and machine learning on python</title><link href="/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/" rel="alternate"></link><updated>2013-01-26T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-26:blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="Python"></category><category term="Copper"></category><category term="Machine learning"></category></entry><entry><title>Copper - Easy data analysis and machine learning on python</title><link href="/blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/" rel="alternate"></link><updated>2013-01-26T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-26:blog/2013/01/26/copper-easy-data-analysis-machine-learning-python/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5199,7 +5199,7 @@ dtypes: float64(7), int64(26)&lt;/pre&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="copper"></category><category term="machine learning"></category></entry><entry><title>Python to replace SAS Enterprise Miner (basic)</title><link href="/blog/2013/01/02/python-replace-sas/" rel="alternate"></link><updated>2013-01-02T17:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-02:blog/2013/01/02/python-replace-sas/</id><summary type="html">&lt;h2&gt;Why?&lt;/h2&gt;
+</summary><category term="Python"></category><category term="Copper"></category><category term="Machine learning"></category></entry><entry><title>Python to replace SAS Enterprise Miner (basic)</title><link href="/blog/2013/01/02/python-replace-sas/" rel="alternate"></link><updated>2013-01-02T17:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-01-02:blog/2013/01/02/python-replace-sas/</id><summary type="html">&lt;h2&gt;Why?&lt;/h2&gt;
 &lt;p&gt;The last fall (2012) I took a class called Business Intelligence (at
 UT Dallas) which is the same as Data Mining or Machine Learning
 to business people. On that class they taught us to use SAS Enterprise
@@ -5387,4 +5387,4 @@ less than 1 hour on Python.&lt;/p&gt;
 available on Github: &lt;a href="https://github.com/dfrodriguez143/PythonDataAnalysisExamples/tree/master/catalog-marketing" title="Catalog Marketing"&gt;Data Analysis Examples Python - Catalog
 Marketing&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Note : I know this is the most very basic example of Machine Learning on
-Python, more complex examples will come later.&lt;/p&gt;</summary><category term="pandas"></category><category term="python"></category><category term="SAS"></category><category term="scikit-learn"></category></entry></feed>
+Python, more complex examples will come later.&lt;/p&gt;</summary><category term="Pandas"></category><category term="Python"></category><category term="SAS"></category><category term="scikit-learn"></category></entry></feed>

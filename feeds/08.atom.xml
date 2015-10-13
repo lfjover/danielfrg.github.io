@@ -66,7 +66,7 @@ by integrating with the outside world, for now it just keeps predicting the
 same data forever, maybe a good idea would be to do some websockets as spout
 and bolts to make a nice real-time UI.&lt;/p&gt;
 &lt;p&gt;All the code and documentation on how to make everything is on github:
-&lt;a href="https://github.com/danielfrg/storm-sklearn"&gt;storm-sklearn&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="storm"></category><category term="salt"></category><category term="sklearn"></category></entry><entry><title>Relevant content blog crawler</title><link href="/blog/2013/08/20/relevant-content-blog-crawler/" rel="alternate"></link><updated>2013-08-20T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-08-20:blog/2013/08/20/relevant-content-blog-crawler/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;a href="https://github.com/danielfrg/storm-sklearn"&gt;storm-sklearn&lt;/a&gt;&lt;/p&gt;</summary><category term="Python"></category><category term="Storm"></category><category term="Salt"></category><category term="scikit-learn"></category></entry><entry><title>Relevant content blog crawler</title><link href="/blog/2013/08/20/relevant-content-blog-crawler/" rel="alternate"></link><updated>2013-08-20T00:00:00+00:00</updated><author><name>Daniel Rodriguez</name></author><id>tag:,2013-08-20:blog/2013/08/20/relevant-content-blog-crawler/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -499,4 +499,4 @@ and bolts to make a nice real-time UI.&lt;/p&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="crawling"></category><category term="beautifulsoup"></category><category term="readability"></category></entry></feed>
+</summary><category term="Python"></category><category term="Crawling"></category><category term="Beautiful Soup"></category><category term="Readability"></category></entry></feed>
